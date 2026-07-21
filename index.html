@@ -91,6 +91,9 @@
             --nav-text: var(--ivory);
             --nav-text-hover: var(--white);
             --nav-link-hover-bg: color-mix(in srgb, var(--deep-rose) 55%, transparent);
+            /* Site width — screen size ke mutabiq adjust */
+            --site-max: min(100% - 48px, 1680px);
+            --site-pad-x: clamp(20px, 4vw, 64px);
         }
 
         * {
@@ -153,7 +156,7 @@
         }
 
         .section {
-            padding: clamp(72px, 8vw, 112px) clamp(24px, 8vw, 120px);
+            padding: clamp(72px, 8vw, 112px) var(--site-pad-x);
             position: relative;
         }
 
@@ -165,9 +168,10 @@
         .section > .feat-grid,
         .section > .test-shell,
         .section > div[style] {
-            max-width: 1320px;
+            max-width: var(--site-max);
             margin-left: auto;
             margin-right: auto;
+            width: 100%;
         }
 
         .section > .section-sub {
@@ -281,7 +285,7 @@
             right: 0;
             width: 100%;
             z-index: 100;
-            padding: var(--nav-pad-top) clamp(14px, 2.8vw, 28px) 0;
+            padding: var(--nav-pad-top) var(--site-pad-x) 0;
             background: transparent;
             pointer-events: none;
             transition: padding .35s var(--ease-out);
@@ -290,7 +294,8 @@
         .nav-shell {
             pointer-events: auto;
             position: relative;
-            max-width: 1280px;
+            max-width: var(--site-max);
+            width: 100%;
             margin: 0 auto;
             min-height: var(--nav-shell-h);
             border-radius: 999px;
@@ -790,13 +795,14 @@
         .hero {
             display: grid;
             grid-template-columns: 1.05fr .95fr;
-            gap: clamp(32px, 5vw, 56px);
+            gap: clamp(32px, 4vw, 72px);
             align-items: center;
-            padding: calc(var(--nav-height) + clamp(32px, 5vw, 56px)) clamp(24px, 6vw, 120px) clamp(48px, 6vw, 80px);
+            padding: calc(var(--nav-height) + clamp(32px, 5vw, 56px)) var(--site-pad-x) clamp(48px, 6vw, 80px);
             position: relative;
             overflow-x: clip;
             overflow-y: visible;
-            max-width: 1440px;
+            width: 100%;
+            max-width: var(--site-max);
             margin: 0 auto;
         }
 
@@ -845,10 +851,10 @@
 
         .hero-copy p {
             margin-top: 22px;
-            font-size: 18px;
+            font-size: clamp(17px, 1.2vw, 19px);
             color: var(--ink-soft);
             line-height: 1.8;
-            max-width: 460px;
+            max-width: min(560px, 95%);
         }
 
         .hero-actions {
@@ -894,9 +900,9 @@
         .hero-visual-wrap {
             position: relative;
             width: 100%;
-            max-width: 460px;
+            max-width: clamp(380px, 38vw, 620px);
             margin: 0 auto;
-            padding: 12px 28px;
+            padding: 12px clamp(12px, 2vw, 28px);
             overflow: visible;
         }
 
@@ -1096,11 +1102,12 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: clamp(16px, 2vw, 24px);
-            padding: clamp(28px, 4vw, 40px) clamp(24px, 6vw, 120px);
+            padding: clamp(28px, 4vw, 40px) var(--site-pad-x);
             background: linear-gradient(180deg, var(--ivory-deep) 0%, rgba(251, 239, 230, .6) 100%);
             border-top: 1px solid rgba(167, 90, 105, .1);
             border-bottom: 1px solid rgba(167, 90, 105, .1);
             width: 100%;
+            box-sizing: border-box;
         }
 
         .trust-item {
@@ -1398,6 +1405,213 @@
             line-height: 1.7;
         }
 
+        /* ───────── COLLECTION SHOWCASE RING (Aurora reference layout) ───────── */
+        .showcase-section {
+            position: relative;
+            padding: clamp(72px, 9vh, 110px) var(--site-pad-x) clamp(40px, 5vw, 64px);
+            background: var(--ivory);
+            overflow: hidden;
+            scroll-margin-top: calc(var(--nav-height) + 24px);
+            --sg-green: #76b900;
+        }
+
+        .showcase-head {
+            position: relative;
+            z-index: 30;
+            max-width: 660px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .showcase-heading {
+            margin: 0 0 16px;
+            font-size: clamp(36px, 4.6vw, 68px);
+            font-weight: 700;
+            letter-spacing: -.03em;
+            line-height: 1.05;
+            color: var(--ink);
+        }
+
+        .showcase-subheading {
+            margin: 0;
+            font-size: clamp(15px, 1.15vw, 19px);
+            line-height: 1.6;
+            color: var(--ink-soft);
+        }
+
+        .showcase-stage {
+            position: relative;
+            width: 100%;
+            height: clamp(500px, 70vh, 720px);
+            margin-top: clamp(8px, 1.5vw, 24px);
+        }
+
+        .showcase-ring {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .showcase-card {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0;
+            border: none;
+            border-radius: 2px;
+            overflow: hidden;
+            background: color-mix(in srgb, var(--ink) 8%, var(--ivory));
+            cursor: pointer;
+            will-change: transform, opacity;
+        }
+
+        .showcase-card img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .showcase-feature {
+            position: absolute;
+            left: 50%;
+            top: 42%;
+            transform: translate(-50%, -50%);
+            z-index: 40;
+            width: min(400px, 74vw);
+            margin: 0;
+            text-align: center;
+        }
+
+        .showcase-feature-img {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: color-mix(in srgb, var(--ink) 6%, var(--ivory));
+            box-shadow: 0 18px 44px rgba(0, 0, 0, .14);
+            cursor: zoom-in;
+        }
+
+        .showcase-feature-img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity .3s ease;
+        }
+
+        .showcase-feature-img img.is-fading {
+            opacity: 0;
+        }
+
+        .showcase-corner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--sg-green, #76b900);
+            z-index: 2;
+        }
+
+        .showcase-feature-title {
+            margin: 16px 0 6px;
+            font-size: clamp(18px, 1.6vw, 24px);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--ink);
+            min-height: 1.2em;
+        }
+
+        .showcase-feature-meta {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+
+        .showcase-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(16px, 4vh, 48px);
+            background: rgba(12, 12, 12, .95);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .35s ease, visibility .35s ease;
+        }
+
+        .showcase-lightbox.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .showcase-lightbox-figure {
+            position: relative;
+            margin: 0;
+            max-width: min(1040px, 94vw);
+        }
+
+        .showcase-lightbox-figure img {
+            display: block;
+            width: 100%;
+            max-height: 80vh;
+            object-fit: cover;
+        }
+
+        .showcase-lightbox-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 14px 18px;
+            background: #000;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        .showcase-lightbox-close {
+            position: absolute;
+            top: clamp(14px, 3vh, 28px);
+            right: clamp(16px, 3vw, 32px);
+            background: none;
+            border: none;
+            padding: 6px;
+            font-family: inherit;
+            font-size: 34px;
+            line-height: 1;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .showcase-stage {
+                height: clamp(440px, 62vh, 580px);
+            }
+            .showcase-feature {
+                width: min(320px, 78vw);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .showcase-feature-img img,
+            .showcase-lightbox {
+                transition: none;
+            }
+        }
+
         /* ───────── TESTIMONIALS (2026 Modern) ───────── */
         .test-section {
             position: relative;
@@ -1436,7 +1650,8 @@
         .test-shell {
             position: relative;
             z-index: 1;
-            max-width: 1200px;
+            max-width: var(--site-max);
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -1717,10 +1932,9 @@
 
         /* ───────── CTA (2026 Animated) ───────── */
         .cta-stage {
-            margin: 0 clamp(24px, 6vw, 120px) clamp(72px, 8vw, 112px);
-            max-width: 1320px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: var(--site-max);
+            width: calc(100% - 2 * var(--site-pad-x));
+            margin: 0 auto clamp(72px, 8vw, 112px);
         }
 
         .cta-shell {
@@ -1747,8 +1961,9 @@
             stroke: rgba(255, 255, 255, .55);
             stroke-width: 2;
             vector-effect: non-scaling-stroke;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            pathLength: 1;
         }
 
         .cta-stage.cta-live .cta-border-draw rect {
@@ -2148,7 +2363,7 @@
         footer {
             background: linear-gradient(180deg, #3d3235 0%, var(--ink) 100%);
             color: var(--ivory-deep);
-            padding: clamp(56px, 7vw, 72px) clamp(24px, 6vw, 80px) 28px;
+            padding: clamp(56px, 7vw, 72px) var(--site-pad-x) 28px;
         }
 
         .footer-grid {
@@ -2158,7 +2373,8 @@
             align-items: start;
             padding-bottom: 40px;
             border-bottom: 1px solid rgba(255, 255, 255, .1);
-            max-width: 1280px;
+            max-width: var(--site-max);
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -2282,7 +2498,8 @@
             color: rgba(255, 248, 240, .5);
             flex-wrap: wrap;
             gap: 10px 20px;
-            max-width: 1280px;
+            max-width: var(--site-max);
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -2366,8 +2583,55 @@
 
         /* ───────── RESPONSIVE ───────── */
         @media (min-width: 1441px) {
+            :root {
+                --site-max: min(100% - 64px, 1720px);
+                --site-pad-x: clamp(32px, 3.5vw, 72px);
+            }
             body {
                 font-size: 16px;
+            }
+            .hero-copy h1 {
+                font-size: clamp(48px, 3.6vw, 68px);
+            }
+            .hero-card--center {
+                width: 82%;
+                height: 88%;
+            }
+            h2.section-title {
+                max-width: 720px;
+                font-size: clamp(36px, 2.8vw, 52px);
+            }
+            p.section-sub {
+                max-width: 600px;
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 1680px) {
+            :root {
+                --site-max: min(100% - 80px, 1840px);
+            }
+            .hero-visual-wrap {
+                max-width: clamp(480px, 34vw, 680px);
+            }
+            .cat-grid {
+                gap: clamp(20px, 1.8vw, 32px);
+            }
+            .prod-grid {
+                gap: clamp(26px, 2vw, 36px);
+            }
+        }
+
+        @media (min-width: 1920px) {
+            :root {
+                --site-max: min(100% - 96px, 1920px);
+                --site-pad-x: clamp(40px, 3vw, 80px);
+            }
+            .hero {
+                gap: clamp(48px, 4vw, 88px);
+            }
+            .feat-grid {
+                gap: clamp(28px, 2vw, 40px);
             }
         }
 
@@ -2657,7 +2921,7 @@
             <span class="nav-glass-sheen" aria-hidden="true"></span>
             <div class="nav-inner">
             <a href="#top" class="brand">
-                <img class="brand-logo" src="assets/logo.png" alt="Softgarments" width="380" height="58" />
+                <img class="brand-logo" data-sg-logo src="assets/logo.png" alt="Softgarments" width="380" height="58" />
             </a>
             <nav class="links" aria-label="Main navigation">
                 <div class="nav-dropdown">
@@ -2783,42 +3047,46 @@
         <h2 class="section-title">Find your <em>perfect fit</em>, made simple.</h2>
         <div class="cat-grid">
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bras." target="_blank" rel="noopener" class="cat-card cat-card--bras" id="cat-bras" aria-label="Order Bras on WhatsApp">
+<<<<<<< HEAD
                 <img src="file:///Users/myshyt/Downloads/_%20(4).jpeg" alt="Bras category" loading="lazy" width="400" height="540" />
+=======
+                <img data-sg-category="bras" src="assets/images/categories/bras.jpg" alt="Bras category" loading="lazy" width="400" height="540" />
+>>>>>>> 9fbc2e0a7cc1166fb2ff7818fe362e7e432d43c3
                 <div class="cat-meta">
                     <span class="cat-label">Bras</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Panties." target="_blank" rel="noopener" class="cat-card cat-card--panties" id="cat-panties" aria-label="Order Panties on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-panties/400/540" alt="Panties category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="panties" src="assets/images/categories/panties.jpg" alt="Panties category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Panties</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bra%20Sets." target="_blank" rel="noopener" class="cat-card cat-card--sets" id="cat-sets" aria-label="Order Bra Sets on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-sets/400/540" alt="Bra sets category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="sets" src="assets/images/categories/sets.jpg" alt="Bra sets category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Bra Sets</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Nighties." target="_blank" rel="noopener" class="cat-card cat-card--nighties" id="cat-nighties" aria-label="Order Nighties on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-nighties/400/540" alt="Nighties category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="nighties" src="assets/images/categories/nighties.jpg" alt="Nighties category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Nighties</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bodyshapers." target="_blank" rel="noopener" class="cat-card cat-card--bodyshaper" id="cat-bodyshaper" aria-label="Order Bodyshaper on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-bodyshaper/400/540" alt="Bodyshaper category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="bodyshaper" src="assets/images/categories/bodyshaper.jpg" alt="Bodyshaper category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Bodyshaper</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Lingerie." target="_blank" rel="noopener" class="cat-card cat-card--lingerie" id="cat-lingerie" aria-label="Order Lingerie on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-lingerie/400/540" alt="Lingerie category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="lingerie" src="assets/images/categories/lingerie.jpg" alt="Lingerie category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Lingerie</span>
                     <span class="cat-cta">Order on WhatsApp</span>
@@ -2836,7 +3104,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Everyday%20Comfort%20Bra%20(Rs.%201%2C450)." target="_blank" rel="noopener" class="prod-card prod-card--1" aria-label="Order Everyday Comfort Bra on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/sg-p1/420/480" alt="Everyday Comfort Bra" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="0" src="assets/images/products/01-everyday-comfort-bra.jpg" alt="Everyday Comfort Bra" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -2847,7 +3115,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Soft%20Cotton%20Panty%20Pack%20(Rs.%20950)." target="_blank" rel="noopener" class="prod-card prod-card--2" aria-label="Order Soft Cotton Panty Pack on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/sg-p2/420/480" alt="Soft Cotton Panty Pack" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="1" src="assets/images/products/02-cotton-panty-pack.jpg" alt="Soft Cotton Panty Pack" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -2858,7 +3126,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Breathable%20Bra%20%26%20Panty%20Set%20(Rs.%202%2C100)." target="_blank" rel="noopener" class="prod-card prod-card--3" aria-label="Order Breathable Bra and Panty Set on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/sg-p3/420/480" alt="Breathable Bra and Panty Set" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="2" src="assets/images/products/03-bra-panty-set.jpg" alt="Breathable Bra and Panty Set" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -2869,7 +3137,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Relaxed%20Fit%20Night%20Wear%20(Rs.%201%2C850)." target="_blank" rel="noopener" class="prod-card prod-card--4" aria-label="Order Relaxed Fit Night Wear on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/sg-p4/420/480" alt="Relaxed Fit Night Wear" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="3" src="assets/images/products/04-night-wear.jpg" alt="Relaxed Fit Night Wear" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -2908,6 +3176,35 @@
                 <h4>Made With Care</h4>
                 <p>Every piece checked before it ships — quality you can trust order after order.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ COLLECTION SHOWCASE RING (Aurora reference) ═══════════ -->
+    <section class="showcase-section reveal" id="showcase" aria-label="Collection showcase">
+        <div class="showcase-head">
+            <h2 class="showcase-heading">Softgarments Did It</h2>
+            <p class="showcase-subheading">Explore our full range of bras, panties, bra sets, nighties, and body shapers, each one made for real everyday comfort.</p>
+        </div>
+        <div class="showcase-stage" id="showcaseStage">
+            <div class="showcase-ring" id="showcaseRing" role="list" aria-label="Collection image ring"></div>
+            <figure class="showcase-feature" aria-live="polite">
+                <div class="showcase-feature-img" id="showcaseFeatureZoom" role="button" tabindex="0" aria-label="Enlarge featured image">
+                    <span class="showcase-corner" aria-hidden="true"></span>
+                    <img id="showcaseFeatureImg" alt="" width="400" height="300" decoding="async">
+                </div>
+                <figcaption>
+                    <h3 class="showcase-feature-title" id="showcaseFeatureTitle"></h3>
+                    <p class="showcase-feature-meta" id="showcaseFeatureMeta"></p>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="showcase-lightbox" id="showcaseLightbox" role="dialog" aria-modal="true" aria-label="Enlarged collection image">
+            <button type="button" class="showcase-lightbox-close" id="showcaseLightboxClose" aria-label="Close enlarged view">&times;</button>
+            <figure class="showcase-lightbox-figure">
+                <span class="showcase-corner" aria-hidden="true"></span>
+                <img id="showcaseLightboxImg" alt="">
+                <figcaption class="showcase-lightbox-caption" id="showcaseLightboxCaption"></figcaption>
+            </figure>
         </div>
     </section>
 
@@ -3106,7 +3403,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="#top" class="brand">
-                    <img class="brand-logo" src="assets/logo.png" alt="Softgarments" width="360" height="72" />
+                    <img class="brand-logo" data-sg-logo src="assets/logo.png" alt="Softgarments" width="360" height="72" />
                 </a>
                 <p>Comfort You Deserve. Premium women's innerwear designed for everyday softness, fit, and confidence.</p>
                 <div class="footer-social">
@@ -3161,6 +3458,7 @@
         <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z" /></svg>
     </a>
 
+    <script src="assets/site-images.js"></script>
     <script>
         // Header scroll state
         const siteHeader = document.getElementById('siteHeader');
@@ -3259,15 +3557,228 @@
             ctaObs.observe(ctaStage);
         })();
 
-        // Hero image stack — hover + auto rotate every 5s
+        // Collection showcase ring — Aurora reference layout
         (function() {
-            const HERO_IMAGES = [
-                { url: 'https://picsum.photos/seed/softgarments-hero/600/860', alt: 'Softgarments — hero look 1' },
-                { url: 'https://picsum.photos/seed/softgarments-left/560/800', alt: 'Softgarments — hero look 2' },
-                { url: 'https://picsum.photos/seed/softgarments-right/560/800', alt: 'Softgarments — hero look 3' },
-                { url: 'https://picsum.photos/seed/softgarments-4/600/860', alt: 'Softgarments — hero look 4' },
-                { url: 'https://picsum.photos/seed/softgarments-5/600/860', alt: 'Softgarments — hero look 5' }
-            ];
+            var cfg = window.SG_IMAGES && window.SG_IMAGES.projects;
+            var stage = document.getElementById('showcaseStage');
+            var ringEl = document.getElementById('showcaseRing');
+            var featureImg = document.getElementById('showcaseFeatureImg');
+            var featureTitle = document.getElementById('showcaseFeatureTitle');
+            var featureMeta = document.getElementById('showcaseFeatureMeta');
+            var featureZoom = document.getElementById('showcaseFeatureZoom');
+            var lightbox = document.getElementById('showcaseLightbox');
+            var lightboxImg = document.getElementById('showcaseLightboxImg');
+            var lightboxCaption = document.getElementById('showcaseLightboxCaption');
+            var lightboxClose = document.getElementById('showcaseLightboxClose');
+            if (!cfg || !stage || !ringEl || !featureImg) return;
+
+            var items = cfg.items || [];
+            var folder = cfg.folder || 'assets/images/projects/';
+            if (!items.length) return;
+
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var cards = [];
+            var cardCount = 0;
+            var dims = null;
+            var baseAngle = 0;
+            var mouseTarget = 0;
+            var mouseOffset = 0;
+            var rafId = null;
+            var inView = false;
+            var featuredIndex = 0;
+            var cycleTimer = null;
+            var lightboxOpen = false;
+
+            items.forEach(function(item) {
+                var img = new Image();
+                img.src = folder + item.file;
+            });
+
+            function srcFor(item) {
+                return folder + item.file;
+            }
+
+            function measure() {
+                var w = stage.offsetWidth;
+                var h = stage.offsetHeight;
+                var mobile = window.innerWidth <= 768;
+                cardCount = mobile ? 28 : 44;
+                var cardW = Math.max(46, Math.min(w / (mobile ? 9 : 14), 96));
+                dims = {
+                    cx: w / 2,
+                    cy: h / 2,
+                    rx: w * 0.465,
+                    ry: h * 0.44,
+                    cardW: cardW,
+                    cardH: cardW * 1.4
+                };
+            }
+
+            function layout() {
+                if (!dims) return;
+                for (var i = 0; i < cards.length; i++) {
+                    var a = baseAngle + mouseOffset + (i / cardCount) * Math.PI * 2;
+                    var depth = (Math.sin(a) + 1) / 2;
+                    var scale = 0.42 + depth * 0.68;
+                    var x = dims.cx + Math.cos(a) * dims.rx;
+                    var y = dims.cy + Math.sin(a) * dims.ry;
+                    var el = cards[i];
+                    el.style.width = dims.cardW + 'px';
+                    el.style.height = dims.cardH + 'px';
+                    el.style.transform = 'translate(' + (x - dims.cardW / 2) + 'px,' + (y - dims.cardH / 2) + 'px) scale(' + scale + ')';
+                    el.style.opacity = String(0.28 + depth * 0.72);
+                    el.style.zIndex = String(1 + Math.round(depth * 30));
+                }
+            }
+
+            function buildRing() {
+                measure();
+                ringEl.innerHTML = '';
+                cards = [];
+                for (var i = 0; i < cardCount; i++) {
+                    var item = items[i % items.length];
+                    var el = document.createElement('button');
+                    el.type = 'button';
+                    el.className = 'showcase-card';
+                    el.setAttribute('role', 'listitem');
+                    el.dataset.index = String(i % items.length);
+                    el.setAttribute('aria-label', item.title || item.alt || 'Collection image');
+                    var img = document.createElement('img');
+                    img.src = srcFor(item);
+                    img.alt = '';
+                    img.loading = 'eager';
+                    img.decoding = 'async';
+                    el.appendChild(img);
+                    el.addEventListener('click', function() {
+                        setFeatured(parseInt(this.dataset.index, 10));
+                        restartCycle();
+                    });
+                    el.addEventListener('mouseenter', function() {
+                        setFeatured(parseInt(this.dataset.index, 10));
+                        restartCycle();
+                    });
+                    ringEl.appendChild(el);
+                    cards.push(el);
+                }
+                layout();
+            }
+
+            function setFeatured(idx, instant) {
+                featuredIndex = ((idx % items.length) + items.length) % items.length;
+                var item = items[featuredIndex];
+                if (!item) return;
+                function apply() {
+                    featureImg.src = srcFor(item);
+                    featureImg.alt = item.alt || item.title || '';
+                }
+                if (instant || reduceMotion) {
+                    apply();
+                } else {
+                    featureImg.classList.add('is-fading');
+                    setTimeout(function() {
+                        apply();
+                        featureImg.classList.remove('is-fading');
+                    }, 180);
+                }
+                if (featureTitle) featureTitle.textContent = item.title || '';
+                if (featureMeta) featureMeta.textContent = (item.categoryLabel || item.category || '') + ' · Softgarments';
+            }
+
+            function restartCycle() {
+                clearInterval(cycleTimer);
+                cycleTimer = setInterval(function() {
+                    if (!lightboxOpen && inView) setFeatured(featuredIndex + 1);
+                }, 4000);
+            }
+
+            function tick() {
+                if (!lightboxOpen && !reduceMotion) {
+                    baseAngle += 0.0022;
+                    mouseOffset += (mouseTarget - mouseOffset) * 0.06;
+                    layout();
+                }
+                rafId = requestAnimationFrame(tick);
+            }
+
+            function openLightbox() {
+                var item = items[featuredIndex];
+                if (!item || !lightbox) return;
+                if (lightboxImg) {
+                    lightboxImg.src = srcFor(item);
+                    lightboxImg.alt = item.alt || item.title || '';
+                }
+                if (lightboxCaption) {
+                    lightboxCaption.textContent = (item.title || '') + ' · ' + (item.categoryLabel || item.category || '') + ' · Softgarments';
+                }
+                lightbox.classList.add('is-open');
+                lightboxOpen = true;
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                if (!lightbox) return;
+                lightbox.classList.remove('is-open');
+                lightboxOpen = false;
+                document.body.style.overflow = '';
+            }
+
+            featureZoom && featureZoom.addEventListener('click', openLightbox);
+            featureZoom && featureZoom.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox();
+                }
+            });
+            lightboxClose && lightboxClose.addEventListener('click', closeLightbox);
+            lightbox && lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightboxOpen) closeLightbox();
+            });
+
+            stage.addEventListener('mousemove', function(e) {
+                var rect = stage.getBoundingClientRect();
+                var nx = (e.clientX - rect.left) / rect.width - 0.5;
+                mouseTarget = nx * 0.7;
+            });
+            stage.addEventListener('mouseleave', function() { mouseTarget = 0; });
+
+            var resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(buildRing, 150);
+            });
+
+            buildRing();
+            setFeatured(0, true);
+            restartCycle();
+
+            var showcaseObs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    inView = entry.isIntersecting;
+                    if (!entry.isIntersecting && rafId) {
+                        cancelAnimationFrame(rafId);
+                        rafId = null;
+                    } else if (entry.isIntersecting && !rafId && !reduceMotion) {
+                        tick();
+                    }
+                });
+            }, { threshold: 0.08 });
+            showcaseObs.observe(document.getElementById('showcase'));
+        })();
+
+        // Hero image stack — paths: assets/site-images.js → hero.folder + hero.slides
+        (function() {
+            const HERO_IMAGES = (window.SG_IMAGES && window.SG_IMAGES.getHeroSlides())
+                ? window.SG_IMAGES.getHeroSlides()
+                : [
+                    { src: 'assets/images/hero/01.jpg', alt: 'Softgarments — hero look 1' },
+                    { src: 'assets/images/hero/02.jpg', alt: 'Softgarments — hero look 2' },
+                    { src: 'assets/images/hero/03.jpg', alt: 'Softgarments — hero look 3' },
+                    { src: 'assets/images/hero/04.jpg', alt: 'Softgarments — hero look 4' },
+                    { src: 'assets/images/hero/05.jpg', alt: 'Softgarments — hero look 5' }
+                ];
 
             const heroWrap = document.querySelector('.hero-visual-wrap');
             const heroFrame = document.getElementById('heroFrame');
@@ -3293,7 +3804,7 @@
                 const img = HERO_IMAGES[mod(imageIndex)];
                 if (animate) card.classList.add('is-switching');
                 window.setTimeout(() => {
-                    card.style.backgroundImage = "url('" + img.url + "')";
+                    card.style.backgroundImage = "url('" + img.src + "')";
                     card.setAttribute('aria-label', img.alt);
                     card.classList.remove('is-switching');
                 }, animate ? 220 : 0);
