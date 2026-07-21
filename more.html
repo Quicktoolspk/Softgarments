@@ -91,6 +91,9 @@
             --nav-text: var(--ivory);
             --nav-text-hover: var(--white);
             --nav-link-hover-bg: color-mix(in srgb, var(--deep-rose) 55%, transparent);
+            /* Site width — screen size ke mutabiq adjust */
+            --site-max: min(100% - 48px, 1680px);
+            --site-pad-x: clamp(20px, 4vw, 64px);
         }
 
         * {
@@ -153,7 +156,7 @@
         }
 
         .section {
-            padding: clamp(72px, 8vw, 112px) clamp(24px, 8vw, 120px);
+            padding: clamp(72px, 8vw, 112px) var(--site-pad-x);
             position: relative;
         }
 
@@ -165,9 +168,10 @@
         .section > .feat-grid,
         .section > .test-shell,
         .section > div[style] {
-            max-width: 1320px;
+            max-width: var(--site-max);
             margin-left: auto;
             margin-right: auto;
+            width: 100%;
         }
 
         .section > .section-sub {
@@ -281,7 +285,7 @@
             right: 0;
             width: 100%;
             z-index: 100;
-            padding: var(--nav-pad-top) clamp(14px, 2.8vw, 28px) 0;
+            padding: var(--nav-pad-top) var(--site-pad-x) 0;
             background: transparent;
             pointer-events: none;
             transition: padding .35s var(--ease-out);
@@ -290,7 +294,8 @@
         .nav-shell {
             pointer-events: auto;
             position: relative;
-            max-width: 1280px;
+            max-width: var(--site-max);
+            width: 100%;
             margin: 0 auto;
             min-height: var(--nav-shell-h);
             border-radius: 999px;
@@ -790,13 +795,14 @@
         .hero {
             display: grid;
             grid-template-columns: 1.05fr .95fr;
-            gap: clamp(32px, 5vw, 56px);
+            gap: clamp(32px, 4vw, 72px);
             align-items: center;
-            padding: calc(var(--nav-height) + clamp(32px, 5vw, 56px)) clamp(24px, 6vw, 120px) clamp(48px, 6vw, 80px);
+            padding: calc(var(--nav-height) + clamp(32px, 5vw, 56px)) var(--site-pad-x) clamp(48px, 6vw, 80px);
             position: relative;
             overflow-x: clip;
             overflow-y: visible;
-            max-width: 1440px;
+            width: 100%;
+            max-width: var(--site-max);
             margin: 0 auto;
         }
 
@@ -845,10 +851,10 @@
 
         .hero-copy p {
             margin-top: 22px;
-            font-size: 18px;
+            font-size: clamp(17px, 1.2vw, 19px);
             color: var(--ink-soft);
             line-height: 1.8;
-            max-width: 460px;
+            max-width: min(560px, 95%);
         }
 
         .hero-actions {
@@ -894,9 +900,9 @@
         .hero-visual-wrap {
             position: relative;
             width: 100%;
-            max-width: 460px;
+            max-width: clamp(380px, 38vw, 620px);
             margin: 0 auto;
-            padding: 12px 28px;
+            padding: 12px clamp(12px, 2vw, 28px);
             overflow: visible;
         }
 
@@ -1096,11 +1102,12 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: clamp(16px, 2vw, 24px);
-            padding: clamp(28px, 4vw, 40px) clamp(24px, 6vw, 120px);
+            padding: clamp(28px, 4vw, 40px) var(--site-pad-x);
             background: linear-gradient(180deg, var(--ivory-deep) 0%, rgba(251, 239, 230, .6) 100%);
             border-top: 1px solid rgba(167, 90, 105, .1);
             border-bottom: 1px solid rgba(167, 90, 105, .1);
             width: 100%;
+            box-sizing: border-box;
         }
 
         .trust-item {
@@ -1398,6 +1405,380 @@
             line-height: 1.7;
         }
 
+        /* ───────── PROJECTS RING (CLOU reference layout) ───────── */
+        .projects-section {
+            position: relative;
+            padding: clamp(88px, 10vh, 120px) var(--site-pad-x) clamp(40px, 5vw, 64px);
+            background: var(--ivory);
+            overflow: hidden;
+            scroll-margin-top: calc(var(--nav-height) + 24px);
+        }
+
+        .projects-inner {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .projects-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: clamp(8px, 1.2vw, 16px);
+            position: relative;
+            z-index: 20;
+        }
+
+        .projects-tool-btn {
+            background: none;
+            border: none;
+            padding: 0 0 4px;
+            font-family: inherit;
+            font-size: clamp(14px, 1.05vw, 20px);
+            font-weight: 700;
+            letter-spacing: .01em;
+            color: var(--ink);
+            cursor: pointer;
+            border-bottom: 1px solid var(--ink);
+            transition: color .3s ease, border-color .3s ease, opacity .3s ease;
+        }
+
+        .projects-tool-btn:hover,
+        .projects-tool-btn.is-active {
+            color: var(--deep-rose);
+            border-color: var(--deep-rose);
+        }
+
+        .projects-filter-panel {
+            display: none;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .projects-filter-panel.is-open {
+            display: flex;
+        }
+
+        .projects-filter-chip {
+            padding: 8px 14px;
+            border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+            background: var(--white);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ink);
+            cursor: pointer;
+            transition: background .25s ease, border-color .25s ease, color .25s ease;
+        }
+
+        .projects-filter-chip:hover,
+        .projects-filter-chip.is-active {
+            border-color: var(--ink);
+            color: var(--ink);
+            background: color-mix(in srgb, var(--ink) 4%, var(--white));
+        }
+
+        .projects-stage {
+            position: relative;
+            width: 100%;
+            height: clamp(560px, 78vh, 820px);
+            perspective: 1400px;
+        }
+
+        .projects-ring-view {
+            position: absolute;
+            inset: 0;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity .45s ease, visibility .45s ease;
+        }
+
+        .projects-ring-view.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .projects-ring-rotate {
+            position: absolute;
+            inset: 0;
+            transform-origin: 50% 50%;
+            will-change: transform;
+        }
+
+        .projects-ring {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .projects-slice {
+            position: absolute;
+            overflow: hidden;
+            background-color: color-mix(in srgb, var(--ink) 8%, var(--ivory));
+            transform-origin: center center;
+            cursor: pointer;
+            pointer-events: auto;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+            opacity: 1;
+            transition: opacity .35s ease, filter .35s ease;
+            will-change: transform, opacity;
+        }
+
+        .projects-slice img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .projects-slice.is-dim {
+            opacity: .18;
+            filter: grayscale(.4) brightness(.9);
+        }
+
+        .projects-slice.is-active {
+            opacity: 1;
+            filter: none;
+            z-index: 3;
+        }
+
+        .projects-connectors {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .projects-connectors line {
+            stroke: var(--ink);
+            stroke-width: 1;
+            opacity: .85;
+        }
+
+        .projects-labels {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .projects-label {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            pointer-events: auto;
+            background: none;
+            border: none;
+            padding: 0;
+            font-family: inherit;
+            font-size: clamp(12px, .85vw, 16px);
+            font-weight: 400;
+            letter-spacing: .01em;
+            color: var(--ink);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity .3s ease, color .3s ease;
+        }
+
+        .projects-label:hover,
+        .projects-label.is-active {
+            color: var(--ink);
+            opacity: 1;
+        }
+
+        .projects-label sup {
+            font-size: .75em;
+            vertical-align: super;
+            line-height: 0;
+            margin-left: 1px;
+        }
+
+        .projects-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: min(440px, 86vw);
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .projects-center-brand {
+            font-size: clamp(42px, 4.95vw, 95px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -.07em;
+            color: var(--ink);
+            margin: 0;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity .4s ease, transform .4s ease;
+        }
+
+        .projects-center-brand.is-hidden {
+            opacity: 0;
+            transform: translateY(8px);
+            position: absolute;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+        }
+
+        .projects-center-preview {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity .4s ease, transform .4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        .projects-center-preview.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .projects-preview-title {
+            margin: 0 0 12px;
+            font-size: clamp(22px, 2.1vw, 40px);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            min-height: 1.15em;
+        }
+
+        .projects-preview-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: color-mix(in srgb, var(--ink) 6%, var(--ivory));
+        }
+
+        .projects-preview-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
+        }
+
+        .projects-preview-category {
+            margin: 10px 0 0;
+            font-size: clamp(13px, .85vw, 16px);
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: .01em;
+        }
+
+        .projects-grid-view {
+            display: none;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .projects-grid-view.is-visible {
+            display: grid;
+        }
+
+        .projects-grid-item {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border: none;
+            background: color-mix(in srgb, var(--ink) 5%, var(--ivory));
+        }
+
+        .projects-grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s ease, filter .5s ease;
+        }
+
+        .projects-grid-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .projects-grid-item.is-hidden {
+            display: none;
+        }
+
+        .projects-grid-item__title {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background: rgba(255, 248, 240, .72);
+            font-size: clamp(14px, 1.2vw, 18px);
+            font-weight: 600;
+            color: var(--ink);
+            opacity: 0;
+            transition: opacity .35s ease;
+            text-align: center;
+        }
+
+        .projects-grid-item:hover .projects-grid-item__title {
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .projects-grid-view {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-stage {
+                height: clamp(460px, 70vh, 620px);
+            }
+            .projects-grid-view {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .projects-labels,
+            .projects-connectors {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid-view {
+                grid-template-columns: 1fr;
+            }
+            .projects-toolbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .projects-ring-rotate,
+            .projects-slice,
+            .projects-center-brand,
+            .projects-center-preview {
+                transition: none;
+            }
+        }
+
         /* ───────── TESTIMONIALS (2026 Modern) ───────── */
         .test-section {
             position: relative;
@@ -1436,7 +1817,8 @@
         .test-shell {
             position: relative;
             z-index: 1;
-            max-width: 1200px;
+            max-width: var(--site-max);
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -1717,10 +2099,9 @@
 
         /* ───────── CTA (2026 Animated) ───────── */
         .cta-stage {
-            margin: 0 clamp(24px, 6vw, 120px) clamp(72px, 8vw, 112px);
-            max-width: 1320px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: var(--site-max);
+            width: calc(100% - 2 * var(--site-pad-x));
+            margin: 0 auto clamp(72px, 8vw, 112px);
         }
 
         .cta-shell {
@@ -2149,7 +2530,7 @@
         footer {
             background: linear-gradient(180deg, #3d3235 0%, var(--ink) 100%);
             color: var(--ivory-deep);
-            padding: clamp(56px, 7vw, 72px) clamp(24px, 6vw, 80px) 28px;
+            padding: clamp(56px, 7vw, 72px) var(--site-pad-x) 28px;
         }
 
         .footer-grid {
@@ -2159,7 +2540,8 @@
             align-items: start;
             padding-bottom: 40px;
             border-bottom: 1px solid rgba(255, 255, 255, .1);
-            max-width: 1280px;
+            max-width: var(--site-max);
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -2283,7 +2665,8 @@
             color: rgba(255, 248, 240, .5);
             flex-wrap: wrap;
             gap: 10px 20px;
-            max-width: 1280px;
+            max-width: var(--site-max);
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -2367,8 +2750,55 @@
 
         /* ───────── RESPONSIVE ───────── */
         @media (min-width: 1441px) {
+            :root {
+                --site-max: min(100% - 64px, 1720px);
+                --site-pad-x: clamp(32px, 3.5vw, 72px);
+            }
             body {
                 font-size: 16px;
+            }
+            .hero-copy h1 {
+                font-size: clamp(48px, 3.6vw, 68px);
+            }
+            .hero-card--center {
+                width: 82%;
+                height: 88%;
+            }
+            h2.section-title {
+                max-width: 720px;
+                font-size: clamp(36px, 2.8vw, 52px);
+            }
+            p.section-sub {
+                max-width: 600px;
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 1680px) {
+            :root {
+                --site-max: min(100% - 80px, 1840px);
+            }
+            .hero-visual-wrap {
+                max-width: clamp(480px, 34vw, 680px);
+            }
+            .cat-grid {
+                gap: clamp(20px, 1.8vw, 32px);
+            }
+            .prod-grid {
+                gap: clamp(26px, 2vw, 36px);
+            }
+        }
+
+        @media (min-width: 1920px) {
+            :root {
+                --site-max: min(100% - 96px, 1920px);
+                --site-pad-x: clamp(40px, 3vw, 80px);
+            }
+            .hero {
+                gap: clamp(48px, 4vw, 88px);
+            }
+            .feat-grid {
+                gap: clamp(28px, 2vw, 40px);
             }
         }
 
@@ -2658,7 +3088,7 @@
             <span class="nav-glass-sheen" aria-hidden="true"></span>
             <div class="nav-inner">
             <a href="#top" class="brand">
-                <img class="brand-logo" src="assets/logo.png" alt="Softgarments" width="380" height="58" />
+                <img class="brand-logo" data-sg-logo src="assets/logo.png" alt="Softgarments" width="380" height="58" />
             </a>
             <nav class="links" aria-label="Main navigation">
                 <div class="nav-dropdown">
@@ -2784,42 +3214,42 @@
         <h2 class="section-title">Find your <em>perfect fit</em>, made simple.</h2>
         <div class="cat-grid">
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bras." target="_blank" rel="noopener" class="cat-card cat-card--bras" id="cat-bras" aria-label="Order Bras on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-bras/400/540" alt="Bras category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="bras" src="assets/images/categories/bras.jpg" alt="Bras category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Bras</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Panties." target="_blank" rel="noopener" class="cat-card cat-card--panties" id="cat-panties" aria-label="Order Panties on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-panties/400/540" alt="Panties category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="panties" src="assets/images/categories/panties.jpg" alt="Panties category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Panties</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bra%20Sets." target="_blank" rel="noopener" class="cat-card cat-card--sets" id="cat-sets" aria-label="Order Bra Sets on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-sets/400/540" alt="Bra sets category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="sets" src="assets/images/categories/sets.jpg" alt="Bra sets category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Bra Sets</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Nighties." target="_blank" rel="noopener" class="cat-card cat-card--nighties" id="cat-nighties" aria-label="Order Nighties on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-nighties/400/540" alt="Nighties category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="nighties" src="assets/images/categories/nighties.jpg" alt="Nighties category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Nighties</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bodyshapers." target="_blank" rel="noopener" class="cat-card cat-card--bodyshaper" id="cat-bodyshaper" aria-label="Order Bodyshaper on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-bodyshaper/400/540" alt="Bodyshaper category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="bodyshaper" src="assets/images/categories/bodyshaper.jpg" alt="Bodyshaper category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Bodyshaper</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Lingerie." target="_blank" rel="noopener" class="cat-card cat-card--lingerie" id="cat-lingerie" aria-label="Order Lingerie on WhatsApp">
-                <img src="https://picsum.photos/seed/sg-lingerie/400/540" alt="Lingerie category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="lingerie" src="assets/images/categories/lingerie.jpg" alt="Lingerie category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Lingerie</span>
                     <span class="cat-cta">Order on WhatsApp</span>
@@ -2837,7 +3267,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Everyday%20Comfort%20Bra%20(Rs.%201%2C450)." target="_blank" rel="noopener" class="prod-card prod-card--1" aria-label="Order Everyday Comfort Bra on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/sg-p1/420/480" alt="Everyday Comfort Bra" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="0" src="assets/images/products/01-everyday-comfort-bra.jpg" alt="Everyday Comfort Bra" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -2848,7 +3278,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Soft%20Cotton%20Panty%20Pack%20(Rs.%20950)." target="_blank" rel="noopener" class="prod-card prod-card--2" aria-label="Order Soft Cotton Panty Pack on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/sg-p2/420/480" alt="Soft Cotton Panty Pack" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="1" src="assets/images/products/02-cotton-panty-pack.jpg" alt="Soft Cotton Panty Pack" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -2859,7 +3289,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Breathable%20Bra%20%26%20Panty%20Set%20(Rs.%202%2C100)." target="_blank" rel="noopener" class="prod-card prod-card--3" aria-label="Order Breathable Bra and Panty Set on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/sg-p3/420/480" alt="Breathable Bra and Panty Set" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="2" src="assets/images/products/03-bra-panty-set.jpg" alt="Breathable Bra and Panty Set" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -2870,7 +3300,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Relaxed%20Fit%20Night%20Wear%20(Rs.%201%2C850)." target="_blank" rel="noopener" class="prod-card prod-card--4" aria-label="Order Relaxed Fit Night Wear on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/sg-p4/420/480" alt="Relaxed Fit Night Wear" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="3" src="assets/images/products/04-night-wear.jpg" alt="Relaxed Fit Night Wear" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -2908,6 +3338,39 @@
                 <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
                 <h4>Made With Care</h4>
                 <p>Every piece checked before it ships — quality you can trust order after order.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ PROJECTS RING (CLOU reference) ═══════════ -->
+    <section class="projects-section reveal" id="showcase" aria-label="Collection projects">
+        <div class="projects-inner">
+            <div class="projects-toolbar">
+                <button type="button" class="projects-tool-btn" id="projectsFilterBtn" aria-expanded="false" aria-controls="projectsFilterPanel">Filter Collection +</button>
+                <button type="button" class="projects-tool-btn" id="projectsGridBtn" aria-pressed="false">Grid view +</button>
+            </div>
+
+            <div class="projects-filter-panel" id="projectsFilterPanel" role="region" aria-label="Filter by category"></div>
+
+            <div class="projects-stage">
+                <div class="projects-ring-view" id="projectsRingView">
+                    <div class="projects-ring-rotate" id="projectsRotate">
+                        <div class="projects-ring" id="projectsRing" role="list" aria-label="Collection image ring"></div>
+                    </div>
+                    <svg class="projects-connectors" id="projectsConnectors" aria-hidden="true"></svg>
+                    <div class="projects-labels" id="projectsLabels"></div>
+                    <div class="projects-center" id="projectsCenter">
+                        <p class="projects-center-brand" id="projectsBrand">We are Softgarments.</p>
+                        <div class="projects-center-preview" id="projectsPreview" aria-live="polite">
+                            <h3 class="projects-preview-title" id="projectsPreviewTitle"></h3>
+                            <div class="projects-preview-image">
+                                <img id="projectsPreviewImg" alt="" width="400" height="214" decoding="async">
+                            </div>
+                            <p class="projects-preview-category" id="projectsPreviewCategory"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-grid-view" id="projectsGrid" role="list" aria-label="Collection grid"></div>
             </div>
         </div>
     </section>
@@ -3107,7 +3570,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="#top" class="brand">
-                    <img class="brand-logo" src="assets/logo.png" alt="Softgarments" width="360" height="72" />
+                    <img class="brand-logo" data-sg-logo src="assets/logo.png" alt="Softgarments" width="360" height="72" />
                 </a>
                 <p>Comfort You Deserve. Premium women's innerwear designed for everyday softness, fit, and confidence.</p>
                 <div class="footer-social">
@@ -3162,6 +3625,7 @@
         <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z" /></svg>
     </a>
 
+    <script src="assets/site-images.js"></script>
     <script>
         // Header scroll state
         const siteHeader = document.getElementById('siteHeader');
@@ -3260,15 +3724,396 @@
             ctaObs.observe(ctaStage);
         })();
 
-        // Hero image stack — hover + auto rotate every 5s
+        // Projects ring — CLOU reference layout (original implementation)
         (function() {
-            const HERO_IMAGES = [
-                { url: 'https://picsum.photos/seed/softgarments-hero/600/860', alt: 'Softgarments — hero look 1' },
-                { url: 'https://picsum.photos/seed/softgarments-left/560/800', alt: 'Softgarments — hero look 2' },
-                { url: 'https://picsum.photos/seed/softgarments-right/560/800', alt: 'Softgarments — hero look 3' },
-                { url: 'https://picsum.photos/seed/softgarments-4/600/860', alt: 'Softgarments — hero look 4' },
-                { url: 'https://picsum.photos/seed/softgarments-5/600/860', alt: 'Softgarments — hero look 5' }
-            ];
+            var cfg = window.SG_IMAGES && window.SG_IMAGES.projects;
+            var ringEl = document.getElementById('projectsRing');
+            var ringView = document.getElementById('projectsRingView');
+            var rotateEl = document.getElementById('projectsRotate');
+            var labelsEl = document.getElementById('projectsLabels');
+            var connectorsEl = document.getElementById('projectsConnectors');
+            var gridEl = document.getElementById('projectsGrid');
+            var filterPanel = document.getElementById('projectsFilterPanel');
+            var filterBtn = document.getElementById('projectsFilterBtn');
+            var gridBtn = document.getElementById('projectsGridBtn');
+            var brandEl = document.getElementById('projectsBrand');
+            var previewEl = document.getElementById('projectsPreview');
+            var previewTitle = document.getElementById('projectsPreviewTitle');
+            var previewImg = document.getElementById('projectsPreviewImg');
+            var previewCategory = document.getElementById('projectsPreviewCategory');
+            if (!cfg || !ringEl || !rotateEl) return;
+
+            var items = cfg.items || [];
+            var sliceCount = cfg.sliceCount || 72;
+            var folder = cfg.folder || 'assets/images/projects/';
+            var categories = cfg.categories || [];
+            var activeFilter = 'all';
+            var gridMode = false;
+            var slices = [];
+            var sliceData = [];
+            var hoveredIndex = -1;
+            var targetRotation = 0;
+            var currentRotation = 0;
+            var targetTiltX = 0;
+            var currentTiltX = 0;
+            var rafId = null;
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (brandEl && cfg.brandText) brandEl.textContent = cfg.brandText;
+
+            items.forEach(function(item) {
+                var img = new Image();
+                img.src = folder + item.file;
+            });
+
+            function srcFor(item) {
+                return folder + item.file;
+            }
+
+            function ellipsePoint(cx, cy, rx, ry, angle) {
+                return {
+                    x: cx + Math.cos(angle) * rx,
+                    y: cy + Math.sin(angle) * ry
+                };
+            }
+
+            function sliceWidthForAngle(angle) {
+                var facing = Math.abs(Math.cos(angle));
+                return 1.5 + facing * 11.5;
+            }
+
+            function getRingMetrics() {
+                var w = ringEl.offsetWidth || ringView.offsetWidth;
+                var h = ringEl.offsetHeight || ringView.offsetHeight;
+                var cx = w / 2;
+                var cy = h / 2;
+                var centerW = Math.min(440, w * 0.34);
+                var imageH = centerW * (9 / 16);
+                var centerBlockH = imageH + 68;
+                var gap = window.innerWidth <= 768 ? 22 : 32;
+                var rx = centerW * 0.58 + gap;
+                var ry = centerBlockH * 0.5 + gap;
+                var sliceH = Math.min(ry * 0.95, h * 0.3, 210);
+                var labelPad = window.innerWidth <= 768 ? 36 : 52;
+                if (window.innerWidth <= 768) {
+                    centerW = Math.min(320, w * 0.78);
+                    imageH = centerW * (9 / 16);
+                    centerBlockH = imageH + 56;
+                    rx = centerW * 0.52 + 18;
+                    ry = centerBlockH * 0.48 + 18;
+                    sliceH = Math.min(h * 0.26, 160);
+                    labelPad = 28;
+                }
+                return {
+                    w: w,
+                    h: h,
+                    cx: cx,
+                    cy: cy,
+                    rx: rx,
+                    ry: ry,
+                    sliceH: sliceH,
+                    labelRx: rx + labelPad,
+                    labelRy: ry + labelPad
+                };
+            }
+
+            function buildRing() {
+                ringEl.innerHTML = '';
+                slices = [];
+                sliceData = [];
+                var m = getRingMetrics();
+
+                for (var i = 0; i < sliceCount; i++) {
+                    var item = items[i % items.length];
+                    if (!item) continue;
+                    var angle = (i / sliceCount) * Math.PI * 2 - Math.PI / 2;
+                    var pt = ellipsePoint(m.cx, m.cy, m.rx, m.ry, angle);
+                    var sliceW = sliceWidthForAngle(angle);
+                    var el = document.createElement('button');
+                    el.type = 'button';
+                    el.className = 'projects-slice';
+                    el.setAttribute('role', 'listitem');
+                    el.dataset.category = item.category;
+                    el.dataset.index = String(i % items.length);
+                    el.style.width = sliceW + 'px';
+                    el.style.height = m.sliceH + 'px';
+                    el.style.left = (pt.x - sliceW / 2) + 'px';
+                    el.style.top = (pt.y - m.sliceH / 2) + 'px';
+                    var rotDeg = (angle * 180 / Math.PI) + 90;
+                    el.style.transform = 'rotate(' + rotDeg + 'deg)';
+                    el.style.zIndex = String(Math.round(Math.abs(Math.cos(angle)) * 100));
+                    var img = document.createElement('img');
+                    img.src = srcFor(item);
+                    img.alt = '';
+                    img.loading = 'eager';
+                    img.decoding = 'async';
+                    el.appendChild(img);
+                    el.setAttribute('aria-label', item.title || item.alt || 'Collection image');
+                    el.addEventListener('mouseenter', function(idx) {
+                        return function() { setHovered(parseInt(idx, 10)); };
+                    }(String(i % items.length)));
+                    el.addEventListener('focus', function(idx) {
+                        return function() { setHovered(parseInt(idx, 10)); };
+                    }(String(i % items.length)));
+                    ringEl.appendChild(el);
+                    slices.push(el);
+                    sliceData.push({ angle: angle, itemIndex: i % items.length, cx: m.cx, cy: m.cy, rx: m.rx, ry: m.ry });
+                }
+                applyFilter(activeFilter, false);
+            }
+
+            function buildLabels() {
+                if (!labelsEl) return;
+                labelsEl.innerHTML = '';
+                var m = getRingMetrics();
+
+                categories.forEach(function(cat) {
+                    var angle = (cat.angle || 0) * Math.PI / 180;
+                    var pt = ellipsePoint(m.cx, m.cy, m.labelRx, m.labelRy, angle);
+                    var btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'projects-label';
+                    btn.dataset.category = cat.id;
+                    btn.innerHTML = cat.label + '<sup>(' + cat.count + ')</sup>';
+                    btn.style.left = pt.x + 'px';
+                    btn.style.top = pt.y + 'px';
+                    btn.addEventListener('click', function() { setFilter(cat.id); });
+                    labelsEl.appendChild(btn);
+                });
+            }
+
+            function buildConnectors() {
+                if (!connectorsEl || window.innerWidth <= 768) {
+                    if (connectorsEl) connectorsEl.innerHTML = '';
+                    return;
+                }
+                connectorsEl.innerHTML = '';
+                var m = getRingMetrics();
+
+                categories.forEach(function(cat) {
+                    var angle = (cat.angle || 0) * Math.PI / 180;
+                    var labelPt = ellipsePoint(m.cx, m.cy, m.labelRx, m.labelRy, angle);
+                    var ringPt = ellipsePoint(m.cx, m.cy, m.rx, m.ry, angle);
+                    var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', labelPt.x);
+                    line.setAttribute('y1', labelPt.y);
+                    line.setAttribute('x2', ringPt.x);
+                    line.setAttribute('y2', ringPt.y);
+                    connectorsEl.appendChild(line);
+                });
+            }
+
+            function buildFilterPanel() {
+                if (!filterPanel) return;
+                filterPanel.innerHTML = '';
+                var allChip = document.createElement('button');
+                allChip.type = 'button';
+                allChip.className = 'projects-filter-chip is-active';
+                allChip.dataset.category = 'all';
+                allChip.textContent = 'All';
+                allChip.addEventListener('click', function() { setFilter('all'); });
+                filterPanel.appendChild(allChip);
+
+                categories.forEach(function(cat) {
+                    var chip = document.createElement('button');
+                    chip.type = 'button';
+                    chip.className = 'projects-filter-chip';
+                    chip.dataset.category = cat.id;
+                    chip.textContent = cat.label;
+                    chip.addEventListener('click', function() { setFilter(cat.id); });
+                    filterPanel.appendChild(chip);
+                });
+            }
+
+            function buildGrid() {
+                if (!gridEl) return;
+                gridEl.innerHTML = '';
+                items.forEach(function(item, idx) {
+                    var cell = document.createElement('div');
+                    cell.className = 'projects-grid-item';
+                    cell.dataset.category = item.category;
+                    cell.setAttribute('role', 'listitem');
+                    var img = document.createElement('img');
+                    img.src = srcFor(item);
+                    img.alt = item.alt || item.title || '';
+                    img.loading = 'lazy';
+                    img.width = 465;
+                    img.height = 262;
+                    cell.appendChild(img);
+                    var title = document.createElement('span');
+                    title.className = 'projects-grid-item__title';
+                    title.textContent = item.title || '';
+                    cell.appendChild(title);
+                    gridEl.appendChild(cell);
+                });
+            }
+
+            function showBrand() {
+                if (brandEl) brandEl.classList.remove('is-hidden');
+                if (previewEl) previewEl.classList.remove('is-visible');
+            }
+
+            function showPreview(item) {
+                if (!item || !previewEl) return;
+                if (brandEl) brandEl.classList.add('is-hidden');
+                previewEl.classList.add('is-visible');
+                if (previewTitle) previewTitle.textContent = item.title || '';
+                if (previewCategory) previewCategory.textContent = item.categoryLabel || item.category || '';
+                if (previewImg) {
+                    previewImg.alt = item.alt || item.title || '';
+                    previewImg.src = srcFor(item);
+                }
+            }
+
+            function setHovered(itemIndex) {
+                hoveredIndex = itemIndex;
+                var item = items[itemIndex];
+                if (item) showPreview(item);
+                slices.forEach(function(el) {
+                    el.classList.toggle('is-active', parseInt(el.dataset.index, 10) === itemIndex);
+                });
+            }
+
+            function applyFilter(cat, updateChips) {
+                activeFilter = cat;
+                slices.forEach(function(el) {
+                    var match = cat === 'all' || el.dataset.category === cat;
+                    el.classList.toggle('is-dim', !match && cat !== 'all');
+                });
+                if (gridEl) {
+                    gridEl.querySelectorAll('.projects-grid-item').forEach(function(el) {
+                        var match = cat === 'all' || el.dataset.category === cat;
+                        el.classList.toggle('is-hidden', !match);
+                    });
+                }
+                if (updateChips !== false) {
+                    filterPanel && filterPanel.querySelectorAll('.projects-filter-chip').forEach(function(chip) {
+                        chip.classList.toggle('is-active', chip.dataset.category === cat);
+                    });
+                    labelsEl && labelsEl.querySelectorAll('.projects-label').forEach(function(lbl) {
+                        lbl.classList.toggle('is-active', lbl.dataset.category === cat);
+                    });
+                }
+            }
+
+            function setFilter(cat) {
+                applyFilter(cat);
+            }
+
+            function setGridMode(on) {
+                gridMode = on;
+                if (gridBtn) {
+                    gridBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+                    gridBtn.classList.toggle('is-active', on);
+                    gridBtn.textContent = on ? 'Ring view +' : 'Grid view +';
+                }
+                if (ringView) ringView.classList.toggle('is-hidden', on);
+                if (gridEl) gridEl.classList.toggle('is-visible', on);
+                if (!on) showBrand();
+            }
+
+            function findNearestSlice(clientX, clientY) {
+                var rect = ringView.getBoundingClientRect();
+                var x = clientX - rect.left;
+                var y = clientY - rect.top;
+                var best = -1;
+                var bestDist = Infinity;
+                slices.forEach(function(el, i) {
+                    var r = el.getBoundingClientRect();
+                    var sx = r.left - rect.left + r.width / 2;
+                    var sy = r.top - rect.top + r.height / 2;
+                    var d = (sx - x) * (sx - x) + (sy - y) * (sy - y);
+                    if (d < bestDist) {
+                        bestDist = d;
+                        best = parseInt(el.dataset.index, 10);
+                    }
+                });
+                return bestDist < 9000 ? best : -1;
+            }
+
+            function tick() {
+                currentRotation += (targetRotation - currentRotation) * 0.08;
+                currentTiltX += (targetTiltX - currentTiltX) * 0.08;
+                if (!reduceMotion && !gridMode) {
+                    rotateEl.style.transform = 'rotate(' + currentRotation + 'deg) rotateX(' + currentTiltX + 'deg)';
+                }
+                rafId = requestAnimationFrame(tick);
+            }
+
+            function onPointerMove(e) {
+                if (reduceMotion || gridMode) return;
+                var rect = ringView.getBoundingClientRect();
+                var nx = (e.clientX - rect.left) / rect.width - 0.5;
+                var ny = (e.clientY - rect.top) / rect.height - 0.5;
+                targetRotation = nx * 12;
+                targetTiltX = ny * -3;
+                var nearest = findNearestSlice(e.clientX, e.clientY);
+                if (nearest >= 0 && nearest !== hoveredIndex) {
+                    setHovered(nearest);
+                }
+            }
+
+            function onPointerLeave() {
+                targetRotation = 0;
+                targetTiltX = 0;
+                hoveredIndex = -1;
+                showBrand();
+                slices.forEach(function(el) { el.classList.remove('is-active'); });
+            }
+
+            filterBtn && filterBtn.addEventListener('click', function() {
+                var open = filterPanel.classList.toggle('is-open');
+                filterBtn.setAttribute('aria-expanded', open);
+            });
+
+            gridBtn && gridBtn.addEventListener('click', function() {
+                setGridMode(!gridMode);
+            });
+
+            ringView.addEventListener('mousemove', onPointerMove);
+            ringView.addEventListener('mouseleave', onPointerLeave);
+
+            var resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    buildRing();
+                    buildLabels();
+                    buildConnectors();
+                }, 150);
+            });
+
+            buildRing();
+            buildLabels();
+            buildConnectors();
+            buildFilterPanel();
+            buildGrid();
+            if (!reduceMotion) tick();
+
+            var projectsObs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting && rafId) {
+                        cancelAnimationFrame(rafId);
+                        rafId = null;
+                    } else if (entry.isIntersecting && !rafId && !reduceMotion) {
+                        tick();
+                    }
+                });
+            }, { threshold: 0.08 });
+            projectsObs.observe(document.getElementById('showcase'));
+        })();
+
+        // Hero image stack — paths: assets/site-images.js → hero.folder + hero.slides
+        (function() {
+            const HERO_IMAGES = (window.SG_IMAGES && window.SG_IMAGES.getHeroSlides())
+                ? window.SG_IMAGES.getHeroSlides()
+                : [
+                    { src: 'assets/images/hero/01.jpg', alt: 'Softgarments — hero look 1' },
+                    { src: 'assets/images/hero/02.jpg', alt: 'Softgarments — hero look 2' },
+                    { src: 'assets/images/hero/03.jpg', alt: 'Softgarments — hero look 3' },
+                    { src: 'assets/images/hero/04.jpg', alt: 'Softgarments — hero look 4' },
+                    { src: 'assets/images/hero/05.jpg', alt: 'Softgarments — hero look 5' }
+                ];
 
             const heroWrap = document.querySelector('.hero-visual-wrap');
             const heroFrame = document.getElementById('heroFrame');
@@ -3294,7 +4139,7 @@
                 const img = HERO_IMAGES[mod(imageIndex)];
                 if (animate) card.classList.add('is-switching');
                 window.setTimeout(() => {
-                    card.style.backgroundImage = "url('" + img.url + "')";
+                    card.style.backgroundImage = "url('" + img.src + "')";
                     card.setAttribute('aria-label', img.alt);
                     card.classList.remove('is-switching');
                 }, animate ? 220 : 0);
