@@ -1405,209 +1405,376 @@
             line-height: 1.7;
         }
 
-        /* ───────── COLLECTION SHOWCASE RING (Aurora reference layout) ───────── */
-        .showcase-section {
+        /* ───────── PROJECTS RING (CLOU reference layout) ───────── */
+        .projects-section {
             position: relative;
-            padding: clamp(72px, 9vh, 110px) var(--site-pad-x) clamp(40px, 5vw, 64px);
+            padding: clamp(88px, 10vh, 120px) var(--site-pad-x) clamp(40px, 5vw, 64px);
             background: var(--ivory);
             overflow: hidden;
             scroll-margin-top: calc(var(--nav-height) + 24px);
-            --sg-green: #76b900;
         }
 
-        .showcase-head {
-            position: relative;
-            z-index: 30;
-            max-width: 660px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .showcase-heading {
-            margin: 0 0 16px;
-            font-size: clamp(36px, 4.6vw, 68px);
-            font-weight: 700;
-            letter-spacing: -.03em;
-            line-height: 1.05;
-            color: var(--ink);
-        }
-
-        .showcase-subheading {
-            margin: 0;
-            font-size: clamp(15px, 1.15vw, 19px);
-            line-height: 1.6;
-            color: var(--ink-soft);
-        }
-
-        .showcase-stage {
+        .projects-inner {
             position: relative;
             width: 100%;
-            height: clamp(500px, 70vh, 720px);
-            margin-top: clamp(8px, 1.5vw, 24px);
+            max-width: 100%;
+            margin: 0 auto;
         }
 
-        .showcase-ring {
+        .projects-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: clamp(8px, 1.2vw, 16px);
+            position: relative;
+            z-index: 20;
+        }
+
+        .projects-tool-btn {
+            background: none;
+            border: none;
+            padding: 0 0 4px;
+            font-family: inherit;
+            font-size: clamp(14px, 1.05vw, 20px);
+            font-weight: 700;
+            letter-spacing: .01em;
+            color: var(--ink);
+            cursor: pointer;
+            border-bottom: 1px solid var(--ink);
+            transition: color .3s ease, border-color .3s ease, opacity .3s ease;
+        }
+
+        .projects-tool-btn:hover,
+        .projects-tool-btn.is-active {
+            color: var(--deep-rose);
+            border-color: var(--deep-rose);
+        }
+
+        .projects-filter-panel {
+            display: none;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .projects-filter-panel.is-open {
+            display: flex;
+        }
+
+        .projects-filter-chip {
+            padding: 8px 14px;
+            border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+            background: var(--white);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ink);
+            cursor: pointer;
+            transition: background .25s ease, border-color .25s ease, color .25s ease;
+        }
+
+        .projects-filter-chip:hover,
+        .projects-filter-chip.is-active {
+            border-color: var(--ink);
+            color: var(--ink);
+            background: color-mix(in srgb, var(--ink) 4%, var(--white));
+        }
+
+        .projects-stage {
+            position: relative;
+            width: 100%;
+            height: clamp(560px, 78vh, 820px);
+            perspective: 1400px;
+        }
+
+        .projects-ring-view {
             position: absolute;
             inset: 0;
-            z-index: 1;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity .45s ease, visibility .45s ease;
         }
 
-        .showcase-card {
+        .projects-ring-view.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .projects-ring-rotate {
             position: absolute;
-            left: 0;
-            top: 0;
-            padding: 0;
-            border: none;
-            border-radius: 2px;
+            inset: 0;
+            transform-origin: 50% 50%;
+            will-change: transform;
+        }
+
+        .projects-ring {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .projects-slice {
+            position: absolute;
             overflow: hidden;
-            background: color-mix(in srgb, var(--ink) 8%, var(--ivory));
+            background-color: color-mix(in srgb, var(--ink) 8%, var(--ivory));
+            transform-origin: center center;
             cursor: pointer;
+            pointer-events: auto;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+            opacity: 1;
+            transition: opacity .35s ease, filter .35s ease;
             will-change: transform, opacity;
         }
 
-        .showcase-card img {
+        .projects-slice img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
             pointer-events: none;
             user-select: none;
         }
 
-        .showcase-feature {
+        .projects-slice.is-dim {
+            opacity: .18;
+            filter: grayscale(.4) brightness(.9);
+        }
+
+        .projects-slice.is-active {
+            opacity: 1;
+            filter: none;
+            z-index: 3;
+        }
+
+        .projects-connectors {
             position: absolute;
-            left: 50%;
-            top: 42%;
-            transform: translate(-50%, -50%);
-            z-index: 40;
-            width: min(400px, 74vw);
-            margin: 0;
-            text-align: center;
-        }
-
-        .showcase-feature-img {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            overflow: hidden;
-            background: color-mix(in srgb, var(--ink) 6%, var(--ivory));
-            box-shadow: 0 18px 44px rgba(0, 0, 0, .14);
-            cursor: zoom-in;
-        }
-
-        .showcase-feature-img img {
-            display: block;
+            inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: opacity .3s ease;
+            pointer-events: none;
+            z-index: 4;
         }
 
-        .showcase-feature-img img.is-fading {
-            opacity: 0;
+        .projects-connectors line {
+            stroke: var(--ink);
+            stroke-width: 1;
+            opacity: .85;
         }
 
-        .showcase-corner {
+        .projects-labels {
             position: absolute;
-            left: 0;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: var(--sg-green, #76b900);
-            z-index: 2;
-        }
-
-        .showcase-feature-title {
-            margin: 16px 0 6px;
-            font-size: clamp(18px, 1.6vw, 24px);
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--ink);
-            min-height: 1.2em;
-        }
-
-        .showcase-feature-meta {
-            margin: 0;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-        }
-
-        .showcase-lightbox {
-            position: fixed;
             inset: 0;
-            z-index: 1200;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: clamp(16px, 4vh, 48px);
-            background: rgba(12, 12, 12, .95);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity .35s ease, visibility .35s ease;
+            z-index: 5;
+            pointer-events: none;
         }
 
-        .showcase-lightbox.is-open {
+        .projects-label {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            pointer-events: auto;
+            background: none;
+            border: none;
+            padding: 0;
+            font-family: inherit;
+            font-size: clamp(12px, .85vw, 16px);
+            font-weight: 400;
+            letter-spacing: .01em;
+            color: var(--ink);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity .3s ease, color .3s ease;
+        }
+
+        .projects-label:hover,
+        .projects-label.is-active {
+            color: var(--ink);
             opacity: 1;
-            visibility: visible;
         }
 
-        .showcase-lightbox-figure {
-            position: relative;
+        .projects-label sup {
+            font-size: .75em;
+            vertical-align: super;
+            line-height: 0;
+            margin-left: 1px;
+        }
+
+        .projects-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: min(440px, 86vw);
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .projects-center-brand {
+            font-size: clamp(42px, 4.95vw, 95px);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -.07em;
+            color: var(--ink);
             margin: 0;
-            max-width: min(1040px, 94vw);
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity .4s ease, transform .4s ease;
         }
 
-        .showcase-lightbox-figure img {
-            display: block;
-            width: 100%;
-            max-height: 80vh;
-            object-fit: cover;
-        }
-
-        .showcase-lightbox-caption {
+        .projects-center-brand.is-hidden {
+            opacity: 0;
+            transform: translateY(8px);
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 0;
-            padding: 14px 18px;
-            background: #000;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            text-align: left;
+            pointer-events: none;
         }
 
-        .showcase-lightbox-close {
-            position: absolute;
-            top: clamp(14px, 3vh, 28px);
-            right: clamp(16px, 3vw, 32px);
-            background: none;
+        .projects-center-preview {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity .4s ease, transform .4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        .projects-center-preview.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .projects-preview-title {
+            margin: 0 0 12px;
+            font-size: clamp(22px, 2.1vw, 40px);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -.02em;
+            color: var(--ink);
+            min-height: 1.15em;
+        }
+
+        .projects-preview-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: color-mix(in srgb, var(--ink) 6%, var(--ivory));
+        }
+
+        .projects-preview-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
+        }
+
+        .projects-preview-category {
+            margin: 10px 0 0;
+            font-size: clamp(13px, .85vw, 16px);
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: .01em;
+        }
+
+        .projects-grid-view {
+            display: none;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .projects-grid-view.is-visible {
+            display: grid;
+        }
+
+        .projects-grid-item {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
             border: none;
-            padding: 6px;
-            font-family: inherit;
-            font-size: 34px;
-            line-height: 1;
-            color: #fff;
-            cursor: pointer;
+            background: color-mix(in srgb, var(--ink) 5%, var(--ivory));
+        }
+
+        .projects-grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s ease, filter .5s ease;
+        }
+
+        .projects-grid-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .projects-grid-item.is-hidden {
+            display: none;
+        }
+
+        .projects-grid-item__title {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background: rgba(255, 248, 240, .72);
+            font-size: clamp(14px, 1.2vw, 18px);
+            font-weight: 600;
+            color: var(--ink);
+            opacity: 0;
+            transition: opacity .35s ease;
+            text-align: center;
+        }
+
+        .projects-grid-item:hover .projects-grid-item__title {
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .projects-grid-view {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
-            .showcase-stage {
-                height: clamp(440px, 62vh, 580px);
+            .projects-stage {
+                height: clamp(460px, 70vh, 620px);
             }
-            .showcase-feature {
-                width: min(320px, 78vw);
+            .projects-grid-view {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .projects-labels,
+            .projects-connectors {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid-view {
+                grid-template-columns: 1fr;
+            }
+            .projects-toolbar {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .showcase-feature-img img,
-            .showcase-lightbox {
+            .projects-ring-rotate,
+            .projects-slice,
+            .projects-center-brand,
+            .projects-center-preview {
                 transition: none;
             }
         }
@@ -3175,32 +3342,36 @@
         </div>
     </section>
 
-    <!-- ═══════════ COLLECTION SHOWCASE RING (Aurora reference) ═══════════ -->
-    <section class="showcase-section reveal" id="showcase" aria-label="Collection showcase">
-        <div class="showcase-head">
-            <h2 class="showcase-heading">Softgarments Did It</h2>
-            <p class="showcase-subheading">Explore our full range of bras, panties, bra sets, nighties, and body shapers, each one made for real everyday comfort.</p>
-        </div>
-        <div class="showcase-stage" id="showcaseStage">
-            <div class="showcase-ring" id="showcaseRing" role="list" aria-label="Collection image ring"></div>
-            <figure class="showcase-feature" aria-live="polite">
-                <div class="showcase-feature-img" id="showcaseFeatureZoom" role="button" tabindex="0" aria-label="Enlarge featured image">
-                    <span class="showcase-corner" aria-hidden="true"></span>
-                    <img id="showcaseFeatureImg" alt="" width="400" height="300" decoding="async">
+    <!-- ═══════════ PROJECTS RING (CLOU reference) ═══════════ -->
+    <section class="projects-section reveal" id="showcase" aria-label="Collection projects">
+        <div class="projects-inner">
+            <div class="projects-toolbar">
+                <button type="button" class="projects-tool-btn" id="projectsFilterBtn" aria-expanded="false" aria-controls="projectsFilterPanel">Filter Collection +</button>
+                <button type="button" class="projects-tool-btn" id="projectsGridBtn" aria-pressed="false">Grid view +</button>
+            </div>
+
+            <div class="projects-filter-panel" id="projectsFilterPanel" role="region" aria-label="Filter by category"></div>
+
+            <div class="projects-stage">
+                <div class="projects-ring-view" id="projectsRingView">
+                    <div class="projects-ring-rotate" id="projectsRotate">
+                        <div class="projects-ring" id="projectsRing" role="list" aria-label="Collection image ring"></div>
+                    </div>
+                    <svg class="projects-connectors" id="projectsConnectors" aria-hidden="true"></svg>
+                    <div class="projects-labels" id="projectsLabels"></div>
+                    <div class="projects-center" id="projectsCenter">
+                        <p class="projects-center-brand" id="projectsBrand">We are Softgarments.</p>
+                        <div class="projects-center-preview" id="projectsPreview" aria-live="polite">
+                            <h3 class="projects-preview-title" id="projectsPreviewTitle"></h3>
+                            <div class="projects-preview-image">
+                                <img id="projectsPreviewImg" alt="" width="400" height="214" decoding="async">
+                            </div>
+                            <p class="projects-preview-category" id="projectsPreviewCategory"></p>
+                        </div>
+                    </div>
                 </div>
-                <figcaption>
-                    <h3 class="showcase-feature-title" id="showcaseFeatureTitle"></h3>
-                    <p class="showcase-feature-meta" id="showcaseFeatureMeta"></p>
-                </figcaption>
-            </figure>
-        </div>
-        <div class="showcase-lightbox" id="showcaseLightbox" role="dialog" aria-modal="true" aria-label="Enlarged collection image">
-            <button type="button" class="showcase-lightbox-close" id="showcaseLightboxClose" aria-label="Close enlarged view">&times;</button>
-            <figure class="showcase-lightbox-figure">
-                <span class="showcase-corner" aria-hidden="true"></span>
-                <img id="showcaseLightboxImg" alt="">
-                <figcaption class="showcase-lightbox-caption" id="showcaseLightboxCaption"></figcaption>
-            </figure>
+                <div class="projects-grid-view" id="projectsGrid" role="list" aria-label="Collection grid"></div>
+            </div>
         </div>
     </section>
 
@@ -3553,37 +3724,42 @@
             ctaObs.observe(ctaStage);
         })();
 
-        // Collection showcase ring — Aurora reference layout
+        // Projects ring — CLOU reference layout (original implementation)
         (function() {
             var cfg = window.SG_IMAGES && window.SG_IMAGES.projects;
-            var stage = document.getElementById('showcaseStage');
-            var ringEl = document.getElementById('showcaseRing');
-            var featureImg = document.getElementById('showcaseFeatureImg');
-            var featureTitle = document.getElementById('showcaseFeatureTitle');
-            var featureMeta = document.getElementById('showcaseFeatureMeta');
-            var featureZoom = document.getElementById('showcaseFeatureZoom');
-            var lightbox = document.getElementById('showcaseLightbox');
-            var lightboxImg = document.getElementById('showcaseLightboxImg');
-            var lightboxCaption = document.getElementById('showcaseLightboxCaption');
-            var lightboxClose = document.getElementById('showcaseLightboxClose');
-            if (!cfg || !stage || !ringEl || !featureImg) return;
+            var ringEl = document.getElementById('projectsRing');
+            var ringView = document.getElementById('projectsRingView');
+            var rotateEl = document.getElementById('projectsRotate');
+            var labelsEl = document.getElementById('projectsLabels');
+            var connectorsEl = document.getElementById('projectsConnectors');
+            var gridEl = document.getElementById('projectsGrid');
+            var filterPanel = document.getElementById('projectsFilterPanel');
+            var filterBtn = document.getElementById('projectsFilterBtn');
+            var gridBtn = document.getElementById('projectsGridBtn');
+            var brandEl = document.getElementById('projectsBrand');
+            var previewEl = document.getElementById('projectsPreview');
+            var previewTitle = document.getElementById('projectsPreviewTitle');
+            var previewImg = document.getElementById('projectsPreviewImg');
+            var previewCategory = document.getElementById('projectsPreviewCategory');
+            if (!cfg || !ringEl || !rotateEl) return;
 
             var items = cfg.items || [];
+            var sliceCount = cfg.sliceCount || 72;
             var folder = cfg.folder || 'assets/images/projects/';
-            if (!items.length) return;
-
-            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var cards = [];
-            var cardCount = 0;
-            var dims = null;
-            var baseAngle = 0;
-            var mouseTarget = 0;
-            var mouseOffset = 0;
+            var categories = cfg.categories || [];
+            var activeFilter = 'all';
+            var gridMode = false;
+            var slices = [];
+            var sliceData = [];
+            var hoveredIndex = -1;
+            var targetRotation = 0;
+            var currentRotation = 0;
+            var targetTiltX = 0;
+            var currentTiltX = 0;
             var rafId = null;
-            var inView = false;
-            var featuredIndex = 0;
-            var cycleTimer = null;
-            var lightboxOpen = false;
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (brandEl && cfg.brandText) brandEl.textContent = cfg.brandText;
 
             items.forEach(function(item) {
                 var img = new Image();
@@ -3594,165 +3770,328 @@
                 return folder + item.file;
             }
 
-            function measure() {
-                var w = stage.offsetWidth;
-                var h = stage.offsetHeight;
-                var mobile = window.innerWidth <= 768;
-                cardCount = mobile ? 28 : 44;
-                var cardW = Math.max(46, Math.min(w / (mobile ? 9 : 14), 96));
-                dims = {
-                    cx: w / 2,
-                    cy: h / 2,
-                    rx: w * 0.465,
-                    ry: h * 0.44,
-                    cardW: cardW,
-                    cardH: cardW * 1.4
+            function ellipsePoint(cx, cy, rx, ry, angle) {
+                return {
+                    x: cx + Math.cos(angle) * rx,
+                    y: cy + Math.sin(angle) * ry
                 };
             }
 
-            function layout() {
-                if (!dims) return;
-                for (var i = 0; i < cards.length; i++) {
-                    var a = baseAngle + mouseOffset + (i / cardCount) * Math.PI * 2;
-                    var depth = (Math.sin(a) + 1) / 2;
-                    var scale = 0.42 + depth * 0.68;
-                    var x = dims.cx + Math.cos(a) * dims.rx;
-                    var y = dims.cy + Math.sin(a) * dims.ry;
-                    var el = cards[i];
-                    el.style.width = dims.cardW + 'px';
-                    el.style.height = dims.cardH + 'px';
-                    el.style.transform = 'translate(' + (x - dims.cardW / 2) + 'px,' + (y - dims.cardH / 2) + 'px) scale(' + scale + ')';
-                    el.style.opacity = String(0.28 + depth * 0.72);
-                    el.style.zIndex = String(1 + Math.round(depth * 30));
+            function sliceWidthForAngle(angle) {
+                var facing = Math.abs(Math.cos(angle));
+                return 1.5 + facing * 11.5;
+            }
+
+            function getRingMetrics() {
+                var w = ringEl.offsetWidth || ringView.offsetWidth;
+                var h = ringEl.offsetHeight || ringView.offsetHeight;
+                var cx = w / 2;
+                var cy = h / 2;
+                var centerW = Math.min(440, w * 0.34);
+                var imageH = centerW * (9 / 16);
+                var centerBlockH = imageH + 68;
+                var gap = window.innerWidth <= 768 ? 22 : 32;
+                var rx = centerW * 0.58 + gap;
+                var ry = centerBlockH * 0.5 + gap;
+                var sliceH = Math.min(ry * 0.95, h * 0.3, 210);
+                var labelPad = window.innerWidth <= 768 ? 36 : 52;
+                if (window.innerWidth <= 768) {
+                    centerW = Math.min(320, w * 0.78);
+                    imageH = centerW * (9 / 16);
+                    centerBlockH = imageH + 56;
+                    rx = centerW * 0.52 + 18;
+                    ry = centerBlockH * 0.48 + 18;
+                    sliceH = Math.min(h * 0.26, 160);
+                    labelPad = 28;
                 }
+                return {
+                    w: w,
+                    h: h,
+                    cx: cx,
+                    cy: cy,
+                    rx: rx,
+                    ry: ry,
+                    sliceH: sliceH,
+                    labelRx: rx + labelPad,
+                    labelRy: ry + labelPad
+                };
             }
 
             function buildRing() {
-                measure();
                 ringEl.innerHTML = '';
-                cards = [];
-                for (var i = 0; i < cardCount; i++) {
+                slices = [];
+                sliceData = [];
+                var m = getRingMetrics();
+
+                for (var i = 0; i < sliceCount; i++) {
                     var item = items[i % items.length];
+                    if (!item) continue;
+                    var angle = (i / sliceCount) * Math.PI * 2 - Math.PI / 2;
+                    var pt = ellipsePoint(m.cx, m.cy, m.rx, m.ry, angle);
+                    var sliceW = sliceWidthForAngle(angle);
                     var el = document.createElement('button');
                     el.type = 'button';
-                    el.className = 'showcase-card';
+                    el.className = 'projects-slice';
                     el.setAttribute('role', 'listitem');
+                    el.dataset.category = item.category;
                     el.dataset.index = String(i % items.length);
-                    el.setAttribute('aria-label', item.title || item.alt || 'Collection image');
+                    el.style.width = sliceW + 'px';
+                    el.style.height = m.sliceH + 'px';
+                    el.style.left = (pt.x - sliceW / 2) + 'px';
+                    el.style.top = (pt.y - m.sliceH / 2) + 'px';
+                    var rotDeg = (angle * 180 / Math.PI) + 90;
+                    el.style.transform = 'rotate(' + rotDeg + 'deg)';
+                    el.style.zIndex = String(Math.round(Math.abs(Math.cos(angle)) * 100));
                     var img = document.createElement('img');
                     img.src = srcFor(item);
                     img.alt = '';
                     img.loading = 'eager';
                     img.decoding = 'async';
                     el.appendChild(img);
-                    el.addEventListener('click', function() {
-                        setFeatured(parseInt(this.dataset.index, 10));
-                        restartCycle();
-                    });
-                    el.addEventListener('mouseenter', function() {
-                        setFeatured(parseInt(this.dataset.index, 10));
-                        restartCycle();
-                    });
+                    el.setAttribute('aria-label', item.title || item.alt || 'Collection image');
+                    el.addEventListener('mouseenter', function(idx) {
+                        return function() { setHovered(parseInt(idx, 10)); };
+                    }(String(i % items.length)));
+                    el.addEventListener('focus', function(idx) {
+                        return function() { setHovered(parseInt(idx, 10)); };
+                    }(String(i % items.length)));
                     ringEl.appendChild(el);
-                    cards.push(el);
+                    slices.push(el);
+                    sliceData.push({ angle: angle, itemIndex: i % items.length, cx: m.cx, cy: m.cy, rx: m.rx, ry: m.ry });
                 }
-                layout();
+                applyFilter(activeFilter, false);
             }
 
-            function setFeatured(idx, instant) {
-                featuredIndex = ((idx % items.length) + items.length) % items.length;
-                var item = items[featuredIndex];
-                if (!item) return;
-                function apply() {
-                    featureImg.src = srcFor(item);
-                    featureImg.alt = item.alt || item.title || '';
-                }
-                if (instant || reduceMotion) {
-                    apply();
-                } else {
-                    featureImg.classList.add('is-fading');
-                    setTimeout(function() {
-                        apply();
-                        featureImg.classList.remove('is-fading');
-                    }, 180);
-                }
-                if (featureTitle) featureTitle.textContent = item.title || '';
-                if (featureMeta) featureMeta.textContent = (item.categoryLabel || item.category || '') + ' · Softgarments';
+            function buildLabels() {
+                if (!labelsEl) return;
+                labelsEl.innerHTML = '';
+                var m = getRingMetrics();
+
+                categories.forEach(function(cat) {
+                    var angle = (cat.angle || 0) * Math.PI / 180;
+                    var pt = ellipsePoint(m.cx, m.cy, m.labelRx, m.labelRy, angle);
+                    var btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'projects-label';
+                    btn.dataset.category = cat.id;
+                    btn.innerHTML = cat.label + '<sup>(' + cat.count + ')</sup>';
+                    btn.style.left = pt.x + 'px';
+                    btn.style.top = pt.y + 'px';
+                    btn.addEventListener('click', function() { setFilter(cat.id); });
+                    labelsEl.appendChild(btn);
+                });
             }
 
-            function restartCycle() {
-                clearInterval(cycleTimer);
-                cycleTimer = setInterval(function() {
-                    if (!lightboxOpen && inView) setFeatured(featuredIndex + 1);
-                }, 4000);
+            function buildConnectors() {
+                if (!connectorsEl || window.innerWidth <= 768) {
+                    if (connectorsEl) connectorsEl.innerHTML = '';
+                    return;
+                }
+                connectorsEl.innerHTML = '';
+                var m = getRingMetrics();
+
+                categories.forEach(function(cat) {
+                    var angle = (cat.angle || 0) * Math.PI / 180;
+                    var labelPt = ellipsePoint(m.cx, m.cy, m.labelRx, m.labelRy, angle);
+                    var ringPt = ellipsePoint(m.cx, m.cy, m.rx, m.ry, angle);
+                    var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', labelPt.x);
+                    line.setAttribute('y1', labelPt.y);
+                    line.setAttribute('x2', ringPt.x);
+                    line.setAttribute('y2', ringPt.y);
+                    connectorsEl.appendChild(line);
+                });
+            }
+
+            function buildFilterPanel() {
+                if (!filterPanel) return;
+                filterPanel.innerHTML = '';
+                var allChip = document.createElement('button');
+                allChip.type = 'button';
+                allChip.className = 'projects-filter-chip is-active';
+                allChip.dataset.category = 'all';
+                allChip.textContent = 'All';
+                allChip.addEventListener('click', function() { setFilter('all'); });
+                filterPanel.appendChild(allChip);
+
+                categories.forEach(function(cat) {
+                    var chip = document.createElement('button');
+                    chip.type = 'button';
+                    chip.className = 'projects-filter-chip';
+                    chip.dataset.category = cat.id;
+                    chip.textContent = cat.label;
+                    chip.addEventListener('click', function() { setFilter(cat.id); });
+                    filterPanel.appendChild(chip);
+                });
+            }
+
+            function buildGrid() {
+                if (!gridEl) return;
+                gridEl.innerHTML = '';
+                items.forEach(function(item, idx) {
+                    var cell = document.createElement('div');
+                    cell.className = 'projects-grid-item';
+                    cell.dataset.category = item.category;
+                    cell.setAttribute('role', 'listitem');
+                    var img = document.createElement('img');
+                    img.src = srcFor(item);
+                    img.alt = item.alt || item.title || '';
+                    img.loading = 'lazy';
+                    img.width = 465;
+                    img.height = 262;
+                    cell.appendChild(img);
+                    var title = document.createElement('span');
+                    title.className = 'projects-grid-item__title';
+                    title.textContent = item.title || '';
+                    cell.appendChild(title);
+                    gridEl.appendChild(cell);
+                });
+            }
+
+            function showBrand() {
+                if (brandEl) brandEl.classList.remove('is-hidden');
+                if (previewEl) previewEl.classList.remove('is-visible');
+            }
+
+            function showPreview(item) {
+                if (!item || !previewEl) return;
+                if (brandEl) brandEl.classList.add('is-hidden');
+                previewEl.classList.add('is-visible');
+                if (previewTitle) previewTitle.textContent = item.title || '';
+                if (previewCategory) previewCategory.textContent = item.categoryLabel || item.category || '';
+                if (previewImg) {
+                    previewImg.alt = item.alt || item.title || '';
+                    previewImg.src = srcFor(item);
+                }
+            }
+
+            function setHovered(itemIndex) {
+                hoveredIndex = itemIndex;
+                var item = items[itemIndex];
+                if (item) showPreview(item);
+                slices.forEach(function(el) {
+                    el.classList.toggle('is-active', parseInt(el.dataset.index, 10) === itemIndex);
+                });
+            }
+
+            function applyFilter(cat, updateChips) {
+                activeFilter = cat;
+                slices.forEach(function(el) {
+                    var match = cat === 'all' || el.dataset.category === cat;
+                    el.classList.toggle('is-dim', !match && cat !== 'all');
+                });
+                if (gridEl) {
+                    gridEl.querySelectorAll('.projects-grid-item').forEach(function(el) {
+                        var match = cat === 'all' || el.dataset.category === cat;
+                        el.classList.toggle('is-hidden', !match);
+                    });
+                }
+                if (updateChips !== false) {
+                    filterPanel && filterPanel.querySelectorAll('.projects-filter-chip').forEach(function(chip) {
+                        chip.classList.toggle('is-active', chip.dataset.category === cat);
+                    });
+                    labelsEl && labelsEl.querySelectorAll('.projects-label').forEach(function(lbl) {
+                        lbl.classList.toggle('is-active', lbl.dataset.category === cat);
+                    });
+                }
+            }
+
+            function setFilter(cat) {
+                applyFilter(cat);
+            }
+
+            function setGridMode(on) {
+                gridMode = on;
+                if (gridBtn) {
+                    gridBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+                    gridBtn.classList.toggle('is-active', on);
+                    gridBtn.textContent = on ? 'Ring view +' : 'Grid view +';
+                }
+                if (ringView) ringView.classList.toggle('is-hidden', on);
+                if (gridEl) gridEl.classList.toggle('is-visible', on);
+                if (!on) showBrand();
+            }
+
+            function findNearestSlice(clientX, clientY) {
+                var rect = ringView.getBoundingClientRect();
+                var x = clientX - rect.left;
+                var y = clientY - rect.top;
+                var best = -1;
+                var bestDist = Infinity;
+                slices.forEach(function(el, i) {
+                    var r = el.getBoundingClientRect();
+                    var sx = r.left - rect.left + r.width / 2;
+                    var sy = r.top - rect.top + r.height / 2;
+                    var d = (sx - x) * (sx - x) + (sy - y) * (sy - y);
+                    if (d < bestDist) {
+                        bestDist = d;
+                        best = parseInt(el.dataset.index, 10);
+                    }
+                });
+                return bestDist < 9000 ? best : -1;
             }
 
             function tick() {
-                if (!lightboxOpen && !reduceMotion) {
-                    baseAngle += 0.0022;
-                    mouseOffset += (mouseTarget - mouseOffset) * 0.06;
-                    layout();
+                currentRotation += (targetRotation - currentRotation) * 0.08;
+                currentTiltX += (targetTiltX - currentTiltX) * 0.08;
+                if (!reduceMotion && !gridMode) {
+                    rotateEl.style.transform = 'rotate(' + currentRotation + 'deg) rotateX(' + currentTiltX + 'deg)';
                 }
                 rafId = requestAnimationFrame(tick);
             }
 
-            function openLightbox() {
-                var item = items[featuredIndex];
-                if (!item || !lightbox) return;
-                if (lightboxImg) {
-                    lightboxImg.src = srcFor(item);
-                    lightboxImg.alt = item.alt || item.title || '';
-                }
-                if (lightboxCaption) {
-                    lightboxCaption.textContent = (item.title || '') + ' · ' + (item.categoryLabel || item.category || '') + ' · Softgarments';
-                }
-                lightbox.classList.add('is-open');
-                lightboxOpen = true;
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeLightbox() {
-                if (!lightbox) return;
-                lightbox.classList.remove('is-open');
-                lightboxOpen = false;
-                document.body.style.overflow = '';
-            }
-
-            featureZoom && featureZoom.addEventListener('click', openLightbox);
-            featureZoom && featureZoom.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openLightbox();
-                }
-            });
-            lightboxClose && lightboxClose.addEventListener('click', closeLightbox);
-            lightbox && lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) closeLightbox();
-            });
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && lightboxOpen) closeLightbox();
-            });
-
-            stage.addEventListener('mousemove', function(e) {
-                var rect = stage.getBoundingClientRect();
+            function onPointerMove(e) {
+                if (reduceMotion || gridMode) return;
+                var rect = ringView.getBoundingClientRect();
                 var nx = (e.clientX - rect.left) / rect.width - 0.5;
-                mouseTarget = nx * 0.7;
+                var ny = (e.clientY - rect.top) / rect.height - 0.5;
+                targetRotation = nx * 12;
+                targetTiltX = ny * -3;
+                var nearest = findNearestSlice(e.clientX, e.clientY);
+                if (nearest >= 0 && nearest !== hoveredIndex) {
+                    setHovered(nearest);
+                }
+            }
+
+            function onPointerLeave() {
+                targetRotation = 0;
+                targetTiltX = 0;
+                hoveredIndex = -1;
+                showBrand();
+                slices.forEach(function(el) { el.classList.remove('is-active'); });
+            }
+
+            filterBtn && filterBtn.addEventListener('click', function() {
+                var open = filterPanel.classList.toggle('is-open');
+                filterBtn.setAttribute('aria-expanded', open);
             });
-            stage.addEventListener('mouseleave', function() { mouseTarget = 0; });
+
+            gridBtn && gridBtn.addEventListener('click', function() {
+                setGridMode(!gridMode);
+            });
+
+            ringView.addEventListener('mousemove', onPointerMove);
+            ringView.addEventListener('mouseleave', onPointerLeave);
 
             var resizeTimer;
             window.addEventListener('resize', function() {
                 clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(buildRing, 150);
+                resizeTimer = setTimeout(function() {
+                    buildRing();
+                    buildLabels();
+                    buildConnectors();
+                }, 150);
             });
 
             buildRing();
-            setFeatured(0, true);
-            restartCycle();
+            buildLabels();
+            buildConnectors();
+            buildFilterPanel();
+            buildGrid();
+            if (!reduceMotion) tick();
 
-            var showcaseObs = new IntersectionObserver(function(entries) {
+            var projectsObs = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
-                    inView = entry.isIntersecting;
                     if (!entry.isIntersecting && rafId) {
                         cancelAnimationFrame(rafId);
                         rafId = null;
@@ -3761,7 +4100,7 @@
                     }
                 });
             }, { threshold: 0.08 });
-            showcaseObs.observe(document.getElementById('showcase'));
+            projectsObs.observe(document.getElementById('showcase'));
         })();
 
         // Hero image stack — paths: assets/site-images.js → hero.folder + hero.slides

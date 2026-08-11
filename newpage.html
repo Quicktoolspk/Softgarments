@@ -2487,545 +2487,316 @@
             }
         }
 
-        /* ══════════════════════════════════════════════════════════════
-           HOME (root view) — Garnet-style layout, Softgarments palette
-           All selectors prefixed .gh- so nothing collides with the
-           existing view styles above.
-           ═════════════════════════════════════════════════════════════ */
-        :root { --ann-h: 38px; }
-
-        /* ───────── announcement bar (fixed, retracts on scroll) ───────── */
-        .gh-ann {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: var(--ann-h);
-            z-index: 101;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--glass-dark-deep);
-            color: var(--ivory);
-            font-size: 12px;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            font-weight: 500;
-            padding: 0 44px;
-            transition: transform .35s var(--ease-out);
+        /* ══ shop-view styles (scoped where they diverge from home) ══ */
+        :root {
+            --ivory: #FFF8F0;
+            --ivory-deep: #FBEFE6;
+            --rose: #D8A7B1;
+            --rose-soft: #E8C4CB;
+            --deep-rose: #A75A69;
+            --mauve: #C9A3A0;
+            --ink: #4A3B3E;
+            --ink-soft: #8A7377;
+            --glass-dark: color-mix(in srgb, var(--deep-rose) 76%, #1e1216);
+            --glass-dark-deep: color-mix(in srgb, var(--deep-rose) 62%, #140c0f);
+            --glass-dark-rose: color-mix(in srgb, var(--deep-rose) 88%, var(--rose) 12%);
+            --white: #ffffff;
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --shadow-sm: 0 2px 8px rgba(74, 59, 62, .06);
+            --shadow-md: 0 8px 24px rgba(167, 90, 105, .12);
+            --shadow-lg: 0 16px 48px rgba(167, 90, 105, .16);
+            --shadow-xl: 0 24px 64px rgba(167, 90, 105, .2);
+            --ease-out: cubic-bezier(.22, 1, .36, 1);
+            --nav-pad-top: 10px;
+            --nav-shell-h: 68px;
+            --nav-height: calc(var(--nav-pad-top) + var(--nav-shell-h));
+            --nav-shell-h-scrolled: 56px;
+            --nav-height-scrolled: calc(var(--nav-pad-top) + var(--nav-shell-h-scrolled));
+            --nav-glass-fill: color-mix(in srgb, var(--glass-dark) 78%, transparent);
+            --nav-glass-fill-scrolled: color-mix(in srgb, var(--glass-dark-deep) 88%, transparent);
+            --nav-glass-rose-wash: color-mix(in srgb, var(--glass-dark-rose) 38%, transparent);
+            --nav-glass-shine: color-mix(in srgb, var(--rose-soft) 20%, transparent);
+            --nav-glass-border: color-mix(in srgb, var(--rose) 45%, transparent);
+            --nav-glass-border-strong: color-mix(in srgb, var(--rose-soft) 58%, transparent);
+            --nav-glass-glow: color-mix(in srgb, var(--deep-rose) 45%, transparent);
+            --nav-text: var(--ivory);
+            --nav-text-hover: var(--white);
+            --nav-link-hover-bg: color-mix(in srgb, var(--deep-rose) 55%, transparent);
+            --site-max: min(100% - 48px, 1680px);
+            --site-pad-x: clamp(20px, 4vw, 64px);
         }
-        body.ann-hidden .gh-ann { transform: translateY(-100%); }
-        .gh-ann-track { position: relative; width: 100%; height: 100%; }
-        .gh-ann-msg {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            opacity: 0;
-            transition: opacity .5s ease;
+        .section > .eyebrow, .section > .section-title, .section > .section-sub, .section > .cat-grid, .section > .prod-grid, .section > .feat-grid, .section > .test-grid, .section > .brand-story-grid, .section > .faq-list, .section > div[style] {
+            max-width: var(--site-max); margin-left: auto; margin-right: auto; width: 100%;
+        }
+        nav.links > a:hover, nav.links > a.is-active {
+            color: var(--nav-text-hover); background: var(--nav-link-hover-bg);
+            box-shadow: inset 0 1px 0 color-mix(in srgb, var(--rose-soft) 35%, transparent);
+        }
+        .breadcrumb-bar {
+            padding: calc(var(--nav-height) + clamp(18px, 3vw, 30px)) var(--site-pad-x) 0;
+            max-width: var(--site-max); margin: 0 auto; width: 100%;
+        }
+        .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; }
+        .breadcrumb a { color: var(--ink-soft); text-decoration: none; transition: color .2s ease; }
+        .breadcrumb a:hover { color: var(--deep-rose); }
+        .breadcrumb span[aria-current] { color: var(--deep-rose); font-weight: 600; }
+        .breadcrumb .sep { color: var(--rose); font-size: 12px; }
+        .shop-hero {
+            display: grid; grid-template-columns: 1.02fr .98fr; gap: clamp(32px, 4vw, 72px);
+            align-items: center; padding: clamp(28px, 4vw, 48px) var(--site-pad-x) clamp(48px, 6vw, 80px);
+            position: relative; overflow-x: clip; overflow-y: visible; width: 100%;
+            max-width: var(--site-max); margin: 0 auto;
+        }
+        .shop-hero-copy { position: relative; z-index: 1; }
+        .shop-hero-copy h1 { font-weight: 700; font-size: clamp(34px, 5vw, 60px); line-height: 1.16; color: var(--ink); }
+        .shop-hero-copy h1 em { font-style: normal; color: var(--deep-rose); }
+        .shop-hero-copy p {
+            margin-top: 22px; font-size: clamp(16px, 1.2vw, 19px); color: var(--ink-soft);
+            line-height: 1.8; max-width: min(560px, 95%);
+        }
+        .shop-hero-actions { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+        .shop-hero-badges { display: flex; gap: 22px; margin-top: 44px; flex-wrap: wrap; }
+        .shop-hero-badge { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-soft); font-weight: 500; }
+        .shop-hero-badge svg { width: 18px; height: 18px; fill: var(--deep-rose); flex-shrink: 0; }
+        .shop-hero-visual { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; width: 100%; }
+        .shop-hero-panel {
+            position: relative; width: 100%; max-width: clamp(380px, 40vw, 600px); aspect-ratio: 4 / 5;
+            border-radius: var(--radius-xl); overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, .95);
+            box-shadow: 0 28px 60px rgba(167, 90, 105, .18), 0 10px 28px rgba(0, 0, 0, .1);
+            background:
+                linear-gradient(180deg, transparent 55%, rgba(74, 59, 62, .1) 100%),
+                radial-gradient(circle at 28% 18%, rgba(255, 255, 255, .4) 0%, transparent 46%),
+                linear-gradient(135deg, var(--rose-soft), var(--mauve));
+        }
+        .shop-hero-panel img { width: 100%; height: 100%; object-fit: cover; }
+        .shop-hero-panel::after {
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: radial-gradient(circle at 78% 82%, rgba(167, 90, 105, .16) 0%, transparent 42%);
+        }
+        .shop-hero-heart {
+            position: absolute; z-index: 3; top: 16px; right: 16px; width: 64px; height: 64px;
+            display: flex; align-items: center; justify-content: center; background: var(--white);
+            border-radius: 50%; box-shadow: 0 10px 28px rgba(167, 90, 105, .28); border: 3px solid rgba(255, 255, 255, .95);
+        }
+        .shop-hero-heart svg { width: 34px; height: 34px; }
+        .shop-hero-heart path { fill: none; stroke: var(--deep-rose); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; animation: heartbeat 1.6s ease-in-out infinite; }
+        .shop-hero-chip {
+            position: absolute; z-index: 3; bottom: 14px; left: 50%; transform: translateX(-50%);
+            display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 22px;
+            background: linear-gradient(135deg, var(--deep-rose) 0%, #8f4a58 55%, var(--rose) 100%);
+            border-radius: 999px; border: 3px solid rgba(255, 255, 255, .95);
+            box-shadow: 0 14px 36px rgba(167, 90, 105, .38), inset 0 1px 0 rgba(255, 255, 255, .28);
+        }
+        .shop-hero-chip svg { width: 24px; height: 24px; fill: var(--white); animation: heartFloat 2.4s ease-in-out infinite; }
+        .shop-hero-chip span { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .92); white-space: nowrap; }
+        @keyframes heartFloat { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-3px) scale(1.08); } }
+        @keyframes heartbeat { 0%,100% { transform: scale(1); } 10% { transform: scale(1.14); } 20% { transform: scale(1.02); } 30% { transform: scale(1.1); } 45% { transform: scale(1); } }
+        #view-shop .cat-card {
+            position: relative; grid-column: span 2; border-radius: var(--radius-lg); overflow: hidden;
+            aspect-ratio: 4 / 5; text-decoration: none; display: block; box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, .6);
+            transition: transform .35s var(--ease-out), box-shadow .35s ease;
+            scroll-margin-top: calc(var(--nav-height) + 24px);
+            background: linear-gradient(135deg, var(--rose-soft), var(--mauve));
+        }
+        #view-shop .cat-card::after {
+            content: ""; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(74, 59, 62, .78) 0%, rgba(74, 59, 62, .1) 62%);
             pointer-events: none;
         }
-        .gh-ann-msg.is-on { opacity: 1; pointer-events: auto; }
-        .gh-ann-msg a { color: var(--rose-soft); text-decoration: underline; text-underline-offset: 3px; }
-        .gh-ann-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: 0;
-            color: var(--rose-soft);
-            cursor: pointer;
-            padding: 6px;
-            line-height: 0;
-            opacity: .75;
-            transition: opacity .2s ease;
+        #view-shop .cat-meta {
+            position: absolute; left: 0; right: 0; bottom: 18px; z-index: 2; display: flex;
+            flex-direction: column; align-items: center; gap: 8px; padding: 0 16px; pointer-events: none; text-align: center;
         }
-        .gh-ann-nav:hover { opacity: 1; }
-        .gh-ann-nav svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; }
-        .gh-ann-prev { left: 10px; }
-        .gh-ann-next { right: 10px; }
-
-        /* Nav sits below the bar until it retracts. Offset via `top`, not
-           padding — header.nav already declares `transition: padding`, so a
-           padding-based offset animates instead of just applying. */
-        body.has-ann header.nav { top: var(--ann-h); transition: top .35s var(--ease-out); }
-        body.has-ann.ann-hidden header.nav { top: 0; }
-
-        /* ───────── hero slideshow ───────── */
-        .gh-hero {
-            position: relative;
-            width: 100%;
-            height: 90vh;
-            height: 90svh;          /* stable while the mobile URL bar shows/hides */
-            min-height: 460px;
-            overflow: hidden;
-            background: var(--ivory-deep);
+        #view-shop .cat-label { color: #fff; font-weight: 700; font-size: 17px; letter-spacing: .02em; line-height: 1.2; margin: 0; }
+        .cat-desc { color: rgba(255, 255, 255, .82); font-size: 12.5px; line-height: 1.5; margin: 0; max-width: 220px; }
+        #view-shop .cat-cta {
+            margin-top: 4px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+            color: rgba(255, 255, 255, .92); padding: 7px 16px; border-radius: 999px;
+            background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .28);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            transition: background .25s ease, transform .25s var(--ease-out); white-space: nowrap;
         }
-        .gh-slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity .9s var(--ease-out), visibility .9s;
+        .prod-desc { font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; margin-top: 6px; }
+        #view-shop .prod-price { margin-top: 10px; display: flex; align-items: center; gap: 10px; }
+        .brand-story-grid {
+            display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(32px, 5vw, 72px);
+            align-items: center; margin-top: 8px;
         }
-        .gh-slide.is-on { opacity: 1; visibility: visible; }
-        .gh-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 28%;
-            transform: scale(1.06);
-            transition: transform 7s linear;
+        .brand-story-visual {
+            position: relative; aspect-ratio: 5 / 4; border-radius: var(--radius-xl); overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, .95); box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--rose-soft), var(--mauve));
         }
-        .gh-slide.is-on img { transform: scale(1); }
-        .gh-slide::after {
-            content: "";
-            position: absolute;
-            inset: 0;
+        .brand-story-visual img { width: 100%; height: 100%; object-fit: cover; }
+        .brand-story-visual::after {
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(180deg, transparent 60%, rgba(74, 59, 62, .12) 100%);
+        }
+        .brand-story-copy h2 { font-weight: 700; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.22; color: var(--ink); max-width: 520px; }
+        .brand-story-copy h2 em { font-style: normal; color: var(--deep-rose); }
+        .brand-story-copy p { margin-top: 18px; font-size: 16px; line-height: 1.8; color: var(--ink-soft); max-width: 540px; }
+        .brand-story-pillars { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+        .brand-story-pillar {
+            font-size: 12.5px; font-weight: 600; color: var(--deep-rose);
+            background: color-mix(in srgb, var(--rose-soft) 35%, transparent);
+            border: 1px solid rgba(216, 167, 177, .35); padding: 9px 15px; border-radius: 999px;
+        }
+        .brand-story-copy .btn { margin-top: 30px; }
+        #view-shop .test-section {
+            position: relative; overflow: hidden;
+            background: linear-gradient(180deg, var(--ivory-deep) 0%, var(--ivory) 100%);
+        }
+        .test-section > * { position: relative; z-index: 1; }
+        .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+        #view-shop .test-card {
+            position: relative; display: flex; flex-direction: column; gap: 18px;
+            padding: clamp(24px, 3.5vw, 32px); background: rgba(255, 255, 255, .88);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-radius: var(--radius-xl); border: 1px solid rgba(216, 167, 177, .22);
+            box-shadow: 0 16px 48px rgba(167, 90, 105, .1), inset 0 1px 0 rgba(255, 255, 255, .9);
+            overflow: hidden; text-align: left;
+        }
+        #view-shop .test-quote { position: relative; z-index: 1; font-size: 16px; line-height: 1.75; color: var(--ink); font-weight: 400; margin: 0; }
+        .news-band {
+            position: relative; overflow: hidden; border-radius: var(--radius-xl);
+            padding: clamp(36px, 5vw, 56px) clamp(24px, 4vw, 52px); margin: 8px auto 0;
             background:
-                linear-gradient(to top, rgba(74, 59, 62, .74) 0%, rgba(74, 59, 62, .18) 52%, rgba(74, 59, 62, .34) 100%),
-                linear-gradient(105deg, color-mix(in srgb, var(--deep-rose) 34%, transparent) 0%, transparent 58%);
+                radial-gradient(circle at 12% 18%, rgba(255, 255, 255, .14) 0%, transparent 42%),
+                radial-gradient(circle at 88% 82%, rgba(255, 255, 255, .08) 0%, transparent 38%),
+                linear-gradient(135deg, var(--deep-rose) 0%, #9a4f5d 42%, #b86b7a 72%, color-mix(in srgb, var(--mauve) 80%, var(--deep-rose)) 100%);
+            box-shadow: 0 28px 72px color-mix(in srgb, var(--deep-rose) 28%, transparent);
         }
-        .gh-slide-body {
-            position: absolute;
-            z-index: 2;
-            left: 0; right: 0;
-            bottom: clamp(56px, 11vh, 118px);
-            padding: 0 var(--site-pad-x);
-            text-align: center;
-            color: #fff;
+        .news-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 4vw, 48px); align-items: center; }
+        .news-copy .eyebrow { color: rgba(255, 255, 255, .82); }
+        .news-copy h2 { color: #fff; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.2; }
+        .news-copy p { margin-top: 14px; font-size: clamp(15px, 2vw, 17px); line-height: 1.7; color: rgba(255, 255, 255, .9); max-width: 480px; }
+        .news-form { display: flex; gap: 12px; flex-wrap: wrap; }
+        .news-form input {
+            flex: 1 1 220px; min-width: 0; padding: 15px 20px; border-radius: 999px;
+            border: 1.5px solid rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .16);
+            color: #fff; font-family: inherit; font-size: 14.5px; backdrop-filter: blur(8px);
+            transition: border-color .2s ease, background .2s ease;
         }
-        .gh-slide-eyebrow {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: .22em;
-            text-transform: uppercase;
-            color: var(--rose-soft);
-            padding: 7px 18px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, .12);
-            border: 1px solid rgba(255, 255, 255, .28);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            margin-bottom: 18px;
+        .news-form input::placeholder { color: rgba(255, 255, 255, .7); }
+        .news-form input:focus { outline: none; border-color: #fff; background: rgba(255, 255, 255, .24); }
+        .news-form .btn {
+            background: #fff; color: var(--deep-rose); box-shadow: 0 12px 30px rgba(0, 0, 0, .18); flex-shrink: 0;
         }
-        .gh-slide-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(34px, 6.4vw, 76px);
-            font-weight: 500;
-            line-height: 1.05;
-            margin: 0 0 14px;
-            text-shadow: 0 2px 24px rgba(74, 59, 62, .45);
+        .news-form .btn:hover { transform: translateY(-2px); background: var(--ivory); box-shadow: 0 16px 36px rgba(0, 0, 0, .22); }
+        .news-note { margin-top: 14px; font-size: 12.5px; color: rgba(255, 255, 255, .78); }
+        .faq-list { margin-top: 48px; max-width: 860px; }
+        .faq-item {
+            border: 1px solid rgba(216, 167, 177, .28); border-radius: var(--radius-md);
+            background: var(--white); margin-bottom: 14px; overflow: hidden;
+            transition: box-shadow .25s ease, border-color .25s ease;
         }
-        .gh-slide-title em { font-style: italic; color: var(--rose-soft); }
-        .gh-slide-sub {
-            font-size: clamp(14px, 1.6vw, 17px);
-            line-height: 1.65;
-            max-width: 620px;
-            margin: 0 auto 26px;
-            color: rgba(255, 255, 255, .9);
+        .faq-item[open] { box-shadow: var(--shadow-md); border-color: rgba(216, 167, 177, .5); }
+        .faq-item summary {
+            list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+            gap: 16px; padding: 20px 24px; font-size: 16px; font-weight: 600; color: var(--ink);
         }
-        .gh-hero-dots {
-            position: absolute;
-            z-index: 3;
-            left: 0; right: 0;
-            bottom: 26px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: ""; width: 12px; height: 12px; flex-shrink: 0; border-right: 2px solid var(--deep-rose);
+            border-bottom: 2px solid var(--deep-rose); transform: rotate(45deg); transition: transform .25s var(--ease-out); margin-top: -4px;
         }
-        .gh-hero-dots button {
-            width: 32px;
-            height: 4px;
-            border: 0;
-            padding: 0;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, .38);
-            cursor: pointer;
-            transition: background .3s ease, width .3s ease;
-        }
-        .gh-hero-dots button.is-on { background: var(--rose-soft); width: 52px; }
-        .gh-hero-arrow {
-            position: absolute;
-            z-index: 3;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: rgba(255, 255, 255, .14);
-            border: 1px solid rgba(255, 255, 255, .3);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: #fff;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity .3s ease, background .3s ease;
-        }
-        .gh-hero:hover .gh-hero-arrow, .gh-hero-arrow:focus-visible { opacity: 1; }
-        .gh-hero-arrow:hover { background: rgba(255, 255, 255, .26); }
-        .gh-hero-arrow svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
-        .gh-hero-prev { left: clamp(12px, 2.5vw, 32px); }
-        .gh-hero-next { right: clamp(12px, 2.5vw, 32px); }
-        .gh-hero-pause {
-            position: absolute;
-            z-index: 3;
-            right: clamp(12px, 2.5vw, 32px);
-            bottom: 22px;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: rgba(255, 255, 255, .14);
-            border: 1px solid rgba(255, 255, 255, .3);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: #fff;
-            cursor: pointer;
-        }
-        .gh-hero-pause svg { width: 13px; height: 13px; fill: currentColor; }
-        .gh-hero-pause .gh-ico-play { display: none; }
-        .gh-hero-pause.is-paused .gh-ico-play { display: block; }
-        .gh-hero-pause.is-paused .gh-ico-pause { display: none; }
-
-        /* ───────── shared section chrome ───────── */
-        .gh-section { padding: clamp(56px, 7.5vw, 96px) 0; }
-        .gh-section--tint { background: var(--ivory-deep); }
-        .gh-head { text-align: center; padding: 0 var(--site-pad-x); margin-bottom: clamp(30px, 4vw, 48px); }
-        .gh-head h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(30px, 4.4vw, 52px);
-            font-weight: 500;
-            letter-spacing: .04em;
-            text-transform: uppercase;
-            color: var(--ink);
-            margin: 0;
-            line-height: 1.15;
-        }
-        .gh-head h2 em { font-style: italic; color: var(--deep-rose); text-transform: none; }
-        .gh-head p {
-            margin: 12px auto 0;
-            max-width: 640px;
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--ink-soft);
-        }
-        .gh-rule {
-            width: 56px;
-            height: 2px;
-            margin: 16px auto 0;
-            border-radius: 2px;
-            background: linear-gradient(90deg, transparent, var(--rose), transparent);
-        }
-
-        /* ───────── shop by category — full-bleed, no gutters ───────── */
-        .gh-cats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-        }
-        .gh-cat {
-            position: relative;
-            display: block;
-            aspect-ratio: 311 / 492;
-            overflow: hidden;
-            text-decoration: none;
-            background: var(--mauve);
-        }
-        .gh-cat img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .7s var(--ease-out);
-        }
-        .gh-cat:hover img { transform: scale(1.06); }
-        .gh-cat::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(74, 59, 62, .8) 0%, rgba(74, 59, 62, .12) 58%);
-            transition: background .4s ease;
-        }
-        .gh-cat:hover::after { background: linear-gradient(to top, rgba(167, 90, 105, .84) 0%, rgba(74, 59, 62, .2) 62%); }
-        .gh-cat-meta {
-            position: absolute;
-            z-index: 2;
-            left: 0; right: 0;
-            bottom: clamp(18px, 2.4vw, 30px);
-            padding: 0 14px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        .gh-cat-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(19px, 2.1vw, 27px);
-            font-weight: 500;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: #fff;
-            line-height: 1.1;
-        }
-        .gh-cat-cta {
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: #fff;
-            padding: 8px 18px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, .55);
-            background: rgba(255, 255, 255, .1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            opacity: 0;
-            transform: translateY(8px);
-            transition: opacity .35s ease, transform .35s var(--ease-out), background .3s ease;
-        }
-        .gh-cat:hover .gh-cat-cta, .gh-cat:focus-visible .gh-cat-cta { opacity: 1; transform: translateY(0); }
-        .gh-cat-cta:hover { background: rgba(255, 255, 255, .24); }
-
-        /* ───────── collection blocks — product grid ───────── */
-        .gh-wrap { width: var(--site-max); margin-inline: auto; }
-        .gh-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: clamp(14px, 1.8vw, 26px);
-        }
-        .gh-card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            background: var(--white);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(216, 167, 177, .2);
-            transition: transform .35s var(--ease-out), box-shadow .35s ease, border-color .35s ease;
-        }
-        .gh-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--rose);
-        }
-        .gh-card-img {
-            position: relative;
-            aspect-ratio: 302 / 380;
-            overflow: hidden;
-            background: var(--ivory-deep);
-        }
-        .gh-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .7s var(--ease-out);
-        }
-        .gh-card:hover .gh-card-img img { transform: scale(1.07); }
-        .gh-badge {
-            position: absolute;
-            z-index: 2;
-            top: 12px;
-            left: 12px;
-            font-size: 10.5px;
-            font-weight: 700;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: #fff;
-            background: var(--deep-rose);
-            padding: 6px 11px;
-            border-radius: 999px;
-            box-shadow: var(--shadow-sm);
-        }
-        .gh-badge--new { background: var(--ink); }
-        .gh-quick {
-            position: absolute;
-            z-index: 2;
-            left: 12px;
-            right: 12px;
-            bottom: 12px;
-            text-align: center;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--ink);
-            background: rgba(255, 255, 255, .94);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 11px 12px;
-            border-radius: var(--radius-sm);
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity .35s ease, transform .35s var(--ease-out), color .25s ease, background .25s ease;
-        }
-        .gh-card:hover .gh-quick, .gh-card:focus-visible .gh-quick { opacity: 1; transform: translateY(0); }
-        .gh-quick:hover { background: var(--deep-rose); color: #fff; }
-        .gh-card-info { padding: 16px 16px 20px; text-align: center; }
-        .gh-card-name {
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: .05em;
-            text-transform: uppercase;
-            color: var(--ink);
-            margin: 0 0 8px;
-            line-height: 1.35;
-        }
-        .gh-price { display: flex; align-items: baseline; justify-content: center; gap: 9px; flex-wrap: wrap; }
-        .gh-price .gh-now { font-size: 15px; font-weight: 600; color: var(--deep-rose); }
-        .gh-price .gh-was { font-size: 13px; color: var(--ink-soft); text-decoration: line-through; }
-
-        .gh-viewall { text-align: center; margin-top: clamp(32px, 4vw, 48px); }
-
-        /* ───────── newsletter ───────── */
-        .gh-news {
-            width: var(--site-max);
-            margin-inline: auto;
-            padding: clamp(38px, 5vw, 64px) clamp(22px, 4vw, 64px);
-            border-radius: var(--radius-xl);
-            text-align: center;
-            background:
-                linear-gradient(125deg, color-mix(in srgb, var(--deep-rose) 92%, #1e1216) 0%, var(--glass-dark-rose) 55%, color-mix(in srgb, var(--rose) 62%, var(--deep-rose)) 100%);
-            box-shadow: var(--shadow-xl);
-            color: #fff;
-        }
-        .gh-news h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(28px, 4vw, 46px);
-            font-weight: 500;
-            margin: 0 0 12px;
-            line-height: 1.15;
-        }
-        .gh-news p { margin: 0 auto 26px; max-width: 520px; font-size: 15px; line-height: 1.7; color: rgba(255, 255, 255, .88); }
-        .gh-news-form { display: flex; gap: 10px; max-width: 520px; margin: 0 auto; flex-wrap: wrap; }
-        .gh-news-form input {
-            flex: 1 1 240px;
-            min-width: 0;
-            font-family: inherit;
-            font-size: 15px;
-            color: #fff;
-            padding: 15px 20px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, .34);
-            background: rgba(255, 255, 255, .12);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-        .gh-news-form input::placeholder { color: rgba(255, 255, 255, .62); }
-        .gh-news-form input:focus { outline: none; border-color: var(--rose-soft); background: rgba(255, 255, 255, .2); }
-        .gh-news-note { margin-top: 14px; font-size: 13px; color: rgba(255, 255, 255, .78); min-height: 19px; }
-
-        /* ───────── trust badge row ───────── */
-        .gh-trust {
-            width: var(--site-max);
-            margin-inline: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: clamp(12px, 2vw, 28px);
-        }
-        .gh-trust-item {
-            text-align: center;
-            padding: clamp(20px, 2.6vw, 30px) 16px;
-            border-radius: var(--radius-lg);
-            background: var(--white);
-            border: 1px solid rgba(216, 167, 177, .28);
-            box-shadow: var(--shadow-sm);
-        }
-        .gh-trust-item svg { width: 26px; height: 26px; fill: none; stroke: var(--deep-rose); stroke-width: 1.6; margin-bottom: 12px; }
-        .gh-trust-item h4 { font-size: 13.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); margin: 0 0 6px; }
-        .gh-trust-item p { font-size: 13px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
-
-        /* ───────── responsive ───────── */
-        @media (max-width: 1100px) {
-            .gh-grid { grid-template-columns: repeat(3, 1fr); }
-            .gh-cats { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 860px) {
-            .gh-trust { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 760px) {
-            .gh-grid { grid-template-columns: repeat(2, 1fr); }
-            .gh-cats { grid-template-columns: repeat(2, 1fr); }
-            .gh-hero-arrow { display: none; }
-            .gh-quick { opacity: 1; transform: none; }
-            .gh-cat-cta { opacity: 1; transform: none; }
-        }
-        @media (max-width: 480px) {
-            :root { --ann-h: 46px; }
-            .gh-ann { font-size: 10.5px; letter-spacing: .06em; padding: 0 34px; }
-            .gh-card-info { padding: 12px 10px 16px; }
-            .gh-card-name { font-size: 12.5px; }
-            .gh-price .gh-now { font-size: 14px; }
-            .gh-price .gh-was { font-size: 12px; }
-            .gh-news-form input { flex: 1 1 100%; }
-            .gh-news-form .btn { width: 100%; justify-content: center; }
-        }
+        .faq-item[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
+        .faq-item p { padding: 0 24px 22px; font-size: 15px; line-height: 1.75; color: var(--ink-soft); margin: 0; }
+        #view-shop .cta-border-draw rect { fill: none; stroke: rgba(255, 255, 255, .55); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; }
+        @keyframes floatBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @media (prefers-reduced-motion: reduce) {
-            .gh-slide, .gh-slide img, .gh-cat img, .gh-card, .gh-card-img img { transition: none; }
-            .gh-slide.is-on img { transform: none; }
+            .cta-stage.cta-live .cta-tag, .cta-stage.cta-live .cta-title-line > span, .cta-stage.cta-live .cta-desc, .cta-stage.cta-live .cta-perk, .cta-stage.cta-live .cta-btn, .cta-stage.cta-live .cta-ring, .cta-stage.cta-live .cta-icon-wrap { opacity: 1 !important; transform: none !important; }
+        }
+        @media (min-width: 1441px) {
+            .shop-hero-copy h1 { font-size: clamp(44px, 3.4vw, 62px); }
+        }
+        @media (min-width: 1920px) {
+            .shop-hero { gap: clamp(48px, 4vw, 88px); }
+        }
+        @media (max-width: 1100px) {
+            .test-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+        }
+        @media (max-width: 900px) {
+            .shop-hero { grid-template-columns: 1fr; text-align: center; padding: clamp(20px, 4vw, 32px) 20px 48px; gap: 32px; }
+            .shop-hero-copy h1 { font-size: clamp(28px, 8vw, 38px); }
+            .shop-hero-copy p { margin-left: auto; margin-right: auto; font-size: 16px; }
+            .shop-hero-actions, .shop-hero-badges { justify-content: center; }
+            .shop-hero-badges { gap: 12px 18px; margin-top: 28px; }
+            .shop-hero-visual { padding: 0 8px; }
+            .shop-hero-panel { max-width: min(340px, 88vw); }
+            .brand-story-grid { grid-template-columns: 1fr; gap: 28px; }
+            .brand-story-visual { order: -1; max-width: 480px; margin: 0 auto; }
+            .brand-story-copy { text-align: center; }
+            .brand-story-copy h2, .brand-story-copy p { margin-left: auto; margin-right: auto; }
+            .brand-story-pillars { justify-content: center; }
+            .news-inner { grid-template-columns: 1fr; text-align: center; }
+            .news-copy p { margin-left: auto; margin-right: auto; }
+            .news-form { justify-content: center; }
+            .news-copy .eyebrow { justify-content: center; }
+        }
+        @media (max-width: 640px) {
+            .cat-desc { display: none; }
+            .prod-desc { display: none; }
+            .shop-hero-panel { max-width: min(300px, 84vw); }
+            .shop-hero-actions { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 28px; }
+            .shop-hero-actions .btn { width: 100%; padding: 13px 20px; font-size: 14px; }
+            .news-band { padding: 32px 20px; }
+            .news-form input, .news-form .btn { width: 100%; }
+            .faq-item summary { padding: 16px 18px; font-size: 15px; }
+            .faq-item p { padding: 0 18px 18px; }
+        }
+        @media (max-width: 380px) {
+            .shop-hero-copy h1 { font-size: 26px; }
+            .shop-hero-badges { flex-direction: column; align-items: center; gap: 10px; }
         }
     </style>
 </head>
-<body class="has-ann">
-    <!-- ═══════════ ANNOUNCEMENT BAR ═══════════ -->
-    <div class="gh-ann">
-        <button type="button" class="gh-ann-nav gh-ann-prev" aria-label="Previous announcement">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <span class="gh-ann-track">
-            <span class="gh-ann-msg is-on" data-ann="0">Nationwide Cash on Delivery — pay when it reaches your door</span>
-            <span class="gh-ann-msg" data-ann="1">Free delivery on orders over Rs. 3,000</span>
-            <span class="gh-ann-msg" data-ann="2">Need a size? <a href="https://wa.me/923379022920" target="_blank" rel="noopener">Ask us on WhatsApp</a></span>
-        </span>
-        <button type="button" class="gh-ann-nav gh-ann-next" aria-label="Next announcement">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-    </div>
+<body>
 
     <a href="#main" class="skip-link">Skip to content</a>
-<!-- ═══════════ NAV ═══════════ -->
+
+    <!-- ═══════════ NAV ═══════════ -->
     <header class="nav" id="siteHeader">
         <div class="nav-shell">
             <span class="nav-glass-sheen" aria-hidden="true"></span>
             <div class="nav-inner">
-                <a href="#view-shop" class="brand">
-                    <img class="brand-logo" data-sg-logo src="https://placehold.co/380x58/A75A69/FFF8F0.png?text=Softgarments" alt="Softgarments" width="380" height="58" />
+            <a href="#view-shop" class="brand">
+                <img class="brand-logo" data-sg-logo src="assets/logo.png" alt="Softgarments" width="380" height="58" />
+            </a>
+            <nav class="links" aria-label="Main navigation">
+                <a href="#view-home" data-view="view-home">Shop</a>
+                <a href="#featured">Featured</a>
+                <a href="#promise">Our Promise</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a class="btn btn-primary btn-nav-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+                    <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z" /></svg>
+                    <span class="btn-label">Order Now</span>
                 </a>
-                <nav class="links" aria-label="Main navigation">
-                    <a href="#view-home" data-view="view-home">Home</a>
-                    <a href="#">New Arrivals</a>
-                    <a href="#">Ready To Wear</a>
-                    <a href="#">Fabrics</a>
-                    <a href="#">Menswear</a>
-                    <a href="#">Sale</a>
-                </nav>
-                <div class="nav-cta">
-                    <a class="btn btn-primary btn-nav-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
-                        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6z" /></svg>
-                        <span class="btn-label">Order Now</span>
-                    </a>
-                    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-                        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
-                        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
-                    </button>
-                </div>
+                <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+                    <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+                    <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                </button>
+            </div>
+            </div>
             </div>
         </div>
         <div class="nav-mobile-panel" id="mobileNav" aria-hidden="true">
             <div class="nav-mobile-drawer">
                 <div class="nav-mobile-links">
-                    <a href="#view-home" data-view="view-home">Home</a>
-                    <a href="#">New Arrivals</a>
-                    <a href="#">Ready To Wear</a>
-                    <a href="#">Fabrics</a>
-                    <a href="#">Menswear</a>
-                    <a href="#">Sale</a>
+                    <a href="#view-shop" data-view="view-shop">Home</a>
+                    <a href="#view-home" data-view="view-home">Shop</a>
+                    <a href="#featured">Featured</a>
+                    <a href="#promise">Our Promise</a>
+                    <a href="#reviews">Reviews</a>
+                    <a href="#contact">Contact</a>
                 </div>
                 <div class="nav-mobile-cta">
                     <a class="btn btn-primary" href="https://wa.me/923379022920" target="_blank" rel="noopener">
@@ -3043,1175 +2814,462 @@
 
     <!-- ═══════════════════ ROOT VIEW — shop.html ═══════════════════ -->
     <div class="view is-active" id="view-shop">
-    <!-- ═══════════ HERO SLIDESHOW ═══════════ -->
-    <section class="gh-hero" id="gh-hero" aria-roledescription="carousel" aria-label="Featured collections">
-        <div class="gh-slide is-on" data-slide="0" role="group" aria-roledescription="slide" aria-label="Slide 1 of 4">
-            <img data-sg-slide="gh-hero" src="assets/images/Web_banner/Web_banner_generic_5.jpg" alt="" loading="eager" width="1600" height="1000" />
-            <div class="gh-slide-body">
-                <span class="gh-slide-eyebrow">New Season</span>
-                <h1 class="gh-slide-title">Comfort You <em>Deserve</em></h1>
-                <p class="gh-slide-sub">Premium women's innerwear in soft, breathable fabrics — made for everyday wear, delivered anywhere in Pakistan.</p>
-                <a class="btn btn-primary" href="#gh-cats">Shop the collection</a>
-            </div>
-            
-        </div>
-        <div class="gh-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="Slide 2 of 4">
-            <img data-sg-slide="gh-hero" src="assets/images/Web_banner/Web_banner_generic.jpg" alt="" loading="lazy" width="1600" height="1000" />
-            <div class="gh-slide-body">
-                <span class="gh-slide-eyebrow">Everyday Essentials</span>
-                <h1 class="gh-slide-title">Softness that <em>lasts</em></h1>
-                <p class="gh-slide-sub">Bras, panties and sets designed around real fits and real days. Cash on delivery, nationwide.</p>
-                <a class="btn btn-primary" href="#everyday">Browse essentials</a>
-            </div>
-        </div>
-        <div class="gh-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="Slide 3 of 4">
-            <img data-sg-slide="gh-hero" src="assets/images/Web_banner/website_banner_1.3.webp" alt="" loading="lazy" width="1600" height="1000" />
-            <div class="gh-slide-body">
-                <span class="gh-slide-eyebrow">Night &amp; Lounge</span>
-                <h1 class="gh-slide-title">Made for <em>slow</em> evenings</h1>
-                <p class="gh-slide-sub">Nighties, pyjama sets and robes in relaxed shapes and skin-friendly fabrics.</p>
-                <a class="btn btn-primary" href="#night">Shop night wear</a>
-            </div>
-        </div>
-        <div class="gh-slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="Slide 4 of 4">
-            <img data-sg-slide="gh-hero" src="assets/images/Web_banner/Web_banner_generic_3.jpg" alt="" loading="lazy" width="1600" height="1000" />
-            <div class="gh-slide-body">
-                <span class="gh-slide-eyebrow">Shape &amp; Support</span>
-                <h1 class="gh-slide-title">Quietly <em>confident</em></h1>
-                <p class="gh-slide-sub">Smoothing bodyshapers and occasion lingerie that stay comfortable from morning to night.</p>
-                <a class="btn btn-primary" href="#shape">Shop shapewear</a>
-            </div>
-        </div>
-        <button type="button" class="gh-hero-arrow gh-hero-prev" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button type="button" class="gh-hero-arrow gh-hero-next" aria-label="Next slide">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <div class="gh-hero-dots">
-            <button type="button" class="is-on" data-dot="0" aria-label="Go to slide 1"></button>
-            <button type="button" class="" data-dot="1" aria-label="Go to slide 2"></button>
-            <button type="button" class="" data-dot="2" aria-label="Go to slide 3"></button>
-            <button type="button" class="" data-dot="3" aria-label="Go to slide 4"></button>
-        </div>
-        <button type="button" class="gh-hero-pause" aria-label="Pause slideshow">
-            <svg class="gh-ico-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
-            <svg class="gh-ico-play" viewBox="0 0 24 24"><polygon points="7 4 20 12 7 20"/></svg>
-        </button>
-    </section>
+    <!-- ═══════════ BREADCRUMB ═══════════ -->
+    <div class="breadcrumb-bar">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="#view-home">Home</a>
+            <span class="sep" aria-hidden="true">›</span>
+            <span aria-current="page">Shop</span>
+        </nav>
+    </div>
 
-    <!-- ═══════════ SHOP BY CATEGORY ═══════════ -->
-    <section class="gh-section reveal" id="gh-cats">
-        <div class="gh-head">
-            <h2>Shop by <em>Category</em></h2>
-            <span class="gh-rule"></span>
-            <p>Six edits covering everything from daily basics to occasion pieces — every one cut for comfort first.</p>
-        </div>
-        <div class="gh-cats">
-            <a class="gh-cat" id="cat-Summer Essentials" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20browse%20Bras." target="_blank" rel="noopener" aria-label="Order Bras on WhatsApp">
-                <img data-sg-category-2="Summer Essentials" src="assets/images/CATEGORY-2/01.15.jpg" alt="Summer Essentials" loading="lazy" width="400" height="632" />
-                <span class="gh-cat-meta">
-                    <span class="gh-cat-name">Summer Essentials</span>
-                    <span class="gh-cat-cta">Order on WhatsApp</span>
-                </span>
-            </a>
-            <a class="gh-cat" id="cat-FORMALS" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20browse%20Panties." target="_blank" rel="noopener" aria-label="Order Panties on WhatsApp">
-                <img data-sg-category-2="FORMALS" src="assets/images/CATEGORY-2/01.16.jpg" alt="FORMALS" loading="lazy" width="400" height="632" />
-                <span class="gh-cat-meta">
-                    <span class="gh-cat-name">FORMALS</span>
-                    <span class="gh-cat-cta">Order on WhatsApp</span>
-                </span>
-            </a>
-            <a class="gh-cat" id="cat-LU`ZELLA FORMALS" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20browse%20Bra%20Sets." target="_blank" rel="noopener" aria-label="Order Bra Sets on WhatsApp">
-                <img data-sg-category-2="LU`ZELLA FORMALS" src="assets/images/CATEGORY-2/01.14.jpg" alt="LU`ZELLA FORMALS" loading="lazy" width="400" height="632" />
-                <span class="gh-cat-meta">
-                    <span class="gh-cat-name">LU`ZELLA FORMALS</span>
-                    <span class="gh-cat-cta">Order on WhatsApp</span>
-                </span>
-            </a>
-            <a class="gh-cat" id="cat-Ember Veil" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20browse%20Nighties." target="_blank" rel="noopener" aria-label="Order Nighties on WhatsApp">
-               <img data-sg-category-2="Ember Veil" src="assets/images/CATEGORY-2/01.4.jpg" alt="Ember Veil" loading="lazy" width="400" height="632" />
-                <span class="gh-cat-meta">  
-                    <span class="gh-cat-name">Ember Veil</span>
-                    <span class="gh-cat-cta">Order on WhatsApp</span>
-                </span>
-            </a>
-            <a class="gh-cat" id="cat-Pink Essence" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20browse%20Bodyshaper." target="_blank" rel="noopener" aria-label="Order Bodyshaper on WhatsApp">
-                <img data-sg-category-2="Pink Essence" src="assets/images/CATEGORY-2/Pink Essence.webp" alt="Pink Essence" loading="lazy" width="400" height="632" />
-                <span class="gh-cat-meta">
-                    <span class="gh-cat-name">Pink Essence</span>
-                    <span class="gh-cat-cta">Order on WhatsApp</span>
-                </span>
-            </a>
-            <a class="gh-cat" id="cat-Merlot Dust" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20browse%20Lingerie." target="_blank" rel="noopener" aria-label="Order Lingerie on WhatsApp">
-                <img data-sg-category-2="Merlot Dust" src="assets/images/CATEGORY-2/01.10.jpg" alt="Merlot Dust" loading="lazy" width="400" height="632" />
-                <span class="gh-cat-meta">
-                    <span class="gh-cat-name">Merlot Dust</span>
-                    <span class="gh-cat-cta">Order on WhatsApp</span>
-                </span>
-            </a>
-        </div>
-    </section>
+    <!-- ═══════════ SHOP HERO ═══════════ -->
+    <section class="shop-hero">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
 
-    <!-- ═══════════ COLLECTION — Everyday Essentials ═══════════ -->
-    <section class="gh-section reveal" id="everyday">
-        <div class="gh-head">
-            <h2>Everyday Essentials</h2>
-            <span class="gh-rule"></span>
-            <p>The soft, breathable basics you reach for every single morning.</p>
-        </div>
-        <div class="gh-wrap">
-            <div class="gh-grid">
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Everyday%20Comfort%20Bra%20%28Rs.%201%2C450%29." target="_blank" rel="noopener" aria-label="Order Everyday Comfort Bra on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">28% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION/01.jpg" alt="Raven Aura" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Raven Aura</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,450</span><span class="gh-was">Rs. 2,000</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Soft%20Cotton%20Panty%20Pack%20%28Rs.%20950%29." target="_blank" rel="noopener" aria-label="Order Soft Cotton Panty Pack on WhatsApp">
-                    <span class="gh-card-img">
-                        
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION/02.jpg" alt="Soft Cotton Panty Pack" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Soft Cotton Panty Pack</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 950</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Breathable%20Bra%20%26%20Panty%20Set%20%28Rs.%202%2C100%29." target="_blank" rel="noopener" aria-label="Order Breathable Bra & Panty Set on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                      <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION/03.jpg" alt="Breathable Bra & Panty Set" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Breathable Bra &amp; Panty Set</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 2,100</span><span class="gh-was">Rs. 2,800</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Seamless%20T-Shirt%20Bra%20%28Rs.%201%2C750%29." target="_blank" rel="noopener" aria-label="Order Seamless T-Shirt Bra on WhatsApp">
-                    <span class="gh-card-img">
-                        
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION/04.jpg" alt="Seamless T-Shirt Bra" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Seamless T-Shirt Bra</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,750</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Daily%20Wear%20Cotton%20Bra%20%28Rs.%201%2C250%29." target="_blank" rel="noopener" aria-label="Order Daily Wear Cotton Bra on WhatsApp">
-                    <span class="gh-card-img">
-                        
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION/05.jpg" alt="Daily Wear Cotton Bra" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Daily Wear Cotton Bra</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,250</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Hipster%20Panty%20Pack%20%28Rs.%201%2C100%29." target="_blank" rel="noopener" aria-label="Order Hipster Panty Pack on WhatsApp">
-                    <span class="gh-card-img">
-                        
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION/06.jpg" alt="Hipster Panty Pack" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Hipster Panty Pack</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,100</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Non-Padded%20Comfort%20Bra%20%28Rs.%201%2C350%29." target="_blank" rel="noopener" aria-label="Order Non-Padded Comfort Bra on WhatsApp">
-                    <span class="gh-card-img">
-                        
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION/07.jpg" alt="Non-Padded Comfort Bra" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Non-Padded Comfort Bra</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,350</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Cotton%20Camisole%20%28Rs.%201%2C150%29." target="_blank" rel="noopener" aria-label="Order Cotton Camisole on WhatsApp">
-                    <span class="gh-card-img">
-                        
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION/08.jpg" alt="Cotton Camisole" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Cotton Camisole</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,150</span></span>
-                    </span>
-                </a>
+        <div class="shop-hero-copy">
+            <div class="eyebrow">The Full Collection</div>
+            <h1>Everyday Innerwear, <em>Made for Comfort</em></h1>
+            <p>Explore the complete Softgarments range — bras, panties, bra sets, nighties, bodyshapers, and lingerie in soft, breathable fabrics designed for how you actually move.</p>
+            <div class="shop-hero-actions">
+                <a href="#categories" class="btn btn-primary">Browse Categories</a>
+                <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20help%20choosing%20the%20right%20fit." target="_blank" rel="noopener" class="btn btn-outline">Chat with Us</a>
             </div>
-            <div class="gh-viewall">
-                <a class="btn btn-outline" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20Please%20share%20the%20full%20Everyday%20Essentials%20catalogue." target="_blank" rel="noopener">View all</a>
+            <div class="shop-hero-badges">
+                <div class="shop-hero-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+                    Nationwide delivery
+                </div>
+                <div class="shop-hero-badge">
+                    <svg viewBox="0 0 24 24"><path d="M20 6h-2.5l-1.35-2.7A1 1 0 0 0 15.74 3H8.26a1 1 0 0 0-.9.55L5.5 6H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+                    Cash on delivery
+                </div>
+                <div class="shop-hero-badge">
+                    <svg viewBox="0 0 24 24"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/></svg>
+                    Easy exchange
+                </div>
+            </div>
+        </div>
+
+        <div class="shop-hero-visual">
+            <div class="shop-hero-panel">
+                <img src="assets/images/shop/hero.jpg" alt="Softgarments women's innerwear collection — soft, breathable everyday comfort" width="600" height="750" fetchpriority="high" onerror="this.style.display='none'" />
+                <div class="shop-hero-heart" aria-hidden="true">
+                    <svg viewBox="0 0 200 200"><path d="M100,60 C90,30 50,28 38,55 C25,85 55,105 100,150 C145,105 175,85 162,55 C150,28 110,30 100,60 Z"/></svg>
+                </div>
+                <div class="shop-hero-chip" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    <span>Made With Love</span>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- ═══════════ COLLECTION — Night & Lounge ═══════════ -->
-    <section class="gh-section gh-section--tint reveal" id="night">
-        <div class="gh-head">
-            <h2>Night &amp; Lounge</h2>
-            <span class="gh-rule"></span>
-            <p>Relaxed shapes in fabrics that stay soft wash after wash.</p>
+ <!-- Advertisement -->
+    <div class="container">
+        <div class="ad-space">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-example">
+                Google AdSense Ad
+            </div>
         </div>
-        <div class="gh-wrap">
-            <div class="gh-grid">
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Relaxed%20Fit%20Night%20Wear%20%28Rs.%201%2C850%29." target="_blank" rel="noopener" aria-label="Order Relaxed Fit Night Wear on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">29% OFF</span>
-                       <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-2/09.jpg" alt="Relaxed Fit Night Wear" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Relaxed Fit Night Wear</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,850</span><span class="gh-was">Rs. 2,600</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Satin%20Night%20Suit%20%28Rs.%203%2C200%29." target="_blank" rel="noopener" aria-label="Order Satin Night Suit on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">20% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-2/17.jpg" alt="Satin Night Suit" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Satin Night Suit</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 3,200</span><span class="gh-was">Rs. 4,000</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Cotton%20Nighty%20%28Rs.%202%2C150%29." target="_blank" rel="noopener" aria-label="Order Cotton Nighty on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">26% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-2/11.jpg" alt="Cotton Nighty" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Cotton Nighty</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 2,150</span><span class="gh-was">Rs. 2,900</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Lounge%20Shorts%20Set%20%28Rs.%201%2C950%29." target="_blank" rel="noopener" aria-label="Order Lounge Shorts Set on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-2/12.jpg" alt="Lounge Shorts Set" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Lounge Shorts Set</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,950</span><span class="gh-was">Rs. 2,600</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Printed%20Sleep%20Shirt%20%28Rs.%201%2C650%29." target="_blank" rel="noopener" aria-label="Order Printed Sleep Shirt on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-2/13.jpg" alt="Printed Sleep Shirt" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Printed Sleep Shirt</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,650</span><span class="gh-was">Rs. 2,200</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Modal%20Pyjama%20Set%20%28Rs.%202%2C450%29." target="_blank" rel="noopener" aria-label="Order Modal Pyjama Set on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">30% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-2/18.jpg" alt="Modal Pyjama Set" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Modal Pyjama Set</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 2,450</span><span class="gh-was">Rs. 3,500</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Sleeveless%20Nighty%20%28Rs.%201%2C750%29." target="_blank" rel="noopener" aria-label="Order Sleeveless Nighty on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">30% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-2/15.jpg" alt="Sleeveless Nighty" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Sleeveless Nighty</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,750</span><span class="gh-was">Rs. 2,500</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Soft%20Robe%20%28Rs.%202%2C850%29." target="_blank" rel="noopener" aria-label="Order Soft Robe on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-2/16.jpg" alt="Soft Robe" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Soft Robe</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 2,850</span><span class="gh-was">Rs. 3,800</span></span>
-                    </span>
-                </a>
-            </div>
-            <div class="gh-viewall">
-                <a class="btn btn-outline" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20Please%20share%20the%20full%20Night%20%26%20Lounge%20catalogue." target="_blank" rel="noopener">View all</a>
-            </div>
+    </div>
+    <!-- ═══════════ TRUST STRIP ═══════════ -->
+    <div class="trust-strip">
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg>
+            <div><h4>Nationwide Delivery</h4><p>Every city, 2–4 working days</p></div>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24"><path d="M20 6h-2.5l-1.35-2.7A1 1 0 0 0 15.74 3H8.26a1 1 0 0 0-.9.55L5.5 6H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 11c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            <div><h4>Cash on Delivery</h4><p>Pay when it reaches your door</p></div>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/></svg>
+            <div><h4>Easy Exchange</h4><p>Wrong size? We'll sort it out</p></div>
+        </div>
+        <div class="trust-item">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 3.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            <div><h4>Order on WhatsApp</h4><p>Simple, secure, no hassle</p></div>
+        </div>
+    </div>
+
+    <!-- ═══════════ FEATURED CATEGORIES ═══════════ -->
+    <section class="section reveal" id="categories">
+        <div class="eyebrow">Shop by Category</div>
+        <h2 class="section-title">Find your <em>perfect fit</em>, made simple.</h2>
+        <div class="cat-grid">
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bras." target="_blank" rel="noopener" class="cat-card" id="cat-bras" aria-label="Order Bras on WhatsApp">
+                <img src="assets/images/categories/bras.jpg" alt="Softgarments bras — soft, breathable everyday support" loading="lazy" width="400" height="540" onerror="this.style.display='none'" />
+                <div class="cat-meta">
+                    <span class="cat-label">Bras</span>
+                    <span class="cat-desc">Soft cups and breathable support for all-day wear.</span>
+                    <span class="cat-cta">Order on WhatsApp</span>
+                </div>
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Panties." target="_blank" rel="noopener" class="cat-card" id="cat-panties" aria-label="Order Panties on WhatsApp">
+                <img src="assets/images/categories/panties.jpg" alt="Softgarments panties — everyday cotton comfort" loading="lazy" width="400" height="540" onerror="this.style.display='none'" />
+                <div class="cat-meta">
+                    <span class="cat-label">Panties</span>
+                    <span class="cat-desc">Everyday cotton comfort in a size for every body.</span>
+                    <span class="cat-cta">Order on WhatsApp</span>
+                </div>
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bra%20Sets." target="_blank" rel="noopener" class="cat-card" id="cat-sets" aria-label="Order Bra Sets on WhatsApp">
+                <img src="assets/images/categories/sets.jpg" alt="Softgarments bra sets — coordinated everyday pieces" loading="lazy" width="400" height="540" onerror="this.style.display='none'" />
+                <div class="cat-meta">
+                    <span class="cat-label">Bra Sets</span>
+                    <span class="cat-desc">Coordinated sets that feel as good as they look.</span>
+                    <span class="cat-cta">Order on WhatsApp</span>
+                </div>
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Nighties." target="_blank" rel="noopener" class="cat-card" id="cat-nighties" aria-label="Order Nighties on WhatsApp">
+                <img src="assets/images/categories/nighties.jpg" alt="Softgarments nighties — relaxed, skin-friendly sleepwear" loading="lazy" width="400" height="540" onerror="this.style.display='none'" />
+                <div class="cat-meta">
+                    <span class="cat-label">Nighties</span>
+                    <span class="cat-desc">Relaxed sleepwear in gentle, skin-friendly fabric.</span>
+                    <span class="cat-cta">Order on WhatsApp</span>
+                </div>
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bodyshapers." target="_blank" rel="noopener" class="cat-card" id="cat-bodyshaper" aria-label="Order Bodyshaper on WhatsApp">
+                <img src="assets/images/categories/bodyshaper.jpg" alt="Softgarments bodyshaper — smooth, confident shaping" loading="lazy" width="400" height="540" onerror="this.style.display='none'" />
+                <div class="cat-meta">
+                    <span class="cat-label">Bodyshaper</span>
+                    <span class="cat-desc">Smooth, confident shaping without the squeeze.</span>
+                    <span class="cat-cta">Order on WhatsApp</span>
+                </div>
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Lingerie." target="_blank" rel="noopener" class="cat-card" id="cat-lingerie" aria-label="Order Lingerie on WhatsApp">
+                <img src="assets/images/categories/lingerie.jpg" alt="Softgarments lingerie — delicate everyday pieces" loading="lazy" width="400" height="540" onerror="this.style.display='none'" />
+                <div class="cat-meta">
+                    <span class="cat-label">Lingerie</span>
+                    <span class="cat-desc">Delicate pieces for days you want a little extra.</span>
+                    <span class="cat-cta">Order on WhatsApp</span>
+                </div>
+            </a>
         </div>
     </section>
 
-    <!-- ═══════════ COLLECTION — Shape & Support ═══════════ -->
-    <section class="gh-section reveal" id="shape">
-        <div class="gh-head">
-            <h2>Shape &amp; Support</h2>
-            <span class="gh-rule"></span>
-            <p>Smoothing layers and occasion sets, built for all-day comfort.</p>
-        </div>
-        <div class="gh-wrap">
-            <div class="gh-grid">
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Full%20Body%20Shaper%20%28Rs.%202%2C950%29." target="_blank" rel="noopener" aria-label="Order Full Body Shaper on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">30% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-3/01.jpg" alt="Full Body Shaper" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Full Body Shaper</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 2,950</span><span class="gh-was">Rs. 4,200</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Tummy%20Control%20Shapewear%20%28Rs.%202%2C350%29." target="_blank" rel="noopener" aria-label="Order Tummy Control Shapewear on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">30% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-3/02.jpg" alt="Tummy Control Shapewear" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Tummy Control Shapewear</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 2,350</span><span class="gh-was">Rs. 3,350</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20High-Waist%20Shaping%20Brief%20%28Rs.%201%2C650%29." target="_blank" rel="noopener" aria-label="Order High-Waist Shaping Brief on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-3/03.jpg" alt="High-Waist Shaping Brief" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">High-Waist Shaping Brief</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,650</span><span class="gh-was">Rs. 2,200</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Seamless%20Shaping%20Camisole%20%28Rs.%202%2C150%29." target="_blank" rel="noopener" aria-label="Order Seamless Shaping Camisole on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-3/04.jpg" alt="Seamless Shaping Camisole" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Seamless Shaping Camisole</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 2,150</span><span class="gh-was">Rs. 2,850</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Thigh%20Shaper%20%28Rs.%201%2C950%29." target="_blank" rel="noopener" aria-label="Order Thigh Shaper on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-3/05.jpg" alt="Thigh Shaper" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Thigh Shaper</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,950</span><span class="gh-was">Rs. 2,600</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Padded%20Push-Up%20Bra%20%28Rs.%201%2C850%29." target="_blank" rel="noopener" aria-label="Order Padded Push-Up Bra on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">24% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-3/06.jpg" alt="Padded Push-Up Bra" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Padded Push-Up Bra</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 1,850</span><span class="gh-was">Rs. 2,450</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Lace%20Bridal%20Set%20%28Rs.%203%2C450%29." target="_blank" rel="noopener" aria-label="Order Lace Bridal Set on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-3/07.jpg" alt="Lace Bridal Set" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Lace Bridal Set</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 3,450</span><span class="gh-was">Rs. 4,600</span></span>
-                    </span>
-                </a>
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Bridal%20Lingerie%20Set%20%28Rs.%204%2C250%29." target="_blank" rel="noopener" aria-label="Order Bridal Lingerie Set on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                        <img data-sg-collection="Raven Aura" src="assets/images/COLLECTION-3/08.jpg" alt="Bridal Lingerie Set" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Bridal Lingerie Set</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 4,250</span><span class="gh-was">Rs. 5,650</span></span>
-                    </span>
-                </a>
-            </div>
-            <div class="gh-viewall">
-                <a class="btn btn-outline" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20Please%20share%20the%20full%20Shape%20%26%20Support%20catalogue." target="_blank" rel="noopener">View all</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════ TRUST ROW ═══════════ -->
-    <section class="gh-section gh-section--tint reveal" id="gh-trust">
-        <div class="gh-trust">
-            <div class="gh-trust-item">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                <h4>Cash on Delivery</h4>
-                <p>Pay only when your order reaches your door, anywhere in Pakistan.</p>
-            </div>
-            <div class="gh-trust-item">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
-                <h4>2–4 Day Delivery</h4>
-                <p>Dispatched quickly and tracked all the way to your city.</p>
-            </div>
-            <div class="gh-trust-item">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                <h4>Order on WhatsApp</h4>
-                <p>No checkout forms — confirm size, address and total in the chat.</p>
-            </div>
-            <div class="gh-trust-item">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
-                <h4>Easy Exchange</h4>
-                <p>Wrong size? Message us and we will arrange a swap.</p>
-            </div>
-        </div>
-<<<<<<< HEAD
-      </section>
-      
-        <!-- ═══════════ SALE BANNER + LATEST PRODUCTS ═══════════ -->
-        <section class="section reveal" id="featured" style="background:var(--ivory-deep);">
-            <div class="eyebrow">Latest Products</div>
-            <h2 class="section-title">Happy Summer <em>Sale !!</em></h2>
-            <p class="section-sub">Get 20% discount on purchase — premium fashion at unbeatable prices. Limited time offer.</p>
-
-            <div class="sale-banner">
-                <div class="sale-text">
-                    <span class="sale-tag">🔥 Summer Sale</span>
-                    <h2>20% <em>Discount</em> on Purchase!</h2>
-                    <p>Wisi dolore quidem inceptos eu! Ab, ultrices dolore? Incididunt vitae sint proin faucibus optio reiciendis ipsu.</p>
-                    <a href="#products" class="btn">Checkout Products</a>
-                </div>
-                <div class="sale-visual">
-                    <div class="sale-icon">
-                        20%
-                        <small>OFF</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prod-grid" id="products">
-                <!-- Product 1 -->
-                <div class="prod-card">
-                    <div class="prod-img">
-                        <span class="prod-tag">New</span>
-                        <img src="https://picsum.photos/seed/sleeveless-shirt/420/480" alt="Sleeveless Shirt — trendy women's top" loading="lazy" width="420" height="480" />
-                        <div class="prod-actions">
-                            <button class="wishlist" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                            </button>
-                            <button aria-label="Quick view">
-                                <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            </button>
-                        </div>
-                        <div class="prod-rating">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                            4.6
-                        </div>
-                    </div>
-                    <div class="prod-info">
-                        <h4>Sleeveless Shirt</h4>
-                        <div class="prod-desc">Lightweight, breathable, perfect for layering</div>
-                        <div class="prod-price"><span class="now">Rs. 1,200</span><span class="was">Rs. 1,500</span></div>
-                        <button class="prod-add">
-                            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="prod-card">
-                    <div class="prod-img">
-                        <span class="prod-tag">Best Seller</span>
-                        <img src="https://picsum.photos/seed/pure-silk/420/480" alt="Pure Silk — luxury women's fabric" loading="lazy" width="420" height="480" />
-                        <div class="prod-actions">
-                            <button class="wishlist" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                            </button>
-                            <button aria-label="Quick view">
-                                <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            </button>
-                        </div>
-                        <div class="prod-rating">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                            4.9
-                        </div>
-                    </div>
-                    <div class="prod-info">
-                        <h4>Pure Silk</h4>
-                        <div class="prod-desc">Luxurious silk blend, ultra-soft and smooth</div>
-                        <div class="prod-price"><span class="now">Rs. 2,450</span><span class="was">Rs. 3,200</span></div>
-                        <button class="prod-add">
-                            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="prod-card">
-                    <div class="prod-img">
-                        <span class="prod-tag">New</span>
-                        <img src="https://picsum.photos/seed/ruffled-dress/420/480" alt="Ruffled Dress — elegant women's wear" loading="lazy" width="420" height="480" />
-                        <div class="prod-actions">
-                            <button class="wishlist" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                            </button>
-                            <button aria-label="Quick view">
-                                <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            </button>
-                        </div>
-                        <div class="prod-rating">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                            4.7
-                        </div>
-                    </div>
-                    <div class="prod-info">
-                        <h4>Ruffled Dress</h4>
-                        <div class="prod-desc">Elegant ruffle detail, lightweight and flowy</div>
-                        <div class="prod-price"><span class="now">Rs. 3,200</span><span class="was">Rs. 4,000</span></div>
-                        <button class="prod-add">
-                            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="prod-card">
-                    <div class="prod-img">
-                        <span class="prod-tag">Best Seller</span>
-                        <img src="https://picsum.photos/seed/jacket-women/420/480" alt="Jacket — versatile women's outerwear" loading="lazy" width="420" height="480" />
-                        <div class="prod-actions">
-                            <button class="wishlist" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                            </button>
-                            <button aria-label="Quick view">
-                                <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            </button>
-                        </div>
-                        <div class="prod-rating">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                            4.8
-                        </div>
-                    </div>
-                    <div class="prod-info">
-                        <h4>Jacket</h4>
-                        <div class="prod-desc">Versatile, comfortable, perfect for any season</div>
-                        <div class="prod-price"><span class="now">Rs. 2,800</span><span class="was">Rs. 3,500</span></div>
-                        <button class="prod-add">
-                            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align:center;margin-top:44px;">
-                <a href="#" class="btn btn-outline">View All Products</a>
-            </div>
-        </section>
-<!-- ═══════════ TOP SALE OF THE WEEK ═══════════ -->
-        <section class="section reveal" id="topsale">
-            <div class="eyebrow">Top Sale</div>
-            <h2 class="section-title">Top Sale <em>of the Week</em></h2>
-            <p class="section-sub">Featured products — our most popular picks trusted by customers for their quality and style.</p>
-
-            <div class="topsale-wrap">
-                <div class="topsale-featured">
-                    <div class="topsale-label">⭐ Featured Product</div>
-                    <h3>Half Shirt</h3>
-                    <p>Classic half-sleeve shirt in premium cotton — everyday comfort with a clean, modern look.</p>
-
-                    <div class="topsale-prod">
-                        <img src="https://picsum.photos/seed/half-shirt/72/72" alt="Half Shirt" loading="lazy" />
-                        <div class="ts-info">
-                            <h4>Half Shirt</h4>
-                            <div class="ts-price"><small>Rs. 1,200</small> Rs. 950</div>
-                        </div>
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
-                    </div>
-                    <div class="topsale-prod">
-                        <img src="https://picsum.photos/seed/tuxedo-suit/72/72" alt="Tuxedo Suit" loading="lazy" />
-                        <div class="ts-info">
-                            <h4>Tuxedo Suit</h4>
-                            <div class="ts-price"><small>Rs. 4,500</small> Rs. 3,600</div>
-                        </div>
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
-                    </div>
-                    <div class="topsale-prod">
-                        <img src="https://picsum.photos/seed/cotton-trouser/72/72" alt="Cotton Trouser" loading="lazy" />
-                        <div class="ts-info">
-                            <h4>Cotton Trouser</h4>
-                            <div class="ts-price"><small>Rs. 1,500</small> Rs. 1,200</div>
-                        </div>
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="topsale-grid">
-                    <div class="prod-card">
-                        <div class="prod-img">
-                            <img src="https://picsum.photos/seed/wedding-dress/420/480" alt="Wedding Dress" loading="lazy" width="420" height="480" />
-                            <div class="prod-actions">
-                                <button class="wishlist" aria-label="Add to wishlist">
-                                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                </button>
-                                <button aria-label="Quick view">
-                                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                                </button>
-                            </div>
-                            <div class="prod-rating">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                4.9
-                            </div>
-                        </div>
-                        <div class="prod-info">
-                            <h4>Wedding Dress</h4>
-                            <div class="prod-desc">Elegant design, premium fabric</div>
-                            <div class="prod-price"><span class="now">Rs. 5,500</span></div>
-                            <button class="prod-add">
-                                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                    <div class="prod-card">
-                        <div class="prod-img">
-                            <img src="https://picsum.photos/seed/jacket-grid/420/480" alt="Jacket" loading="lazy" width="420" height="480" />
-                            <div class="prod-actions">
-                                <button class="wishlist" aria-label="Add to wishlist">
-                                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                </button>
-                                <button aria-label="Quick view">
-                                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                                </button>
-                            </div>
-                            <div class="prod-rating">
-                                <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                4.6
-                            </div>
-                        </div>
-                        <div class="prod-info">
-                            <h4>Jacket</h4>
-                            <div class="prod-desc">Versatile, comfortable fit</div>
-                            <div class="prod-price"><span class="now">Rs. 2,800</span></div>
-                            <button class="prod-add">
-                                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-=======
-    </section>
-  <!-- ═══════════ SALE BANNER + LATEST PRODUCTS ═══════════ -->
+    <!-- ═══════════ FEATURED PRODUCTS ═══════════ -->
     <section class="section reveal" id="featured" style="background:var(--ivory-deep);">
-        <div class="eyebrow">Latest Products</div>
-        <h2 class="section-title">Happy Summer <em>Sale !!</em></h2>
-        <p class="section-sub">Get 20% discount on purchase — premium fashion at unbeatable prices. Limited time offer.</p>
->>>>>>> 914b30e899f13d8f6a9e7e6a0293b0c05d96ffcb
-
-        <div class="sale-banner">
-            <div class="sale-text">
-                <span class="sale-tag">🔥 Summer Sale</span>
-                <h2>20% <em>Discount</em> on Purchase!</h2>
-                <p>Wisi dolore quidem inceptos eu! Ab, ultrices dolore? Incididunt vitae sint proin faucibus optio reiciendis ipsu.</p>
-                <a href="#products" class="btn">Checkout Products</a>
-            </div>
-            <div class="sale-visual">
-                <div class="sale-icon">
-                    20%
-                    <small>OFF</small>
+        <div class="eyebrow">Featured</div>
+        <h2 class="section-title">Pieces we <em>love</em> right now</h2>
+        <p class="section-sub">A handpicked edit from across the collection — soft fabrics, everyday shapes, and sizes for every body.</p>
+        <div class="prod-grid">
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Everyday%20Comfort%20Bra%20(Rs.%201%2C450)." target="_blank" rel="noopener" class="prod-card" aria-label="Order Everyday Comfort Bra on WhatsApp">
+                <div class="prod-img">
+                    <span class="prod-tag">Bestseller</span>
+                    <img src="assets/images/products/01-everyday-comfort-bra.jpg" alt="Everyday Comfort Bra — wire-free softness for daily wear" loading="lazy" width="420" height="480" onerror="this.style.display='none'" />
+                    <span class="prod-order">Order on WhatsApp</span>
                 </div>
-            </div>
-        </div>
-
-        <div class="prod-grid" id="products">
-            <!-- Product 1 -->
-            <div class="prod-card">
+                <div class="prod-info">
+                    <h4>Everyday Comfort Bra</h4>
+                    <p class="prod-desc">Wire-free softness that stays comfortable from morning to night.</p>
+                    <div class="prod-price"><span class="now">Rs. 1,450</span><span class="was">Rs. 2,000</span></div>
+                </div>
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Soft%20Cotton%20Panty%20Pack%20(Rs.%20950)." target="_blank" rel="noopener" class="prod-card" aria-label="Order Soft Cotton Panty Pack on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/sleeveless-shirt/420/480" alt="Sleeveless Shirt — trendy women's top" loading="lazy" width="420" height="480" />
-                    <div class="prod-actions">
-                        <button class="wishlist" aria-label="Add to wishlist">
-                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                        </button>
-                        <button aria-label="Quick view">
-                            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                        </button>
-                    </div>
-                    <div class="prod-rating">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                        4.6
-                    </div>
+                    <img src="assets/images/products/02-cotton-panty-pack.jpg" alt="Soft Cotton Panty Pack — breathable everyday cotton, pack of three" loading="lazy" width="420" height="480" onerror="this.style.display='none'" />
+                    <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
-                    <h4>Sleeveless Shirt</h4>
-                    <div class="prod-desc">Lightweight, breathable, perfect for layering</div>
-                    <div class="prod-price"><span class="now">Rs. 1,200</span><span class="was">Rs. 1,500</span></div>
-                    <button class="prod-add">
-                        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        Add to Cart
-                    </button>
+                    <h4>Soft Cotton Panty Pack</h4>
+                    <p class="prod-desc">Breathable cotton in a value pack of three everyday essentials.</p>
+                    <div class="prod-price"><span class="now">Rs. 950</span></div>
                 </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="prod-card">
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Breathable%20Bra%20%26%20Panty%20Set%20(Rs.%202%2C100)." target="_blank" rel="noopener" class="prod-card" aria-label="Order Breathable Bra and Panty Set on WhatsApp">
                 <div class="prod-img">
-                    <span class="prod-tag">Best Seller</span>
-                    <img src="https://picsum.photos/seed/pure-silk/420/480" alt="Pure Silk — luxury women's fabric" loading="lazy" width="420" height="480" />
-                    <div class="prod-actions">
-                        <button class="wishlist" aria-label="Add to wishlist">
-                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                        </button>
-                        <button aria-label="Quick view">
-                            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                        </button>
-                    </div>
-                    <div class="prod-rating">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                        4.9
-                    </div>
+                    <span class="prod-tag">Set</span>
+                    <img src="assets/images/products/03-bra-panty-set.jpg" alt="Breathable Bra and Panty Set — matched everyday luxe" loading="lazy" width="420" height="480" onerror="this.style.display='none'" />
+                    <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
-                    <h4>Pure Silk</h4>
-                    <div class="prod-desc">Luxurious silk blend, ultra-soft and smooth</div>
-                    <div class="prod-price"><span class="now">Rs. 2,450</span><span class="was">Rs. 3,200</span></div>
-                    <button class="prod-add">
-                        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        Add to Cart
-                    </button>
+                    <h4>Breathable Bra &amp; Panty Set</h4>
+                    <p class="prod-desc">A coordinated set in breathable fabric for effortless everyday luxe.</p>
+                    <div class="prod-price"><span class="now">Rs. 2,100</span><span class="was">Rs. 2,800</span></div>
                 </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="prod-card">
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Relaxed%20Fit%20Night%20Wear%20(Rs.%201%2C850)." target="_blank" rel="noopener" class="prod-card" aria-label="Order Relaxed Fit Night Wear on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img src="https://picsum.photos/seed/ruffled-dress/420/480" alt="Ruffled Dress — elegant women's wear" loading="lazy" width="420" height="480" />
-                    <div class="prod-actions">
-                        <button class="wishlist" aria-label="Add to wishlist">
-                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                        </button>
-                        <button aria-label="Quick view">
-                            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                        </button>
-                    </div>
-                    <div class="prod-rating">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                        4.7
-                    </div>
+                    <img src="assets/images/products/04-night-wear.jpg" alt="Relaxed Fit Night Wear — loose, gentle, made for rest" loading="lazy" width="420" height="480" onerror="this.style.display='none'" />
+                    <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
-                    <h4>Ruffled Dress</h4>
-                    <div class="prod-desc">Elegant ruffle detail, lightweight and flowy</div>
-                    <div class="prod-price"><span class="now">Rs. 3,200</span><span class="was">Rs. 4,000</span></div>
-                    <button class="prod-add">
-                        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        Add to Cart
-                    </button>
+                    <h4>Relaxed Fit Night Wear</h4>
+                    <p class="prod-desc">Loose, gentle, and soft against the skin — made for real rest.</p>
+                    <div class="prod-price"><span class="now">Rs. 1,850</span></div>
                 </div>
-            </div>
+            </a>
+        </div>
+    </section>
 
-            <!-- Product 4 -->
-            <div class="prod-card">
-                <div class="prod-img">
-                    <span class="prod-tag">Best Seller</span>
-                    <img src="https://picsum.photos/seed/jacket-women/420/480" alt="Jacket — versatile women's outerwear" loading="lazy" width="420" height="480" />
-                    <div class="prod-actions">
-                        <button class="wishlist" aria-label="Add to wishlist">
-                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                        </button>
-                        <button aria-label="Quick view">
-                            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                        </button>
-                    </div>
-                    <div class="prod-rating">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                        4.8
-                    </div>
-                </div>
-                <div class="prod-info">
-                    <h4>Jacket</h4>
-                    <div class="prod-desc">Versatile, comfortable, perfect for any season</div>
-                    <div class="prod-price"><span class="now">Rs. 2,800</span><span class="was">Rs. 3,500</span></div>
-                    <button class="prod-add">
-                        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        Add to Cart
-                    </button>
-                </div>
+    <!-- ═══════════ WHY CHOOSE ═══════════ -->
+    <section class="section reveal" id="promise">
+        <div class="eyebrow">Why Choose Softgarments</div>
+        <h2 class="section-title">Comfort you can <em>count on</em></h2>
+        <div class="feat-grid">
+            <div class="feat-card">
+                <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg></div>
+                <h4>Premium Fabric</h4>
+                <p>Materials chosen for softness and longevity, not just how they look in a photo.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5v3a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5zm7 8a7 7 0 0 1-14 0H3a9 9 0 0 0 8 8.94V22h2v-3.06A9 9 0 0 0 21 10h-2z" /></svg></div>
+                <h4>Soft Comfort</h4>
+                <p>No digging straps, no stiff wires — designed to move with you all day.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/></svg></div>
+                <h4>Breathable Material</h4>
+                <p>Airy, skin-friendly fabric that stays fresh through Pakistan's warmest days.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 8 1.34 8 4v2H4v-2c0-2.66 5.3-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" /></svg></div>
+                <h4>Skin Friendly</h4>
+                <p>Gentle on sensitive skin, with soft seams and no scratchy finishes.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+                <h4>Durable Stitching</h4>
+                <p>Every piece checked before it ships — quality that lasts wash after wash.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+                <h4>Fast Delivery</h4>
+                <p>Nationwide dispatch, usually arriving within 2–4 working days.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/></svg></div>
+                <h4>Easy Returns</h4>
+                <p>Wrong size? Message us and we'll arrange a simple, friendly exchange.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-2.5l-1.35-2.7A1 1 0 0 0 15.74 3H8.26a1 1 0 0 0-.9.55L5.5 6H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 11c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg></div>
+                <h4>Cash on Delivery</h4>
+                <p>Pay only when your order reaches your door — no upfront payment needed.</p>
             </div>
         </div>
+    </section>
 
+    <!-- ═══════════ BRAND STORY ═══════════ -->
+    <section class="section reveal" id="story" style="background:var(--ivory-deep);">
+        <div class="brand-story-grid">
+            <div class="brand-story-visual">
+                <img src="assets/images/shop/brand-story.jpg" alt="Folded Softgarments innerwear in soft, natural fabric" loading="lazy" width="560" height="448" onerror="this.style.display='none'" />
+            </div>
+            <div class="brand-story-copy">
+                <div class="eyebrow">Our Story</div>
+                <h2>Made for real comfort, <em>every day</em></h2>
+                <p>Softgarments began with a simple idea: innerwear should feel as good as it looks. We focus on soft, breathable fabrics and honest fits built around real Pakistani body types — so getting dressed feels effortless and every day starts with a little more confidence.</p>
+                <p>From the first stitch to the moment it reaches your door, every piece is chosen and checked with care. No hard sell, no complicated sizing — just quality you can trust, order after order.</p>
+                <div class="brand-story-pillars">
+                    <span class="brand-story-pillar">Comfort</span>
+                    <span class="brand-story-pillar">Quality</span>
+                    <span class="brand-story-pillar">Everyday Confidence</span>
+                    <span class="brand-story-pillar">Modern Lifestyle</span>
+                </div>
+                <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20know%20more%20about%20your%20collection." target="_blank" rel="noopener" class="btn btn-primary">Talk to Us on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ BEST SELLERS ═══════════ -->
+    <section class="section reveal" id="best-sellers">
+        <div class="eyebrow">Loved by Customers</div>
+        <h2 class="section-title">Our <em>best sellers</em></h2>
+        <p class="section-sub">The pieces women order again and again — comfortable, reliable, and always in soft, breathable fabric.</p>
+        <div class="prod-grid">
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Seamless%20T-Shirt%20Bra%20(Rs.%201%2C650)." target="_blank" rel="noopener" class="prod-card" aria-label="Order Seamless T-Shirt Bra on WhatsApp">
+                <div class="prod-img">
+                    <span class="prod-tag">Top Rated</span>
+                    <img src="assets/images/products/05-seamless-tshirt-bra.jpg" alt="Seamless T-Shirt Bra — invisible lines under any top" loading="lazy" width="420" height="480" onerror="this.style.display='none'" />
+                    <span class="prod-order">Order on WhatsApp</span>
+                </div>
+                <div class="prod-info">
+                    <h4>Seamless T-Shirt Bra</h4>
+                    <p class="prod-desc">Smooth, invisible lines under even the finest of tops.</p>
+                    <div class="prod-price"><span class="now">Rs. 1,650</span></div>
+                </div>
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Lace%20Trim%20Bralette%20(Rs.%201%2C350)." target="_blank" rel="noopener" class="prod-card" aria-label="Order Lace Trim Bralette on WhatsApp">
+                <div class="prod-img">
+                    <span class="prod-tag">Bestseller</span>
+                    <img src="assets/images/products/06-lace-trim-bralette.jpg" alt="Lace Trim Bralette — light support with a soft lace edge" loading="lazy" width="420" height="480" onerror="this.style.display='none'" />
+                    <span class="prod-order">Order on WhatsApp</span>
+                </div>
+                <div class="prod-info">
+                    <h4>Lace Trim Bralette</h4>
+                    <p class="prod-desc">Light, wire-free support finished with a delicate lace trim.</p>
+                    <div class="prod-price"><span class="now">Rs. 1,350</span></div>
+                </div>
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Full%20Coverage%20Bodyshaper%20(Rs.%202%2C450)." target="_blank" rel="noopener" class="prod-card" aria-label="Order Full Coverage Bodyshaper on WhatsApp">
+                <div class="prod-img">
+                    <span class="prod-tag">Shaping</span>
+                    <img src="assets/images/products/07-full-coverage-bodyshaper.jpg" alt="Full Coverage Bodyshaper — smooth shaping without the pinch" loading="lazy" width="420" height="480" onerror="this.style.display='none'" />
+                    <span class="prod-order">Order on WhatsApp</span>
+                </div>
+                <div class="prod-info">
+                    <h4>Full Coverage Bodyshaper</h4>
+                    <p class="prod-desc">Smooth, confident shaping that never pinches or digs in.</p>
+                    <div class="prod-price"><span class="now">Rs. 2,450</span></div>
+                </div>
+            </a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Modal%20Lounge%20Set%20(Rs.%202%2C200)." target="_blank" rel="noopener" class="prod-card" aria-label="Order Modal Lounge Set on WhatsApp">
+                <div class="prod-img">
+                    <span class="prod-tag">Loungewear</span>
+                    <img src="assets/images/products/08-modal-lounge-set.jpg" alt="Modal Lounge Set — buttery-soft modal for home days" loading="lazy" width="420" height="480" onerror="this.style.display='none'" />
+                    <span class="prod-order">Order on WhatsApp</span>
+                </div>
+                <div class="prod-info">
+                    <h4>Modal Lounge Set</h4>
+                    <p class="prod-desc">Buttery-soft modal that makes slow days at home even better.</p>
+                    <div class="prod-price"><span class="now">Rs. 2,200</span></div>
+                </div>
+            </a>
+        </div>
         <div style="text-align:center;margin-top:44px;">
-            <a href="#" class="btn btn-outline">View All Products</a>
+            <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20see%20your%20full%20catalogue." target="_blank" rel="noopener" class="btn btn-outline">See the Full Catalogue on WhatsApp</a>
         </div>
     </section>
-<!-- ═══════════ TOP SALE OF THE WEEK ═══════════ -->
-    <section class="section reveal" id="topsale">
-        <div class="eyebrow">Top Sale</div>
-        <h2 class="section-title">Top Sale <em>of the Week</em></h2>
-        <p class="section-sub">Featured products — our most popular picks trusted by customers for their quality and style.</p>
 
-        <div class="topsale-wrap">
-            <div class="topsale-featured">
-                <div class="topsale-label">⭐ Featured Product</div>
-                <h3>Half Shirt</h3>
-                <p>Classic half-sleeve shirt in premium cotton — everyday comfort with a clean, modern look.</p>
-
-                <div class="topsale-prod">
-                    <img src="https://picsum.photos/seed/half-shirt/72/72" alt="Half Shirt" loading="lazy" />
-                    <div class="ts-info">
-                        <h4>Half Shirt</h4>
-                        <div class="ts-price"><small>Rs. 1,200</small> Rs. 950</div>
-                    </div>
-                    <button class="btn btn-primary btn-sm">Add to Cart</button>
-                </div>
-                <div class="topsale-prod">
-                    <img src="https://picsum.photos/seed/tuxedo-suit/72/72" alt="Tuxedo Suit" loading="lazy" />
-                    <div class="ts-info">
-                        <h4>Tuxedo Suit</h4>
-                        <div class="ts-price"><small>Rs. 4,500</small> Rs. 3,600</div>
-                    </div>
-                    <button class="btn btn-primary btn-sm">Add to Cart</button>
-                </div>
-                <div class="topsale-prod">
-                    <img src="https://picsum.photos/seed/cotton-trouser/72/72" alt="Cotton Trouser" loading="lazy" />
-                    <div class="ts-info">
-                        <h4>Cotton Trouser</h4>
-                        <div class="ts-price"><small>Rs. 1,500</small> Rs. 1,200</div>
-                    </div>
-                    <button class="btn btn-primary btn-sm">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="topsale-grid">
-                <div class="prod-card">
-                    <div class="prod-img">
-                        <img src="https://picsum.photos/seed/wedding-dress/420/480" alt="Wedding Dress" loading="lazy" width="420" height="480" />
-                        <div class="prod-actions">
-                            <button class="wishlist" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                            </button>
-                            <button aria-label="Quick view">
-                                <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            </button>
-                        </div>
-                        <div class="prod-rating">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                            4.9
-                        </div>
-                    </div>
-                    <div class="prod-info">
-                        <h4>Wedding Dress</h4>
-                        <div class="prod-desc">Elegant design, premium fabric</div>
-                        <div class="prod-price"><span class="now">Rs. 5,500</span></div>
-                        <button class="prod-add">
-                            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="prod-card">
-                    <div class="prod-img">
-                        <img src="https://picsum.photos/seed/jacket-grid/420/480" alt="Jacket" loading="lazy" width="420" height="480" />
-                        <div class="prod-actions">
-                            <button class="wishlist" aria-label="Add to wishlist">
-                                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                            </button>
-                            <button aria-label="Quick view">
-                                <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            </button>
-                        </div>
-                        <div class="prod-rating">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                            4.6
-                        </div>
-                    </div>
-                    <div class="prod-info">
-                        <h4>Jacket</h4>
-                        <div class="prod-desc">Versatile, comfortable fit</div>
-                        <div class="prod-price"><span class="now">Rs. 2,800</span></div>
-                        <button class="prod-add">
-                            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-  <!-- ═══════════ LATEST BLOG ═══════════ -->
-    <section class="section reveal" style="background:var(--ivory-deep);">
-        <div class="eyebrow">Latest Blog</div>
-        <h2 class="section-title">Style <em>Stories</em> &amp; Inspiration</h2>
-        <p class="section-sub">Explore our latest articles on fashion, comfort, and lifestyle — curated for the modern woman.</p>
-
-        <div class="blog-grid">
-            <div class="blog-card">
-                <div class="blog-img">
-                    <img src="https://picsum.photos/seed/summer-sale-blog/600/380" alt="Stylish & Modern Wear — fashion blog" loading="lazy" width="600" height="380" />
-                </div>
-                <div class="blog-body">
-                    <div class="blog-meta">Fashion</div>
-                    <h4>Stylish &amp; Modern Wear for Stylish People</h4>
-                    <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                    <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-            </div>
-            <div class="blog-card">
-                <div class="blog-img">
-                    <img src="https://picsum.photos/seed/designer-dress/600/380" alt="Best Designer Dress — affordable fashion" loading="lazy" width="600" height="380" />
-                </div>
-                <div class="blog-body">
-                    <div class="blog-meta">Designer</div>
-                    <h4>Best Designer Dress on Affordable Price</h4>
-                    <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                    <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-            </div>
-            <div class="blog-card">
-                <div class="blog-img">
-                    <img src="https://picsum.photos/seed/heavy-discount/600/380" alt="Heavy Discount on Summer Sale — fashion deals" loading="lazy" width="600" height="380" />
-                </div>
-                <div class="blog-body">
-                    <div class="blog-meta">Sale</div>
-                    <h4>Heavy Discount on Our Summer Sale</h4>
-                    <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                    <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-            </div>
-        </div>
-    </section>
-  <!-- ═══════════ LATEST BLOG ═══════════ -->
-        <section class="section reveal" style="background:var(--ivory-deep);">
-            <div class="eyebrow">Latest Blog</div>
-            <h2 class="section-title">Style <em>Stories</em> &amp; Inspiration</h2>
-            <p class="section-sub">Explore our latest articles on fashion, comfort, and lifestyle — curated for the modern woman.</p>
-
-<<<<<<< HEAD
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-img">
-                        <img src="https://picsum.photos/seed/summer-sale-blog/600/380" alt="Stylish & Modern Wear — fashion blog" loading="lazy" width="600" height="380" />
-                    </div>
-                    <div class="blog-body">
-                        <div class="blog-meta">Fashion</div>
-                        <h4>Stylish &amp; Modern Wear for Stylish People</h4>
-                        <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                        <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-img">
-                        <img src="https://picsum.photos/seed/designer-dress/600/380" alt="Best Designer Dress — affordable fashion" loading="lazy" width="600" height="380" />
-                    </div>
-                    <div class="blog-body">
-                        <div class="blog-meta">Designer</div>
-                        <h4>Best Designer Dress on Affordable Price</h4>
-                        <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                        <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-img">
-                        <img src="https://picsum.photos/seed/heavy-discount/600/380" alt="Heavy Discount on Summer Sale — fashion deals" loading="lazy" width="600" height="380" />
-                    </div>
-                    <div class="blog-body">
-                        <div class="blog-meta">Sale</div>
-                        <h4>Heavy Discount on Our Summer Sale</h4>
-                        <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                        <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-     <!-- ═══════════ TESTIMONIALS ═══════════ -->
-=======
     <!-- ═══════════ TESTIMONIALS ═══════════ -->
->>>>>>> 914b30e899f13d8f6a9e7e6a0293b0c05d96ffcb
     <section class="section reveal test-section" id="reviews">
-        <div class="test-shell">
-            <div class="test-intro">
-                <div class="eyebrow">Customer Love</div>
-                <h2 class="section-title">What our <em>customers</em> say</h2>
-                <p class="section-sub">Comfort stories from women across Pakistan who shop with us on WhatsApp — soft fabrics, honest fit, and delivery you can count on.</p>
-                <div class="test-stats">
-                    <span class="test-stat"><strong>5★</strong> Rated service</span>
-                    <span class="test-stat"><strong>COD</strong> Nationwide</span>
-                    <span class="test-stat"><strong>Fast</strong> WhatsApp replies</span>
-                </div>
-            </div>
-
-            <div class="test-stage">
-                <div class="test-viewport" id="testViewport">
-                    <div class="test-track" id="testTrack">
-                        <article class="test-slide is-active">
-                            <div class="test-card">
-                                <span class="test-card-accent"></span>
-                                <div class="test-card-head">
-                                    <div class="test-avatar" aria-hidden="true">AK</div>
-                                    <div class="test-author">
-                                        <div class="test-name">Ayesha K.</div>
-                                        <div class="test-location">Islamabad</div>
-                                    </div>
-                                    <span class="test-badge">Verified</span>
-                                </div>
-                                <div class="test-stars" aria-label="5 out of 5 stars">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                </div>
-                                <blockquote class="test-quote">The cotton bra is so soft — I wore it all day and forgot I had it on. Sizing help on WhatsApp was quick and accurate.</blockquote>
-                            </div>
-                        </article>
-                        <article class="test-slide">
-                            <div class="test-card">
-                                <span class="test-card-accent"></span>
-                                <div class="test-card-head">
-                                    <div class="test-avatar" aria-hidden="true">FR</div>
-                                    <div class="test-author">
-                                        <div class="test-name">Fatima R.</div>
-                                        <div class="test-location">Lahore</div>
-                                    </div>
-                                    <span class="test-badge">Verified</span>
-                                </div>
-                                <div class="test-stars" aria-label="5 out of 5 stars">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                </div>
-                                <blockquote class="test-quote">Ordered a bra set for my sister — fabric feels premium and COD delivery to Lahore was smooth. Will order again.</blockquote>
-                            </div>
-                        </article>
-                        <article class="test-slide">
-                            <div class="test-card">
-                                <span class="test-card-accent"></span>
-                                <div class="test-card-head">
-                                    <div class="test-avatar" aria-hidden="true">ZM</div>
-                                    <div class="test-author">
-                                        <div class="test-name">Zainab M.</div>
-                                        <div class="test-location">Karachi</div>
-                                    </div>
-                                    <span class="test-badge">Verified</span>
-                                </div>
-                                <div class="test-stars" aria-label="5 out of 5 stars">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                </div>
-                                <blockquote class="test-quote">Finally innerwear that breathes in Karachi heat. The panty pack is great value and the fabric stays soft after washing.</blockquote>
-                            </div>
-                        </article>
-                        <article class="test-slide">
-                            <div class="test-card">
-                                <span class="test-card-accent"></span>
-                                <div class="test-card-head">
-                                    <div class="test-avatar" aria-hidden="true">HS</div>
-                                    <div class="test-author">
-                                        <div class="test-name">Hira S.</div>
-                                        <div class="test-location">Rawalpindi</div>
-                                    </div>
-                                    <span class="test-badge">Verified</span>
-                                </div>
-                                <div class="test-stars" aria-label="5 out of 5 stars">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                </div>
-                                <blockquote class="test-quote">Wrong size on first order — exchange was handled kindly on WhatsApp. The replacement fit is perfect now.</blockquote>
-                            </div>
-                        </article>
-                        <article class="test-slide">
-                            <div class="test-card">
-                                <span class="test-card-accent"></span>
-                                <div class="test-card-head">
-                                    <div class="test-avatar" aria-hidden="true">MA</div>
-                                    <div class="test-author">
-                                        <div class="test-name">Maryam A.</div>
-                                        <div class="test-location">Faisalabad</div>
-                                    </div>
-                                    <span class="test-badge">Verified</span>
-                                </div>
-                                <div class="test-stars" aria-label="5 out of 5 stars">
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
-                                </div>
-                                <blockquote class="test-quote">Night wear is relaxed and soft — exactly what I wanted for everyday comfort. Delivery to Faisalabad took three days.</blockquote>
-                            </div>
-                        </article>
+        <div class="eyebrow">Customer Love</div>
+        <h2 class="section-title">What our <em>customers</em> say</h2>
+        <p class="section-sub">Comfort stories from women across Pakistan who shop with us on WhatsApp — soft fabrics, honest fit, and delivery you can count on.</p>
+        <div class="test-grid">
+            <article class="test-card">
+                <span class="test-card-accent"></span>
+                <div class="test-card-head">
+                    <div class="test-avatar" aria-hidden="true">AK</div>
+                    <div class="test-author">
+                        <div class="test-name">Ayesha K.</div>
+                        <div class="test-location">Islamabad</div>
                     </div>
+                    <span class="test-badge">Verified</span>
                 </div>
-
-                <div class="test-nav">
-                    <div class="test-nav-pill">
-                        <button class="test-arrow" id="testPrev" type="button" aria-label="Previous review">
-                            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-                        </button>
-                        <div class="test-progress" id="testProgress"></div>
-                        <span class="test-counter" id="testCounter"><strong>01</strong> / 05</span>
-                        <button class="test-arrow" id="testNext" type="button" aria-label="Next review">
-                            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-                        </button>
+                <div class="test-stars" aria-label="5 out of 5 stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                </div>
+                <blockquote class="test-quote">The cotton bra is so soft — I wore it all day and forgot I had it on. Sizing help on WhatsApp was quick and accurate.</blockquote>
+            </article>
+            <article class="test-card">
+                <span class="test-card-accent"></span>
+                <div class="test-card-head">
+                    <div class="test-avatar" aria-hidden="true">FR</div>
+                    <div class="test-author">
+                        <div class="test-name">Fatima R.</div>
+                        <div class="test-location">Lahore</div>
                     </div>
+                    <span class="test-badge">Verified</span>
+                </div>
+                <div class="test-stars" aria-label="5 out of 5 stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                </div>
+                <blockquote class="test-quote">Ordered a bra set for my sister — fabric feels premium and COD delivery to Lahore was smooth. Will order again.</blockquote>
+            </article>
+            <article class="test-card">
+                <span class="test-card-accent"></span>
+                <div class="test-card-head">
+                    <div class="test-avatar" aria-hidden="true">ZM</div>
+                    <div class="test-author">
+                        <div class="test-name">Zainab M.</div>
+                        <div class="test-location">Karachi</div>
+                    </div>
+                    <span class="test-badge">Verified</span>
+                </div>
+                <div class="test-stars" aria-label="5 out of 5 stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.9.6-5.2 4.52 1.6 6.74L12 17.77l-6.2 3.35 1.6-6.74-5.2-4.52 6.9-.6z"/></svg>
+                </div>
+                <blockquote class="test-quote">Finally innerwear that breathes in Karachi heat. The panty pack is great value and stays soft after washing.</blockquote>
+            </article>
+        </div>
+    </section>
+
+    <!-- ═══════════ NEWSLETTER ═══════════ -->
+    <section class="section reveal" id="newsletter">
+        <div class="news-band">
+            <div class="news-inner">
+                <div class="news-copy">
+                    <div class="eyebrow">Stay in the Loop</div>
+                    <h2>New arrivals &amp; offers, first.</h2>
+                    <p>Leave your email and we'll send you first looks at fresh drops and seasonal offers — straight to your inbox, no spam.</p>
+                </div>
+                <div>
+                    <div class="news-form">
+                        <input type="email" id="newsEmail" placeholder="you@email.com" aria-label="Your email address" autocomplete="email" />
+                        <button type="button" class="btn" id="newsSubmit">Join the List</button>
+                    </div>
+                    <p class="news-note" id="newsNote">We'll confirm your subscription over WhatsApp so nothing gets lost.</p>
                 </div>
             </div>
         </div>
     </section>
-<!-- ═══════════ CTA ═══════════ -->
+
+    <!-- ═══════════ FAQ ═══════════ -->
+    <section class="section reveal" id="faq">
+        <div class="eyebrow">Good to Know</div>
+        <h2 class="section-title">Frequently asked <em>questions</em></h2>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>How do I place an order?</summary>
+                <p>Tap "Order on WhatsApp" on any product or category. We confirm your size, delivery address, and total right there in the chat — quick and simple.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do you offer Cash on Delivery?</summary>
+                <p>Yes. We deliver nationwide across Pakistan with Cash on Delivery, so you pay only when your order reaches your door.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How long does delivery take?</summary>
+                <p>Orders usually arrive within 2 to 4 working days, depending on your city.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I exchange if the size is wrong?</summary>
+                <p>Absolutely. Message us on WhatsApp and we'll arrange an easy exchange for the right size.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How do I find my correct size?</summary>
+                <p>Share your measurements with us on WhatsApp and we'll recommend the right fit before you order.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What fabrics do you use?</summary>
+                <p>Soft, breathable, skin-friendly materials chosen for everyday wear and comfort that lasts wash after wash.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- ═══════════ CTA ═══════════ -->
     <section class="cta-stage reveal" id="contact">
         <div class="cta-shell">
             <svg class="cta-border-draw" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
-                <rect x="2" y="2" width="996" height="416" rx="36" ry="36"></rect>
+                <rect x="2" y="2" width="996" height="416" rx="36" ry="36" pathLength="1"></rect>
             </svg>
             <span class="cta-shine" aria-hidden="true"></span>
             <div class="cta-inner">
                 <div class="cta-grid">
                     <div class="cta-copy">
                         <span class="cta-tag">Comfort starts here</span>
-                        <h2 class="cta-title">
+                        <h3 class="cta-title">
                             <span class="cta-title-line"><span>Ready to feel</span></span>
                             <span class="cta-title-line"><span><em>the difference?</em></span></span>
-                        </h2>
+                        </h3>
                         <p class="cta-desc">Message us on WhatsApp for sizing help, order tracking, or just to say hi — we reply fast, every day.</p>
                         <div class="cta-perks">
                             <span class="cta-perk">Free sizing help</span>
@@ -4230,13 +3288,7 @@
                             <span class="cta-ring cta-ring--3"></span>
                         </div>
                         <div class="cta-icon-wrap">
-                            <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6z" /></svg>
-                        </div>
-                        <div class="cta-meter">
-                            <span class="cta-meter-label">Response ready in minutes</span>
-                            <div class="cta-meter-track">
-                                <span class="cta-meter-fill"></span>
-                            </div>
+                            <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z" /></svg>
                         </div>
                     </div>
                 </div>
@@ -4244,10 +3296,9 @@
         </div>
     </section>
 
-    </main>
+    </div>
 
-    
-    <!-- ═════════════ SHOP LINK VIEW — index.html ══════════════════ -->
+    <!-- ═════════════ SHOP LINK VIEW — jibran.html ══════════════════ -->
     <div class="view" id="view-home">
 
     <!-- ═══════════ HERO ═══════════ -->
@@ -4309,42 +3360,42 @@
         <h2 class="section-title">Find your <em>perfect fit</em>, made simple.</h2>
         <div class="cat-grid">
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bras." target="_blank" rel="noopener" class="cat-card cat-card--bras" id="home-cat-bras" aria-label="Order Bras on WhatsApp">
-                <img data-sg-category="bras" src="https://picsum.photos/seed/sg-bras-category-1/400/540" alt="Bras category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="bras" src="assets/images/categories/bras.jpg" alt="Bras category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Bras</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Panties." target="_blank" rel="noopener" class="cat-card cat-card--panties" id="home-cat-panties" aria-label="Order Panties on WhatsApp">
-                <img data-sg-category="panties" src="https://picsum.photos/seed/sg-panties-category-2/400/540" alt="Panties category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="panties" src="assets/images/categories/panties.jpg" alt="Panties category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Panties</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bra%20Sets." target="_blank" rel="noopener" class="cat-card cat-card--sets" id="home-cat-sets" aria-label="Order Bra Sets on WhatsApp">
-                <img data-sg-category="sets" src="https://picsum.photos/seed/sg-bra-sets-category-3/400/540" alt="Bra sets category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="sets" src="assets/images/categories/sets.jpg" alt="Bra sets category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Bra Sets</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Nighties." target="_blank" rel="noopener" class="cat-card cat-card--nighties" id="home-cat-nighties" aria-label="Order Nighties on WhatsApp">
-                <img data-sg-category="nighties" src="https://picsum.photos/seed/sg-nighties-category-4/400/540" alt="Nighties category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="nighties" src="assets/images/categories/nighties.jpg" alt="Nighties category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Nighties</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bodyshapers." target="_blank" rel="noopener" class="cat-card cat-card--bodyshaper" id="home-cat-bodyshaper" aria-label="Order Bodyshaper on WhatsApp">
-                <img data-sg-category="bodyshaper" src="https://picsum.photos/seed/sg-bodyshaper-category-5/400/540" alt="Bodyshaper category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="bodyshaper" src="assets/images/categories/bodyshaper.jpg" alt="Bodyshaper category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Bodyshaper</span>
                     <span class="cat-cta">Order on WhatsApp</span>
                 </div>
             </a>
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Lingerie." target="_blank" rel="noopener" class="cat-card cat-card--lingerie" id="home-cat-lingerie" aria-label="Order Lingerie on WhatsApp">
-                <img data-sg-category="lingerie" src="https://picsum.photos/seed/sg-lingerie-category-6/400/540" alt="Lingerie category" loading="lazy" width="400" height="540" />
+                <img data-sg-category="lingerie" src="assets/images/categories/lingerie.jpg" alt="Lingerie category" loading="lazy" width="400" height="540" />
                 <div class="cat-meta">
                     <span class="cat-label">Lingerie</span>
                     <span class="cat-cta">Order on WhatsApp</span>
@@ -4362,7 +3413,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Everyday%20Comfort%20Bra%20(Rs.%201%2C450)." target="_blank" rel="noopener" class="prod-card prod-card--1" aria-label="Order Everyday Comfort Bra on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img data-sg-product="0" src="https://picsum.photos/seed/sg-everyday-comfort-bra-7/420/480" alt="Everyday Comfort Bra" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="0" src="assets/images/products/01-everyday-comfort-bra.jpg" alt="Everyday Comfort Bra" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -4373,7 +3424,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Soft%20Cotton%20Panty%20Pack%20(Rs.%20950)." target="_blank" rel="noopener" class="prod-card prod-card--2" aria-label="Order Soft Cotton Panty Pack on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img data-sg-product="1" src="https://picsum.photos/seed/sg-soft-cotton-panty-pack-8/420/480" alt="Soft Cotton Panty Pack" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="1" src="assets/images/products/02-cotton-panty-pack.jpg" alt="Soft Cotton Panty Pack" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -4384,7 +3435,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Breathable%20Bra%20%26%20Panty%20Set%20(Rs.%202%2C100)." target="_blank" rel="noopener" class="prod-card prod-card--3" aria-label="Order Breathable Bra and Panty Set on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img data-sg-product="2" src="https://picsum.photos/seed/sg-breathable-bra-and-panty-set-9/420/480" alt="Breathable Bra and Panty Set" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="2" src="assets/images/products/03-bra-panty-set.jpg" alt="Breathable Bra and Panty Set" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -4395,7 +3446,7 @@
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Relaxed%20Fit%20Night%20Wear%20(Rs.%201%2C850)." target="_blank" rel="noopener" class="prod-card prod-card--4" aria-label="Order Relaxed Fit Night Wear on WhatsApp">
                 <div class="prod-img">
                     <span class="prod-tag">New</span>
-                    <img data-sg-product="3" src="https://picsum.photos/seed/sg-relaxed-fit-night-wear-10/420/480" alt="Relaxed Fit Night Wear" loading="lazy" width="420" height="480" />
+                    <img data-sg-product="3" src="assets/images/products/04-night-wear.jpg" alt="Relaxed Fit Night Wear" loading="lazy" width="420" height="480" />
                     <span class="prod-order">Order on WhatsApp</span>
                 </div>
                 <div class="prod-info">
@@ -4436,6 +3487,7 @@
             </div>
         </div>
     </section>
+
     <!-- ═══════════ COLLECTION SHOWCASE RING (Aurora reference) ═══════════ -->
     <section class="showcase-section reveal" id="showcase" aria-label="Collection showcase">
         <div class="showcase-head">
@@ -4658,7 +3710,7 @@
     </main>
 
     <!-- ═══════════ FOOTER ═══════════ -->
-    <footer id="contact">
+    <footer>
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="#view-shop" class="brand">
@@ -4691,11 +3743,11 @@
             <div class="footer-col">
                 <h5>Company</h5>
                 <ul>
-                    <li><a href="#everyday">Everyday Essentials</a></li>
-                    <li><a href="#night">Night &amp; Lounge</a></li>
-                    <li><a href="#shape">Shape &amp; Support</a></li>
-                    <li><a href="#gh-news">Newsletter</a></li>
-                    <li><a href="#view-home">Our Story</a></li>
+                    <li><a href="#promise">Our Promise</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#best-sellers">Best Sellers</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#view-shop">Home</a></li>
                 </ul>
             </div>
             <div class="footer-col footer-contact">
@@ -4719,36 +3771,6 @@
     </a>
 
     <script src="assets/site-images.js"></script>
-    <script>
-        // Placeholder showcase data — remove once assets/site-images.js ships.
-        window.SG_IMAGES = window.SG_IMAGES || { projects: {
-            folder: "https://picsum.photos/seed/", items: [
-            { file: "sg-everyday-comfort-bra/300/420", title: "Everyday Comfort Bra", alt: "Everyday Comfort Bra", category: "everyday", categoryLabel: "Everyday Essentials" },
-            { file: "sg-soft-cotton-panty-pack/300/420", title: "Soft Cotton Panty Pack", alt: "Soft Cotton Panty Pack", category: "everyday", categoryLabel: "Everyday Essentials" },
-            { file: "sg-breathable-bra-panty-set/300/420", title: "Breathable Bra & Panty Set", alt: "Breathable Bra & Panty Set", category: "everyday", categoryLabel: "Everyday Essentials" },
-            { file: "sg-seamless-t-shirt-bra/300/420", title: "Seamless T-Shirt Bra", alt: "Seamless T-Shirt Bra", category: "everyday", categoryLabel: "Everyday Essentials" },
-            { file: "sg-daily-wear-cotton-bra/300/420", title: "Daily Wear Cotton Bra", alt: "Daily Wear Cotton Bra", category: "everyday", categoryLabel: "Everyday Essentials" },
-            { file: "sg-hipster-panty-pack/300/420", title: "Hipster Panty Pack", alt: "Hipster Panty Pack", category: "everyday", categoryLabel: "Everyday Essentials" },
-            { file: "sg-non-padded-comfort-bra/300/420", title: "Non-Padded Comfort Bra", alt: "Non-Padded Comfort Bra", category: "everyday", categoryLabel: "Everyday Essentials" },
-            { file: "sg-cotton-camisole/300/420", title: "Cotton Camisole", alt: "Cotton Camisole", category: "everyday", categoryLabel: "Everyday Essentials" },
-            { file: "sg-relaxed-fit-night-wear/300/420", title: "Relaxed Fit Night Wear", alt: "Relaxed Fit Night Wear", category: "night", categoryLabel: "Night & Lounge" },
-            { file: "sg-satin-night-suit/300/420", title: "Satin Night Suit", alt: "Satin Night Suit", category: "night", categoryLabel: "Night & Lounge" },
-            { file: "sg-cotton-nighty/300/420", title: "Cotton Nighty", alt: "Cotton Nighty", category: "night", categoryLabel: "Night & Lounge" },
-            { file: "sg-lounge-shorts-set/300/420", title: "Lounge Shorts Set", alt: "Lounge Shorts Set", category: "night", categoryLabel: "Night & Lounge" },
-            { file: "sg-printed-sleep-shirt/300/420", title: "Printed Sleep Shirt", alt: "Printed Sleep Shirt", category: "night", categoryLabel: "Night & Lounge" },
-            { file: "sg-modal-pyjama-set/300/420", title: "Modal Pyjama Set", alt: "Modal Pyjama Set", category: "night", categoryLabel: "Night & Lounge" },
-            { file: "sg-sleeveless-nighty/300/420", title: "Sleeveless Nighty", alt: "Sleeveless Nighty", category: "night", categoryLabel: "Night & Lounge" },
-            { file: "sg-soft-robe/300/420", title: "Soft Robe", alt: "Soft Robe", category: "night", categoryLabel: "Night & Lounge" },
-            { file: "sg-full-body-shaper/300/420", title: "Full Body Shaper", alt: "Full Body Shaper", category: "shape", categoryLabel: "Shape & Support" },
-            { file: "sg-tummy-control-shapewear/300/420", title: "Tummy Control Shapewear", alt: "Tummy Control Shapewear", category: "shape", categoryLabel: "Shape & Support" },
-            { file: "sg-high-waist-shaping-brief/300/420", title: "High-Waist Shaping Brief", alt: "High-Waist Shaping Brief", category: "shape", categoryLabel: "Shape & Support" },
-            { file: "sg-seamless-shaping-camisole/300/420", title: "Seamless Shaping Camisole", alt: "Seamless Shaping Camisole", category: "shape", categoryLabel: "Shape & Support" },
-            { file: "sg-thigh-shaper/300/420", title: "Thigh Shaper", alt: "Thigh Shaper", category: "shape", categoryLabel: "Shape & Support" },
-            { file: "sg-padded-push-up-bra/300/420", title: "Padded Push-Up Bra", alt: "Padded Push-Up Bra", category: "shape", categoryLabel: "Shape & Support" },
-            { file: "sg-lace-bridal-set/300/420", title: "Lace Bridal Set", alt: "Lace Bridal Set", category: "shape", categoryLabel: "Shape & Support" },
-            { file: "sg-bridal-lingerie-set/300/420", title: "Bridal Lingerie Set", alt: "Bridal Lingerie Set", category: "shape", categoryLabel: "Shape & Support" }
-        ] } };
-    </script>
     <script>
         // Header scroll state
         const siteHeader = document.getElementById('siteHeader');
@@ -5271,83 +4293,6 @@
             }
         })();
 
-
-        // ── Hero slideshow ──────────────────────────────────────────
-        (function () {
-            const hero = document.getElementById('gh-hero');
-            if (!hero) return;
-            const slides = [...hero.querySelectorAll('.gh-slide')];
-            const dots = [...hero.querySelectorAll('.gh-hero-dots button')];
-            const pauseBtn = hero.querySelector('.gh-hero-pause');
-            const DELAY = 6000;
-            let i = 0, timer = null, paused = false;
-
-            function go(n) {
-                i = (n + slides.length) % slides.length;
-                slides.forEach((s, k) => s.classList.toggle('is-on', k === i));
-                dots.forEach((d, k) => d.classList.toggle('is-on', k === i));
-            }
-            function start() { stop(); if (!paused) timer = setInterval(() => go(i + 1), DELAY); }
-            function stop() { if (timer) { clearInterval(timer); timer = null; } }
-
-            hero.querySelector('.gh-hero-next').addEventListener('click', () => { go(i + 1); start(); });
-            hero.querySelector('.gh-hero-prev').addEventListener('click', () => { go(i - 1); start(); });
-            dots.forEach((d, k) => d.addEventListener('click', () => { go(k); start(); }));
-            pauseBtn.addEventListener('click', () => {
-                paused = !paused;
-                pauseBtn.classList.toggle('is-paused', paused);
-                pauseBtn.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
-                if (paused) { stop(); } else { start(); }
-            });
-            hero.addEventListener('mouseenter', stop);
-            hero.addEventListener('mouseleave', start);
-            document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-            if (!matchMedia('(prefers-reduced-motion: reduce)').matches) start();
-        })();
-
-        // ── Announcement bar ────────────────────────────────────────
-        (function () {
-            const bar = document.querySelector('.gh-ann');
-            if (!bar) return;
-            // has-ann is set statically on <body>
-            const msgs = [...bar.querySelectorAll('.gh-ann-msg')];
-            let i = 0, timer = null;
-            function go(n) {
-                i = (n + msgs.length) % msgs.length;
-                msgs.forEach((m, k) => m.classList.toggle('is-on', k === i));
-            }
-            function start() { clearInterval(timer); timer = setInterval(() => go(i + 1), 4500); }
-            bar.querySelector('.gh-ann-prev').addEventListener('click', () => { go(i - 1); start(); });
-            bar.querySelector('.gh-ann-next').addEventListener('click', () => { go(i + 1); start(); });
-            start();
-            // retract once the user scrolls past it, like the reference site
-            addEventListener('scroll', () => {
-                document.body.classList.toggle('ann-hidden', scrollY > 40);
-            }, { passive: true });
-        })();
-
-        // ── Home newsletter → WhatsApp confirm ──────────────────────
-        (function () {
-            const input = document.getElementById('ghNewsEmail');
-            const btn = document.getElementById('ghNewsSubmit');
-            const note = document.getElementById('ghNewsNote');
-            if (!input || !btn) return;
-            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            function submit() {
-                const email = input.value.trim();
-                if (!emailRe.test(email)) {
-                    note.textContent = 'Please enter a valid email address so we can add you.';
-                    input.focus();
-                    return;
-                }
-                const msg = 'Hi Softgarments! Please add me to your updates. My email: ' + email;
-                window.open('https://wa.me/923379022920?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-                note.textContent = 'Thanks! We\u2019re opening WhatsApp to confirm your subscription.';
-                input.value = '';
-            }
-            btn.addEventListener('click', submit);
-            input.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
-        })();
     </script>
 
 </body>
