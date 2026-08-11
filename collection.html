@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop All — Softgarments Collection</title>
+    <meta name="description" content="Browse the full Softgarments collection — 20+ premium women's innerwear pieces. Order on WhatsApp with nationwide COD." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/site-chrome.css" />
+    <style>
+        :root {
+            --bg: #fafafa;
+            --line: #e8e8e8;
+            --col-ink: #1a1a1a;
+            --col-ink-muted: #666;
+            --col-ink-light: #999;
+            --site-max: min(100% - 48px, 1440px);
+            --pad: var(--site-pad-x);
+            --ease: cubic-bezier(.22, 1, .36, 1);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; overflow-x: clip; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--col-ink);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+        /* offset for fixed ann + nav */
+        .col-page {
+            padding-top: calc(var(--ann-h) + var(--nav-height) + 8px);
+        }
+        body.ann-hidden .col-page {
+            padding-top: calc(var(--nav-height) + 8px);
+        }
+
+        /* ── Hero title (match homepage .gh-head) ── */
+        .col-hero {
+            max-width: var(--site-max);
+            margin: 0 auto;
+            padding: clamp(40px, 6vw, 72px) var(--pad) clamp(24px, 3vw, 36px);
+            text-align: center;
+        }
+        .col-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(34px, 4.5vw, 52px);
+            font-weight: 500;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            line-height: 1.15;
+            color: var(--ink);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .col-hero h1 em {
+            font-style: normal;
+            color: var(--deep-rose);
+        }
+        .col-hero p {
+            margin: 12px auto 0;
+            max-width: 640px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            letter-spacing: normal;
+            text-transform: none;
+            color: var(--ink-soft);
+        }
+
+        /* ── Toolbar ── */
+        .col-toolbar {
+            position: sticky;
+            top: calc(var(--ann-h) + var(--nav-height) - 12px);
+            z-index: 90;
+            background: #fff;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+        body.ann-hidden .col-toolbar {
+            top: calc(var(--nav-height) - 12px);
+        }
+        .col-toolbar-inner {
+            max-width: var(--site-max);
+            margin: 0 auto;
+            padding: 14px var(--pad);
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 16px;
+        }
+        .col-toolbar-left { justify-self: start; }
+        .col-toolbar-center {
+            justify-self: center;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--col-ink-muted);
+        }
+        .col-toolbar-right {
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .col-tool-btn {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--col-ink);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 0;
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s;
+        }
+        .col-tool-btn:hover, .col-tool-btn.is-open { border-bottom-color: var(--col-ink); }
+        .col-tool-btn svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+        /* ── Sort dropdown ── */
+        .col-sort-wrap { position: relative; }
+        .col-sort-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 200px;
+            background: #fff;
+            border: 1px solid var(--line);
+            box-shadow: 0 12px 40px rgba(0,0,0,.08);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: opacity .25s, transform .25s var(--ease), visibility .25s;
+        }
+        .col-sort-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+        .col-sort-menu button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 12px 18px;
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--col-ink-muted);
+            transition: background .15s, color .15s;
+        }
+        .col-sort-menu button:hover, .col-sort-menu button.is-active {
+            background: #f5f5f5;
+            color: var(--col-ink);
+        }
+
+        /* ── Filter drawer ── */
+        .col-filter-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.35);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s, visibility .3s;
+        }
+        .col-filter-overlay.is-open { opacity: 1; visibility: visible; }
+        .col-filter-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: min(360px, 100%);
+            height: 100%;
+            background: #fff;
+            z-index: 201;
+            transform: translateX(100%);
+            transition: transform .35s var(--ease);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .col-filter-drawer.is-open { transform: translateX(0); }
+        .col-filter-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px;
+            border-bottom: 1px solid var(--line);
+        }
+        .col-filter-head h2 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+        .col-filter-close {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+            color: var(--col-ink-muted);
+        }
+        .col-filter-body { flex: 1; overflow-y: auto; padding: 24px; }
+        .col-filter-group { margin-bottom: 32px; }
+        .col-filter-group h3 {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            color: var(--col-ink-muted);
+        }
+        .col-filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            font-size: 13px;
+            color: var(--col-ink);
+            cursor: pointer;
+        }
+        .col-filter-option input { accent-color: var(--deep-rose); width: 16px; height: 16px; }
+        .col-filter-foot {
+            padding: 20px 24px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            gap: 12px;
+        }
+        .col-filter-foot button {
+            flex: 1;
+            padding: 14px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            border-radius: 2px;
+        }
+        .col-filter-clear { background: #f0f0f0; color: var(--col-ink); }
+        .col-filter-apply { background: var(--col-ink); color: #fff; }
+
+        /* ── Product grid ── */
+        .col-main {
+            max-width: var(--site-max);
+            margin: 0 auto;
+            padding: clamp(28px, 4vw, 48px) var(--pad) clamp(64px, 8vw, 100px);
+        }
+        .col-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(20px, 2.5vw, 36px) clamp(14px, 1.8vw, 24px);
+        }
+        .col-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .col-card-img {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            background: #eee;
+        }
+        .col-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s var(--ease);
+        }
+        .col-card:hover .col-card-img img { transform: scale(1.04); }
+        .col-card-wa {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 16px;
+            background: linear-gradient(to top, rgba(0,0,0,.35) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .col-card:hover .col-card-wa { opacity: 1; }
+        .col-card-wa span {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: #fff;
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            background: rgba(255,255,255,.12);
+            backdrop-filter: blur(6px);
+        }
+        .col-card-info {
+            padding: 14px 4px 0;
+            text-align: center;
+        }
+        .col-card-name {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--col-ink);
+            line-height: 1.5;
+        }
+        .col-card-price {
+            margin-top: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--col-ink);
+        }
+        .col-card-price .was {
+            font-weight: 400;
+            color: var(--col-ink-light);
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+        .col-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--col-ink-muted);
+            font-size: 13px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 1100px) {
+            .col-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 760px) {
+            .col-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; }
+            .col-toolbar-inner { grid-template-columns: 1fr 1fr; }
+            .col-toolbar-center { grid-column: 1 / -1; order: -1; }
+            .col-card-wa { opacity: 1; background: none; padding-bottom: 10px; }
+            .col-card-wa span { font-size: 9px; padding: 7px 14px; background: rgba(0,0,0,.5); border: none; }
+        }
+        @media (max-width: 480px) {
+            .col-hero h1 { font-size: clamp(28px, 8vw, 34px); letter-spacing: .03em; }
+        }
+    </style>
+</head>
+<body class="has-ann">
+
+    <!-- ═══════════ ANNOUNCEMENT BAR ═══════════ -->
+    <div class="gh-ann">
+        <button type="button" class="gh-ann-nav gh-ann-prev" aria-label="Previous announcement">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="gh-ann-track">
+            <span class="gh-ann-msg is-on" data-ann="0">Nationwide Cash on Delivery — pay when it reaches your door</span>
+            <span class="gh-ann-msg" data-ann="1">Free delivery on orders over Rs. 3,000</span>
+            <span class="gh-ann-msg" data-ann="2">Need a size? <a href="https://wa.me/923379022920" target="_blank" rel="noopener">Ask us on WhatsApp</a></span>
+        </span>
+        <button type="button" class="gh-ann-nav gh-ann-next" aria-label="Next announcement">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+    </div>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- ═══════════ NAV ═══════════ -->
+    <header class="nav" id="siteHeader">
+        <div class="nav-shell">
+            <span class="nav-glass-sheen" aria-hidden="true"></span>
+            <div class="nav-inner">
+                <a href="main.page.html" class="brand">
+                    <img class="brand-logo" data-sg-logo src="assets/logo.png" alt="Softgarments" width="380" height="58" />
+                </a>
+                <nav class="links" aria-label="Main navigation">
+                    <a href="main.page.html">Home</a>
+                    <a href="collection.html" class="is-active">New Arrivals</a>
+                    <a href="main.page.html#gh-cats">Ready To Wear</a>
+                    <a href="main.page.html#everyday">Fabrics</a>
+                    <a href="main.page.html#night">Menswear</a>
+                    <a href="main.page.html#shape">Sale</a>
+                </nav>
+                <div class="nav-cta">
+                    <a class="btn btn-primary btn-nav-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+                        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+                        <span class="btn-label">Order Now</span>
+                    </a>
+                    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+                        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="nav-mobile-panel" id="mobileNav" aria-hidden="true">
+            <div class="nav-mobile-drawer">
+                <div class="nav-mobile-links">
+                    <a href="main.page.html">Home</a>
+                    <a href="collection.html" class="is-active">New Arrivals</a>
+                    <a href="main.page.html#gh-cats">Ready To Wear</a>
+                    <a href="main.page.html#everyday">Fabrics</a>
+                    <a href="main.page.html#night">Menswear</a>
+                    <a href="main.page.html#shape">Sale</a>
+                </div>
+                <div class="nav-mobile-cta">
+                    <a class="btn btn-primary" href="https://wa.me/923379022920" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6z"/></svg>
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="col-page">
+    <header class="col-hero">
+        <h1 id="colTitle">Softgarments Collection '26</h1>
+        <p id="colTagline">Premium innerwear · Nationwide COD</p>
+    </header>
+
+    <div class="col-toolbar">
+        <div class="col-toolbar-inner">
+            <div class="col-toolbar-left"></div>
+            <div class="col-toolbar-center"><span id="colCount">20 products</span></div>
+            <div class="col-toolbar-right">
+                <div class="col-sort-wrap">
+                    <button type="button" class="col-tool-btn" id="sortBtn" aria-expanded="false">
+                        Sort by
+                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="col-sort-menu" id="sortMenu">
+                        <button type="button" data-sort="featured" class="is-active">Featured</button>
+                        <button type="button" data-sort="price-asc">Price: Low to High</button>
+                        <button type="button" data-sort="price-desc">Price: High to Low</button>
+                        <button type="button" data-sort="name-asc">Name: A – Z</button>
+                        <button type="button" data-sort="name-desc">Name: Z – A</button>
+                    </div>
+                </div>
+                <button type="button" class="col-tool-btn" id="filterBtn">
+                    Filter
+                    <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="12" y1="18" x2="20" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <main class="col-main" id="main">
+        <div class="col-grid" id="colGrid"></div>
+    </main>
+
+    <!-- Filter drawer -->
+    <div class="col-filter-overlay" id="filterOverlay"></div>
+    <aside class="col-filter-drawer" id="filterDrawer" aria-hidden="true">
+        <div class="col-filter-head">
+            <h2>Filters</h2>
+            <button type="button" class="col-filter-close" id="filterClose" aria-label="Close filters">&times;</button>
+        </div>
+        <div class="col-filter-body">
+            <div class="col-filter-group">
+                <h3>Category</h3>
+                <label class="col-filter-option"><input type="checkbox" name="cat" value="everyday" checked /> Everyday Essentials</label>
+                <label class="col-filter-option"><input type="checkbox" name="cat" value="night" checked /> Night &amp; Lounge</label>
+                <label class="col-filter-option"><input type="checkbox" name="cat" value="shape" checked /> Shape &amp; Support</label>
+            </div>
+            <div class="col-filter-group">
+                <h3>Availability</h3>
+                <label class="col-filter-option"><input type="checkbox" name="stock" value="instock" checked /> In stock only</label>
+            </div>
+            <div class="col-filter-group">
+                <h3>Price range (Rs.)</h3>
+                <label class="col-filter-option"><input type="radio" name="price" value="all" checked /> All prices</label>
+                <label class="col-filter-option"><input type="radio" name="price" value="0-1500" /> Under Rs. 1,500</label>
+                <label class="col-filter-option"><input type="radio" name="price" value="1500-2500" /> Rs. 1,500 – 2,500</label>
+                <label class="col-filter-option"><input type="radio" name="price" value="2500+" /> Above Rs. 2,500</label>
+            </div>
+        </div>
+        <div class="col-filter-foot">
+            <button type="button" class="col-filter-clear" id="filterClear">Clear</button>
+            <button type="button" class="col-filter-apply" id="filterApply">View results</button>
+        </div>
+    </aside>
+    </div>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="main.page.html" class="brand">
+                    <img class="brand-logo" src="assets/logo.png" alt="Softgarments" width="360" height="72" />
+                </a>
+                <p>Comfort You Deserve. Premium women's innerwear designed for everyday softness, fit, and confidence.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61591339983267" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                    </a>
+                    <a href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Shop</h5>
+                <ul>
+                    <li><a href="main.page.html#gh-cats">Categories</a></li>
+                    <li><a href="collection.html">New Arrivals</a></li>
+                    <li><a href="main.page.html#everyday">Everyday Essentials</a></li>
+                    <li><a href="main.page.html#night">Night &amp; Lounge</a></li>
+                    <li><a href="main.page.html#shape">Shape &amp; Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="main.page.html">Home</a></li>
+                    <li><a href="main.page.html#reviews">Reviews</a></li>
+                    <li><a href="main.page.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h5>Contact</h5>
+                <ul class="footer-contact-list">
+                    <li><strong>WhatsApp</strong><a href="https://wa.me/923379022920" target="_blank" rel="noopener">+92 337 9022920</a></li>
+                    <li><strong>Email</strong><a href="mailto:softgarmentspk@gmail.com">softgarmentspk@gmail.com</a></li>
+                    <li><strong>Delivery</strong>Cash on Delivery, Nationwide</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Softgarments — Comfort You Deserve</span>
+            <span>Made with care in Islamabad, Pakistan</span>
+        </div>
+    </footer>
+
+    <!-- ═══════════ FLOATING WHATSAPP ═══════════ -->
+    <a class="float-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+    </a>
+
+    <script src="assets/site-images.js"></script>
+    <script src="assets/site-chrome.js"></script>
+    <script src="assets/collection-products.js"></script>
+    <script>
+    (function() {
+        var C = window.SG_COLLECTION;
+        if (!C || !C.products) return;
+
+        var grid = document.getElementById('colGrid');
+        var countEl = document.getElementById('colCount');
+        var titleEl = document.getElementById('colTitle');
+        var taglineEl = document.getElementById('colTagline');
+        var sortBtn = document.getElementById('sortBtn');
+        var sortMenu = document.getElementById('sortMenu');
+        var filterBtn = document.getElementById('filterBtn');
+        var filterOverlay = document.getElementById('filterOverlay');
+        var filterDrawer = document.getElementById('filterDrawer');
+        var filterClose = document.getElementById('filterClose');
+        var filterClear = document.getElementById('filterClear');
+        var filterApply = document.getElementById('filterApply');
+
+        if (C.title) titleEl.textContent = C.title;
+        if (C.tagline) taglineEl.textContent = C.tagline;
+
+        var currentSort = 'featured';
+        var activeCategories = ['everyday', 'night', 'shape'];
+        var priceRange = 'all';
+
+        function formatPrice(n) {
+            return 'Rs. ' + n.toLocaleString('en-PK');
+        }
+
+        function productImage(p, index) {
+            if (p.image && p.image.indexOf('/') > -1) return p.image;
+            var folder = C.imageFolder || 'assets/images/collection/';
+            var fb = (C.imageFallbacks && C.imageFallbacks[index]) ? C.imageFallbacks[index] : '';
+            return folder + (p.image || (String(p.id).padStart(2, '0') + '.jpg'));
+        }
+
+        function waLink(p) {
+            var msg = 'Hi Softgarments! I\'d like to order ' + p.name + ' (' + formatPrice(p.price) + ').';
+            return 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent(msg);
+        }
+
+        function getFiltered() {
+            var list = C.products.slice();
+            list = list.filter(function(p) {
+                if (activeCategories.indexOf(p.category) === -1) return false;
+                if (priceRange === '0-1500' && p.price >= 1500) return false;
+                if (priceRange === '1500-2500' && (p.price < 1500 || p.price > 2500)) return false;
+                if (priceRange === '2500+' && p.price <= 2500) return false;
+                return true;
+            });
+            if (currentSort === 'price-asc') list.sort(function(a, b) { return a.price - b.price; });
+            else if (currentSort === 'price-desc') list.sort(function(a, b) { return b.price - a.price; });
+            else if (currentSort === 'name-asc') list.sort(function(a, b) { return a.name.localeCompare(b.name); });
+            else if (currentSort === 'name-desc') list.sort(function(a, b) { return b.name.localeCompare(a.name); });
+            return list;
+        }
+
+        function render() {
+            var list = getFiltered();
+            countEl.textContent = list.length + ' product' + (list.length !== 1 ? 's' : '');
+            if (!list.length) {
+                grid.innerHTML = '<p class="col-empty">No products match your filters</p>';
+                return;
+            }
+            grid.innerHTML = list.map(function(p, i) {
+                var idx = C.products.indexOf(p);
+                var imgSrc = productImage(p, idx);
+                var fb = (C.imageFallbacks && C.imageFallbacks[idx]) ? C.imageFallbacks[idx] : '';
+                var priceHtml = formatPrice(p.price);
+                if (p.compareAt) priceHtml += '<span class="was">' + formatPrice(p.compareAt) + '</span>';
+                return '<a class="col-card" href="product.html?id=' + p.id + '" aria-label="View ' + p.name + '">' +
+                    '<div class="col-card-img">' +
+                    '<img src="' + imgSrc + '" alt="' + p.name + '" loading="lazy" width="400" height="500" onerror="this.onerror=null;this.src=\'' + fb + '\'" />' +
+                    '<div class="col-card-wa"><span>View Product</span></div>' +
+                    '</div>' +
+                    '<div class="col-card-info">' +
+                    '<div class="col-card-name">' + p.name + '</div>' +
+                    '<div class="col-card-price">' + priceHtml + '</div>' +
+                    '</div></a>';
+            }).join('');
+        }
+
+        /* Sort menu */
+        sortBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var open = sortMenu.classList.toggle('is-open');
+            sortBtn.classList.toggle('is-open', open);
+            sortBtn.setAttribute('aria-expanded', open);
+        });
+        sortMenu.querySelectorAll('button').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                currentSort = btn.dataset.sort;
+                sortMenu.querySelectorAll('button').forEach(function(b) { b.classList.toggle('is-active', b === btn); });
+                sortMenu.classList.remove('is-open');
+                sortBtn.classList.remove('is-open');
+                render();
+            });
+        });
+        document.addEventListener('click', function() {
+            sortMenu.classList.remove('is-open');
+            sortBtn.classList.remove('is-open');
+        });
+
+        /* Filter drawer */
+        function openFilter() {
+            filterOverlay.classList.add('is-open');
+            filterDrawer.classList.add('is-open');
+            filterDrawer.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeFilter() {
+            filterOverlay.classList.remove('is-open');
+            filterDrawer.classList.remove('is-open');
+            filterDrawer.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+        filterBtn.addEventListener('click', openFilter);
+        filterClose.addEventListener('click', closeFilter);
+        filterOverlay.addEventListener('click', closeFilter);
+
+        filterApply.addEventListener('click', function() {
+            activeCategories = [];
+            filterDrawer.querySelectorAll('input[name="cat"]:checked').forEach(function(el) {
+                activeCategories.push(el.value);
+            });
+            var priceEl = filterDrawer.querySelector('input[name="price"]:checked');
+            priceRange = priceEl ? priceEl.value : 'all';
+            closeFilter();
+            render();
+        });
+
+        filterClear.addEventListener('click', function() {
+            filterDrawer.querySelectorAll('input[name="cat"]').forEach(function(el) { el.checked = true; });
+            filterDrawer.querySelector('input[name="price"][value="all"]').checked = true;
+            activeCategories = ['everyday', 'night', 'shape'];
+            priceRange = 'all';
+            closeFilter();
+            render();
+        });
+
+        render();
+    })();
+    </script>
+</body>
+</html>
