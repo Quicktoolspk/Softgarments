@@ -77,7 +77,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
     <style>
         /* ── view switching ─────────────────────────────────────────── */
         .view { display: none; }
@@ -183,7 +183,7 @@
             padding: clamp(72px, 8vw, 112px) var(--site-pad-x);
             position: relative;
         }
-        .section > .eyebrow, .section > .section-title, .section > .section-sub, .section > .cat-grid, .section > .prod-grid, .section > .feat-grid, .section > .test-shell, .section > .blog-grid, .section > div[style] {
+        .section > .eyebrow, .section > .section-title, .section > .section-sub, .section > .cat-grid, .section > .prod-grid, .section > .feat-grid, .section > .test-shell, .section > div[style] {
             max-width: var(--site-max);
             margin-left: auto;
             margin-right: auto;
@@ -204,46 +204,16 @@
             align-items: center;
             gap: 10px;
         }
-        h2.section-title,
-        .hero-copy h1,
-        .gh-slide-title,
-        .showcase-heading,
-        .cta-title {
-            font-family: 'Cormorant Garamond', serif;
-        }
         h2.section-title {
-            font-weight: 500;
-            font-size: clamp(34px, 4.5vw, 52px);
+            font-weight: 700;
+            font-size: clamp(30px, 4vw, 46px);
             color: var(--ink);
             max-width: 640px;
-            line-height: 1.15;
-            letter-spacing: -.01em;
-            text-transform: none;
+            line-height: 1.25;
         }
-        h2.section-title em,
-        .showcase-heading em,
-        .hero-copy h1 em {
+        h2.section-title em {
             font-style: normal;
             color: var(--deep-rose);
-        }
-        .gh-slide-title em,
-        .cta-title em {
-            font-style: normal;
-            color: var(--deep-rose);
-        }
-        .gh-slide-title em {
-            color: var(--rose-soft);
-        }
-        .cta-title em {
-            color: var(--ivory);
-            text-shadow: 0 2px 18px rgba(255, 255, 255, .2);
-        }
-        .hero-copy h1 {
-            font-weight: 500;
-            font-size: clamp(38px, 5.4vw, 64px);
-            line-height: 1.18;
-            color: var(--ink);
-            letter-spacing: -.01em;
         }
         p.section-sub {
             color: var(--ink-soft);
@@ -678,6 +648,12 @@
             position: relative;
             z-index: 1;
         }
+        .hero-copy h1 {
+            font-weight: 700;
+            font-size: clamp(38px, 5.4vw, 64px);
+            line-height: 1.18;
+            color: var(--ink);
+        }
         .hero-copy h1 em {
             font-style: normal;
             color: var(--deep-rose);
@@ -1043,8 +1019,7 @@
             transition: transform .35s var(--ease-out), box-shadow .35s ease, border-color .35s ease;
             text-decoration: none;
             color: inherit;
-            display: flex;
-            flex-direction: column;
+            display: block;
         }
         .prod-card:hover {
             transform: translateY(-6px);
@@ -1105,22 +1080,17 @@
             z-index: 1;
         }
         .prod-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
             padding: 18px 18px 22px;
         }
         .prod-info h4 {
             font-size: 15px;
             font-weight: 700;
             line-height: 1.4;
-            text-align: center;
         }
         .prod-price {
             margin-top: 8px;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
         }
         .prod-price .now {
@@ -1133,357 +1103,6 @@
             font-size: 13px;
             text-decoration: line-through;
         }
-        .prod-desc {
-            margin-top: 6px;
-            font-size: 13px;
-            line-height: 1.5;
-            color: var(--ink-soft);
-            text-align: center;
-        }
-        .prod-add {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            margin-top: 14px;
-            padding: 12px 18px;
-            border: 1.5px solid color-mix(in srgb, var(--deep-rose) 40%, transparent);
-            border-radius: 999px;
-            background: var(--white);
-            color: var(--deep-rose);
-            font-family: inherit;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .02em;
-            line-height: 1;
-            white-space: nowrap;
-            cursor: pointer;
-            transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s var(--ease-out), box-shadow .25s ease;
-        }
-        .prod-add svg {
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-        }
-        .prod-add:hover {
-            background: var(--deep-rose);
-            color: #fff;
-            border-color: var(--deep-rose);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(167, 90, 105, .22);
-        }
-        .prod-actions {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            z-index: 2;
-            opacity: 0;
-            transform: translateX(6px);
-            transition: opacity .3s ease, transform .3s ease;
-        }
-        .prod-card:hover .prod-actions {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .prod-actions button {
-            width: 36px;
-            height: 36px;
-            padding: 0;
-            border: none;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .92);
-            display: grid;
-            place-items: center;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(74, 59, 62, .12);
-            transition: background .2s ease, transform .2s ease;
-        }
-        .prod-actions button:hover {
-            background: #fff;
-            transform: scale(1.05);
-        }
-        .prod-actions button svg {
-            width: 16px;
-            height: 16px;
-            fill: var(--ink);
-        }
-        .prod-rating {
-            position: absolute;
-            bottom: 14px;
-            right: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--ink);
-            background: rgba(255, 255, 255, .92);
-            padding: 5px 10px;
-            border-radius: 999px;
-            z-index: 1;
-        }
-        .prod-rating svg {
-            width: 14px;
-            height: 14px;
-            fill: #e8a317;
-        }
-
-        /* ───────── TOP SALE OF THE WEEK ───────── */
-        #topsale {
-            text-align: center;
-        }
-        #topsale > .eyebrow {
-            justify-content: center;
-        }
-        #topsale > .section-title {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #topsale > .section-sub {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 680px;
-        }
-        .topsale-wrap {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: clamp(20px, 2.5vw, 28px);
-            margin-top: clamp(32px, 4vw, 48px);
-            text-align: left;
-        }
-        .topsale-grid {
-            display: contents;
-        }
-        .topsale-featured {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(216, 167, 177, .22);
-            box-shadow: var(--shadow-sm);
-            padding: clamp(24px, 3vw, 32px);
-            height: 100%;
-        }
-        .topsale-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--deep-rose);
-            margin-bottom: 6px;
-        }
-        .topsale-featured h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(26px, 2.8vw, 34px);
-            font-weight: 500;
-            line-height: 1.15;
-            color: var(--ink);
-            margin: 0 0 10px;
-        }
-        .topsale-featured > p {
-            font-size: 14px;
-            line-height: 1.65;
-            color: var(--ink-soft);
-            margin: 0 0 12px;
-        }
-        .topsale-prod {
-            display: grid;
-            grid-template-columns: 72px minmax(0, 1fr) auto;
-            align-items: center;
-            gap: 14px;
-            padding: 16px 0;
-            border-top: 1px solid rgba(216, 167, 177, .28);
-        }
-        .topsale-prod img {
-            width: 72px;
-            height: 72px;
-            border-radius: 12px;
-            object-fit: cover;
-            background: var(--ivory-deep);
-        }
-        .ts-info h4 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 1.35;
-            color: var(--ink);
-            margin: 0;
-            text-align: left;
-        }
-        .ts-price {
-            margin-top: 4px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--deep-rose);
-            text-align: left;
-        }
-        .ts-price small {
-            color: var(--ink-soft);
-            font-weight: 400;
-            text-decoration: line-through;
-            margin-right: 6px;
-        }
-        .btn-sm {
-            padding: 10px 18px;
-            font-size: 12px;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        #topsale .prod-actions,
-        #topsale .prod-rating {
-            display: none;
-        }
-        #topsale .prod-info h4 {
-            text-align: left;
-        }
-        #topsale .prod-desc {
-            text-align: left;
-        }
-        #topsale .prod-price {
-            justify-content: flex-start;
-        }
-        @media (max-width: 1024px) {
-            .topsale-wrap {
-                grid-template-columns: 1fr;
-            }
-            .topsale-prod {
-                grid-template-columns: 64px minmax(0, 1fr) auto;
-            }
-            .topsale-prod img {
-                width: 64px;
-                height: 64px;
-            }
-        }
-
-        /* ───────── LATEST BLOG ───────── */
-        #blog {
-            background: var(--ivory-deep) !important;
-            text-align: center;
-        }
-        #blog > .eyebrow {
-            justify-content: center;
-        }
-        #blog > .section-title {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #blog > .section-sub {
-            max-width: 680px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #blog .section-title em {
-            font-style: italic;
-        }
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: clamp(22px, 2.5vw, 28px);
-            margin-top: clamp(36px, 4vw, 52px);
-        }
-        .blog-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(216, 167, 177, .18);
-            transition: transform .35s var(--ease-out), box-shadow .35s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .blog-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-        .blog-img {
-            aspect-ratio: 16 / 10;
-            overflow: hidden;
-            background: var(--ivory-deep);
-        }
-        .blog-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .5s ease;
-        }
-        .blog-card:hover .blog-img img {
-            transform: scale(1.04);
-        }
-        .blog-body {
-            padding: clamp(20px, 2.5vw, 26px);
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            text-align: left;
-        }
-        .blog-meta {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--deep-rose);
-            margin-bottom: 10px;
-        }
-        .blog-body h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(20px, 2vw, 24px);
-            font-weight: 500;
-            line-height: 1.28;
-            color: var(--ink);
-            margin: 0 0 12px;
-        }
-        .blog-body p {
-            font-size: 14px;
-            line-height: 1.65;
-            color: var(--ink-soft);
-            margin: 0 0 18px;
-            flex: 1;
-        }
-        .btn-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: none;
-            border: none;
-            padding: 0;
-            font-family: inherit;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--deep-rose);
-            cursor: pointer;
-            transition: gap .25s ease, color .25s ease;
-            align-self: flex-start;
-        }
-        .btn-link svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-        .btn-link:hover {
-            gap: 10px;
-        }
-        @media (max-width: 1024px) {
-            .blog-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-        @media (max-width: 640px) {
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* ───────── FEATURES ───────── */
         .feat-grid {
             display: grid;
@@ -1520,7 +1139,6 @@
             fill: var(--deep-rose);
         }
         .feat-card h4 {
-            font-family: 'Poppins', sans-serif;
             font-size: 17px;
             font-weight: 700;
             margin-bottom: 10px;
@@ -1530,160 +1148,6 @@
             color: var(--ink-soft);
             line-height: 1.7;
         }
-
-        /* ───────── SUMMER SALE BANNER (featured section) ───────── */
-        #featured {
-            background: var(--ivory-deep) !important;
-            text-align: center;
-        }
-        #featured > .eyebrow {
-            justify-content: center;
-        }
-        #featured > .section-title {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #featured > .section-sub {
-            margin-left: auto;
-            margin-right: auto;
-            font-size: clamp(15px, 1.15vw, 17px);
-            color: var(--ink-soft);
-            max-width: 680px;
-        }
-        .sale-banner {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: center;
-            gap: clamp(20px, 4vw, 48px);
-            max-width: var(--site-max);
-            width: 100%;
-            margin: clamp(28px, 4vw, 44px) auto 0;
-            padding: clamp(32px, 5vw, 52px) clamp(28px, 4.5vw, 56px);
-            border-radius: clamp(24px, 3vw, 36px);
-            background: linear-gradient(
-                105deg,
-                color-mix(in srgb, var(--deep-rose) 90%, #2a1520) 0%,
-                color-mix(in srgb, var(--deep-rose) 78%, var(--rose)) 52%,
-                color-mix(in srgb, var(--rose) 70%, var(--deep-rose)) 100%
-            );
-            box-shadow: 0 20px 48px rgba(167, 90, 105, .24);
-            text-align: left;
-            overflow: hidden;
-            position: relative;
-        }
-        .sale-text {
-            position: relative;
-            z-index: 1;
-            max-width: 560px;
-        }
-        .sale-tag {
-            display: inline-block;
-            font-family: 'Poppins', sans-serif;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: .2em;
-            text-transform: uppercase;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, .42);
-            background: rgba(255, 255, 255, .1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            margin-bottom: 18px;
-        }
-        .sale-banner-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(28px, 3.6vw, 42px);
-            font-weight: 500;
-            font-style: italic;
-            line-height: 1.2;
-            color: #fff;
-            margin: 0 0 14px;
-            letter-spacing: -.01em;
-        }
-        .sale-banner-title em {
-            font-style: italic;
-            color: #fff;
-        }
-        .sale-text p {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(13px, 1.05vw, 15px);
-            line-height: 1.65;
-            color: rgba(255, 255, 255, .88);
-            margin: 0 0 24px;
-            max-width: 480px;
-        }
-        .sale-banner-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff !important;
-            color: var(--deep-rose) !important;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 14.5px;
-            padding: 14px 28px;
-            border-radius: 999px;
-            border: none;
-            box-shadow: 0 8px 24px rgba(74, 59, 62, .14);
-            text-decoration: none;
-            transition: transform .25s var(--ease-out), box-shadow .25s ease;
-        }
-        .sale-banner-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(74, 59, 62, .2);
-            color: var(--deep-rose) !important;
-        }
-        .sale-visual {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .sale-icon {
-            width: clamp(118px, 13vw, 158px);
-            height: clamp(118px, 13vw, 158px);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 1.5px solid rgba(255, 255, 255, .5);
-            background: rgba(255, 255, 255, .12);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(30px, 3.8vw, 40px);
-            font-weight: 700;
-            line-height: 1;
-        }
-        .sale-icon small {
-            display: block;
-            font-size: clamp(13px, 1.4vw, 17px);
-            font-weight: 600;
-            letter-spacing: .14em;
-            margin-top: 4px;
-        }
-        @media (max-width: 768px) {
-            .sale-banner {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: clamp(28px, 6vw, 40px) clamp(22px, 5vw, 32px);
-            }
-            .sale-text {
-                max-width: none;
-            }
-            .sale-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .sale-visual {
-                justify-content: center;
-            }
-        }
-
         /* ───────── COLLECTION SHOWCASE RING (Aurora reference layout) ───────── */
         .showcase-section {
             position: relative;
@@ -1700,18 +1164,13 @@
             margin: 0 auto;
             text-align: center;
         }
-        .showcase-head .section-title {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: none;
-        }
         .showcase-heading {
             margin: 0 0 16px;
-            font-weight: 500;
-            letter-spacing: -.01em;
-            line-height: 1.15;
+            font-size: clamp(36px, 4.6vw, 68px);
+            font-weight: 700;
+            letter-spacing: -.03em;
+            line-height: 1.05;
             color: var(--ink);
-            text-transform: none;
         }
         .showcase-subheading {
             margin: 0;
@@ -1911,21 +1370,9 @@
         }
         .test-intro {
             max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        .test-intro .eyebrow {
-            justify-content: center;
-        }
-        .test-intro .section-title {
-            margin-left: auto;
-            margin-right: auto;
         }
         .test-intro .section-sub {
             margin-top: 14px;
-            margin-left: auto;
-            margin-right: auto;
             color: var(--ink-soft);
             font-size: 17px;
             line-height: 1.75;
@@ -1935,7 +1382,6 @@
             flex-wrap: wrap;
             gap: 12px;
             margin-top: 28px;
-            justify-content: center;
         }
         .test-stat {
             display: inline-flex;
@@ -2266,10 +1712,9 @@
         }
         .cta-title {
             margin-top: 18px;
-            font-weight: 500;
+            font-weight: 700;
             font-size: clamp(28px, 4vw, 42px);
             line-height: 1.2;
-            letter-spacing: -.01em;
         }
         .cta-title-line {
             display: block;
@@ -3156,25 +2601,24 @@
             font-weight: 600;
             letter-spacing: .22em;
             text-transform: uppercase;
-            color: #fff;
+            color: var(--rose-soft);
             padding: 7px 18px;
             border-radius: 999px;
-            background: rgba(74, 59, 62, .38);
-            border: 1px solid rgba(255, 255, 255, .72);
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .28);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            text-shadow: 0 1px 8px rgba(0, 0, 0, .35);
             margin-bottom: 18px;
         }
         .gh-slide-title {
+            font-family: 'Cormorant Garamond', serif;
             font-size: clamp(34px, 6.4vw, 76px);
             font-weight: 500;
             line-height: 1.05;
             margin: 0 0 14px;
-            letter-spacing: -.02em;
             text-shadow: 0 2px 24px rgba(74, 59, 62, .45);
         }
-        .gh-slide-title em { font-style: normal; color: var(--rose-soft); }
+        .gh-slide-title em { font-style: italic; color: var(--rose-soft); }
         .gh-slide-sub {
             font-size: clamp(14px, 1.6vw, 17px);
             line-height: 1.65;
@@ -3252,17 +2696,17 @@
         .gh-section { padding: clamp(56px, 7.5vw, 96px) 0; }
         .gh-section--tint { background: var(--ivory-deep); }
         .gh-head { text-align: center; padding: 0 var(--site-pad-x); margin-bottom: clamp(30px, 4vw, 48px); }
-        .gh-head .section-title {
-            margin: 0 auto;
-            max-width: 640px;
-            text-align: center;
-            text-transform: uppercase;
+        .gh-head h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(30px, 4.4vw, 52px);
+            font-weight: 500;
             letter-spacing: .04em;
-        }
-        .gh-head .section-title em {
             text-transform: uppercase;
-            font-style: normal;
+            color: var(--ink);
+            margin: 0;
+            line-height: 1.15;
         }
+        .gh-head h2 em { font-style: italic; color: var(--deep-rose); text-transform: none; }
         .gh-head p {
             margin: 12px auto 0;
             max-width: 640px;
@@ -3320,13 +2764,13 @@
             gap: 10px;
         }
         .gh-cat-name {
-            font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(13px, 1.35vw, 17px);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(19px, 2.1vw, 27px);
             font-weight: 500;
-            letter-spacing: .14em;
+            letter-spacing: .06em;
             text-transform: uppercase;
             color: #fff;
-            line-height: 1.25;
+            line-height: 1.1;
         }
         .gh-cat-cta {
             font-size: 10.5px;
@@ -3425,29 +2869,17 @@
         .gh-quick:hover { background: var(--deep-rose); color: #fff; }
         .gh-card-info { padding: 16px 16px 20px; text-align: center; }
         .gh-card-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(13px, 1.15vw, 15px);
+            font-size: 14px;
             font-weight: 600;
-            letter-spacing: .1em;
+            letter-spacing: .05em;
             text-transform: uppercase;
-            color: #333;
-            margin: 0 0 6px;
-            line-height: 1.3;
+            color: var(--ink);
+            margin: 0 0 8px;
+            line-height: 1.35;
         }
-        .gh-price { display: flex; align-items: baseline; justify-content: center; gap: 8px; flex-wrap: wrap; }
-        .gh-price .gh-now {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(13px, 1.1vw, 15px);
-            font-weight: 700;
-            color: #9D3E5E;
-        }
-        .gh-price .gh-was {
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 400;
-            color: #999;
-            text-decoration: line-through;
-        }
+        .gh-price { display: flex; align-items: baseline; justify-content: center; gap: 9px; flex-wrap: wrap; }
+        .gh-price .gh-now { font-size: 15px; font-weight: 600; color: var(--deep-rose); }
+        .gh-price .gh-was { font-size: 13px; color: var(--ink-soft); text-decoration: line-through; }
 
         .gh-viewall { text-align: center; margin-top: clamp(32px, 4vw, 48px); }
 
@@ -3469,11 +2901,6 @@
             font-weight: 500;
             margin: 0 0 12px;
             line-height: 1.15;
-            letter-spacing: -.01em;
-        }
-        .gh-news h2 em {
-            font-style: normal;
-            color: var(--rose-soft);
         }
         .gh-news p { margin: 0 auto 26px; max-width: 520px; font-size: 15px; line-height: 1.7; color: rgba(255, 255, 255, .88); }
         .gh-news-form { display: flex; gap: 10px; max-width: 520px; margin: 0 auto; flex-wrap: wrap; }
@@ -3533,8 +2960,8 @@
             :root { --ann-h: 46px; }
             .gh-ann { font-size: 10.5px; letter-spacing: .06em; padding: 0 34px; }
             .gh-card-info { padding: 12px 10px 16px; }
-            .gh-card-name { font-size: 12.5px; letter-spacing: .08em; }
-            .gh-price .gh-now { font-size: 13px; }
+            .gh-card-name { font-size: 12.5px; }
+            .gh-price .gh-now { font-size: 14px; }
             .gh-price .gh-was { font-size: 12px; }
             .gh-news-form input { flex: 1 1 100%; }
             .gh-news-form .btn { width: 100%; justify-content: center; }
@@ -3572,7 +2999,7 @@
                 </a>
                 <nav class="links" aria-label="Main navigation">
                     <a href="#view-home" data-view="view-home">Home</a>
-                    <a href="collection.html">New Arrivals</a>
+                    <a href="#">New Arrivals</a>
                     <a href="#">Ready To Wear</a>
                     <a href="#">Fabrics</a>
                     <a href="#">Menswear</a>
@@ -3594,7 +3021,7 @@
             <div class="nav-mobile-drawer">
                 <div class="nav-mobile-links">
                     <a href="#view-home" data-view="view-home">Home</a>
-                    <a href="collection.html">New Arrivals</a>
+                    <a href="#">New Arrivals</a>
                     <a href="#">Ready To Wear</a>
                     <a href="#">Fabrics</a>
                     <a href="#">Menswear</a>
@@ -3676,7 +3103,7 @@
     <!-- ═══════════ SHOP BY CATEGORY ═══════════ -->
     <section class="gh-section reveal" id="gh-cats">
         <div class="gh-head">
-            <h2 class="section-title">Shop by <em>Category</em></h2>
+            <h2>Shop by <em>Category</em></h2>
             <span class="gh-rule"></span>
             <p>Six edits covering everything from daily basics to occasion pieces — every one cut for comfort first.</p>
         </div>
@@ -3728,13 +3155,8 @@
 
     <!-- ═══════════ COLLECTION — Everyday Essentials ═══════════ -->
     <section class="gh-section reveal" id="everyday">
-<<<<<<< HEAD
-         <div class="gh-head">
-            <h2>Everyday <em>Essentials</em></h2>
-=======
         <div class="gh-head">
-            <h2 class="section-title">Everyday <em>Essentials</em></h2>
->>>>>>> 04c8386f6216e800f081eae25d4095358215b0fb
+            <h2>Everyday Essentials</h2>
             <span class="gh-rule"></span>
             <p>The soft, breathable basics you reach for every single morning.</p>
         </div>
@@ -3838,11 +3260,7 @@
     <!-- ═══════════ COLLECTION — Night & Lounge ═══════════ -->
     <section class="gh-section gh-section--tint reveal" id="night">
         <div class="gh-head">
-<<<<<<< HEAD
-            <h2>Night &amp; <em>Lounge</em></h2>
-=======
-            <h2 class="section-title">Night &amp; <em>Lounge</em></h2>
->>>>>>> 04c8386f6216e800f081eae25d4095358215b0fb
+            <h2>Night &amp; Lounge</h2>
             <span class="gh-rule"></span>
             <p>Relaxed shapes in fabrics that stay soft wash after wash.</p>
         </div>
@@ -3946,11 +3364,7 @@
     <!-- ═══════════ COLLECTION — Shape & Support ═══════════ -->
     <section class="gh-section reveal" id="shape">
         <div class="gh-head">
-<<<<<<< HEAD
-            <h2>Shape &amp; <em>Support</em></h2>
-=======
-            <h2 class="section-title">Shape &amp; <em>Support</em></h2>
->>>>>>> 04c8386f6216e800f081eae25d4095358215b0fb
+            <h2>Shape &amp; Support</h2>
             <span class="gh-rule"></span>
             <p>Smoothing layers and occasion sets, built for all-day comfort.</p>
         </div>
@@ -4075,29 +3489,10 @@
                 <p>Wrong size? Message us and we will arrange a swap.</p>
             </div>
         </div>
-<<<<<<< HEAD
-    </section>
-  <!-- ═══════════ SALE BANNER + LATEST PRODUCTS ═══════════ -->
-    <section class="section reveal" id="featured" style="background:var(--ivory-deep);">
-        <div class="eyebrow">Latest Products</div>
-        <h2 class="section-title">Happy Summer <em>Sale !!</em></h2>
-        <p class="section-sub">Get 20% discount on purchase — premium fashion at unbeatable prices. Limited time offer.</p>
-        <div class="sale-banner">
-            <div class="sale-text">
-                <span class="sale-tag">🔥 Summer Sale</span>
-                <h2>20% <em>Discount</em> on Purchase!</h2>
-                <p>Wisi dolore quidem inceptos eu! Ab, ultrices dolore? Incididunt vitae sint proin faucibus optio reiciendis ipsu.</p>
-                <a href="#products" class="btn">Checkout Products</a>
-            </div>
-            <div class="sale-visual">
-                <div class="sale-icon">
-                    20%
-                    <small>OFF</small>
-=======
       </section>
       
         <!-- ═══════════ SALE BANNER + LATEST PRODUCTS ═══════════ -->
-        <section class="section reveal" id="featured">
+        <section class="section reveal" id="featured" style="background:var(--ivory-deep);">
             <div class="eyebrow">Latest Products</div>
             <h2 class="section-title">Happy Summer <em>Sale !!</em></h2>
             <p class="section-sub">Get 20% discount on purchase — premium fashion at unbeatable prices. Limited time offer.</p>
@@ -4105,13 +3500,12 @@
             <div class="sale-banner">
                 <div class="sale-text">
                     <span class="sale-tag">🔥 Summer Sale</span>
-                    <h2 class="sale-banner-title"><em>20% Discount</em> on Purchase!</h2>
+                    <h2>20% <em>Discount</em> on Purchase!</h2>
                     <p>Wisi dolore quidem inceptos eu! Ab, ultrices dolore? Incididunt vitae sint proin faucibus optio reiciendis ipsu.</p>
-                    <a href="#products" class="btn sale-banner-btn">Checkout Products</a>
->>>>>>> 04c8386f6216e800f081eae25d4095358215b0fb
+                    <a href="#products" class="btn">Checkout Products</a>
                 </div>
                 <div class="sale-visual">
-                    <div class="sale-icon" aria-hidden="true">
+                    <div class="sale-icon">
                         20%
                         <small>OFF</small>
                     </div>
@@ -4243,7 +3637,7 @@
 <!-- ═══════════ TOP SALE OF THE WEEK ═══════════ -->
         <section class="section reveal" id="topsale">
             <div class="eyebrow">Top Sale</div>
-            <h2 class="section-title">Top Sale of the <em>Week</em></h2>
+            <h2 class="section-title">Top Sale <em>of the Week</em></h2>
             <p class="section-sub">Featured products — our most popular picks trusted by customers for their quality and style.</p>
 
             <div class="topsale-wrap">
@@ -4334,9 +3728,10 @@
                 </div>
             </div>
         </section>
+    </section>
 
   <!-- ═══════════ LATEST BLOG ═══════════ -->
-    <section class="section reveal" id="blog">
+    <section class="section reveal" style="background:var(--ivory-deep);">
         <div class="eyebrow">Latest Blog</div>
         <h2 class="section-title">Style <em>Stories</em> &amp; Inspiration</h2>
         <p class="section-sub">Explore our latest articles on fashion, comfort, and lifestyle — curated for the modern woman.</p>
@@ -4350,7 +3745,7 @@
                     <div class="blog-meta">Fashion</div>
                     <h4>Stylish &amp; Modern Wear for Stylish People</h4>
                     <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                    <button type="button" class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
             </div>
             <div class="blog-card">
@@ -4361,7 +3756,7 @@
                     <div class="blog-meta">Designer</div>
                     <h4>Best Designer Dress on Affordable Price</h4>
                     <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                    <button type="button" class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
             </div>
             <div class="blog-card">
@@ -4372,18 +3767,58 @@
                     <div class="blog-meta">Sale</div>
                     <h4>Heavy Discount on Our Summer Sale</h4>
                     <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                    <button type="button" class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
             </div>
         </div>
     </section>
-
+  <!-- ═══════════ LATEST BLOG ═══════════ -->
+        <section class="section reveal" style="background:var(--ivory-deep);">
+            <div class="eyebrow">Latest Blog</div>
+            <h2 class="section-title">Style <em>Stories</em> &amp; Inspiration</h2>
+            <p class="section-sub">Explore our latest articles on fashion, comfort, and lifestyle — curated for the modern woman.</p>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://picsum.photos/seed/summer-sale-blog/600/380" alt="Stylish & Modern Wear — fashion blog" loading="lazy" width="600" height="380" />
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">Fashion</div>
+                        <h4>Stylish &amp; Modern Wear for Stylish People</h4>
+                        <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
+                        <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://picsum.photos/seed/designer-dress/600/380" alt="Best Designer Dress — affordable fashion" loading="lazy" width="600" height="380" />
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">Designer</div>
+                        <h4>Best Designer Dress on Affordable Price</h4>
+                        <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
+                        <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://picsum.photos/seed/heavy-discount/600/380" alt="Heavy Discount on Summer Sale — fashion deals" loading="lazy" width="600" height="380" />
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta">Sale</div>
+                        <h4>Heavy Discount on Our Summer Sale</h4>
+                        <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
+                        <button class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                    </div>
+                </div>
+            </div>
+        </section>
      <!-- ═══════════ TESTIMONIALS ═══════════ -->
     <section class="section reveal test-section" id="reviews">
         <div class="test-shell">
             <div class="test-intro">
                 <div class="eyebrow">Customer Love</div>
-                <h2 class="section-title">What our customers <em>say</em></h2>
+                <h2 class="section-title">What our <em>customers</em> say</h2>
                 <p class="section-sub">Comfort stories from women across Pakistan who shop with us on WhatsApp — soft fabrics, honest fit, and delivery you can count on.</p>
                 <div class="test-stats">
                     <span class="test-stat"><strong>5★</strong> Rated service</span>
@@ -4540,7 +3975,7 @@
                             <span class="cta-perk">Order tracking</span>
                         </div>
                         <a class="cta-btn" href="https://wa.me/923379022920" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+                            <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6z" /></svg>
                             Message Us on WhatsApp
                         </a>
                     </div>
@@ -4551,7 +3986,7 @@
                             <span class="cta-ring cta-ring--3"></span>
                         </div>
                         <div class="cta-icon-wrap">
-                            <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+                            <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6z" /></svg>
                         </div>
                         <div class="cta-meter">
                             <span class="cta-meter-label">Response ready in minutes</span>
@@ -4627,7 +4062,7 @@
     <!-- ═══════════ CATEGORIES ═══════════ -->
     <section class="section reveal" id="home-categories">
         <div class="eyebrow">Shop by Category</div>
-        <h2 class="section-title">Find your perfect fit, made <em>simple.</em></h2>
+        <h2 class="section-title">Find your <em>perfect fit</em>, made simple.</h2>
         <div class="cat-grid">
             <a href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20browse%20Bras." target="_blank" rel="noopener" class="cat-card cat-card--bras" id="home-cat-bras" aria-label="Order Bras on WhatsApp">
                 <img data-sg-category="bras" src="https://picsum.photos/seed/sg-bras-category-1/400/540" alt="Bras category" loading="lazy" width="400" height="540" />
@@ -4760,7 +4195,7 @@
     <!-- ═══════════ COLLECTION SHOWCASE RING (Aurora reference) ═══════════ -->
     <section class="showcase-section reveal" id="showcase" aria-label="Collection showcase">
         <div class="showcase-head">
-            <h2 class="section-title showcase-heading">Softgarments Did <em>It</em></h2>
+            <h2 class="showcase-heading">Softgarments Did It</h2>
             <p class="showcase-subheading">Explore our full range of bras, panties, bra sets, nighties, and body shapers, each one made for real everyday comfort.</p>
         </div>
         <div class="showcase-stage" id="showcaseStage">
@@ -4791,7 +4226,7 @@
         <div class="test-shell">
             <div class="test-intro">
                 <div class="eyebrow">Customer Love</div>
-                <h2 class="section-title">What our customers <em>say</em></h2>
+                <h2 class="section-title">What our <em>customers</em> say</h2>
                 <p class="section-sub">Comfort stories from women across Pakistan who shop with us on WhatsApp — soft fabrics, honest fit, and delivery you can count on.</p>
                 <div class="test-stats">
                     <span class="test-stat"><strong>5★</strong> Rated service</span>
@@ -4949,7 +4384,7 @@
                             <span class="cta-perk">Order tracking</span>
                         </div>
                         <a class="cta-btn" href="https://wa.me/923379022920" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+                            <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6z" /></svg>
                             Message Us on WhatsApp
                         </a>
                     </div>
@@ -4960,7 +4395,7 @@
                             <span class="cta-ring cta-ring--3"></span>
                         </div>
                         <div class="cta-icon-wrap">
-                            <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+                            <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6z" /></svg>
                         </div>
                         <div class="cta-meter">
                             <span class="cta-meter-label">Response ready in minutes</span>
@@ -5457,127 +4892,82 @@
             startAuto();
         })();
 
-        // Testimonial spotlight carousel — infinite loop per section
+        // Testimonial spotlight carousel
         (function() {
-            document.querySelectorAll('.test-stage').forEach(function(stage) {
-                const viewport = stage.querySelector('.test-viewport');
-                const track = stage.querySelector('.test-track');
-                const progressWrap = stage.querySelector('.test-progress');
-                const counterEl = stage.querySelector('.test-counter');
-                const prevBtn = stage.querySelector('.test-nav-pill .test-arrow:first-of-type');
-                const nextBtn = stage.querySelector('.test-nav-pill .test-arrow:last-of-type');
-                if (!viewport || !track || !progressWrap) return;
+            const viewport = document.getElementById('testViewport');
+            const track = document.getElementById('testTrack');
+            const progressWrap = document.getElementById('testProgress');
+            const counterEl = document.getElementById('testCounter');
+            const prevBtn = document.getElementById('testPrev');
+            const nextBtn = document.getElementById('testNext');
+            if (!viewport || !track || !progressWrap) return;
 
-                const originals = [...track.children];
-                const count = originals.length;
-                if (!count) return;
+            const slides = [...track.children];
+            const gap = 20;
+            let index = 0;
+            let autoTimer = null;
+            let isHovering = false;
 
-                const firstClone = originals[0].cloneNode(true);
-                const lastClone = originals[count - 1].cloneNode(true);
-                firstClone.classList.remove('is-active');
-                lastClone.classList.remove('is-active');
-                firstClone.setAttribute('aria-hidden', 'true');
-                lastClone.setAttribute('aria-hidden', 'true');
-                track.insertBefore(lastClone, originals[0]);
-                track.appendChild(firstClone);
+            slides.forEach((slide, i) => {
+                const bar = document.createElement('button');
+                bar.type = 'button';
+                bar.className = 'test-progress-bar' + (i === 0 ? ' is-active' : '');
+                bar.setAttribute('aria-label', 'Go to review ' + (i + 1));
+                bar.addEventListener('click', () => { goTo(i); resetAuto(); });
+                progressWrap.appendChild(bar);
+            });
+            const bars = [...progressWrap.children];
 
-                const slides = [...track.children];
-                const gap = 20;
-                let index = 1;
-                let autoTimer = null;
-                let isHovering = false;
+            function pad(n) {
+                return String(n).padStart(2, '0');
+            }
 
-                originals.forEach(function(slide, i) {
-                    const bar = document.createElement('button');
-                    bar.type = 'button';
-                    bar.className = 'test-progress-bar' + (i === 0 ? ' is-active' : '');
-                    bar.setAttribute('aria-label', 'Go to review ' + (i + 1));
-                    bar.addEventListener('click', function() { goToReal(i); resetAuto(); });
-                    progressWrap.appendChild(bar);
-                });
-                const bars = [...progressWrap.children];
-
-                function pad(n) {
-                    return String(n).padStart(2, '0');
+            function layout() {
+                const slideWidth = slides[0].offsetWidth;
+                const viewportWidth = viewport.offsetWidth;
+                const offset = (viewportWidth - slideWidth) / 2 - index * (slideWidth + gap);
+                track.style.transform = 'translateX(' + offset + 'px)';
+                slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+                bars.forEach((bar, i) => bar.classList.toggle('is-active', i === index));
+                if (counterEl) {
+                    counterEl.innerHTML = '<strong>' + pad(index + 1) + '</strong> / ' + pad(slides.length);
                 }
+            }
 
-                function realIndex() {
-                    if (index === 0) return count - 1;
-                    if (index === count + 1) return 0;
-                    return index - 1;
+            function goTo(i) {
+                index = (i + slides.length) % slides.length;
+                layout();
+            }
+
+            function next() { goTo(index + 1); }
+            function prev() { goTo(index - 1); }
+
+            function startAuto() {
+                clearInterval(autoTimer);
+                if (!isHovering) {
+                    autoTimer = setInterval(next, 5000);
                 }
+            }
 
-                function layout(instant) {
-                    if (instant) track.style.transition = 'none';
-                    const slideWidth = slides[0].offsetWidth;
-                    const viewportWidth = viewport.offsetWidth;
-                    const offset = (viewportWidth - slideWidth) / 2 - index * (slideWidth + gap);
-                    track.style.transform = 'translateX(' + offset + 'px)';
-                    const ri = realIndex();
-                    slides.forEach(function(slide, i) { slide.classList.toggle('is-active', i === index); });
-                    bars.forEach(function(bar, i) { bar.classList.toggle('is-active', i === ri); });
-                    if (counterEl) {
-                        counterEl.innerHTML = '<strong>' + pad(ri + 1) + '</strong> / ' + pad(count);
-                    }
-                    if (instant) {
-                        void track.offsetHeight;
-                        track.style.transition = '';
-                    }
-                }
+            function resetAuto() {
+                startAuto();
+            }
 
-                function goToReal(i) {
-                    index = i + 1;
-                    layout(false);
-                }
+            prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
+            nextBtn.addEventListener('click', () => { next(); resetAuto(); });
 
-                function goTo(i) {
-                    index = i;
-                    layout(false);
-                }
-
-                function next() { goTo(index + 1); }
-                function prev() { goTo(index - 1); }
-
-                track.addEventListener('transitionend', function(e) {
-                    if (e.propertyName !== 'transform') return;
-                    if (index === 0) {
-                        index = count;
-                        layout(true);
-                    } else if (index === count + 1) {
-                        index = 1;
-                        layout(true);
-                    }
-                });
-
-                function startAuto() {
-                    clearInterval(autoTimer);
-                    if (!isHovering) autoTimer = setInterval(next, 5000);
-                }
-
-                function resetAuto() {
-                    startAuto();
-                }
-
-                if (prevBtn) prevBtn.addEventListener('click', function() { prev(); resetAuto(); });
-                if (nextBtn) nextBtn.addEventListener('click', function() { next(); resetAuto(); });
-
-                viewport.addEventListener('mouseenter', function() {
-                    isHovering = true;
-                    clearInterval(autoTimer);
-                });
-                viewport.addEventListener('mouseleave', function() {
-                    isHovering = false;
-                    startAuto();
-                });
-
-                window.addEventListener('resize', function() { layout(true); });
-                if (typeof ResizeObserver !== 'undefined') {
-                    const ro = new ResizeObserver(function() { layout(true); });
-                    ro.observe(viewport);
-                }
-                layout(true);
+            viewport.addEventListener('mouseenter', () => {
+                isHovering = true;
+                clearInterval(autoTimer);
+            });
+            viewport.addEventListener('mouseleave', () => {
+                isHovering = false;
                 startAuto();
             });
+
+            window.addEventListener('resize', layout);
+            layout();
+            startAuto();
         })();
         // Newsletter → confirm over WhatsApp (no backend needed)
         (function() {
