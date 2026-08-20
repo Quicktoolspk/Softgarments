@@ -4,14 +4,14 @@
  */
 (function() {
     function boot() {
-        var C = window.SG_COLLECTION;
+        var params = new URLSearchParams(window.location.search);
+        var productId = parseInt(params.get('id'), 10);
+        var C = productId >= 100 ? window.SG_RTW_COLLECTION : window.SG_COLLECTION;
         if (!C || !C.products || !C.products.length) {
             C = window.SG_DEMO_COLLECTION;
         }
         if (!C || !C.products || !C.products.length) return;
 
-        var params = new URLSearchParams(window.location.search);
-        var productId = parseInt(params.get('id'), 10);
         if (!productId || isNaN(productId)) {
             productId = C.products[0].id;
         }
@@ -75,7 +75,7 @@
                 compareAt: p.compareAt,
                 category: p.category,
                 image: p.image,
-                images: p.images && p.images.length ? p.images : [p.image],
+                images: p.images && p.images.length ? p.images : (p.gallery && p.gallery.length ? p.gallery : [p.image]),
                 optionGroups: p.optionGroups || cat.optionGroups,
                 description: p.description || cat.description,
                 modelSize: p.modelSize || cat.modelSize,

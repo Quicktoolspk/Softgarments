@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Ready To Wear — Softgarments</title>
+	<meta name="description" content="Discover Softgarments Ready To Wear: effortless styles, premium comfort, and nationwide Cash on Delivery across Pakistan." />
+</head>
+<body>
+	<main id="rtwBoot" aria-live="polite">Loading Ready To Wear...</main>
+	<script>
+	(function () {
+		var boot = document.getElementById('rtwBoot');
+		fetch('../collection.html')
+			.then(function (response) { return response.text(); })
+			.then(function (html) {
+				html = html.replace(/assets\//g, '../assets/');
+				html = html.replace(/href="collection\.html"/g, 'href="../collection.html"');
+				html = html.replace(/<title>[^<]*<\/title>/, '<title>Ready To Wear — Softgarments | Best Online Clothing Brand in Pakistan</title>');
+				html = html.replace(/href="product\.html\?id=/g, 'href="../product.html?id=');
+				html = html.replace(/<script src="\.\.\/assets\/collection-products\.js"><\/script>/,
+					'<script src="../assets/collection-rtw-products.js"><\/script>\n' +
+					'<script>window.SG_COLLECTION = window.SG_RTW_COLLECTION;<\/script>');
+				html = html.replace(/<div id="collectionImageSources" hidden>[\s\S]*?<\/div>/,
+					'<div id="collectionImageSources" hidden>' +
+					'<img data-sg-collection="Ayla Everyday Kurti" src="../assets/images/Product-images-RTW/01.jpg">' +
+					'<img data-sg-collection="Nura Casual Co-ord Set" src="../assets/images/Product-images-RTW/02.jpg">' +
+					'<img data-sg-collection="Saira Linen Shirt" src="../assets/images/Product-images-RTW/03.jpg">' +
+					'<img data-sg-collection="Mira Formal Straight Dress" src="../assets/images/Product-images-RTW/04.jpg">' +
+					'<img data-sg-collection="Zoya Festive Printed Dress" src="../assets/images/Product-images-RTW/05.jpg">' +
+					'<img data-sg-collection="Haya Everyday Cotton Top" src="../assets/images/Product-images-RTW/06.jpg">' +
+					'<img data-sg-collection="Elara Occasion Co-ord Set" src="../assets/images/Product-images-RTW/07.jpg">' +
+					'<img data-sg-collection="Inaya Relaxed Maxi Dress" src="../assets/images/Product-images-RTW/08.jpg">' +
+					'</div>');
+				html = html.replace(/C\.title = 'Softgarments New Arrivals';/g, "C.title = 'Ready To Wear';");
+				html = html.replace(/C\.tagline = '[^']*';/g, "C.tagline = 'Effortless styles, premium comfort · Nationwide COD across Pakistan';");
+				html = html.replace(/C\.products = \[[\s\S]*?\n        \];/, 'C.products = window.SG_RTW_COLLECTION.products;');
+				html = html.replace(/value="everyday" checked \/> Everyday Wear/, 'value="everyday" checked /> Everyday Wear');
+				html = html.replace(/<label class="col-filter-option"><input type="checkbox" name="cat" value="seasonal" checked \/> Seasonal Edit<\/label>\s*<label class="col-filter-option"><input type="checkbox" name="cat" value="occasion" checked \/> Occasion Styles<\/label>/,
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="casual" checked /> Casual Wear</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="formal" checked /> Formal Wear</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="festive" checked /> Festive Wear</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="co-ords" checked /> Co-ord Sets</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="dresses" checked /> Dresses</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="kurtis" checked /> Kurtis</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="shirts-tops" checked /> Shirts / Tops</label>');
+				html = html.replace("var activeCategories = ['everyday', 'seasonal', 'occasion'];", "var activeCategories = ['everyday', 'casual', 'formal', 'festive', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];");
+				html = html.replace("activeCategories = ['everyday', 'seasonal', 'occasion'];", "activeCategories = ['everyday', 'casual', 'formal', 'festive', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];");
+				html = html.replace(/<a href="\.\.\/collection\.html" class="is-active">New Arrivals<\/a>\s*<a href="#">Ready To Wear<\/a>/g,
+					'<a href="../collection.html">New Arrivals</a><a href="collection-RTW.html" class="is-active">Ready To Wear</a>');
+				html = html.replace(/<a href="\.\.\/collection\.html">New Arrivals<\/a>\s*<a href="#">Ready To Wear<\/a>/g,
+					'<a href="../collection.html">New Arrivals</a><a href="collection-RTW.html" class="is-active">Ready To Wear</a>');
+				html = html.replace(/<a href="#">Fabrics<\/a>/g, '<a href="../fabrics.html">Fabrics</a>');
+				html = html.replace(/<a href="#view-home" data-view="view-home">Garments<\/a>/g, '<a href="../main.page.html#view-home" data-view="view-home">Garments</a>');
+				html = html.replace(/<a href="#view-home">Garments<\/a>/g, '<a href="../main.page.html#view-home">Garments</a>');
+				html = html.replace(/<a href="#">Sale<\/a>/g, '<a href="../sale.html">Sale</a>');
+				document.open();
+				document.write(html);
+				document.close();
+			})
+			.catch(function () { boot.textContent = 'Ready To Wear is unavailable right now.'; });
+	})();
+	</script>
+</body>
+</html>
