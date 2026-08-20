@@ -545,29 +545,29 @@
     <script src="assets/collection-products.js"></script>
     <script>
     (function() {
-        // PRODUCT IMAGES — EASY TO CHANGE
-        var PRODUCT_IMAGES = {
-            1: '01.jpg',
-            2: '02.jpg',
-            3: '03.jpg',
-            4: '04.jpg',
-            5: '05.jpg',
-            6: '06.jpg',
-            7: '07.jpg',
-            8: '08.jpg',
-            9: '09.jpg',
-            10: '10.jpg',
-            11: '11.jpg',
-            12: '12.jpg',
-            13: '13.jpg',
-            14: '14.jpg',
-            15: '15.jpg',
-            16: '16.jpg',
-            17: '17.jpg',
-            18: '18.jpg',
-            19: '19.jpg',
-            20: '20.jpg'
-        };
+        // EASY IMAGE CHANGE
+        const productImages = [
+            '01.1.jpg',
+            '02.jpg',
+            '03.jpg',
+            '04.jpg',
+            '05.jpg',
+            '06.jpg',
+            '07.jpg',
+            '08.jpg',
+            '09.jpg',
+            '10.jpg',
+            '11.jpg',
+            '12.jpg',
+            '13.jpg',
+            '14.jpg',
+            '15.jpg',
+            '16.jpg',
+            '17.jpg',
+            '18.jpg',
+            '19.jpg',
+            '20.jpg'
+        ];
 
         var C = window.SG_COLLECTION;
         if (!C || !C.products) return;
@@ -575,26 +575,26 @@
         C.title = 'Softgarments New Arrivals';
         C.tagline = 'Best Online Clothing Brand in Pakistan · Premium fashion, fair prices';
         C.products = [
-            { id: 1, name: 'Ayla Floral Midi Dress', price: 3490, compareAt: 4290, category: 'occasion', image: PRODUCT_IMAGES[1], description: 'A graceful floral midi dress with a flattering fit and light, easy movement.' },
-            { id: 2, name: 'Nura Everyday Cotton Top', price: 1690, category: 'everyday', image: PRODUCT_IMAGES[2], description: 'A soft cotton top with a clean neckline, relaxed shape, and effortless daily style.' },
-            { id: 3, name: 'Saira Linen Co-ord Set', price: 3890, compareAt: 4690, category: 'seasonal', image: PRODUCT_IMAGES[3], description: 'A polished linen-blend co-ord set made for breezy days and easy, elevated dressing.' },
-            { id: 4, name: 'Mira Essential Tee', price: 1290, category: 'everyday', image: PRODUCT_IMAGES[4], description: 'A smooth, versatile T-shirt with a neat fit that works beautifully with any bottom.' },
-            { id: 5, name: 'Zoya Printed Kurti', price: 2390, category: 'seasonal', image: PRODUCT_IMAGES[5], description: 'A contemporary printed kurti with graceful detail for workdays and weekend plans.' },
-            { id: 6, name: 'Haya Relaxed Cotton Shirt', price: 2190, category: 'everyday', image: PRODUCT_IMAGES[6], description: 'A breathable relaxed shirt with refined tailoring for comfortable everyday dressing.' },
-            { id: 7, name: 'Elara Pleated Midi Dress', price: 3690, compareAt: 4490, category: 'occasion', image: PRODUCT_IMAGES[7], description: 'Elegant pleats and a soft flowing silhouette make this dress easy to dress up.' },
-            { id: 8, name: 'Inaya Ribbed Basic Top', price: 1490, category: 'everyday', image: PRODUCT_IMAGES[8], description: 'A refined ribbed top with a comfortable stretch and a polished, minimal finish.' },
-            { id: 9, name: 'Areeba Summer Co-ord', price: 3290, compareAt: 3990, category: 'seasonal', image: PRODUCT_IMAGES[9], description: 'A lightweight matching set in a fresh seasonal print for effortless warm-weather style.' },
-            { id: 10, name: 'Meher Soft Jersey Tee', price: 1390, category: 'everyday', image: PRODUCT_IMAGES[10], description: 'An ultra-soft jersey T-shirt with an easy fit for relaxed days and casual layering.' },
-            { id: 11, name: 'Emaan Embroidered Kurti', price: 2790, compareAt: 3390, category: 'occasion', image: PRODUCT_IMAGES[11], description: 'Subtle embroidery and a graceful cut give this kurti a modern traditional touch.' },
-            { id: 12, name: 'Rania Button-Down Top', price: 1890, category: 'everyday', image: PRODUCT_IMAGES[12], description: 'A versatile button-down top with a crisp look and soft feel from morning to evening.' },
-            { id: 13, name: 'Ayla Pastel Day Dress', price: 3190, compareAt: 3890, category: 'seasonal', image: PRODUCT_IMAGES[13], description: 'A fresh pastel day dress with a comfortable silhouette for bright seasonal outings.' },
-            { id: 14, name: 'Mahnoor Textured Co-ord', price: 3590, compareAt: 4290, category: 'occasion', image: PRODUCT_IMAGES[14], description: 'A textured co-ord with clean lines that brings a premium feel to easy dressing.' },
-            { id: 15, name: 'Anaya Classic Crew Tee', price: 1190, category: 'everyday', image: PRODUCT_IMAGES[15], description: 'A dependable crew-neck T-shirt in a smooth fabric, designed for everyday rotation.' },
-            { id: 16, name: 'Rimsha Printed Long Kurti', price: 2490, category: 'seasonal', image: PRODUCT_IMAGES[16], description: 'A flowing long kurti with an expressive print and an easy fit for everyday elegance.' },
-            { id: 17, name: 'Noor Satin Occasion Dress', price: 4290, compareAt: 4990, category: 'occasion', image: PRODUCT_IMAGES[17], description: 'A softly luminous satin dress with an elegant drape for dinners and celebrations.' },
-            { id: 18, name: 'Amani Everyday Co-ord', price: 2990, category: 'everyday', image: PRODUCT_IMAGES[18], description: 'A practical matching set with a relaxed fit for polished comfort throughout the day.' },
-            { id: 19, name: 'Hoor Seasonal Tunic', price: 2290, category: 'seasonal', image: PRODUCT_IMAGES[19], description: 'A modern seasonal tunic with graceful details and easy styling for any occasion.' },
-            { id: 20, name: 'Zara Essential Straight Dress', price: 2890, compareAt: 3490, category: 'everyday', image: PRODUCT_IMAGES[20], description: 'A simple straight-cut dress with a refined finish and all-day comfort.' }
+            { id: 1, name: 'Ayla Floral Midi Dress', price: 3490, compareAt: 4290, category: 'occasion', image: productImages[0], description: 'A graceful floral midi dress with a flattering fit and light, easy movement.' },
+            { id: 2, name: 'Nura Everyday Cotton Top', price: 1690, category: 'everyday', image: productImages[1], description: 'A soft cotton top with a clean neckline, relaxed shape, and effortless daily style.' },
+            { id: 3, name: 'Saira Linen Co-ord Set', price: 3890, compareAt: 4690, category: 'seasonal', image: productImages[2], description: 'A polished linen-blend co-ord set made for breezy days and easy, elevated dressing.' },
+            { id: 4, name: 'Mira Essential Tee', price: 1290, category: 'everyday', image: productImages[3], description: 'A smooth, versatile T-shirt with a neat fit that works beautifully with any bottom.' },
+            { id: 5, name: 'Zoya Printed Kurti', price: 2390, category: 'seasonal', image: productImages[4], description: 'A contemporary printed kurti with graceful detail for workdays and weekend plans.' },
+            { id: 6, name: 'Haya Relaxed Cotton Shirt', price: 2190, category: 'everyday', image: productImages[5], description: 'A breathable relaxed shirt with refined tailoring for comfortable everyday dressing.' },
+            { id: 7, name: 'Elara Pleated Midi Dress', price: 3690, compareAt: 4490, category: 'occasion', image: productImages[6], description: 'Elegant pleats and a soft flowing silhouette make this dress easy to dress up.' },
+            { id: 8, name: 'Inaya Ribbed Basic Top', price: 1490, category: 'everyday', image: productImages[7], description: 'A refined ribbed top with a comfortable stretch and a polished, minimal finish.' },
+            { id: 9, name: 'Areeba Summer Co-ord', price: 3290, compareAt: 3990, category: 'seasonal', image: productImages[8], description: 'A lightweight matching set in a fresh seasonal print for effortless warm-weather style.' },
+            { id: 10, name: 'Meher Soft Jersey Tee', price: 1390, category: 'everyday', image: productImages[9], description: 'An ultra-soft jersey T-shirt with an easy fit for relaxed days and casual layering.' },
+            { id: 11, name: 'Emaan Embroidered Kurti', price: 2790, compareAt: 3390, category: 'occasion', image: productImages[10], description: 'Subtle embroidery and a graceful cut give this kurti a modern traditional touch.' },
+            { id: 12, name: 'Rania Button-Down Top', price: 1890, category: 'everyday', image: productImages[11], description: 'A versatile button-down top with a crisp look and soft feel from morning to evening.' },
+            { id: 13, name: 'Ayla Pastel Day Dress', price: 3190, compareAt: 3890, category: 'seasonal', image: productImages[12], description: 'A fresh pastel day dress with a comfortable silhouette for bright seasonal outings.' },
+            { id: 14, name: 'Mahnoor Textured Co-ord', price: 3590, compareAt: 4290, category: 'occasion', image: productImages[13], description: 'A textured co-ord with clean lines that brings a premium feel to easy dressing.' },
+            { id: 15, name: 'Anaya Classic Crew Tee', price: 1190, category: 'everyday', image: productImages[14], description: 'A dependable crew-neck T-shirt in a smooth fabric, designed for everyday rotation.' },
+            { id: 16, name: 'Rimsha Printed Long Kurti', price: 2490, category: 'seasonal', image: productImages[15], description: 'A flowing long kurti with an expressive print and an easy fit for everyday elegance.' },
+            { id: 17, name: 'Noor Satin Occasion Dress', price: 4290, compareAt: 4990, category: 'occasion', image: productImages[16], description: 'A softly luminous satin dress with an elegant drape for dinners and celebrations.' },
+            { id: 18, name: 'Amani Everyday Co-ord', price: 2990, category: 'everyday', image: productImages[17], description: 'A practical matching set with a relaxed fit for polished comfort throughout the day.' },
+            { id: 19, name: 'Hoor Seasonal Tunic', price: 2290, category: 'seasonal', image: productImages[18], description: 'A modern seasonal tunic with graceful details and easy styling for any occasion.' },
+            { id: 20, name: 'Zara Essential Straight Dress', price: 2890, compareAt: 3490, category: 'everyday', image: productImages[19], description: 'A simple straight-cut dress with a refined finish and all-day comfort.' }
         ];
 
         var grid = document.getElementById('colGrid');
