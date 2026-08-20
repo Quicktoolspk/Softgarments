@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 
 let content = fs.readFileSync('collection.html', 'utf8');
 
@@ -8,10 +8,10 @@ content = content.replace(/<meta name="description" content="[^"]*">/s, '<meta n
 
 // 2. Update Nav links (desktop)
 content = content.replace('<a href="collection.html" class="is-active">New Arrivals</a>', '<a href="collection.html">New Arrivals</a>');
-content = content.replace('<a href="#">Sale</a>', '<a href="collection-Sale.html" class="is-active">Sale</a>');
+content = content.replace('<a href="#">Sale</a>', '<a href="collection-sale.html" class="is-active">Sale</a>');
 // Mobile nav links
 content = content.replace('<a href="collection.html" class="is-active">New Arrivals</a>', '<a href="collection.html">New Arrivals</a>');
-content = content.replace('<a href="#">Sale</a>', '<a href="collection-Sale.html" class="is-active">Sale</a>');
+content = content.replace('<a href="#">Sale</a>', '<a href="collection-sale.html" class="is-active">Sale</a>');
 
 // 3. Update Hero Title and Tagline
 content = content.replace(/<h1 id="colTitle">.*?<\/h1>/s, '<h1 id="colTitle">Sale Collection</h1>');
@@ -80,5 +80,5 @@ const new_badge_replace = `<div class="col-card-wa"><span>View Product</span></d
                     '`;
 content = content.replace(badge_replace, new_badge_replace);
 
-fs.writeFileSync('collection-Sale.html', content, 'utf8');
+fs.writeFileSync('collection-sale.html', content, 'utf8');
 console.log('Modification complete.');
