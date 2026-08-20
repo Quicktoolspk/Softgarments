@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sale — Softgarments | Best Online Clothing Brand in Pakistan</title>
+    <meta name="description" content="Shop Softgarments Sale: exclusive discounts on premium ready-to-wear. Nationwide Cash on Delivery." />
+</head>
+<body>
+    <main id="saleBoot" aria-live="polite">Loading Sale...</main>
+    <script>
+        (function() {
+            var boot = document.getElementById('saleBoot');
+
+            fetch('collection.html')
+                .then(function(response) { return response.text(); })
+                .then(function(html) {
+                    // 1. Title change
+                    html = html.replace(/<title>[^<]*<\/title>/, '<title>Sale — Softgarments | Best Online Clothing Brand in Pakistan</title>');
+
+                    // 2. Sale ki images yahan lagao
+                    html = html.replace(
+                        /<div id="collectionImageSources" hidden>[\s\S]*?<\/div>/,
+                        '<div id="collectionImageSources" hidden>' +
+                        '<img data-sg-collection="Lira Floral Kurti" src="assets/images/Product-images-Sale/01.jpg">' +
+                        '<img data-sg-collection="Zara Embroidered Shirt" src="assets/images/Product-images-Sale/02.jpg">' +
+                        '<img data-sg-collection="Aiza Linen Co-ord Set" src="assets/images/Product-images-Sale/03.jpg">' +
+                        '<img data-sg-collection="Minal Festive Printed Dress" src="assets/images/Product-images-Sale/04.jpg">' +
+                        '<img data-sg-collection="Sara Casual Tunic" src="assets/images/Product-images-Sale/05.jpg">' +
+                        '<img data-sg-collection="Hira Formal Straight Kurta" src="assets/images/Product-images-Sale/06.jpg">' +
+                        '<img data-sg-collection="Noor Everyday Cotton Top" src="assets/images/Product-images-Sale/07.jpg">' +
+                        '<img data-sg-collection="Rania Occasion Co-ord Set" src="assets/images/Product-images-Sale/08.jpg">' +
+                        '</div>'
+                    );
+
+                    // 3. JavaScript file change (Step 1 wali file ko load karega)
+                    html = html.replace(
+                        'assets/collection-products.js',
+                        'assets/collection-sale-products.js'
+                    );
+                    html = html.replace(
+                        'var C = window.SG_COLLECTION;',
+                        'var C = window.SG_SALE_COLLECTION;'
+                    );
+
+                    // 4. Title aur Tagline change
+                    html = html.replace(/C\.title = 'Softgarments New Arrivals';/g, "C.title = 'Sale Collection';");
+                    html = html.replace(/C\.tagline = '[^']*';/g, "C.tagline = 'Exclusive discounts on premium ready-to-wear · Nationwide COD across Pakistan';");
+
+                    // 5. Products array ko replace karo
+                    html = html.replace(
+                        /C\.products = \[[\s\S]*?\];\s*var grid/,
+                        'C.products = window.SG_SALE_COLLECTION.products;\n\n        var grid'
+                    );
+
+                    // 6. Filters (Categories) change karo
+                    html = html.replace(
+                        /<label class="col-filter-option"><input type="checkbox" name="cat" value="seasonal" checked \/> Seasonal Edit<\/label>\s*<label class="col-filter-option"><input type="checkbox" name="cat" value="occasion" checked \/> Occasion Styles<\/label>/,
+                        '<label class="col-filter-option"><input type="checkbox" name="cat" value="everyday" checked /> Everyday Wear</label>' +
+                        '<label class="col-filter-option"><input type="checkbox" name="cat" value="casual" checked /> Casual Wear</label>' +
+                        '<label class="col-filter-option"><input type="checkbox" name="cat" value="formal" checked /> Formal Wear</label>' +
+                        '<label class="col-filter-option"><input type="checkbox" name="cat" value="festive" checked /> Festive Wear</label>' +
+                        '<label class="col-filter-option"><input type="checkbox" name="cat" value="co-ords" checked /> Co-ord Sets</label>' +
+                        '<label class="col-filter-option"><input type="checkbox" name="cat" value="dresses" checked /> Dresses</label>' +
+                        '<label class="col-filter-option"><input type="checkbox" name="cat" value="kurtis" checked /> Kurtis</label>' +
+                        '<label class="col-filter-option"><input type="checkbox" name="cat" value="shirts-tops" checked /> Shirts / Tops</label>'
+                    );
+
+                    html = html.replace(/var activeCategories = \['everyday', 'seasonal', 'occasion'\];/g,
+                        "var activeCategories = ['everyday', 'casual', 'formal', 'festive', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];");
+                    html = html.replace(/activeCategories = \['everyday', 'seasonal', 'occasion'\];/g,
+                        "activeCategories = ['everyday', 'casual', 'formal', 'festive', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];");
+
+                    // 7. Navigation menu mein "Sale" ko active karo
+                    html = html.replace(
+                        /<a href="\.\.\/collection\.html" class="is-active">New Arrivals<\/a>/g,
+                        '<a href="collection.html">New Arrivals</a>'
+                    );
+                    html = html.replace(
+                        /<a href="\.\.\/collection\.html">New Arrivals<\/a>/g,
+                        '<a href="collection.html">New Arrivals</a>'
+                    );
+                    html = html.replace(
+                        /<a href="#">Ready To Wear<\/a>/g,
+                        '<a href="collection-RTW.html">Ready To Wear</a>'
+                    );
+                    html = html.replace(
+                        /<a href="#">Fabrics<\/a>/g,
+                        '<a href="collection-fabrics.html">Fabrics</a>'
+                    );
+                    html = html.replace(
+                        /<a href="#">Sale<\/a>/g,
+                        '<a href="collection-Sale.html" class="is-active">Sale</a>'
+                    );
+
+                    // 8. Garments link (agar home page pe jana hai toh)
+                    html = html.replace(
+                        /<a href="#view-home" data-view="view-home">Garments<\/a>/g,
+                        '<a href="../main.page.html#view-home" data-view="view-home">Garments</a>'
+                    );
+                    html = html.replace(
+                        /<a href="#view-home">Garments<\/a>/g,
+                        '<a href="../main.page.html#view-home">Garments</a>'
+                    );
+
+                    document.open();
+                    document.write(html);
+                    document.close();
+                })
+                .catch(function() {
+                    boot.textContent = 'Sale is unavailable right now. Please refresh.';
+                });
+        })();
+    </script>
+</body>
+</html>
