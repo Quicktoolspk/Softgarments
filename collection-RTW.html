@@ -17,9 +17,14 @@
 				html = html.replace(/href="collection\.html"/g, 'href="collection.html"');
 				html = html.replace(/<title>[^<]*<\/title>/, '<title>Ready To Wear — Softgarments | Best Online Clothing Brand in Pakistan</title>');
 				html = html.replace(/href="product\.html\?id=/g, 'href="product.html?id=');
-				html = html.replace(/<script src="assets\/collection-products\.js"><\/script>/,
-					'<script src="assets/collection-rtw-products.js"><\/script>\n' +
-					'<script>window.SG_COLLECTION = window.SG_RTW_COLLECTION;<\/script>');
+				html = html.replace(
+					'assets/collection-products.js',
+					'assets/collection-rtw-products.js'
+				);
+				html = html.replace(
+					'var C = window.SG_COLLECTION;',
+					'var C = window.SG_RTW_COLLECTION;'
+				);
 				html = html.replace(/<div id="collectionImageSources" hidden>[\s\S]*?<\/div>/,
 					'<div id="collectionImageSources" hidden>' +
 					'<img data-sg-collection="Ayla Everyday Kurti" src="assets/images/Product-images-RTW/01.jpg">' +
@@ -33,7 +38,7 @@
 					'</div>');
 				html = html.replace(/C\.title = 'Softgarments New Arrivals';/g, "C.title = 'Ready To Wear';");
 				html = html.replace(/C\.tagline = '[^']*';/g, "C.tagline = 'Effortless styles, premium comfort · Nationwide COD across Pakistan';");
-				html = html.replace(/C\.products = \[[\s\S]*?\n        \];/, 'C.products = window.SG_RTW_COLLECTION.products;');
+				html = html.replace(/C\.products = \[[\s\S]*?\];\s*var grid/, 'C.products = window.SG_RTW_COLLECTION.products;\n\n        var grid');
 				html = html.replace(/value="everyday" checked \/> Everyday Wear/, 'value="everyday" checked /> Everyday Wear');
 				html = html.replace(/<label class="col-filter-option"><input type="checkbox" name="cat" value="seasonal" checked \/> Seasonal Edit<\/label>\s*<label class="col-filter-option"><input type="checkbox" name="cat" value="occasion" checked \/> Occasion Styles<\/label>/,
 					'<label class="col-filter-option"><input type="checkbox" name="cat" value="casual" checked /> Casual Wear</label>' +
