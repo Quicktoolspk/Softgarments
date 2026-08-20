@@ -5,7 +5,7 @@ window.SG_SALE_COLLECTION = {
         {
             id: 'S01',
             name: "Lira Floral Kurti",
-            image: "assets/images/Product-images-Sale/01.jpg",
+            image: "assets/images/Sale/01.jpg",
             category: "kurtis",
             price: 1990,
             originalPrice: 2890,
@@ -16,7 +16,7 @@ window.SG_SALE_COLLECTION = {
         {
             id: 'S02',
             name: "Zara Embroidered Shirt",
-            image: "assets/images/Product-images-Sale/02.jpg",
+            image: "assets/images/Sale/02.jpg",
             category: "tops",
             price: 2490,
             originalPrice: 3290,
@@ -27,7 +27,7 @@ window.SG_SALE_COLLECTION = {
         {
             id: 'S03',
             name: "Aiza Linen Co-ord Set",
-            image: "assets/images/Product-images-Sale/03.jpg",
+            image: "assets/images/Sale/03.jpg",
             category: "coord",
             price: 3490,
             originalPrice: 4690,
@@ -38,7 +38,7 @@ window.SG_SALE_COLLECTION = {
         {
             id: 'S04',
             name: "Minal Festive Printed Dress",
-            image: "assets/images/Product-images-Sale/04.jpg",
+            image: "assets/images/Sale/04.jpg",
             category: "festive",
             price: 4190,
             originalPrice: 5990,
@@ -49,7 +49,7 @@ window.SG_SALE_COLLECTION = {
         {
             id: 'S05',
             name: "Sara Casual Tunic",
-            image: "assets/images/Product-images-Sale/05.jpg",
+            image: "assets/images/Sale/05.jpg",
             category: "casual",
             price: 1690,
             originalPrice: 2290,
@@ -60,7 +60,7 @@ window.SG_SALE_COLLECTION = {
         {
             id: 'S06',
             name: "Hira Formal Straight Kurta",
-            image: "assets/images/Product-images-Sale/06.jpg",
+            image: "assets/images/Sale/06.jpg",
             category: "formal",
             price: 2890,
             originalPrice: 3990,
@@ -71,7 +71,7 @@ window.SG_SALE_COLLECTION = {
         {
             id: 'S07',
             name: "Noor Everyday Cotton Top",
-            image: "assets/images/Product-images-Sale/07.jpg",
+            image: "assets/images/Sale/07.jpg",
             category: "everyday",
             price: 1290,
             originalPrice: 1790,
@@ -82,7 +82,7 @@ window.SG_SALE_COLLECTION = {
         {
             id: 'S08',
             name: "Rania Occasion Co-ord Set",
-            image: "assets/images/Product-images-Sale/08.jpg",
+            image: "assets/images/Sale/08.jpg",
             category: "coord",
             price: 3890,
             originalPrice: 5190,
