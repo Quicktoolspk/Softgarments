@@ -12,7 +12,7 @@
         (function() {
             var boot = document.getElementById('saleBoot');
 
-            fetch('collection.html')
+            fetch('collection.html')    
                 .then(function(response) { return response.text(); })
                 .then(function(html) {
                     // 1. Title change
@@ -22,14 +22,14 @@
                     html = html.replace(
                         /<div id="collectionImageSources" hidden>[\s\S]*?<\/div>/,
                         '<div id="collectionImageSources" hidden>' +
-                        '<img data-sg-collection="Lira Floral Kurti" src="assets/images/Product-images-Sale/01.jpg">' +
-                        '<img data-sg-collection="Zara Embroidered Shirt" src="assets/images/Product-images-Sale/02.jpg">' +
-                        '<img data-sg-collection="Aiza Linen Co-ord Set" src="assets/images/Product-images-Sale/03.jpg">' +
-                        '<img data-sg-collection="Minal Festive Printed Dress" src="assets/images/Product-images-Sale/04.jpg">' +
-                        '<img data-sg-collection="Sara Casual Tunic" src="assets/images/Product-images-Sale/05.jpg">' +
-                        '<img data-sg-collection="Hira Formal Straight Kurta" src="assets/images/Product-images-Sale/06.jpg">' +
-                        '<img data-sg-collection="Noor Everyday Cotton Top" src="assets/images/Product-images-Sale/07.jpg">' +
-                        '<img data-sg-collection="Rania Occasion Co-ord Set" src="assets/images/Product-images-Sale/08.jpg">' +
+                        '<img data-sg-collection="Lira Floral Kurti" src="assets/images/Sale/01.jpg">' +
+                        '<img data-sg-collection="Zara Embroidered Shirt" src="assets/images/Sale/02.jpg">' +
+                        '<img data-sg-collection="Aiza Linen Co-ord Set" src="assets/images/Sale/03.jpg">' +
+                        '<img data-sg-collection="Minal Festive Printed Dress" src="assets/images/Sale/04.jpg">' +
+                        '<img data-sg-collection="Sara Casual Tunic" src="assets/images/Sale/05.jpg">' +
+                        '<img data-sg-collection="Hira Formal Straight Kurta" src="assets/images/Sale/06.jpg">' +
+                        '<img data-sg-collection="Noor Everyday Cotton Top" src="assets/images/Sale/07.jpg">' +
+                        '<img data-sg-collection="Rania Occasion Co-ord Set" src="assets/images/Sale/08.jpg">' +
                         '</div>'
                     );
 
