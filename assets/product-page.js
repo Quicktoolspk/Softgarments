@@ -6,7 +6,7 @@
     function boot() {
         var params = new URLSearchParams(window.location.search);
         var productId = parseInt(params.get('id'), 10);
-        var C = productId >= 100 ? window.SG_RTW_COLLECTION : window.SG_COLLECTION;
+        var C = productId >= 200 ? window.SG_FABRICS_COLLECTION : (productId >= 100 ? window.SG_RTW_COLLECTION : window.SG_COLLECTION);
         if (!C || !C.products || !C.products.length) {
             C = window.SG_DEMO_COLLECTION;
         }

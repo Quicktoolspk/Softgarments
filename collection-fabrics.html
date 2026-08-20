@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Softgarments Fabrics — Softgarments</title>
+	<meta name="description" content="Explore Softgarments Fabrics: premium lawn, cotton, linen, khaddar, cambric, jacquard, velvet, and chiffon materials for every wardrobe." />
+</head>
+<body>
+	<main id="fabricsBoot" aria-live="polite">Loading Softgarments Fabrics...</main>
+	<script>
+	(function () {
+		var boot = document.getElementById('fabricsBoot');
+
+		fetch('collection.html')
+			.then(function (response) { return response.text(); })
+			.then(function (html) {
+				html = html.replace(/<title>[^<]*<\/title>/, '<title>Softgarments Fabrics — Softgarments</title>');
+				html = html.replace(/href="product\.html\?id=/g, 'href="product.html?id=');
+				html = html.replace('assets/collection-products.js', 'assets/collection-fabrics-products.js');
+				html = html.replace('var C = window.SG_COLLECTION;', 'var C = window.SG_FABRICS_COLLECTION;');
+				html = html.replace(
+					/<div id="collectionImageSources" hidden>[\s\S]*?<\/div>/,
+					'<div id="collectionImageSources" hidden>' +
+					'<img data-sg-collection="Signature Lawn Fabric" src="assets/images/Fabrics/01.jpg">' +
+					'<img data-sg-collection="Pure Cotton Fabric" src="assets/images/Fabrics/02.jpg">' +
+					'<img data-sg-collection="Natural Linen Fabric" src="assets/images/Fabrics/03.jpg">' +
+					'<img data-sg-collection="Winter Khaddar Fabric" src="assets/images/Fabrics/04.jpg">' +
+					'<img data-sg-collection="Soft Cambric Fabric" src="assets/images/Fabrics/05.jpg">' +
+					'<img data-sg-collection="Woven Jacquard Fabric" src="assets/images/Fabrics/06.jpg">' +
+					'<img data-sg-collection="Luxe Velvet Fabric" src="assets/images/Fabrics/07.jpg">' +
+					'<img data-sg-collection="Light Chiffon Fabric" src="assets/images/Fabrics/08.jpg">' +
+					'</div>'
+				);
+				html = html.replace(/C\.title = 'Softgarments New Arrivals';/g, "C.title = 'Softgarments Fabrics';");
+				html = html.replace(/C\.tagline = '[^']*';/g, "C.tagline = 'Premium fabrics, beautiful textures · Quality materials for every wardrobe';");
+				html = html.replace(/C\.products = \[[\s\S]*?\];\s*var grid/, 'C.products = window.SG_FABRICS_COLLECTION.products;\n\n        var grid');
+				html = html.replace(/<label class="col-filter-option"><input type="checkbox" name="cat" value="seasonal" checked \/> Seasonal Edit<\/label>\s*<label class="col-filter-option"><input type="checkbox" name="cat" value="occasion" checked \/> Occasion Styles<\/label>/,
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="cotton" checked /> Cotton</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="linen" checked /> Linen</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="khaddar" checked /> Khaddar</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="cambric" checked /> Cambric</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="jacquard" checked /> Jacquard</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="velvet" checked /> Velvet</label>' +
+					'<label class="col-filter-option"><input type="checkbox" name="cat" value="chiffon" checked /> Chiffon</label>'
+				);
+				html = html.replace("var activeCategories = ['everyday', 'seasonal', 'occasion'];", "var activeCategories = ['lawn', 'cotton', 'linen', 'khaddar', 'cambric', 'jacquard', 'velvet', 'chiffon'];");
+				html = html.replace("activeCategories = ['everyday', 'seasonal', 'occasion'];", "activeCategories = ['lawn', 'cotton', 'linen', 'khaddar', 'cambric', 'jacquard', 'velvet', 'chiffon'];");
+				html = html.replace(/<a href="#">Ready To Wear<\/a>/g, '<a href="collection-RTW.html">Ready To Wear</a>');
+				html = html.replace(/<a href="#">Fabrics<\/a>/g, '<a href="collection-fabrics.html" class="is-active">Fabrics</a>');
+				html = html.replace(/<a href="#view-home" data-view="view-home">Garments<\/a>/g, '<a href="main.page.html#view-home" data-view="view-home">Garments</a>');
+				html = html.replace(/<a href="#view-home">Garments<\/a>/g, '<a href="main.page.html#view-home">Garments</a>');
+				html = html.replace(/<a href="#">Sale<\/a>/g, '<a href="sale.html">Sale</a>');
+				document.open();
+				document.write(html);
+				document.close();
+			})
+			.catch(function () { boot.textContent = 'Softgarments Fabrics is unavailable right now.'; });
+	})();
+	</script>
+</body>
+</html>
