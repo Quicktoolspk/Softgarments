@@ -98,7 +98,7 @@
         }
 
         function fallbackSrc() {
-            return (C.imageFallbacks && C.imageFallbacks[idx]) ? C.imageFallbacks[idx] : 'assets/images/products/01-everyday-comfort-bra.jpg';
+            return (C.imageFallbacks && C.imageFallbacks[idx]) ? C.imageFallbacks[idx] : 'assets/images/Product-images-P1/01.jpg';
         }
 
         function initSelections() {
@@ -143,12 +143,17 @@
         setMainImage(galleryImages[0]);
 
         var galleryEl = document.querySelector('.pd-gallery');
+        function updateGalleryLayout() {
+            var hasThumbs = thumbsEl.querySelectorAll('.pd-thumb').length > 0;
+            thumbsEl.hidden = !hasThumbs;
+            if (galleryEl) galleryEl.classList.toggle('pd-gallery--single', !hasThumbs);
+        }
         if (galleryImages.length > 1) {
             thumbsEl.hidden = false;
             if (galleryEl) galleryEl.classList.remove('pd-gallery--single');
             thumbsEl.innerHTML = galleryImages.map(function(src, i) {
                 return '<button type="button" class="pd-thumb' + (i === 0 ? ' is-active' : '') + '" data-idx="' + i + '" aria-label="View image ' + (i + 1) + '">' +
-                    '<img src="' + src + '" alt="" loading="lazy" onerror="this.onerror=null;this.src=\'' + fb + '\'" />' +
+                    '<img src="' + src + '" alt="" loading="lazy" onerror="this.onerror=null;this.closest(\'.pd-thumb\').remove();' + (i === 0 ? 'setMainImage(\'' + fb + '\');' : '') + 'updateGalleryLayout();" />' +
                     '</button>';
             }).join('');
             thumbsEl.querySelectorAll('.pd-thumb').forEach(function(btn) {
