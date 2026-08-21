@@ -1,6 +1,6 @@
 /* Softgarments - Fabrics collection data */
 window.SG_FABRICS_COLLECTION = {
-    title: 'Softgarments Fabrics',
+    title: 'Softgarments <em>Fabrics</em>',
     tagline: 'Premium fabrics, beautiful textures · Quality materials for every wardrobe',
     whatsapp: '923379022920',
     imageFolder: 'assets/images/Fabrics/',
