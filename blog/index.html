@@ -125,38 +125,57 @@
         <h1>Our Blog</h1>
         <p>Fashion, clothing and garment insights from Soft Garments.</p>
     </header>
+<main class="blog-container">
 
-    <main class="blog-container">
+    <div class="blog-grid" id="blogGrid">
+        <!-- Blogs will automatically appear here -->
+    </div>
 
-        <div class="blog-grid">
+</main>
 
-            <!-- Blog posts will appear here -->
+<script src="../blogs.js"></script>
 
-            <article class="blog-card">
-                <img src="../assets/images/blog-placeholder.jpg" alt="Blog">
-                
-                <div class="blog-content">
-                    <div class="blog-category">Fashion</div>
+<script>
+    const blogGrid = document.getElementById("blogGrid");
 
-                    <h2>Coming Soon</h2>
+    blogs.forEach(blog => {
 
-                    <p>
-                        Our latest fashion and clothing articles will appear here.
-                    </p>
+        const blogCard = document.createElement("article");
 
-                    <div class="blog-date">
-                        Coming Soon
-                    </div>
+        blogCard.className = "blog-card";
 
-                    <a href="#" class="read-more">
-                        Read More →
-                    </a>
+        blogCard.innerHTML = `
+            <img src="../${blog.image}" alt="${blog.title}">
+
+            <div class="blog-content">
+
+                <div class="blog-category">
+                    ${blog.category}
                 </div>
-            </article>
 
-        </div>
+                <h2>
+                    ${blog.title}
+                </h2>
 
-    </main>
+                <p>
+                    ${blog.description}
+                </p>
+
+                <div class="blog-date">
+                    ${blog.date}
+                </div>
+
+                <a href="../${blog.url}" class="read-more">
+                    Read More →
+                </a>
+
+            </div>
+        `;
+
+        blogGrid.appendChild(blogCard);
+    });
+</script>
+
 
 </body>
 </html>
