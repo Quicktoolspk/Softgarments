@@ -1,26 +1,17 @@
 const blogs = [
-
     {
         title: "Summer Fashion Trends 2026",
-
         date: "August 25, 2026",
-
         category: "Fashion",
-
-        image: "../assets/images/blog/summer-fashion-trends-2026.jpg",
-
+        image: "../assets/images/blog/placeholder.jpg",
         description:
             "Discover the latest summer fashion trends and stylish clothing ideas for 2026.",
-
-        url: "posts/summer-fashion-trends-2026.html"
+        url: "#"
     }
-
 ];
 
 
-
 const blogGrid = document.getElementById("blogGrid");
-
 
 
 function displayBlogs() {
@@ -28,20 +19,6 @@ function displayBlogs() {
     if (!blogGrid) {
         return;
     }
-
-
-    if (blogs.length === 0) {
-
-        blogGrid.innerHTML = `
-            <div class="no-posts">
-                <h2>No blog posts available</h2>
-                <p>New articles will be published soon.</p>
-            </div>
-        `;
-
-        return;
-    }
-
 
 
     blogGrid.innerHTML = blogs.map(blog => {
@@ -55,28 +32,23 @@ function displayBlogs() {
                     loading="lazy"
                 >
 
-
                 <div class="blog-content">
 
                     <div class="blog-category">
                         ${blog.category}
                     </div>
 
-
                     <h2>
                         ${blog.title}
                     </h2>
-
 
                     <p>
                         ${blog.description}
                     </p>
 
-
                     <div class="blog-date">
                         ${blog.date}
                     </div>
-
 
                     <a
                         href="${blog.url}"
@@ -91,9 +63,7 @@ function displayBlogs() {
         `;
 
     }).join("");
-
 }
-
 
 
 displayBlogs();
