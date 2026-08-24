@@ -127,54 +127,35 @@
     </header>
 <main class="blog-container">
 
-    <div class="blog-grid" id="blogGrid">
-        <!-- Blogs will automatically appear here -->
-    </div>
+    <div class="blog-grid">
 
-</main>
+        <!-- Blog posts will appear here -->
 
-<script src="../blogs.js"></script>
-
-<script>
-    const blogGrid = document.getElementById("blogGrid");
-
-    blogs.forEach(blog => {
-
-        const blogCard = document.createElement("article");
-
-        blogCard.className = "blog-card";
-
-        blogCard.innerHTML = `
-            <img src="../${blog.image}" alt="${blog.title}">
-
+        <article class="blog-card">
+            <img src="../assets/images/blog-placeholder.jpg" alt="Blog">
+            
             <div class="blog-content">
+                <div class="blog-category">Fashion</div>
 
-                <div class="blog-category">
-                    ${blog.category}
-                </div>
-
-                <h2>
-                    ${blog.title}
-                </h2>
+                <h2>Coming Soon</h2>
 
                 <p>
-                    ${blog.description}
+                    Our latest fashion and clothing articles will appear here.
                 </p>
 
                 <div class="blog-date">
-                    ${blog.date}
+                    Coming Soon
                 </div>
 
-                <a href="../${blog.url}" class="read-more">
+                <a href="#" class="read-more">
                     Read More →
                 </a>
-
             </div>
-        `;
+        </article>
 
-        blogGrid.appendChild(blogCard);
-    });
-</script>
+    </div>
+
+</main>
 
 </body>
 </html>
