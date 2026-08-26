@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Blog | Soft All Garments</title>
+    <title>Summer Fashion Trends 2026 | Soft All Garments</title>
 
     <meta
         name="description"
-        content="Read the latest fashion, clothing and garment guides from Soft Garments."
+        content="Discover the latest summer fashion trends and stylish clothing ideas for 2026 from Soft All Garments."
     >
 
     <style>
+        /* ----- RESET & BASE ----- */
         * {
             margin: 0;
             padding: 0;
@@ -22,132 +23,206 @@
             font-family: Arial, sans-serif;
             background: #fff;
             color: #222;
+            line-height: 1.8;
         }
 
-        .blog-header {
+        /* ----- ARTICLE HEADER (تصویر کے مطابق) ----- */
+        .article-header {
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 70px 20px 40px;
             background: #f7f7f7;
+            border-bottom: 1px solid #eee;
         }
 
-        .blog-header h1 {
-            font-size: 42px;
-            margin-bottom: 12px;
-        }
-
-        .blog-header p {
-            color: #666;
-            font-size: 17px;
-        }
-
-        .blog-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 50px auto;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .blog-card {
-            background: #fff;
-            border: 1px solid #eee;
-            overflow: hidden;
-            transition: 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .blog-card img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .blog-content {
-            padding: 22px;
-        }
-
-        .blog-category {
+        .article-category {
             color: #888;
             font-size: 13px;
             text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .blog-content h2 {
-            font-size: 22px;
+            letter-spacing: 1.5px;
             margin-bottom: 12px;
+            font-weight: 600;
         }
 
-        .blog-content p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 18px;
+        .article-header h1 {
+            max-width: 800px;
+            margin: 0 auto 10px;
+            font-size: 44px;
+            line-height: 1.2;
+            font-weight: 700;
         }
 
-        .blog-date {
+        .article-date {
             color: #999;
-            font-size: 13px;
-            margin-bottom: 15px;
+            font-size: 14px;
         }
 
-        .read-more {
-            color: #111;
+        /* ----- MAIN CONTENT (تصویر کے مطابق) ----- */
+        .article-container {
+            width: 90%;
+            max-width: 850px;
+            margin: 40px auto;
+        }
+
+        /* تصویر (اگر آپ نے ڈالی ہے تو، ورنہ یہ کوئی اثر نہیں ڈالے گی) */
+        .article-image {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 35px;
+            border-radius: 8px;
+        }
+
+        .article-content p {
+            color: #444;
+            font-size: 18px;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            font-size: 28px;
+            margin: 40px 0 15px;
+            font-weight: 700;
+        }
+
+        .article-content ul {
+            margin: 20px 0 25px 25px;
+            color: #444;
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+
+        /* ----- BACK BUTTON ----- */
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 28px;
+            background: #111;
+            color: #fff;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: 0.3s ease;
         }
 
-        .read-more:hover {
-            text-decoration: underline;
+        .back-button:hover {
+            background: #333;
         }
 
-        @media (max-width: 900px) {
-            .blog-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
+        /* ----- RESPONSIVE (موبائل کے لیے) ----- */
         @media (max-width: 600px) {
-            .blog-header h1 {
-                font-size: 32px;
+            .article-header {
+                padding: 50px 20px 30px;
             }
 
-            .blog-grid {
-                grid-template-columns: 1fr;
+            .article-header h1 {
+                font-size: 30px;
+            }
+
+            .article-content p {
+                font-size: 16px;
+            }
+
+            .article-content h2 {
+                font-size: 24px;
+            }
+
+            .article-image {
+                max-height: 250px;
             }
         }
     </style>
 </head>
-
 <body>
 
-    <header class="blog-header">
-        <h1>Our Blog</h1>
-
-        <p>
-            Fashion, clothing and garment insights from Soft Garments.
-        </p>
+    <!-- ===== HEADER (تصویر کے مطابق) ===== -->
+    <header class="article-header">
+        <div class="article-category">Fashion</div>
+        <h1>Summer Fashion Trends 2026</h1>
+        <div class="article-date">August 25, 2026</div>
     </header>
 
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="article-container">
 
-    <main class="blog-container">
+        <!--
+            تصویر: اگر آپ کے پاس assets/images/blog/ میں summer-fashion-trends-2026.jpg ہے
+            تو یہ ظاہر ہوگی۔ ورنہ اسے ہٹا دیں یا placeholder.jpg رکھ دیں۔
+        -->
+        <img
+            class="article-image"
+            src="../../assets/images/blog/placeholder.jpg"
+            alt="Summer Fashion Trends 2026"
+            loading="lazy"
+        >
 
-        <div class="blog-grid" id="blogGrid">
-            <!-- Blog posts will appear here -->
-        </div>
+        <article class="article-content">
+
+            <p>
+                Summer is the perfect season to refresh your wardrobe
+                with comfortable, stylish and lightweight clothing.
+                As we move through 2026, fashion continues to focus
+                on comfort, simple designs and versatile clothing.
+            </p>
+
+            <h2>Lightweight Clothing</h2>
+
+            <p>
+                Lightweight fabrics are an excellent choice for warm
+                summer weather. Breathable materials can help you stay
+                comfortable throughout the day while maintaining a
+                stylish appearance.
+            </p>
+
+            <h2>Simple and Comfortable Styles</h2>
+
+            <p>
+                Summer fashion in 2026 is all about combining
+                simplicity with comfort. Clean designs, relaxed fits
+                and practical clothing can easily become part of
+                your everyday wardrobe.
+            </p>
+
+            <h2>Popular Summer Colors</h2>
+
+            <p>
+                Light and fresh colors are popular choices for summer.
+                White, beige, light blue, soft green and other subtle
+                shades can create a fresh seasonal look.
+            </p>
+
+            <h2>Summer Clothing Tips</h2>
+
+            <ul>
+                <li>Choose breathable and lightweight fabrics.</li>
+                <li>Prefer comfortable fits for hot weather.</li>
+                <li>Use lighter colors during the summer season.</li>
+                <li>Choose versatile pieces that can be styled in different ways.</li>
+                <li>Focus on comfort without compromising your personal style.</li>
+            </ul>
+
+            <h2>Final Thoughts</h2>
+
+            <p>
+                The best summer wardrobe combines comfort, quality
+                and personal style. Choosing the right fabrics,
+                colors and designs can make your summer clothing both
+                practical and fashionable.
+            </p>
+
+            <!-- واپس بلاگ پیج پر جانے کا بٹن -->
+            <a href="../index.html" class="back-button">
+                ← Back to Blog
+            </a>
+
+        </article>
 
     </main>
-
-
-    <script src="blog.js"></script>
 
 </body>
 </html>
