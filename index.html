@@ -3026,7 +3026,9 @@
             h2.section-title {
                 font-size: clamp(24px, 7vw, 30px);
             }
-            #everyday h2.section-title {
+            #everyday h2.section-title,
+            #night h2.section-title,
+            #shape h2.section-title {
                 font-size: 22px;
             }
             p.section-sub {
@@ -3535,24 +3537,32 @@
             .gh-quick { opacity: 1; transform: none; }
             .gh-cat-cta { opacity: 1; transform: none; }
 
-            /* Everyday Fashion — compact mobile cards (step 1) */
-            #everyday h2.section-title {
+            /* Collection grids — compact mobile cards */
+            #everyday h2.section-title,
+            #night h2.section-title,
+            #shape h2.section-title {
                 font-size: 22px;
                 letter-spacing: .02em;
             }
-            #everyday .gh-head p {
+            #everyday .gh-head p,
+            #night .gh-head p,
+            #shape .gh-head p {
                 font-size: 13px;
                 line-height: 1.55;
                 margin-top: 10px;
             }
-            #everyday .gh-badge {
+            #everyday .gh-badge,
+            #night .gh-badge,
+            #shape .gh-badge {
                 top: 8px;
                 left: 8px;
                 font-size: 8px;
                 letter-spacing: .06em;
                 padding: 4px 8px;
             }
-            #everyday .gh-quick {
+            #everyday .gh-quick,
+            #night .gh-quick,
+            #shape .gh-quick {
                 left: 8px;
                 right: 8px;
                 bottom: 8px;
@@ -3564,16 +3574,26 @@
                 border-radius: 8px;
                 white-space: nowrap;
             }
-            #everyday .gh-card-info { padding: 10px 8px 12px; }
-            #everyday .gh-card-name {
+            #everyday .gh-card-info,
+            #night .gh-card-info,
+            #shape .gh-card-info { padding: 10px 8px 12px; }
+            #everyday .gh-card-name,
+            #night .gh-card-name,
+            #shape .gh-card-name {
                 font-size: 11px;
                 letter-spacing: .04em;
                 line-height: 1.25;
                 margin-bottom: 4px;
             }
-            #everyday .gh-price { gap: 6px; }
-            #everyday .gh-price .gh-now { font-size: 12px; }
-            #everyday .gh-price .gh-was { font-size: 10.5px; }
+            #everyday .gh-price,
+            #night .gh-price,
+            #shape .gh-price { gap: 6px; }
+            #everyday .gh-price .gh-now,
+            #night .gh-price .gh-now,
+            #shape .gh-price .gh-now { font-size: 12px; }
+            #everyday .gh-price .gh-was,
+            #night .gh-price .gh-was,
+            #shape .gh-price .gh-was { font-size: 10.5px; }
         }
         @media (max-width: 480px) {
             :root { --ann-h: 46px; }
@@ -3585,12 +3605,24 @@
             .gh-news-form input { flex: 1 1 100%; }
             .gh-news-form .btn { width: 100%; justify-content: center; }
 
-            #everyday h2.section-title { font-size: 20px; }
-            #everyday .gh-card-info { padding: 8px 6px 10px; }
-            #everyday .gh-card-name { font-size: 10.5px; letter-spacing: .03em; }
-            #everyday .gh-price .gh-now { font-size: 11.5px; }
-            #everyday .gh-price .gh-was { font-size: 10px; }
-            #everyday .gh-quick {
+            #everyday h2.section-title,
+            #night h2.section-title,
+            #shape h2.section-title { font-size: 20px; }
+            #everyday .gh-card-info,
+            #night .gh-card-info,
+            #shape .gh-card-info { padding: 8px 6px 10px; }
+            #everyday .gh-card-name,
+            #night .gh-card-name,
+            #shape .gh-card-name { font-size: 10.5px; letter-spacing: .03em; }
+            #everyday .gh-price .gh-now,
+            #night .gh-price .gh-now,
+            #shape .gh-price .gh-now { font-size: 11.5px; }
+            #everyday .gh-price .gh-was,
+            #night .gh-price .gh-was,
+            #shape .gh-price .gh-was { font-size: 10px; }
+            #everyday .gh-quick,
+            #night .gh-quick,
+            #shape .gh-quick {
                 left: 6px;
                 right: 6px;
                 bottom: 6px;
