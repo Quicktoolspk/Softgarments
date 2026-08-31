@@ -79,8 +79,20 @@
     box-shadow: 0 12px 32px rgba(167, 90, 105, .36), inset 0 1px 0 rgba(255, 255, 255, .12);
 }
 .btn svg { width: 19px; height: 19px; fill: currentColor; flex-shrink: 0; }
-.btn-nav-wa { padding: 8px 16px; font-size: 12.5px; gap: 7px; box-shadow: 0 6px 20px rgba(167, 90, 105, .45); }
-.btn-nav-wa svg { width: 16px; height: 16px; }
+.btn-nav-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 38px;
+    padding: 0 16px;
+    font-size: 12.5px;
+    gap: 7px;
+    line-height: 1;
+    color: var(--ivory);
+    box-shadow: 0 6px 20px rgba(167, 90, 105, .45);
+}
+.btn-nav-wa svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
 
 /* Announcement bar */
 .gh-ann {

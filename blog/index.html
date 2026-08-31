@@ -316,18 +316,52 @@
         .nav-cta {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             gap: 10px;
             flex-shrink: 0;
         }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 14.5px;
+            line-height: 1;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            letter-spacing: .01em;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--deep-rose);
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(167, 90, 105, .28), inset 0 1px 0 rgba(255, 255, 255, .12);
+        }
         .btn-nav-wa {
-            padding: 8px 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            height: 38px;
+            padding: 0 16px;
             font-size: 12.5px;
             gap: 7px;
+            line-height: 1;
+            color: var(--ivory);
+            background: var(--deep-rose);
+            border-radius: 999px;
             box-shadow: 0 6px 20px rgba(167, 90, 105, .45);
         }
         .btn-nav-wa svg {
             width: 16px;
             height: 16px;
+            fill: currentColor;
+            flex-shrink: 0;
         }
         .menu-toggle {
             display: none;
