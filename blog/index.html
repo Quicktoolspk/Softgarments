@@ -1,228 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Summer Fashion Trends 2026 | Soft All Garments</title>
-
-    <meta
-        name="description"
-        content="Discover the latest summer fashion trends and stylish clothing ideas for 2026 from Soft All Garments."
-    >
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Softgarments | Fashion & Garment Insights</title>
+    <meta name="description" content="Read the latest fashion, clothing, and garment insights from Softgarments — the best online clothing brand in Pakistan." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/site-chrome.css" />
     <style>
-        /* ----- RESET & BASE ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --pd-bg: #fafafa;
+            --pd-line: #e5e5e5;
+            --pd-ink: #1a1a1a;
+            --pd-muted: #666;
+            --pd-max: min(100% - 48px, 1280px);
+            --ease: cubic-bezier(.22, 1, .36, 1);
         }
-
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; overflow-x: clip; }
         body {
-            font-family: Arial, sans-serif;
-            background: #fff;
-            color: #222;
-            line-height: 1.8;
+            font-family: 'Poppins', sans-serif;
+            background: #fcf9f7;
+            color: var(--pd-ink);
+            -webkit-font-smoothing: antialiased;
+        }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+        /* ───── BLOG PAGE ───── */
+        .blog-page {
+            padding-top: calc(var(--ann-h) + var(--nav-height) + 24px);
+            padding-bottom: clamp(48px, 6vw, 80px);
+        }
+        body.ann-hidden .blog-page {
+            padding-top: calc(var(--nav-height) + 24px);
         }
 
-        /* ----- ARTICLE HEADER (تصویر کے مطابق) ----- */
-        .article-header {
+        /* ───── BLOG HERO ───── */
+        .blog-hero {
             text-align: center;
-            padding: 70px 20px 40px;
-            background: #f7f7f7;
-            border-bottom: 1px solid #eee;
+            padding: 60px 20px 50px;
+            background: linear-gradient(135deg, #f8f0ec 0%, #fcf9f7 100%);
+            border-bottom: 2px solid #f0e4de;
+            max-width: var(--pd-max);
+            margin: 0 auto 30px;
+        }
+        .blog-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 4.5vw, 52px);
+            font-weight: 500;
+            letter-spacing: .04em;
+            color: var(--ink);
+        }
+        .blog-hero h1 span { color: var(--deep-rose); }
+        .blog-hero p {
+            color: var(--ink-soft);
+            font-size: 17px;
+            margin-top: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .article-category {
-            color: #888;
+        /* ───── FILTERS ───── */
+        .blog-filters {
+            max-width: var(--pd-max);
+            margin: 0 auto 30px;
+            padding: 0 var(--site-pad-x);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .blog-filters .filter-btn {
+            padding: 8px 22px;
+            border: 2px solid #e8ddd8;
+            border-radius: 30px;
             font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
             font-weight: 600;
+            color: var(--ink-soft);
+            transition: all 0.25s ease;
+            background: transparent;
+        }
+        .blog-filters .filter-btn:hover {
+            border-color: var(--deep-rose);
+            color: var(--deep-rose);
+        }
+        .blog-filters .filter-btn.active {
+            background: var(--deep-rose);
+            border-color: var(--deep-rose);
+            color: #fff;
         }
 
-        .article-header h1 {
-            max-width: 800px;
-            margin: 0 auto 10px;
-            font-size: 44px;
-            line-height: 1.2;
-            font-weight: 700;
+        /* ───── BLOG GRID ───── */
+        .blog-container {
+            max-width: var(--pd-max);
+            margin: 0 auto 50px;
+            padding: 0 var(--site-pad-x);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .article-date {
-            color: #999;
-            font-size: 14px;
+        /* ───── BLOG CARD ───── */
+        .blog-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f0e8e4;
+            transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
         }
-
-        /* ----- MAIN CONTENT (تصویر کے مطابق) ----- */
-        .article-container {
-            width: 90%;
-            max-width: 850px;
-            margin: 40px auto;
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(167, 90, 105, .10);
         }
-
-        /* تصویر (اگر آپ نے ڈالی ہے تو، ورنہ یہ کوئی اثر نہیں ڈالے گی) */
-        .article-image {
+        .blog-card-image {
             width: 100%;
-            height: auto;
-            max-height: 450px;
+            height: 220px;
             object-fit: cover;
             display: block;
-            margin-bottom: 35px;
-            border-radius: 8px;
+            background: #f0e8e4;
         }
-
-        .article-content p {
-            color: #444;
-            font-size: 18px;
-            margin-bottom: 24px;
-            line-height: 1.8;
+        .blog-card-content {
+            padding: 24px 26px 28px;
         }
-
-        .article-content h2 {
-            font-size: 28px;
-            margin: 40px 0 15px;
-            font-weight: 700;
-        }
-
-        .article-content ul {
-            margin: 20px 0 25px 25px;
-            color: #444;
-        }
-
-        .article-content li {
-            margin-bottom: 10px;
-            font-size: 17px;
-        }
-
-        /* ----- BACK BUTTON ----- */
-        .back-button {
+        .blog-card-category {
             display: inline-block;
-            margin-top: 30px;
-            padding: 12px 28px;
-            background: #111;
-            color: #fff;
-            text-decoration: none;
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--deep-rose);
+            background: #f5ede9;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        .blog-card-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            color: var(--ink);
+        }
+        .blog-card-content h3 a {
+            transition: color 0.2s ease;
+        }
+        .blog-card-content h3 a:hover {
+            color: var(--deep-rose);
+        }
+        .blog-card-content p {
+            color: var(--ink-soft);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 14px;
+            border-top: 1px solid #f0e8e4;
+        }
+        .blog-card-date {
+            font-size: 12px;
+            color: var(--ink-soft);
+        }
+        .read-more {
+            font-size: 13px;
             font-weight: 600;
-            border-radius: 4px;
-            transition: 0.3s ease;
+            color: var(--deep-rose);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.25s ease;
+        }
+        .read-more:hover {
+            gap: 12px;
+        }
+        .read-more::after {
+            content: "→";
+            font-size: 16px;
         }
 
-        .back-button:hover {
-            background: #333;
+        /* ───── NO POSTS ───── */
+        .no-posts {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--ink-soft);
+        }
+        .no-posts h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: var(--ink);
+            margin-bottom: 8px;
         }
 
-        /* ----- RESPONSIVE (موبائل کے لیے) ----- */
-        @media (max-width: 600px) {
-            .article-header {
-                padding: 50px 20px 30px;
-            }
+        /* ───── RESPONSIVE ───── */
+        @media (max-width: 768px) {
+            .blog-hero { padding: 40px 20px 30px; }
+            .blog-hero h1 { font-size: 30px; }
+            .blog-grid { grid-template-columns: 1fr; gap: 20px; }
+            .blog-card-content { padding: 20px; }
+            .blog-card-content h3 { font-size: 20px; }
+            .blog-filters .filter-btn { padding: 6px 16px; font-size: 12px; }
+        }
+        @media (max-width: 480px) {
+            .blog-card-image { height: 180px; }
+            .blog-page { padding-top: calc(var(--ann-h) + var(--nav-height) + 16px); }
+        }
 
-            .article-header h1 {
-                font-size: 30px;
-            }
-
-            .article-content p {
-                font-size: 16px;
-            }
-
-            .article-content h2 {
-                font-size: 24px;
-            }
-
-            .article-image {
-                max-height: 250px;
-            }
+        /* ───── CARD FADE IN ───── */
+        .blog-card.hide { display: none; }
+        .blog-card.show { animation: blogFadeIn 0.5s ease forwards; }
+        @keyframes blogFadeIn {
+            0% { opacity: 0; transform: translateY(16px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body>
+<body class="has-ann">
 
-    <!-- ===== HEADER (تصویر کے مطابق) ===== -->
-    <header class="article-header">
-        <div class="article-category">Fashion</div>
-        <h1>Summer Fashion Trends 2026</h1>
-        <div class="article-date">August 25, 2026</div>
+    <!-- ═══════════ ANNOUNCEMENT BAR ═══════════ -->
+    <div class="gh-ann">
+        <button type="button" class="gh-ann-nav gh-ann-prev" aria-label="Previous announcement">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="gh-ann-track">
+            <span class="gh-ann-msg is-on" data-ann="0">Nationwide Cash on Delivery — pay when it reaches your door</span>
+            <span class="gh-ann-msg" data-ann="1">Free delivery on orders over Rs. 3,000</span>
+            <span class="gh-ann-msg" data-ann="2">Need a size? <a href="https://wa.me/923379022920" target="_blank" rel="noopener">Ask us on WhatsApp</a></span>
+        </span>
+        <button type="button" class="gh-ann-nav gh-ann-next" aria-label="Next announcement">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+    </div>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- ═══════════ NAV ═══════════ -->
+    <header class="nav" id="siteHeader">
+        <div class="nav-shell">
+            <span class="nav-glass-sheen" aria-hidden="true"></span>
+            <div class="nav-inner">
+                <a href="https://www.softgarments.com/" class="brand">
+                    <img class="brand-logo" data-sg-logo src="assets/logo.png" alt="Softgarments" width="380" height="58" />
+                </a>
+                <nav class="links" aria-label="Main navigation">
+                    <a href="https://www.softgarments.com/">Home</a>
+                    <a href="collection.html">New Arrivals</a>
+                    <a href="collection-RTW.html">Ready To Wear</a>
+                    <a href="collection-fabrics.html">Fabrics</a>
+                    <a href="#view-home" data-view="view-home">Garments</a>
+                    <a href="collection-sale.html">Sale</a>
+                    <a href="blog.html" class="is-active">Blog</a>
+                </nav>
+                <div class="nav-cta">
+                    <a class="btn btn-primary btn-nav-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+                        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+                        <span class="btn-label">Order Now</span>
+                    </a>
+                    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+                        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="nav-mobile-panel" id="mobileNav" aria-hidden="true">
+            <div class="nav-mobile-drawer">
+                <div class="nav-mobile-links">
+                    <a href="https://www.softgarments.com/">Home</a>
+                    <a href="collection.html">New Arrivals</a>
+                    <a href="collection-RTW.html">Ready To Wear</a>
+                    <a href="collection-fabrics.html">Fabrics</a>
+                    <a href="#view-home" data-view="view-home">Garments</a>
+                    <a href="collection-sale.html">Sale</a>
+                    <a href="blog.html" class="is-active">Blog</a>
+                </div>
+                <div class="nav-mobile-cta">
+                    <a class="btn btn-primary" href="https://wa.me/923379022920" target="_blank" rel="noopener">Order on WhatsApp</a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main class="article-container">
+    <!-- ═══════════ BLOG PAGE CONTENT ═══════════ -->
+    <div class="blog-page" id="main">
 
-        <!--
-            تصویر: اگر آپ کے پاس assets/images/blog/ میں summer-fashion-trends-2026.jpg ہے
-            تو یہ ظاہر ہوگی۔ ورنہ اسے ہٹا دیں یا placeholder.jpg رکھ دیں۔
-        -->
-        <img
-            class="article-image"
-            src="../../assets/images/blog/placeholder.jpg"
-            alt="Summer Fashion Trends 2026"
-            loading="lazy"
-        >
+        <!-- ─── HERO ─── -->
+        <section class="blog-hero">
+            <h1>Our <span>Blog</span></h1>
+            <p>Fashion, clothing and garment insights from Softgarments — the best online clothing brand in Pakistan.</p>
+        </section>
 
-        <article class="article-content">
+        <!-- ─── FILTERS ─── -->
+        <div class="blog-filters" id="filterSection">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Fashion">Fashion</button>
+            <button class="filter-btn" data-filter="Fabric">Fabric</button>
+            <button class="filter-btn" data-filter="Garments">Garments</button>
+            <button class="filter-btn" data-filter="Trends">Trends</button>
+            <button class="filter-btn" data-filter="Style">Style</button>
+        </div>
 
-            <p>
-                Summer is the perfect season to refresh your wardrobe
-                with comfortable, stylish and lightweight clothing.
-                As we move through 2026, fashion continues to focus
-                on comfort, simple designs and versatile clothing.
-            </p>
+        <!-- ─── BLOG GRID ─── -->
+        <main class="blog-container">
+            <div class="blog-grid" id="blogGrid">
+                <!-- Posts generated by JavaScript -->
+            </div>
+        </main>
 
-            <h2>Lightweight Clothing</h2>
+    </div>
 
-            <p>
-                Lightweight fabrics are an excellent choice for warm
-                summer weather. Breathable materials can help you stay
-                comfortable throughout the day while maintaining a
-                stylish appearance.
-            </p>
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="https://www.softgarments.com/" class="brand">
+                    <img class="brand-logo" src="assets/logo.png" alt="Softgarments" width="360" height="72" />
+                </a>
+                <p>Discover effortless style with Softgarments — premium clothing designed for modern everyday wear.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                    <a href="https://www.facebook.com/profile.php?id=61591339983267" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+                    <a href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Shop</h5>
+                <ul>
+                    <li><a href="main.page.html#gh-cats">Categories</a></li>
+                    <li><a href="collection.html">New Arrivals</a></li>
+                    <li><a href="collection-RTW.html">Ready To Wear</a></li>
+                    <li><a href="collection-fabrics.html">Fabrics</a></li>
+                    <li><a href="collection-sale.html">Sale</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="https://www.softgarments.com/">Home</a></li>
+                    <li><a href="https://www.softgarments.com/#reviews">Reviews</a></li>
+                    <li><a href="main.page.html#contact">Contact</a></li>
+                    <li><a href="blog.html" class="is-active">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h5>Contact</h5>
+                <ul class="footer-contact-list">
+                    <li><strong>WhatsApp</strong><a href="https://wa.me/923379022920" target="_blank" rel="noopener">+92 337 9022920</a></li>
+                    <li><strong>Email</strong><a href="mailto:softgarmentspk@gmail.com">softgarmentspk@gmail.com</a></li>
+                    <li><strong>Delivery</strong>Cash on Delivery, Nationwide</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Softgarments — Comfort You Deserve</span>
+            <span>Made with care in Islamabad, Pakistan</span>
+        </div>
+    </footer>
 
-            <h2>Simple and Comfortable Styles</h2>
+    <!-- ═══════════ FLOATING WHATSAPP ═══════════ -->
+    <a class="float-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+    </a>
 
-            <p>
-                Summer fashion in 2026 is all about combining
-                simplicity with comfort. Clean designs, relaxed fits
-                and practical clothing can easily become part of
-                your everyday wardrobe.
-            </p>
-
-            <h2>Popular Summer Colors</h2>
-
-            <p>
-                Light and fresh colors are popular choices for summer.
-                White, beige, light blue, soft green and other subtle
-                shades can create a fresh seasonal look.
-            </p>
-
-            <h2>Summer Clothing Tips</h2>
-
-            <ul>
-                <li>Choose breathable and lightweight fabrics.</li>
-                <li>Prefer comfortable fits for hot weather.</li>
-                <li>Use lighter colors during the summer season.</li>
-                <li>Choose versatile pieces that can be styled in different ways.</li>
-                <li>Focus on comfort without compromising your personal style.</li>
-            </ul>
-
-            <h2>Final Thoughts</h2>
-
-            <p>
-                The best summer wardrobe combines comfort, quality
-                and personal style. Choosing the right fabrics,
-                colors and designs can make your summer clothing both
-                practical and fashionable.
-            </p>
-
-            <!-- واپس بلاگ پیج پر جانے کا بٹن -->
-            <a href="../index.html" class="back-button">
-                ← Back to Blog
-            </a>
-
-        </article>
-
-    </main>
+    <!-- ═══════════ SCRIPTS ═══════════ -->
+   <script src="assets/site-images.js"></script>
+    <script src="assets/site-chrome.js"></script>
+    <script src="blog.js"></script>
 
 </body>
 </html>
