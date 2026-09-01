@@ -1,233 +1,1119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Summer Fashion Trends 2026 | Soft All Garments</title>
-
-    <meta
-        name="description"
-        content="Discover the latest summer fashion trends and stylish clothing ideas for 2026 from Soft All Garments."
-    >
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summer Fashion Trends 2026 | Softgarments Blog</title>
+    <meta name="description" content="Discover the latest summer fashion trends and stylish clothing ideas for 2026 from Softgarments — the best online clothing brand in Pakistan." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet" />
     <style>
+        /* ── ROOT VARIABLES ── */
+        :root {
+            --ivory: #FFF8F0;
+            --ivory-deep: #FBEFE6;
+            --rose: #D8A7B1;
+            --rose-soft: #E8C4CB;
+            --deep-rose: #A75A69;
+            --mauve: #C9A3A0;
+            --ink: #4A3B3E;
+            --ink-soft: #8A7377;
+            --glass-dark: color-mix(in srgb, var(--deep-rose) 76%, #1e1216);
+            --glass-dark-deep: color-mix(in srgb, var(--deep-rose) 62%, #140c0f);
+            --glass-dark-rose: color-mix(in srgb, var(--deep-rose) 88%, var(--rose) 12%);
+            --white: #ffffff;
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --shadow-sm: 0 2px 8px rgba(74, 59, 62, .06);
+            --shadow-md: 0 8px 24px rgba(167, 90, 105, .12);
+            --shadow-lg: 0 16px 48px rgba(167, 90, 105, .16);
+            --shadow-xl: 0 24px 64px rgba(167, 90, 105, .2);
+            --ease-out: cubic-bezier(.22, 1, .36, 1);
+            --nav-pad-top: 10px;
+            --nav-shell-h: 68px;
+            --nav-height: calc(var(--nav-pad-top) + var(--nav-shell-h));
+            --nav-shell-h-scrolled: 56px;
+            --nav-height-scrolled: calc(var(--nav-pad-top) + var(--nav-shell-h-scrolled));
+            --nav-glass-fill: color-mix(in srgb, var(--glass-dark) 78%, transparent);
+            --nav-glass-fill-scrolled: color-mix(in srgb, var(--glass-dark-deep) 88%, transparent);
+            --nav-glass-shine: color-mix(in srgb, var(--rose-soft) 20%, transparent);
+            --nav-glass-border: color-mix(in srgb, var(--rose) 45%, transparent);
+            --nav-glass-border-strong: color-mix(in srgb, var(--rose-soft) 58%, transparent);
+            --nav-glass-glow: color-mix(in srgb, var(--deep-rose) 45%, transparent);
+            --nav-text: var(--ivory);
+            --nav-text-hover: var(--white);
+            --nav-link-hover-bg: color-mix(in srgb, var(--deep-rose) 55%, transparent);
+            --site-max: min(100% - 48px, 1680px);
+            --site-pad-x: clamp(20px, 4vw, 64px);
+            --ann-h: 38px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        html {
+            scroll-behavior: smooth;
+            overflow-x: clip;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background: #fff;
-            color: #222;
-            line-height: 1.7;
+            font-family: 'Poppins', sans-serif;
+            color: var(--ink);
+            background: var(--ivory);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .skip-link {
+            position: fixed;
+            top: -100px;
+            left: 16px;
+            z-index: 1000;
+            padding: 12px 20px;
+            background: var(--deep-rose);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 999px;
+            box-shadow: var(--shadow-md);
+            transition: top .25s var(--ease-out);
+        }
+        .skip-link:focus {
+            top: 16px;
+            outline: 2px solid var(--white);
+            outline-offset: 3px;
+        }
+        :focus-visible {
+            outline: 2px solid var(--deep-rose);
+            outline-offset: 3px;
+        }
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
         }
 
+        /* ───────── NAV (2026 Floating Dark Glass Pill) ───────── */
+        header.nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 100;
+            padding: var(--nav-pad-top) var(--site-pad-x) 0;
+            background: transparent;
+            pointer-events: none;
+            transition: padding .35s var(--ease-out);
+        }
+        .nav-shell {
+            pointer-events: auto;
+            position: relative;
+            max-width: var(--site-max);
+            width: 100%;
+            margin: 0 auto;
+            min-height: var(--nav-shell-h);
+            border-radius: 999px;
+            isolation: isolate;
+            background:
+                linear-gradient(125deg, color-mix(in srgb, var(--deep-rose) 42%, transparent) 0%, transparent 48%, color-mix(in srgb, var(--rose) 18%, transparent) 100%),
+                linear-gradient(180deg, var(--nav-glass-shine) 0%, transparent 38%),
+                var(--nav-glass-fill);
+            backdrop-filter: blur(40px) saturate(1.7);
+            -webkit-backdrop-filter: blur(40px) saturate(1.7);
+            border: 1px solid var(--nav-glass-border);
+            box-shadow:
+                0 0 0 1px color-mix(in srgb, var(--deep-rose) 22%, transparent) inset,
+                inset 0 1px 0 color-mix(in srgb, var(--rose-soft) 35%, transparent),
+                inset 0 -1px 0 color-mix(in srgb, var(--glass-dark-deep) 60%, transparent),
+                0 20px 50px color-mix(in srgb, var(--glass-dark-deep) 55%, transparent),
+                0 8px 24px var(--nav-glass-glow);
+            transition: min-height .35s var(--ease-out), background .4s var(--ease-out), box-shadow .4s ease, border-color .4s ease, transform .4s var(--ease-out);
+            overflow: visible;
+        }
+        .nav-shell::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            z-index: 0;
+            opacity: .35;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            background-size: 120px 120px;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+        .nav-shell::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            z-index: 0;
+            padding: 1px;
+            background: linear-gradient(135deg, color-mix(in srgb, var(--rose-soft) 55%, transparent), color-mix(in srgb, var(--deep-rose) 35%, transparent) 45%, color-mix(in srgb, var(--rose) 25%, transparent) 75%, color-mix(in srgb, var(--rose-soft) 20%, transparent));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        header.nav.is-scrolled .nav-shell {
+            min-height: var(--nav-shell-h-scrolled);
+            background:
+                linear-gradient(125deg, color-mix(in srgb, var(--deep-rose) 48%, transparent) 0%, transparent 45%, color-mix(in srgb, var(--rose) 22%, transparent) 100%),
+                linear-gradient(180deg, var(--nav-glass-shine) 0%, transparent 32%),
+                var(--nav-glass-fill-scrolled);
+            backdrop-filter: blur(48px) saturate(1.85);
+            -webkit-backdrop-filter: blur(48px) saturate(1.85);
+            border-color: var(--nav-glass-border-strong);
+            box-shadow:
+                0 0 0 1px color-mix(in srgb, var(--rose) 18%, transparent) inset,
+                inset 0 1px 0 color-mix(in srgb, var(--rose-soft) 42%, transparent),
+                inset 0 -1px 0 color-mix(in srgb, var(--glass-dark-deep) 70%, transparent),
+                0 24px 60px color-mix(in srgb, var(--glass-dark-deep) 62%, transparent),
+                0 10px 28px var(--nav-glass-glow);
+        }
+        .nav-glass-sheen {
+            position: absolute;
+            inset: 1px;
+            border-radius: inherit;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .nav-glass-sheen::before {
+            content: "";
+            position: absolute;
+            top: -40%;
+            left: -10%;
+            width: 55%;
+            height: 120%;
+            background: radial-gradient(ellipse at center, color-mix(in srgb, var(--rose-soft) 28%, transparent) 0%, transparent 68%);
+            transform: rotate(-8deg);
+            opacity: .75;
+        }
+        .nav-glass-sheen::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 6%;
+            right: 6%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--rose-soft) 65%, transparent) 25%, color-mix(in srgb, var(--rose) 50%, transparent) 50%, color-mix(in srgb, var(--rose-soft) 65%, transparent) 75%, transparent);
+            opacity: .85;
+        }
+        header.nav.is-scrolled .brand-logo {
+            height: clamp(46px, 5.6vw, 56px);
+        }
+        .nav-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 12px;
+            min-height: var(--nav-shell-h);
+            padding: 0 clamp(14px, 2.4vw, 24px);
+            transition: min-height .35s var(--ease-out);
+        }
+        .brand {
+            justify-self: start;
+        }
+        nav.links {
+            justify-self: center;
+        }
+        .nav-cta {
+            justify-self: end;
+        }
+        header.nav.is-scrolled .nav-inner {
+            min-height: var(--nav-shell-h-scrolled);
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+            transition: opacity .2s ease;
+        }
+        .brand:hover {
+            opacity: .88;
+        }
+        header.nav .brand-logo {
+            display: block;
+            height: clamp(52px, 6.8vw, 66px);
+            width: auto;
+            max-width: min(420px, 58vw);
+            object-fit: contain;
+            object-position: left center;
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(232, 196, 203, .28));
+            opacity: .98;
+            transition: transform .35s var(--ease-out), height .35s var(--ease-out), opacity .35s ease;
+        }
+        header.nav .brand:hover .brand-logo {
+            transform: scale(1.02);
+            opacity: 1;
+        }
+        .footer-brand .brand-logo {
+            display: block;
+            height: clamp(62px, 7vw, 76px);
+            width: auto;
+            max-width: 360px;
+            object-fit: contain;
+            object-position: left center;
+            filter: brightness(0) invert(1);
+            opacity: .96;
+        }
+        .footer-brand .brand {
+            display: block;
+            max-width: 360px;
+        }
+        nav.links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        nav.links > a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--nav-text);
+            text-decoration: none;
+            padding: 7px 12px;
+            border-radius: 999px;
+            position: relative;
+            transition: color .2s ease, background .2s ease, box-shadow .2s ease;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+            letter-spacing: .02em;
+        }
+        nav.links > a:hover, nav.links > a.is-active {
+            color: var(--nav-text-hover);
+            background: var(--nav-link-hover-bg);
+            box-shadow: inset 0 1px 0 color-mix(in srgb, var(--rose-soft) 35%, transparent);
+        }
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .btn-nav-wa {
+            padding: 8px 16px;
+            font-size: 12.5px;
+            gap: 7px;
+            box-shadow: 0 6px 20px rgba(167, 90, 105, .45);
+        }
+        .btn-nav-wa svg {
+            width: 16px;
+            height: 16px;
+        }
+        .menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background: color-mix(in srgb, var(--deep-rose) 22%, transparent);
+            border: 1px solid var(--nav-glass-border);
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: inset 0 1px 0 color-mix(in srgb, var(--ivory) 16%, transparent);
+            transition: background .2s ease, border-color .2s ease, transform .2s ease;
+        }
+        .menu-toggle:hover {
+            background: var(--nav-link-hover-bg);
+            border-color: var(--nav-glass-border-strong);
+        }
+        .menu-toggle svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--nav-text);
+            transition: opacity .2s ease, transform .2s ease;
+        }
+        .menu-toggle .icon-close {
+            display: none;
+        }
+        header.nav.menu-open .menu-toggle .icon-menu {
+            display: none;
+        }
+        header.nav.menu-open .menu-toggle .icon-close {
+            display: block;
+        }
+        .nav-mobile-panel {
+            position: fixed;
+            inset: 0;
+            top: var(--nav-height);
+            z-index: 99;
+            background: color-mix(in srgb, var(--glass-dark-deep) 42%, transparent);
+            backdrop-filter: blur(10px) saturate(1.5);
+            -webkit-backdrop-filter: blur(10px) saturate(1.5);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .3s ease, visibility .3s ease;
+        }
+        header.nav.menu-open .nav-mobile-panel {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        header.nav.is-scrolled.menu-open .nav-mobile-panel {
+            top: var(--nav-height-scrolled);
+        }
+        .nav-mobile-drawer {
+            background:
+                linear-gradient(180deg, color-mix(in srgb, var(--rose-soft) 14%, transparent) 0%, transparent 32%),
+                color-mix(in srgb, var(--glass-dark-deep) 90%, transparent);
+            backdrop-filter: blur(36px) saturate(1.8);
+            -webkit-backdrop-filter: blur(36px) saturate(1.8);
+            border-bottom: 1px solid var(--nav-glass-border);
+            box-shadow: 0 16px 40px var(--nav-glass-glow);
+            padding: 20px clamp(20px, 5vw, 32px) 28px;
+            transform: translateY(-12px);
+            opacity: 0;
+            transition: transform .35s var(--ease-out), opacity .35s ease;
+            max-height: calc(100vh - var(--nav-height));
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        header.nav.menu-open .nav-mobile-drawer {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .nav-mobile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .nav-mobile-links > a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--nav-text);
+            text-decoration: none;
+            transition: background .2s ease, color .2s ease;
+        }
+        .nav-mobile-links > a:hover, .nav-mobile-links > a.is-active {
+            background: var(--nav-link-hover-bg);
+            color: var(--nav-text-hover);
+        }
+        .nav-mobile-cta {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+        .nav-mobile-cta .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 16px 24px;
+        }
+        body.nav-locked {
+            overflow: hidden;
+        }
+
+        /* ───────── ANNOUNCEMENT BAR ───────── */
+        .gh-ann {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--ann-h);
+            z-index: 101;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-dark-deep);
+            color: var(--ivory);
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-weight: 500;
+            padding: 0 44px;
+            transition: transform .35s var(--ease-out);
+        }
+        body.ann-hidden .gh-ann { transform: translateY(-100%); }
+        .gh-ann-track { position: relative; width: 100%; height: 100%; }
+        .gh-ann-msg {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity .5s ease;
+            pointer-events: none;
+        }
+        .gh-ann-msg.is-on { opacity: 1; pointer-events: auto; }
+        .gh-ann-msg a { color: var(--rose-soft); text-decoration: underline; text-underline-offset: 3px; }
+        .gh-ann-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: 0;
+            color: var(--rose-soft);
+            cursor: pointer;
+            padding: 6px;
+            line-height: 0;
+            opacity: .75;
+            transition: opacity .2s ease;
+        }
+        .gh-ann-nav:hover { opacity: 1; }
+        .gh-ann-nav svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+        .gh-ann-prev { left: 10px; }
+        .gh-ann-next { right: 10px; }
+
+        body.has-ann header.nav { top: var(--ann-h); transition: top .35s var(--ease-out); }
+        body.has-ann.ann-hidden header.nav { top: 0; }
+
+        /* ───────── ARTICLE PAGE ───────── */
+        .article-page {
+            padding-top: calc(var(--ann-h) + var(--nav-height) + 24px);
+            padding-bottom: clamp(48px, 6vw, 80px);
+        }
+        body.ann-hidden .article-page {
+            padding-top: calc(var(--nav-height) + 24px);
+        }
+
+        /* ───── ARTICLE HEADER ───── */
         .article-header {
             text-align: center;
-            padding: 70px 20px 50px;
-            background: #f7f7f7;
+            padding: 60px 20px 50px;
+            background: linear-gradient(135deg, #f8f0ec 0%, #fcf9f7 100%);
+            border-bottom: 2px solid #f0e4de;
+            max-width: var(--site-max);
+            margin: 0 auto 30px;
         }
-
         .article-category {
-            color: #888;
-            font-size: 13px;
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .16em;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            color: var(--deep-rose);
+            background: #f5ede9;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
         }
-
         .article-header h1 {
-            max-width: 900px;
-            margin: 0 auto 15px;
-            font-size: 44px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(32px, 4.5vw, 48px);
+            font-weight: 500;
             line-height: 1.2;
+            color: var(--ink);
+            max-width: 800px;
+            margin: 0 auto 12px;
+            letter-spacing: .02em;
         }
-
         .article-date {
-            color: #999;
             font-size: 14px;
+            color: var(--ink-soft);
         }
 
+        /* ───── ARTICLE CONTENT ───── */
         .article-container {
-            width: 90%;
-            max-width: 900px;
-            margin: 50px auto;
+            max-width: var(--site-max);
+            margin: 0 auto 50px;
+            padding: 0 var(--site-pad-x);
         }
-
         .article-image {
             width: 100%;
-            height: 450px;
+            height: auto;
+            max-height: 480px;
             object-fit: cover;
             display: block;
             margin-bottom: 40px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
         }
-
-        .article-content h2 {
-            font-size: 30px;
-            margin: 35px 0 15px;
+        .article-body {
+            max-width: 820px;
+            margin: 0 auto;
         }
-
-        .article-content p {
-            color: #555;
+        .article-body h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 3vw, 34px);
+            font-weight: 500;
+            color: var(--ink);
+            margin: 40px 0 16px;
+            line-height: 1.25;
+            letter-spacing: .02em;
+        }
+        .article-body p {
             font-size: 17px;
+            line-height: 1.8;
+            color: var(--ink-soft);
             margin-bottom: 20px;
         }
-
-        .article-content ul {
+        .article-body ul {
             margin: 20px 0 25px 25px;
-            color: #555;
+            color: var(--ink-soft);
         }
-
-        .article-content li {
+        .article-body li {
             margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1.7;
         }
-
         .back-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             margin-top: 30px;
-            padding: 12px 22px;
-            background: #111;
+            padding: 12px 24px;
+            background: var(--deep-rose);
             color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 999px;
             text-decoration: none;
-            transition: 0.3s ease;
+            transition: background .25s ease, transform .25s var(--ease-out), box-shadow .25s ease;
+            box-shadow: 0 4px 16px rgba(167, 90, 105, .28);
         }
-
         .back-button:hover {
-            background: #333;
+            background: #8f4a58;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(167, 90, 105, .36);
+        }
+        .back-button svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
         }
 
-        @media (max-width: 600px) {
+        /* ───────── FOOTER ───────── */
+        footer {
+            background: linear-gradient(180deg, #3d3235 0%, var(--ink) 100%);
+            color: var(--ivory-deep);
+            padding: clamp(56px, 7vw, 72px) var(--site-pad-x) 28px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: minmax(220px, 1.15fr) repeat(3, minmax(130px, 1fr));
+            gap: clamp(36px, 5vw, 64px);
+            align-items: start;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+            max-width: var(--site-max);
+            width: 100%;
+            margin: 0 auto;
+        }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 300px;
+        }
+        .footer-brand p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.75;
+            color: rgba(255, 248, 240, .68);
+        }
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 4px;
+        }
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background .25s ease, transform .25s var(--ease-out), border-color .25s ease;
+        }
+        .footer-social a:hover {
+            background: var(--deep-rose);
+            border-color: var(--deep-rose);
+            transform: translateY(-2px);
+        }
+        .footer-social svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
+        .footer-col h5 {
+            font-size: 12px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin: 0 0 18px;
+            color: rgba(255, 255, 255, .92);
+            font-weight: 700;
+        }
+        .footer-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-col ul a {
+            font-size: 14px;
+            color: rgba(255, 248, 240, .72);
+            text-decoration: none;
+            transition: color .2s ease;
+            line-height: 1.4;
+        }
+        .footer-col ul a:hover {
+            color: var(--rose-soft);
+        }
+        .footer-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .footer-contact-list li {
+            font-size: 14px;
+            color: rgba(255, 248, 240, .72);
+            line-height: 1.5;
+        }
+        .footer-contact-list strong {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .45);
+            margin-bottom: 3px;
+        }
+        .footer-contact-list a {
+            color: rgba(255, 248, 240, .88);
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+        .footer-contact-list a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 22px;
+            font-size: 12.5px;
+            color: rgba(255, 248, 240, .5);
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            max-width: var(--site-max);
+            width: 100%;
+            margin: 0 auto;
+        }
 
+        /* ───────── FLOATING WHATSAPP ───────── */
+        .float-wa {
+            position: fixed;
+            bottom: clamp(16px, 3vw, 28px);
+            right: clamp(16px, 3vw, 28px);
+            z-index: 60;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--deep-rose), #8f4a58);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(167, 90, 105, .35);
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, .3);
+            transition: transform .3s var(--ease-out), box-shadow .3s ease, background .3s ease;
+            animation: floatBob 3s ease-in-out infinite;
+        }
+        .float-wa:hover {
+            background: linear-gradient(to right, #b86878, var(--deep-rose));
+            transform: scale(1.06);
+            box-shadow: 0 10px 28px rgba(167, 90, 105, .45);
+            animation: none;
+        }
+        .float-wa svg {
+            width: 26px;
+            height: 26px;
+            fill: #fff;
+        }
+        @keyframes floatBob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ───── RESPONSIVE ───── */
+        @media (max-width: 1100px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px 40px;
+            }
+            .footer-brand {
+                grid-column: 1 / -1;
+                max-width: 360px;
+            }
+            nav.links {
+                gap: 2px;
+            }
+            nav.links > a {
+                padding: 10px 12px;
+                font-size: 13.5px;
+            }
+        }
+        @media (max-width: 900px) {
+            :root {
+                --nav-pad-top: 8px;
+                --nav-shell-h: 58px;
+                --nav-shell-h-scrolled: 50px;
+            }
+            nav.links { display: none; }
+            .menu-toggle { display: flex; }
+            .nav-cta .btn-nav-wa { display: none; }
+            .nav-inner {
+                display: flex;
+                justify-content: space-between;
+                gap: 12px;
+                padding: 0 14px;
+            }
+            .brand, nav.links, .nav-cta { justify-self: auto; }
+            .nav-shell { border-radius: 22px; }
+            header.nav .brand-logo {
+                height: 48px;
+                max-width: min(320px, 64vw);
+            }
+            .article-header {
+                padding: 40px 20px 30px;
+            }
             .article-header h1 {
-                font-size: 32px;
+                font-size: 30px;
             }
-
-            .article-image {
-                height: 280px;
-            }
-
-            .article-content h2 {
-                font-size: 25px;
-            }
-
-            .article-content p {
+            .article-body p {
                 font-size: 16px;
             }
+            .article-image {
+                max-height: 320px;
+            }
+        }
+        @media (max-width: 640px) {
+            :root {
+                --nav-pad-top: 8px;
+                --nav-shell-h: 54px;
+                --nav-shell-h-scrolled: 48px;
+                --ann-h: 46px;
+            }
+            .article-page {
+                padding-top: calc(var(--ann-h) + var(--nav-height) + 16px);
+            }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-brand { max-width: 100%; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+            .float-wa { width: 48px; height: 48px; }
+            .float-wa svg { width: 22px; height: 22px; }
+            .article-image {
+                max-height: 240px;
+                border-radius: var(--radius-sm);
+            }
+            .article-body h2 {
+                font-size: 24px;
+            }
+            .article-body p {
+                font-size: 15px;
+            }
+            .article-body li {
+                font-size: 14px;
+            }
+            .gh-ann { font-size: 10.5px; letter-spacing: .06em; padding: 0 34px; }
+        }
+        @media (max-width: 380px) {
+            header.nav .brand-logo { height: 44px; max-width: min(290px, 62vw); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
         }
     </style>
 </head>
+<body class="has-ann">
 
-<body>
+    <!-- ═══════════ ANNOUNCEMENT BAR ═══════════ -->
+    <div class="gh-ann">
+        <button type="button" class="gh-ann-nav gh-ann-prev" aria-label="Previous announcement">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="gh-ann-track">
+            <span class="gh-ann-msg is-on" data-ann="0">Nationwide Cash on Delivery — pay when it reaches your door</span>
+            <span class="gh-ann-msg" data-ann="1">Free delivery on orders over Rs. 3,000</span>
+            <span class="gh-ann-msg" data-ann="2">Need a size? <a href="https://wa.me/923379022920" target="_blank" rel="noopener">Ask us on WhatsApp</a></span>
+        </span>
+        <button type="button" class="gh-ann-nav gh-ann-next" aria-label="Next announcement">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+    </div>
 
-    <header class="article-header">
+    <a href="#main" class="skip-link">Skip to content</a>
 
-        <div class="article-category">
-            Fashion
+    <!-- ═══════════ NAV ═══════════ -->
+    <header class="nav" id="siteHeader">
+        <div class="nav-shell">
+            <span class="nav-glass-sheen" aria-hidden="true"></span>
+            <div class="nav-inner">
+                <a href="https://www.softgarments.com/" class="brand">
+                    <img class="brand-logo" data-sg-logo src="assets/logo.png" alt="Softgarments" width="380" height="58" />
+                </a>
+                <nav class="links" aria-label="Main navigation">
+                    <a href="https://www.softgarments.com/">Home</a>
+                    <a href="collection.html">New Arrivals</a>
+                    <a href="collection-RTW.html">Ready To Wear</a>
+                    <a href="collection-fabrics.html">Fabrics</a>
+                    <a href="#view-home" data-view="view-home">Garments</a>
+                    <a href="collection-sale.html">Sale</a>
+                    <a href="blog.html">Blog</a>
+                </nav>
+                <div class="nav-cta">
+                    <a class="btn btn-primary btn-nav-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+                        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+                        <span class="btn-label">Order Now</span>
+                    </a>
+                    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+                        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
         </div>
-
-        <h1>
-            Summer Fashion Trends 2026
-        </h1>
-
-        <div class="article-date">
-            August 25, 2026
+        <div class="nav-mobile-panel" id="mobileNav" aria-hidden="true">
+            <div class="nav-mobile-drawer">
+                <div class="nav-mobile-links">
+                    <a href="https://www.softgarments.com/">Home</a>
+                    <a href="collection.html">New Arrivals</a>
+                    <a href="collection-RTW.html">Ready To Wear</a>
+                    <a href="collection-fabrics.html">Fabrics</a>
+                    <a href="#view-home" data-view="view-home">Garments</a>
+                    <a href="collection-sale.html">Sale</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+                <div class="nav-mobile-cta">
+                    <a class="btn btn-primary" href="https://wa.me/923379022920" target="_blank" rel="noopener">Order on WhatsApp</a>
+                </div>
+            </div>
         </div>
-
     </header>
 
+    <div id="top"></div>
 
-    <main class="article-container">
+    <!-- ═══════════ ARTICLE CONTENT ═══════════ -->
+    <div class="article-page" id="main">
 
-        <img
-            class="article-image"
-            src="../../assets/images/blog-placeholder.jpg"
-            alt="Summer Fashion Trends 2026"
-        >
+        <header class="article-header">
+            <span class="article-category">Fashion</span>
+            <h1>Summer Fashion Trends 2026</h1>
+            <span class="article-date">August 25, 2026</span>
+        </header>
 
+        <main class="article-container">
 
-        <article class="article-content">
-
-            <p>
-                Summer is the perfect season to refresh your wardrobe
-                with comfortable, stylish and lightweight clothing.
-                As we move through 2026, fashion continues to focus
-                on comfort, simple designs and versatile clothing.
-            </p>
-
-
-            <h2>
-                Lightweight Clothing
-            </h2>
-
-            <p>
-                Lightweight fabrics are an excellent choice for warm
-                summer weather. Breathable materials can help you stay
-                comfortable throughout the day while maintaining a
-                stylish appearance.
-            </p>
-
-
-            <h2>
-                Simple and Comfortable Styles
-            </h2>
-
-            <p>
-                Summer fashion in 2026 is all about combining
-                simplicity with comfort. Clean designs, relaxed fits
-                and practical clothing can easily become part of
-                your everyday wardrobe.
-            </p>
-
-
-            <h2>
-                Popular Summer Colors
-            </h2>
-
-            <p>
-                Light and fresh colors are popular choices for summer.
-                White, beige, light blue, soft green and other subtle
-                shades can create a fresh seasonal look.
-            </p>
-
-
-            <h2>
-                Summer Clothing Tips
-            </h2>
-
-            <ul>
-                <li>Choose breathable and lightweight fabrics.</li>
-                <li>Prefer comfortable fits for hot weather.</li>
-                <li>Use lighter colors during the summer season.</li>
-                <li>Choose versatile pieces that can be styled in different ways.</li>
-                <li>Focus on comfort without compromising your personal style.</li>
-            </ul>
-
-
-            <h2>
-                Final Thoughts
-            </h2>
-
-            <p>
-                The best summer wardrobe combines comfort, quality
-                and personal style. Choosing the right fabrics,
-                colors and designs can make your summer clothing both
-                practical and fashionable.
-            </p>
-
-
-            <a
-                href="../index.html"
-                class="back-button"
+            <img
+                class="article-image"
+                src="/assets/images/blog/summer-fashion-trends-2026.jpg"
+                alt="Summer Fashion Trends 2026 — Softgarments Blog"
+                loading="lazy"
+                onerror="this.src='/assets/images/blog/summer-fashion-trends-2026.jpg';"
             >
-                ← Back to Blog
-            </a>
 
-        </article>
+            <div class="article-body">
 
-    </main>
+                <p>
+                    Summer is the perfect season to refresh your wardrobe
+                    with comfortable, stylish and lightweight clothing.
+                    As we move through 2026, fashion continues to focus
+                    on comfort, simple designs and versatile clothing.
+                </p>
+
+                <h2>Lightweight Clothing</h2>
+
+                <p>
+                    Lightweight fabrics are an excellent choice for warm
+                    summer weather. Breathable materials can help you stay
+                    comfortable throughout the day while maintaining a
+                    stylish appearance.
+                </p>
+
+                <h2>Simple and Comfortable Styles</h2>
+
+                <p>
+                    Summer fashion in 2026 is all about combining
+                    simplicity with comfort. Clean designs, relaxed fits
+                    and practical clothing can easily become part of
+                    your everyday wardrobe.
+                </p>
+
+                <h2>Popular Summer Colors</h2>
+
+                <p>
+                    Light and fresh colors are popular choices for summer.
+                    White, beige, light blue, soft green and other subtle
+                    shades can create a fresh seasonal look.
+                </p>
+
+                <h2>Summer Clothing Tips</h2>
+
+                <ul>
+                    <li>Choose breathable and lightweight fabrics.</li>
+                    <li>Prefer comfortable fits for hot weather.</li>
+                    <li>Use lighter colors during the summer season.</li>
+                    <li>Choose versatile pieces that can be styled in different ways.</li>
+                    <li>Focus on comfort without compromising your personal style.</li>
+                </ul>
+
+                <h2>Final Thoughts</h2>
+
+                <p>
+                    The best summer wardrobe combines comfort, quality
+                    and personal style. Choosing the right fabrics,
+                    colors and designs can make your summer clothing both
+                    practical and fashionable.
+                </p>
+
+                <a href="../blog.html" class="back-button">
+                    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Blog
+                </a>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="https://www.softgarments.com/" class="brand">
+                    <img class="brand-logo" src="assets/logo.png" alt="Softgarments" width="360" height="72" />
+                </a>
+                <p>Discover effortless style with Softgarments premium clothing designed for modern everyday wear.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                    <a href="https://www.facebook.com/profile.php?id=61591339983267" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+                    <a href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Shop</h5>
+                <ul>
+                    <li><a href="collection.html">New Arrivals</a></li>
+                    <li><a href="collection-RTW.html">Ready To Wear</a></li>
+                    <li><a href="collection-fabrics.html">Fabrics</a></li>
+                    <li><a href="collection-sale.html">Sale</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="https://www.softgarments.com/">Home</a></li>
+                    <li><a href="https://www.softgarments.com/#reviews">Reviews</a></li>
+                    <li><a href="main.page.html#contact">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h5>Contact</h5>
+                <ul class="footer-contact-list">
+                    <li><strong>WhatsApp</strong><a href="https://wa.me/923379022920" target="_blank" rel="noopener">+92 337 9022920</a></li>
+                    <li><strong>Email</strong><a href="mailto:softgarmentspk@gmail.com">softgarmentspk@gmail.com</a></li>
+                    <li><strong>Delivery</strong>Cash on Delivery, Nationwide</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Softgarments — Comfort You Deserve</span>
+            <span>Made with care in Islamabad, Pakistan</span>
+        </div>
+    </footer>
+
+    <!-- ═══════════ FLOATING WHATSAPP ═══════════ -->
+    <a class="float-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+    </a>
+
+    <script>
+        // ── Header scroll state ──
+        const siteHeader = document.getElementById('siteHeader');
+        function updateHeaderScroll() {
+            siteHeader.classList.toggle('is-scrolled', window.scrollY > 20);
+        }
+        window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+        updateHeaderScroll();
+
+        // ── Mobile menu ──
+        const toggle = document.querySelector('.menu-toggle');
+        const mobilePanel = document.getElementById('mobileNav');
+        const mobileLinks = document.querySelectorAll('.nav-mobile-links a, .nav-mobile-cta a');
+
+        function setMenuOpen(open) {
+            siteHeader.classList.toggle('menu-open', open);
+            toggle.setAttribute('aria-expanded', open);
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            mobilePanel.setAttribute('aria-hidden', !open);
+            document.body.classList.toggle('nav-locked', open);
+        }
+        toggle.addEventListener('click', () => setMenuOpen(!siteHeader.classList.contains('menu-open')));
+        mobilePanel.addEventListener('click', (e) => { if (e.target === mobilePanel) setMenuOpen(false); });
+        mobileLinks.forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && siteHeader.classList.contains('menu-open')) setMenuOpen(false);
+        });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900 && siteHeader.classList.contains('menu-open')) setMenuOpen(false);
+        });
+
+        // ── Announcement bar ──
+        (function () {
+            const bar = document.querySelector('.gh-ann');
+            if (!bar) return;
+            const msgs = [...bar.querySelectorAll('.gh-ann-msg')];
+            let i = 0, timer = null;
+            function go(n) {
+                i = (n + msgs.length) % msgs.length;
+                msgs.forEach((m, k) => m.classList.toggle('is-on', k === i));
+            }
+            function start() { clearInterval(timer); timer = setInterval(() => go(i + 1), 4500); }
+            const prevBtn = bar.querySelector('.gh-ann-prev');
+            const nextBtn = bar.querySelector('.gh-ann-next');
+            if (prevBtn) prevBtn.addEventListener('click', () => { go(i - 1); start(); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { go(i + 1); start(); });
+            start();
+            addEventListener('scroll', () => {
+                document.body.classList.toggle('ann-hidden', scrollY > 40);
+            }, { passive: true });
+        })();
+    </script>
 
 </body>
 </html>
