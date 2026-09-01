@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog — Softgarments | Fashion & Garment Insights</title>
-    <meta name="description" content="Read the latest fashion, clothing, and garment insights from Softgarments — the best online clothing brand in Pakistan." />
-    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <title>Best Designer Dress on Affordable Price | Softgarments Blog</title>
+    <meta name="description" content="Elevate your wardrobe with premium designer dresses that combine luxury aesthetics with budget-friendly pricing, making high-end fashion accessible to everyone." />    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet" />
     <style>
-        /* ── view switching ─────────────────────────────────────────── */
-        .view { display: none; }
-        .view.is-active { display: block; }
-
+        /* ── ROOT VARIABLES ── */
         :root {
             --ivory: #FFF8F0;
             --ivory-deep: #FBEFE6;
@@ -26,9 +21,6 @@
             --glass-dark: color-mix(in srgb, var(--deep-rose) 76%, #1e1216);
             --glass-dark-deep: color-mix(in srgb, var(--deep-rose) 62%, #140c0f);
             --glass-dark-rose: color-mix(in srgb, var(--deep-rose) 88%, var(--rose) 12%);
-            --whatsapp-green: #25D366;
-            --whatsapp-dark: #128C7E;
-            --whatsapp-darker: #075E54;
             --white: #ffffff;
             --radius-sm: 12px;
             --radius-md: 16px;
@@ -316,52 +308,47 @@
         .nav-cta {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
             gap: 10px;
             flex-shrink: 0;
         }
         .btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: 999px;
-            font-family: inherit;
+            padding: 8px 16px;
+            font-size: 13px;
             font-weight: 600;
-            font-size: 14.5px;
-            line-height: 1;
+            border-radius: 999px;
             text-decoration: none;
-            cursor: pointer;
             border: none;
-            letter-spacing: .01em;
-            white-space: nowrap;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all .25s ease;
         }
         .btn-primary {
             background: var(--deep-rose);
-            color: var(--white);
-            box-shadow: 0 4px 16px rgba(167, 90, 105, .28), inset 0 1px 0 rgba(255, 255, 255, .12);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(167, 90, 105, .28);
+        }
+        .btn-primary:hover {
+            background: #8f4a58;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(167, 90, 105, .36);
         }
         .btn-nav-wa {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            align-self: center;
-            height: 38px;
-            padding: 0 16px;
+            padding: 8px 16px;
             font-size: 12.5px;
             gap: 7px;
-            line-height: 1;
-            color: var(--ivory);
-            background: var(--deep-rose);
-            border-radius: 999px;
             box-shadow: 0 6px 20px rgba(167, 90, 105, .45);
         }
         .btn-nav-wa svg {
             width: 16px;
             height: 16px;
-            fill: currentColor;
-            flex-shrink: 0;
+            fill: #fff;
+            stroke: #fff;
+        }
+        .btn svg {
+            fill: #fff;
+            stroke: #fff;
         }
         .menu-toggle {
             display: none;
@@ -528,17 +515,17 @@
         body.has-ann header.nav { top: var(--ann-h); transition: top .35s var(--ease-out); }
         body.has-ann.ann-hidden header.nav { top: 0; }
 
-        /* ───── BLOG PAGE ───── */
-        .blog-page {
+        /* ───────── ARTICLE PAGE ───────── */
+        .article-page {
             padding-top: calc(var(--ann-h) + var(--nav-height) + 24px);
             padding-bottom: clamp(48px, 6vw, 80px);
         }
-        body.ann-hidden .blog-page {
+        body.ann-hidden .article-page {
             padding-top: calc(var(--nav-height) + 24px);
         }
 
-        /* ───── BLOG HERO ───── */
-        .blog-hero {
+        /* ───── ARTICLE HEADER ───── */
+        .article-header {
             text-align: center;
             padding: 60px 20px 50px;
             background: linear-gradient(135deg, #f8f0ec 0%, #fcf9f7 100%);
@@ -546,168 +533,107 @@
             max-width: var(--site-max);
             margin: 0 auto 30px;
         }
-        .blog-hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(36px, 4.5vw, 52px);
-            font-weight: 500;
-            letter-spacing: .04em;
-            color: var(--ink);
-        }
-        .blog-hero h1 span { color: var(--deep-rose); }
-        .blog-hero p {
-            color: var(--ink-soft);
-            font-size: 17px;
-            margin-top: 10px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ───── FILTERS ───── */
-        .blog-filters {
-            max-width: var(--site-max);
-            margin: 0 auto 30px;
-            padding: 0 var(--site-pad-x);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        .blog-filters .filter-btn {
-            padding: 8px 22px;
-            border: 2px solid #e8ddd8;
-            border-radius: 30px;
-            font-size: 13px;
+        .article-category {
+            display: inline-block;
+            font-size: 11px;
             font-weight: 600;
-            color: var(--ink-soft);
-            transition: all 0.25s ease;
-            background: transparent;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-        }
-        .blog-filters .filter-btn:hover {
-            border-color: var(--deep-rose);
+            letter-spacing: .16em;
+            text-transform: uppercase;
             color: var(--deep-rose);
+            background: #f5ede9;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
         }
-        .blog-filters .filter-btn.active {
-            background: var(--deep-rose);
-            border-color: var(--deep-rose);
-            color: #fff;
+        .article-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(32px, 4.5vw, 48px);
+            font-weight: 500;
+            line-height: 1.2;
+            color: var(--ink);
+            max-width: 800px;
+            margin: 0 auto 12px;
+            letter-spacing: .02em;
+        }
+        .article-date {
+            font-size: 14px;
+            color: var(--ink-soft);
         }
 
-        /* ───── BLOG GRID ───── */
-        .blog-container {
+        /* ───── ARTICLE CONTENT ───── */
+        .article-container {
             max-width: var(--site-max);
             margin: 0 auto 50px;
             padding: 0 var(--site-pad-x);
         }
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* ───── BLOG CARD ───── */
-        .blog-card {
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            border: 1px solid #f0e8e4;
-            transition: transform 0.35s cubic-bezier(.22, 1, .36, 1), box-shadow 0.35s cubic-bezier(.22, 1, .36, 1);
-        }
-        .blog-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 48px rgba(167, 90, 105, .10);
-        }
-        .blog-card-image {
+        .article-image {
             width: 100%;
-            height: 220px;
+            height: auto;
+            max-height: 480px;
             object-fit: cover;
             display: block;
-            background: #f0e8e4;
+            margin-bottom: 40px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
         }
-        .blog-card-content {
-            padding: 24px 26px 28px;
+        .article-body {
+            max-width: 820px;
+            margin: 0 auto;
         }
-        .blog-card-category {
-            display: inline-block;
-            font-size: 10.5px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .12em;
-            color: var(--deep-rose);
-            background: #f5ede9;
-            padding: 4px 14px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-        }
-        .blog-card-content h3 {
+        .article-body h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
+            font-size: clamp(26px, 3vw, 34px);
             font-weight: 500;
-            line-height: 1.3;
-            margin-bottom: 10px;
             color: var(--ink);
+            margin: 40px 0 16px;
+            line-height: 1.25;
+            letter-spacing: .02em;
         }
-        .blog-card-content h3 a {
-            transition: color 0.2s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-        .blog-card-content h3 a:hover {
-            color: var(--deep-rose);
-        }
-        .blog-card-content p {
+        .article-body p {
+            font-size: 17px;
+            line-height: 1.8;
             color: var(--ink-soft);
-            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .article-body ul {
+            margin: 20px 0 25px 25px;
+            color: var(--ink-soft);
+        }
+        .article-body li {
+            margin-bottom: 10px;
+            font-size: 16px;
             line-height: 1.7;
-            margin-bottom: 16px;
         }
-        .blog-card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 14px;
-            border-top: 1px solid #f0e8e4;
-        }
-        .blog-card-date {
-            font-size: 12px;
-            color: var(--ink-soft);
-        }
-        .read-more {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--deep-rose);
+        .back-button {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transition: gap 0.25s ease;
+            gap: 8px;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: var(--deep-rose);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 999px;
             text-decoration: none;
+            transition: background .25s ease, transform .25s var(--ease-out), box-shadow .25s ease;
+            box-shadow: 0 4px 16px rgba(167, 90, 105, .28);
         }
-        .read-more:hover {
-            gap: 12px;
+        .back-button:hover {
+            background: #8f4a58;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(167, 90, 105, .36);
         }
-        .read-more::after {
-            content: "→";
-            font-size: 16px;
-        }
-
-        /* ───── NO POSTS ───── */
-        .no-posts {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--ink-soft);
-        }
-        .no-posts h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 28px;
-            color: var(--ink);
-            margin-bottom: 8px;
+        .back-button svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
         }
 
-        /* ───── FOOTER ───── */
+        /* ───────── FOOTER ───────── */
         footer {
             background: linear-gradient(180deg, #3d3235 0%, var(--ink) 100%);
             color: var(--ivory-deep);
@@ -869,14 +795,6 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* ───── CARD FADE IN ───── */
-        .blog-card.hide { display: none; }
-        .blog-card.show { animation: blogFadeIn 0.5s ease forwards; }
-        @keyframes blogFadeIn {
-            0% { opacity: 0; transform: translateY(16px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
         /* ───── RESPONSIVE ───── */
         @media (max-width: 1100px) {
             .footer-grid {
@@ -916,14 +834,18 @@
                 height: 48px;
                 max-width: min(320px, 64vw);
             }
-        }
-        @media (max-width: 768px) {
-            .blog-hero { padding: 40px 20px 30px; }
-            .blog-hero h1 { font-size: 30px; }
-            .blog-grid { grid-template-columns: 1fr; gap: 20px; }
-            .blog-card-content { padding: 20px; }
-            .blog-card-content h3 { font-size: 20px; }
-            .blog-filters .filter-btn { padding: 6px 16px; font-size: 12px; }
+            .article-header {
+                padding: 40px 20px 30px;
+            }
+            .article-header h1 {
+                font-size: 30px;
+            }
+            .article-body p {
+                font-size: 16px;
+            }
+            .article-image {
+                max-height: 320px;
+            }
         }
         @media (max-width: 640px) {
             :root {
@@ -932,22 +854,34 @@
                 --nav-shell-h-scrolled: 48px;
                 --ann-h: 46px;
             }
+            .article-page {
+                padding-top: calc(var(--ann-h) + var(--nav-height) + 16px);
+            }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
             .footer-brand { max-width: 100%; }
             .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
             .float-wa { width: 48px; height: 48px; }
             .float-wa svg { width: 22px; height: 22px; }
-        }
-        @media (max-width: 480px) {
-            .blog-card-image { height: 180px; }
-            .blog-page { padding-top: calc(var(--ann-h) + var(--nav-height) + 16px); }
+            .article-image {
+                max-height: 240px;
+                border-radius: var(--radius-sm);
+            }
+            .article-body h2 {
+                font-size: 24px;
+            }
+            .article-body p {
+                font-size: 15px;
+            }
+            .article-body li {
+                font-size: 14px;
+            }
             .gh-ann { font-size: 10.5px; letter-spacing: .06em; padding: 0 34px; }
         }
         @media (max-width: 380px) {
             header.nav .brand-logo { height: 44px; max-width: min(290px, 62vw); }
         }
         @media (prefers-reduced-motion: reduce) {
-            .gh-slide, .gh-slide img { transition: none; }
+            * { transition: none !important; animation: none !important; }
         }
     </style>
 </head>
@@ -975,19 +909,19 @@
         <div class="nav-shell">
             <span class="nav-glass-sheen" aria-hidden="true"></span>
             <div class="nav-inner">
-                <a href="../index.html" class="brand">
-                    <img class="brand-logo" src="../assets/logo.png" alt="Softgarments" width="380" height="58" />
+                <a href="https://www.softgarments.com/" class="brand">
+                    <img class="brand-logo" data-sg-logo src="../../assets/logo.png" alt="Softgarments" width="380" height="58" />
                 </a>
                 <nav class="links" aria-label="Main navigation">
-                    <a href="../index.html">Home</a>
-                    <a href="../collection.html">New Arrivals</a>
-                    <a href="../collection-RTW.html">Ready To Wear</a>
-                    <a href="../collection-fabrics.html">Fabrics</a>
-                    <a href="../index.html#view-home">Garments</a>
-                    <a href="../collection-sale.html">Sale</a>
-                    <a href="index.html" class="is-active">Blog</a>
+                    <a href="https://www.softgarments.com/">Home</a>
+                    <a href="../../collection.html">New Arrivals</a>
+                    <a href="../../collection-RTW.html">Ready To Wear</a>
+                    <a href="../../collection-fabrics.html">Fabrics</a>
+                    <a href="../../garments.html" data-view="view-home">Garments</a>
+                    <a href="../../collection-sale.html">Sale</a>
+                    <a href="../blog/index.html">Blog</a>
                 </nav>
-                <div class="nav-cta">
+               <div class="nav-cta">
                     <a class="btn btn-primary btn-nav-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
                         <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
                         <span class="btn-label">Order Now</span>
@@ -1002,13 +936,13 @@
         <div class="nav-mobile-panel" id="mobileNav" aria-hidden="true">
             <div class="nav-mobile-drawer">
                 <div class="nav-mobile-links">
-                    <a href="../index.html">Home</a>
-                    <a href="../collection.html">New Arrivals</a>
-                    <a href="../collection-RTW.html">Ready To Wear</a>
-                    <a href="../collection-fabrics.html">Fabrics</a>
-                    <a href="../index.html#view-home">Garments</a>
-                    <a href="../collection-sale.html">Sale</a>
-                    <a href="index.html" class="is-active">Blog</a>
+                    <a href="https://www.softgarments.com/">Home</a>
+                    <a href="../../collection.html">New Arrivals</a>
+                    <a href="../../collection-RTW.html">Ready To Wear</a>
+                    <a href="../../collection-fabrics.html">Fabrics</a>
+                    <a href="../../garments.html" data-view="view-home">Garments</a>
+                    <a href="../../collection-sale.html">Sale</a>
+                    <a href="../blog/index.html">Blog</a>
                 </div>
                 <div class="nav-mobile-cta">
                     <a class="btn btn-primary" href="https://wa.me/923379022920" target="_blank" rel="noopener">Order on WhatsApp</a>
@@ -1019,39 +953,94 @@
 
     <div id="top"></div>
 
-    <!-- ═══════════ BLOG PAGE CONTENT ═══════════ -->
-    <div class="blog-page" id="main">
+    <!-- ═══════════ ARTICLE CONTENT ═══════════ -->
+    <div class="article-page" id="main">
 
-        <!-- ─── HERO ─── -->
-        <section class="blog-hero">
-            <h1>Our <span>Blog</span></h1>
-            <p>Fashion, clothing and garment insights from Softgarments the best online clothing brand in Pakistan.</p>
-        </section>
+        <header class="article-header">
+            <span class="article-category">Fabric</span>
+            <h1>Best Designer Dress on Affordable Price</h1>
+            <span class="article-date">September 12, 2026</span>
+        </header>
 
-        <!-- ─── FILTERS ─── -->
-        <div class="blog-filters" id="filterSection">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="Fashion">Fashion</button>
-            <button class="filter-btn" data-filter="Fabric">Fabric</button>
-            <button class="filter-btn" data-filter="Garments">Garments</button>
-            <button class="filter-btn" data-filter="Trends">Trends</button>
-            <button class="filter-btn" data-filter="Style">Style</button>
-        </div>
+        <main class="article-container">
 
-        <!-- ─── BLOG GRID ─── -->
-        <main class="blog-container">
-            <div class="blog-grid" id="blogGrid">
-                <!-- Posts generated by JavaScript -->
+            <img class="article-image" src="../../assets/images/blog/designer-dress.jpg" alt="Best Designer Dress on Affordable Price — Softgarments Blog" loading="lazy" onerror="this.src='../../assets/images/blog/designer-dress.jpg';">
+
+            <div class="article-body">
+
+                <p>
+                    Luxury fashion has long been associated with high price tags, but at Softgarments, we believe that <strong>designer dresses</strong> should be accessible to everyone. Our mission is to bridge the gap between premium quality and budget-friendly pricing, allowing you to elevate your wardrobe without breaking the bank. In this guide, we explore how you can find the <strong>best designer dresses at affordable prices</strong> and why quality fabrics and thoughtful design make all the difference.
+                </p>
+
+                <h2>What Makes a Dress Designer-Worthy?</h2>
+
+                <p>
+                    A truly <strong>designer dress</strong> is defined by more than just a label — it's about the quality of the fabric, the precision of the tailoring, and the uniqueness of the design. At Softgarments, we source premium fabrics like pure cotton, luxurious silk blends, and high-quality lawn that drape beautifully and feel incredible against the skin. Our designs are crafted with attention to detail, featuring intricate embroidery, thoughtful cuts, and silhouettes that flatter every body type. When you wear a <strong>designer dress</strong>, you're not just wearing clothing — you're wearing a piece of art.
+                </p>
+
+                <h2>Affordable Luxury — The Softgarments Promise</h2>
+
+                <p>
+                    <strong>Affordable luxury</strong> is at the heart of everything we do. We understand that looking stylish shouldn't come with a hefty price tag. By streamlining our production process and working directly with trusted artisans, we eliminate unnecessary markups and pass the savings on to you. Our <strong>designer dresses</strong> offer the same level of craftsmanship and aesthetic appeal as high-end brands, but at a fraction of the cost. This commitment to <strong>budget-friendly fashion</strong> ensures that you can indulge in premium style without compromising on quality.
+                </p>
+
+                <h2>Choosing the Perfect Designer Dress</h2>
+
+                <p>
+                    When selecting a <strong>designer dress</strong>, it's important to consider factors like fabric, fit, and occasion. For daytime events, opt for breathable fabrics like cotton or linen in soft, pastel hues. For evening occasions, choose dresses with luxurious textures — think silk, chiffon, or velvet — in rich, jewel tones. The key is to find a dress that makes you feel confident and comfortable. Whether you prefer a flowing maxi dress, a structured midi, or a classic A-line silhouette, the right dress should enhance your natural beauty and reflect your personal style.
+                </p>
+
+                <h2>Fabric Matters — The Foundation of Designer Style</h2>
+
+                <p>
+                    The fabric of a dress is its foundation. <strong>Premium fabrics</strong> not only look better but also last longer, maintaining their shape and color even after multiple wears. At Softgarments, we use only the finest materials, from soft, breathable cottons to sumptuous silks and durable blends. Our <strong>designer dresses</strong> are crafted to move with you, offering comfort without compromising on style. Investing in quality fabric is the first step toward building a wardrobe that stands the test of time.
+                </p>
+
+                <h2>Tips for Finding Designer Dresses on a Budget</h2>
+
+                <ul>
+                    <li><strong>Shop seasonal sales:</strong> Many designer collections go on sale at the end of each season, offering significant discounts on premium pieces.</li>
+                    <li><strong>Explore online marketplaces:</strong> E-commerce platforms like Softgarments offer a wide range of designer dresses at competitive prices, with the convenience of home delivery.</li>
+                    <li><strong>Invest in versatile pieces:</strong> Choose dresses that can be styled in multiple ways — a classic black dress, for example, can be dressed up or down with accessories.</li>
+                    <li><strong>Focus on quality over quantity:</strong> A few well-made designer dresses will outlast a closet full of fast fashion pieces.</li>
+                    <li><strong>Sign up for newsletters:</strong> Stay updated on exclusive offers, flash sales, and new arrivals to snag the best deals.</li>
+                </ul>
+
+                <h2>How to Style Your Designer Dress</h2>
+
+                <p>
+                    A <strong>designer dress</strong> is a statement piece on its own, but the right accessories can take your look to the next level. Pair a bold, patterned dress with minimalist jewelry and neutral heels for a balanced ensemble. For a more casual vibe, layer a denim jacket over a floral dress and add white sneakers. The versatility of designer dresses allows you to transition seamlessly from day to night, making them a valuable addition to your wardrobe. Remember, confidence is the best accessory — wear your dress with pride and let your personality shine.
+                </p>
+
+                <h2>Softgarments — Redefining Affordable Designer Wear</h2>
+
+                <p>
+                    At Softgarments, we are dedicated to making <strong>designer dresses</strong> accessible to all. Our collections are thoughtfully curated to offer a blend of contemporary trends and timeless classics, ensuring that you always look your best. From the quality of our fabrics to the precision of our stitching, every garment is crafted with care and attention to detail. We believe that style is a right, not a privilege, and we're here to help you build a wardrobe that reflects your unique taste and values.
+                </p>
+
+                <h2>Final Thoughts</h2>
+
+                <p>
+                    Finding the <strong>best designer dress at an affordable price</strong> is no longer a dream — it's a reality at Softgarments. By prioritizing quality craftsmanship, premium fabrics, and customer-centric pricing, we make luxury fashion accessible to everyone. Whether you're attending a wedding, a casual brunch, or a formal event, our <strong>designer dresses</strong> ensure that you look and feel extraordinary. Explore our collection today and discover the joy of affordable luxury.
+                </p>
+
+                <a href="../index.html" class="back-button">
+                    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Blog
+                </a>
+
             </div>
+
         </main>
 
     </div>
+
     <!-- ═══════════ FOOTER ═══════════ -->
-    <footer id="contact">
+    <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="../index.html" class="brand">
-                    <img class="brand-logo" src="../assets/logo.png" alt="Softgarments" width="360" height="72" />
+                <a href="https://www.softgarments.com/" class="brand">
+                    <img class="brand-logo" src="../../assets/logo.png" alt="Softgarments" width="360" height="72" />
                 </a>
                 <p>Discover effortless style with Softgarments premium clothing designed for modern everyday wear.</p>
                 <div class="footer-social">
@@ -1063,20 +1052,19 @@
             <div class="footer-col">
                 <h5>Shop</h5>
                 <ul>
-                    <li><a href="../index.html#gh-cats">Categories</a></li>
-                    <li><a href="../collection.html">New Arrivals</a></li>
-                    <li><a href="../collection-RTW.html">Ready To Wear</a></li>
-                    <li><a href="../collection-fabrics.html">Fabrics</a></li>
-                    <li><a href="../collection-sale.html">Sale</a></li>
+                    <li><a href="../../collection.html">New Arrivals</a></li>
+                    <li><a href="../../collection-RTW.html">Ready To Wear</a></li>
+                    <li><a href="../../collection-fabrics.html">Fabrics</a></li>
+                    <li><a href="../../collection-sale.html">Sale</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h5>Company</h5>
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#reviews">Reviews</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
-                    <li><a href="index.html" class="is-active">Blog</a></li>
+                    <li><a href="https://www.softgarments.com/">Home</a></li>
+                    <li><a href="https://www.softgarments.com/#reviews">Reviews</a></li>
+                    <li><a href="../../main.page.html#contact">Contact</a></li>
+                    <li><a href="../blog/index.html">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-col footer-contact">
@@ -1099,7 +1087,6 @@
         <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
     </a>
 
-    <!-- ═══════════ SCRIPTS ═══════════ -->
     <script>
         // ── Header scroll state ──
         const siteHeader = document.getElementById('siteHeader');
@@ -1151,156 +1138,6 @@
                 document.body.classList.toggle('ann-hidden', scrollY > 40);
             }, { passive: true });
         })();
-
-        // ── BLOG DATA ──────────────────────────────────────────────
-        const blogPosts = [{
-    id: 1,
-    title: "Summer Fashion Trends 2026",
-    category: "Fashion",
-    date: "August 25, 2026",
-    image: "../assets/images/blog/summer-fashion-trends-2026.jpg",
-    description: "Explore the must-have summer fashion trends for 2026, from breezy silhouettes to bold accessories that define seasonal style.",
-    url: "posts/summer-fashion-trends-2026.html"
-}, {
-    id: 2,
-    title: "How to Choose the Right Fabric",
-    category: "Fabric",
-    date: "August 20, 2026",
-    image: "../assets/images/blog/how-to-choose-the-right-fabric.jpg",
-    description: "Understand how to choose the perfect fabric for your needs, covering breathability, durability, and essential textile care tips.",
-    url: "posts/how-to-choose-the-right-fabric.html"
-}, {
-    id: 3,
-    title: "What Makes a Quality Garment?",
-    category: "Garments",
-    date: "August 15, 2026",
-    image: "../assets/images/blog/what-makes-a-quality-garment.jpg",
-    description: "Identify the hallmarks of a high-quality garment, from expert stitching and premium materials to perfect finishing and lasting durability.",
-    url: "posts/what-makes-a-quality-garment.html"
-}, {
-    id: 4,
-    title: "Top Style Trends for 2026",
-    category: "Trends",
-    date: "August 10, 2026",
-    image: "../assets/images/blog/top-style-trends-for-2026.jpg",
-    description: "Discover the top global style trends shaping 2026, including emerging designers, color palettes, and fashion-forward aesthetics.",
-    url: "posts/top-style-trends-for-2026.html"
-}, {
-    id: 5,
-    title: "Everyday Style Guide",
-    category: "Style",
-    date: "August 5, 2026",
-    image: "../assets/images/blog/everyday-style-guide.jpg",
-    description: "Elevate your daily wardrobe with our everyday style guide, featuring versatile pieces, mix-and-match tips, and effortless outfit ideas.",
-    url: "posts/everyday-style-guide.html"
-}, {
-    id: 6,
-    title: "Sustainable Fabric Choices",
-    category: "Fabric",
-    date: "July 30, 2026",
-    image: "../assets/images/blog/sustainable-fabric-choices.jpg",
-    description: "Make a positive impact with sustainable fabric choices, exploring organic cotton, recycled fibers, and ethical production methods.",
-    url: "posts/sustainable-fabric-choices.html"
-}, {
-    id: 7,
-    title: "New Fabric Choices",
-    category: "Fabric",
-    date: "July 28, 2026",
-    image: "../assets/images/blog/new-fabric-choices.jpg",
-    description: "Stay ahead with new fabric choices, featuring innovative textiles, smart materials, and modern weaves that redefine comfort.",
-    url: "posts/new-fabric-choices.html"
-}, {
-    id: 8,
-    title: "Stylish & Modern Wear for Stylish People",
-    category: "Trends",
-    date: "September 1, 2026",
-    image: "../assets/images/blog/stylish-modern-wear.jpg",
-    description: "Discover our fashion-forward collection that blends contemporary trends with timeless elegance, designed exclusively for trendsetters who value both comfort and style.",
-    url: "posts/stylish-modern-wear.html"
-}, {
-    id: 9,
-    title: "Best Designer Dress on Affordable Price",
-    category: "Fabric",
-    date: "September 12, 2026",
-    image: "../assets/images/blog/designer-dress.jpg",
-    description: "Elevate your wardrobe with premium designer dresses that combine luxury aesthetics with budget-friendly pricing, making high-end fashion accessible to everyone.",
-    url: "posts/designer-dress.html"
-}, {
-    id: 10,
-    title: "Heavy Discount on Our Summer Sale",
-    category: "Style",
-    date: "September 18, 2026",
-    image: "../assets/images/blog/summer-sale.jpg",
-    description: "Grab exclusive heavy discounts on our summer sale collection, featuring unbeatable deals on your favorite styles for a limited time only.",
-    url: "posts/summer-sale.html"
-}];
-
-        // ─── DOM REFS ──────────────────────────────────────────────
-        const grid = document.getElementById('blogGrid');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        let currentFilter = 'all';
-
-        // ─── RENDER CARDS ──────────────────────────────────────────
-        function renderPosts(category) {
-            const filtered = category === 'all' ?
-                blogPosts :
-                blogPosts.filter(p => p.category === category);
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `
-                    <div class="no-posts">
-                        <h2>No articles found</h2>
-                        <p>There are no posts in this category yet.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            grid.innerHTML = filtered.map((post, index) => {
-                return `
-                    <article class="blog-card show" style="animation-delay: ${index * 0.08}s">
-                        <img
-                            class="blog-card-image"
-                            src="${post.image}"
-                            alt="${post.title}"
-                            loading="lazy"
-                            onerror="this.src='../assets/images/COLLECTION/02.jpg'"
-                        >
-                        <div class="blog-card-content">
-                            <span class="blog-card-category">${post.category}</span>
-                            <h3>
-                                <a href="${post.url}">${post.title}</a>
-                            </h3>
-                            <p>${post.description}</p>
-                            <div class="blog-card-footer">
-                                <span class="blog-card-date">${post.date}</span>
-                                <a href="${post.url}" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </article>
-                `;
-            }).join('');
-        }
-
-        // ─── FILTER HANDLER ──────────────────────────────────────────
-        function setFilter(category) {
-            currentFilter = category;
-            filterBtns.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.filter === category);
-            });
-            renderPosts(category);
-        }
-
-        // ─── EVENT LISTENERS ────────────────────────────────────────
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const filter = this.dataset.filter;
-                setFilter(filter);
-            });
-        });
-
-        // ─── INITIAL LOAD ────────────────────────────────────────────
-        setFilter('all');
     </script>
 
 </body>
