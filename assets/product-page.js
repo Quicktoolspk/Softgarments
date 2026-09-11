@@ -28,7 +28,7 @@
 
         var CATEGORY_DEFAULTS = {
             everyday: {
-                description: "Premium everyday innerwear crafted for all-day comfort. Soft, breathable fabric with a flattering fit.",
+                description: "Premium everyday clothing crafted for all-day comfort. Soft, breathable fabric with a flattering fit.",
                 modelSize: "Medium — bust 34\"",
                 pleaseNote: "Actual colour may vary slightly from photos. Gentle hand wash recommended.",
                 deliveryInfo: "Nationwide Cash on Delivery. Delivery in 3–5 working days across Pakistan.",
@@ -56,7 +56,7 @@
                 ]
             },
             lingerie: {
-                description: "Elegant lingerie piece with premium finish and comfortable fit.",
+                description: "Elegant occasion piece with premium finish and comfortable fit.",
                 modelSize: "Medium",
                 pleaseNote: "Actual colour may vary slightly from photos.",
                 deliveryInfo: "Nationwide Cash on Delivery. Delivery in 3–5 working days across Pakistan.",

@@ -7,11 +7,11 @@
  * 3. Update: id, name, price, compareAt (optional), category, image
  * 4. Save file — page updates automatically (no HTML edit needed)
  *
- * Categories: everyday | night | shape | lingerie
+ * Categories: everyday | night | shape | occasion
  */
 window.SG_COLLECTION = {
     title: "Softgarments Collection '26",
-    tagline: "Premium innerwear · Nationwide COD",
+    tagline: "Premium clothing · Nationwide COD",
     whatsapp: "923379022920",
     imageFolder: "assets/images/collection/",
     /* Fallback images used until you upload to collection/ folder */
