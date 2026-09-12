@@ -4406,41 +4406,7 @@
         <h2 class="section-title">Style <em>Stories</em> &amp; Inspiration</h2>
         <p class="section-sub">Explore our latest articles on fashion, comfort, and lifestyle — curated for the modern woman.</p>
 
-        <div class="blog-grid">
-            <div class="blog-card">
-                <div class="blog-img">
-                    <img data-sg-collection="Raven Aura" src="assets/images/Latest Blog/22.png" alt="Stylish & Modern Wear — fashion blog" loading="lazy" width="600" height="380" />
-                </div>
-                <div class="blog-body">
-                    <div class="blog-meta">Fashion</div>
-                    <h4>Stylish &amp; Modern Wear for Stylish People</h4>
-                    <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                    <button type="button" class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-            </div>
-            <div class="blog-card">
-                <div class="blog-img">
-                    <img data-sg-collection="Raven Aura" src="assets/images/Latest Blog/2.webp" alt="Best Designer Dress — affordable fashion" loading="lazy" width="600" height="380" />
-                </div>
-                <div class="blog-body">
-                    <div class="blog-meta">Designer</div>
-                    <h4>Best Designer Dress on Affordable Price</h4>
-                    <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                    <button type="button" class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-            </div>
-            <div class="blog-card">
-                <div class="blog-img">
-                    <img data-sg-collection="Raven Aura" src="assets/images/Latest Blog/21.jpg" alt="Heavy Discount on Summer Sale — fashion deals" loading="lazy" width="600" height="380" />
-                </div>
-                <div class="blog-body">
-                    <div class="blog-meta">Sale</div>
-                    <h4>Heavy Discount on Our Summer Sale</h4>
-                    <p>Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?</p>
-                    <button type="button" class="btn-link">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-            </div>
-        </div>
+        <div class="blog-grid" id="latestBlogGrid" aria-live="polite"></div>
     </section>
 
     <!-- ═══════════ TESTIMONIALS ═══════════ -->
@@ -5645,6 +5611,115 @@
                 startAuto();
             });
         })();
+        // Latest blog — fetch the newest published posts from CMS/API and keep existing layout styling intact
+        (function() {
+            const endpoint = window.SOFTGARMENTS_BLOG_ENDPOINT || 'blog/posts.json';
+            const grid = document.getElementById('latestBlogGrid');
+            if (!grid) return;
+
+            const fallbackPosts = [
+                {
+                    title: 'Stylish & Modern Wear for Stylish People',
+                    category: 'Fashion',
+                    image: 'assets/images/Latest Blog/22.png',
+                    excerpt: 'Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?',
+                    url: 'blog/posts/stylish-modern-wear.html',
+                    publishedAt: '2026-09-08T10:00:00+05:00'
+                },
+                {
+                    title: 'Best Designer Dress on Affordable Price',
+                    category: 'Designer',
+                    image: 'assets/images/Latest Blog/2.webp',
+                    excerpt: 'Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?',
+                    url: 'blog/posts/designer-dress.html',
+                    publishedAt: '2026-09-06T10:00:00+05:00'
+                },
+                {
+                    title: 'Heavy Discount on Our Summer Sale',
+                    category: 'Sale',
+                    image: 'assets/images/Latest Blog/21.jpg',
+                    excerpt: 'Quaerat per do est semper scelerisque. Exercitationem recusandae ultricies adipiscing lacus ea?',
+                    url: 'blog/posts/summer-sale.html',
+                    publishedAt: '2026-09-02T10:00:00+05:00'
+                }
+            ];
+
+            function escapeHtml(value) {
+                return String(value || '')
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/\"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
+            }
+
+            function normalizePosts(posts) {
+                return (Array.isArray(posts) ? posts : [])
+                    .filter(function(post) {
+                        return post && (post.published !== false) && (post.title || post.slug || post.url);
+                    })
+                    .map(function(post) {
+                        return {
+                            title: post.title || 'Softgarments Blog',
+                            category: post.category || 'Fashion',
+                            image: post.image || 'assets/images/Latest Blog/22.png',
+                            excerpt: post.excerpt || post.description || 'Read the latest story from Softgarments.',
+                            url: post.url || 'blog/index.html',
+                            publishedAt: post.publishedAt || post.date || new Date().toISOString()
+                        };
+                    })
+                    .sort(function(a, b) {
+                        return new Date(b.publishedAt) - new Date(a.publishedAt);
+                    })
+                    .slice(0, 3);
+            }
+
+            function renderPosts(posts) {
+                const items = normalizePosts(posts);
+                if (!items.length) {
+                    grid.innerHTML = '';
+                    return;
+                }
+
+                grid.innerHTML = items.map(function(post, index) {
+                    const title = escapeHtml(post.title);
+                    const category = escapeHtml(post.category);
+                    const excerpt = escapeHtml(post.excerpt);
+                    const safeUrl = escapeHtml(post.url);
+                    const safeImage = escapeHtml(post.image);
+                    return `
+                        <article class="blog-card" style="animation-delay: ${index * 0.08}s;">
+                            <div class="blog-img">
+                                <img data-sg-collection="Raven Aura" src="${safeImage}" alt="${title}" loading="lazy" width="600" height="380" onerror="this.onerror=null;this.src='assets/images/Latest Blog/22.png';" />
+                            </div>
+                            <div class="blog-body">
+                                <div class="blog-meta">${category}</div>
+                                <h4>${title}</h4>
+                                <p>${excerpt}</p>
+                                <a class="btn-link" href="${safeUrl}" aria-label="Read more about ${title}">Read More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                            </div>
+                        </article>
+                    `;
+                }).join('');
+            }
+
+            async function loadLatestPosts() {
+                try {
+                    const response = await fetch(endpoint, { cache: 'no-store' });
+                    if (!response.ok) throw new Error('Blog request failed');
+                    const payload = await response.json();
+                    const posts = Array.isArray(payload) ? payload : (payload.posts || payload.items || payload.data || []);
+                    renderPosts(posts);
+                    return;
+                } catch (error) {
+                    console.warn('Softgarments blog feed unavailable, using fallback content:', error);
+                    renderPosts(fallbackPosts);
+                }
+            }
+
+            loadLatestPosts();
+        })();
+
         // Newsletter → confirm over WhatsApp (no backend needed)
         (function() {
             const input = document.getElementById('newsEmail');

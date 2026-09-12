@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Stylish & Modern Wear for Stylish People",
+      "slug": "stylish-modern-wear",
+      "category": "Fashion",
+      "image": "https://softgarments.pk/assets/images/Latest Blog/22.png",
+      "excerpt": "Discover the latest trends, effortless styling ideas, and comfortable fashion picks that keep your look elevated every day.",
+      "description": "Discover the latest trends, effortless styling ideas, and comfortable fashion picks that keep your look elevated every day.",
+      "url": "blog/posts/stylish-modern-wear.html",
+      "publishedAt": "2026-09-08T10:00:00+05:00",
+      "published": true
+    },
+    {
+      "id": 2,
+      "title": "Best Designer Dress on Affordable Price",
+      "slug": "designer-dress",
+      "category": "Designer",
+      "image": "https://softgarments.pk/assets/images/Latest Blog/2.webp",
+      "excerpt": "Elevate your wardrobe with premium designer dresses that blend elegance, comfort, and value without compromising style.",
+      "description": "Elevate your wardrobe with premium designer dresses that blend elegance, comfort, and value without compromising style.",
+      "url": "blog/posts/designer-dress.html",
+      "publishedAt": "2026-09-06T10:00:00+05:00",
+      "published": true
+    },
+    {
+      "id": 3,
+      "title": "Heavy Discount on Our Summer Sale",
+      "slug": "summer-sale",
+      "category": "Sale",
+      "image": "https://softgarments.pk/assets/images/Latest Blog/21.jpg",
+      "excerpt": "Grab limited-time deals on standout pieces and refresh your wardrobe with premium styles at unbeatable prices.",
+      "description": "Grab limited-time deals on standout pieces and refresh your wardrobe with premium styles at unbeatable prices.",
+      "url": "blog/posts/summer-sale.html",
+      "publishedAt": "2026-09-02T10:00:00+05:00",
+      "published": true
+    },
+    {
+      "id": 4,
+      "title": "How to Choose the Right Fabric",
+      "slug": "how-to-choose-the-right-fabric",
+      "category": "Fabric",
+      "image": "https://softgarments.pk/assets/images/Latest Blog/21.jpg",
+      "excerpt": "Learn how to choose the right fabric for comfort, breathability, and long-term wear across every season.",
+      "description": "Learn how to choose the right fabric for comfort, breathability, and long-term wear across every season.",
+      "url": "blog/posts/how-to-choose-the-right-fabric.html",
+      "publishedAt": "2026-08-29T10:00:00+05:00",
+      "published": true
+    }
+  ]
+}
