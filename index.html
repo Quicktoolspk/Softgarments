@@ -5681,16 +5681,25 @@
                     return;
                 }
 
+                const imagePool = [
+                    'assets/images/Latest Blog/22.png',
+                    'assets/images/Latest Blog/2.webp',
+                    'assets/images/Latest Blog/21.jpg'
+                ];
+
                 grid.innerHTML = items.map(function(post, index) {
                     const title = escapeHtml(post.title);
                     const category = escapeHtml(post.category);
                     const excerpt = escapeHtml(post.excerpt);
                     const safeUrl = escapeHtml(post.url);
                     const safeImage = escapeHtml(post.image);
+                    const fallbackImage = imagePool[index % imagePool.length];
+                    const finalImage = safeImage || fallbackImage;
+                    const imageOnError = imagePool[index % imagePool.length];
                     return `
                         <article class="blog-card" style="animation-delay: ${index * 0.08}s;">
                             <div class="blog-img">
-                                <img data-sg-collection="Raven Aura" src="${safeImage}" alt="${title}" loading="lazy" width="600" height="380" onerror="this.onerror=null;this.src='assets/images/Latest Blog/22.png';" />
+                                <img data-sg-collection="Raven Aura" src="${finalImage}" alt="${title}" loading="lazy" width="600" height="380" onerror="this.onerror=null;this.src='${imageOnError}';" />
                             </div>
                             <div class="blog-body">
                                 <div class="blog-meta">${category}</div>
