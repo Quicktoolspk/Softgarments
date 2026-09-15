@@ -1,6 +1,18 @@
 {
   "posts": [
     {
+      "id": 11,
+      "title": "Luxury Chiffon Elegance: Heavy Embroidered Multicolor Summer Dress",
+      "slug": "heavy-embroidered-chiffon-summer-dress",
+      "category": "Style",
+      "image": "assets/images/blog/chiffon-summer-dress.jpg.png",
+      "excerpt": "Step into timeless elegance with a heavy embroidered multicolor chiffon summer dress, available in Black, Blue, and Maroon.",
+      "description": "Step into timeless elegance with a heavy embroidered multicolor chiffon summer dress, available in Black, Blue, and Maroon.",
+      "url": "blog/posts/heavy-embroidered-chiffon-summer-dress.html",
+      "publishedAt": "2026-09-15T10:00:00+05:00",
+      "published": true
+    },
+    {
       "id": 1,
       "title": "Stylish & Modern Wear for Stylish People",
       "slug": "stylish-modern-wear",
