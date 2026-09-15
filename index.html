@@ -3638,9 +3638,19 @@
         @media (max-width: 760px) {
             .gh-grid { grid-template-columns: repeat(2, 1fr); }
             .gh-cats { grid-template-columns: repeat(2, 1fr); }
+            .gh-cat { aspect-ratio: 1.15 / 1; }
             .gh-hero-arrow { display: none; }
             .gh-quick { opacity: 1; transform: none; }
-            .gh-cat-cta { opacity: 1; transform: none; }
+            .gh-cat-cta {
+                width: calc(100% - 28px);
+                max-width: 150px;
+                padding: 7px 8px;
+                font-size: 9px;
+                letter-spacing: .1em;
+                line-height: 1.35;
+                opacity: 1;
+                transform: none;
+            }
 
             /* Collection grids — compact mobile cards */
             #everyday h2.section-title,
@@ -3971,6 +3981,149 @@
             .sg-fit-pill { min-width: 0; font-size: 12px; padding: 9px 12px; }
             .sg-size-table { font-size: 12.5px; }
             .sg-size-table th, .sg-size-table td { padding: 10px 8px; }
+        }
+        /* ───────── customer UGC wall ───────── */
+        .ugc-wrap { width: var(--site-max); margin-inline: auto; }
+        .ugc-intro {
+            text-align: center;
+            max-width: 660px;
+            margin: 0 auto clamp(24px, 3vw, 36px);
+        }
+        .ugc-hashtag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--deep-rose);
+            background: color-mix(in srgb, var(--rose-soft) 30%, transparent);
+            border: 1px solid rgba(216, 167, 177, .45);
+            padding: 8px 16px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background .25s ease, transform .25s var(--ease-out), box-shadow .25s ease;
+        }
+        .ugc-hashtag:hover {
+            background: var(--rose-soft);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        .ugc-hashtag svg { width: 15px; height: 15px; fill: currentColor; }
+        .ugc-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(10px, 1.4vw, 18px);
+        }
+        .ugc-tile {
+            position: relative;
+            display: block;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            background: var(--ivory-deep);
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(216, 167, 177, .22);
+            transition: transform .35s var(--ease-out), box-shadow .35s ease, border-color .35s ease;
+        }
+        .ugc-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--rose);
+        }
+        .ugc-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s var(--ease-out);
+        }
+        .ugc-tile:hover img { transform: scale(1.07); }
+        .ugc-tile::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(74, 59, 62, .72) 0%, rgba(74, 59, 62, .05) 55%);
+            opacity: 0;
+            transition: opacity .3s ease;
+            pointer-events: none;
+        }
+        .ugc-tile:hover::after { opacity: 1; }
+        .ugc-ig-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .92);
+            box-shadow: 0 4px 12px rgba(74, 59, 62, .18);
+            z-index: 2;
+            opacity: .92;
+            transition: transform .3s ease, opacity .3s ease;
+        }
+        .ugc-tile:hover .ugc-ig-badge { transform: scale(1.08); opacity: 1; }
+        .ugc-ig-badge svg { width: 15px; height: 15px; fill: var(--deep-rose); }
+        .ugc-tile-meta {
+            position: absolute;
+            left: 0; right: 0;
+            bottom: 0;
+            padding: 12px 14px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity .3s ease, transform .35s var(--ease-out);
+            text-align: left;
+        }
+        .ugc-tile:hover .ugc-tile-meta,
+        .ugc-tile:focus-visible .ugc-tile-meta {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .ugc-tile-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: .02em;
+        }
+        .ugc-tile-tag {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .04em;
+            color: var(--rose-soft);
+        }
+        .ugc-cta {
+            text-align: center;
+            margin-top: clamp(28px, 3.5vw, 42px);
+        }
+        .ugc-cta p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--ink-soft);
+            margin: 0 0 14px;
+        }
+        .ugc-cta p strong { color: var(--deep-rose); font-weight: 700; }
+        @media (max-width: 900px) {
+            .ugc-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 560px) {
+            .ugc-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .ugc-tile { border-radius: var(--radius-sm); }
+            .ugc-tile-meta { opacity: 1; transform: none; padding: 8px 10px; }
+            .ugc-tile-name { font-size: 11px; }
+            .ugc-tile-tag { font-size: 9.5px; }
+            .ugc-ig-badge { width: 24px; height: 24px; top: 6px; right: 6px; }
+            .ugc-ig-badge svg { width: 12px; height: 12px; }
         }
     </style>
 </head>
@@ -4896,6 +5049,69 @@
                     <h4>Need help?</h4>
                     <p>Message us on WhatsApp with your measurements — we reply fast.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ CUSTOMER UGC WALL ═══════════ -->
+    <section class="gh-section reveal" id="ugc-wall">
+        <div class="gh-head">
+            <h2 class="section-title">Styled by <em>You</em></h2>
+            <span class="gh-rule"></span>
+            <p>Real customers, real fits. Tag <strong>@soft.garments</strong> or use <strong>#SoftgarmentsStyle</strong> to get featured on our wall.</p>
+        </div>
+        <div class="ugc-wrap">
+            <div class="ugc-intro">
+                <a class="ugc-hashtag" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="View our Instagram">
+                    <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    #SoftgarmentsStyle
+                </a>
+            </div>
+            <div class="ugc-grid">
+                <a class="ugc-tile" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="View post by Ayesha K.">
+                    <img src="assets/images/UGC/01.jpg" alt="Customer look 1 — Ayesha K." loading="lazy" width="400" height="400" />
+                    <span class="ugc-ig-badge" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141z"/></svg></span>
+                    <span class="ugc-tile-meta"><span class="ugc-tile-name">Ayesha K.</span><span class="ugc-tile-tag">Everyday Kurti</span></span>
+                </a>
+                <a class="ugc-tile" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="View post by Fatima R.">
+                    <img src="assets/images/UGC/02.jpg" alt="Customer look 2 — Fatima R." loading="lazy" width="400" height="400" />
+                    <span class="ugc-ig-badge" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141z"/></svg></span>
+                    <span class="ugc-tile-meta"><span class="ugc-tile-name">Fatima R.</span><span class="ugc-tile-tag">Festive Edit</span></span>
+                </a>
+                <a class="ugc-tile" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="View post by Zainab M.">
+                    <img src="assets/images/UGC/03.jpg" alt="Customer look 3 — Zainab M." loading="lazy" width="400" height="400" />
+                    <span class="ugc-ig-badge" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141z"/></svg></span>
+                    <span class="ugc-tile-meta"><span class="ugc-tile-name">Zainab M.</span><span class="ugc-tile-tag">Summer Kurti</span></span>
+                </a>
+                <a class="ugc-tile" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="View post by Hira S.">
+                    <img src="assets/images/UGC/04.jpg" alt="Customer look 4 — Hira S." loading="lazy" width="400" height="400" />
+                    <span class="ugc-ig-badge" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141z"/></svg></span>
+                    <span class="ugc-tile-meta"><span class="ugc-tile-name">Hira S.</span><span class="ugc-tile-tag">Formal Kurta</span></span>
+                </a>
+                <a class="ugc-tile" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="View post by Maryam A.">
+                    <img src="assets/images/UGC/05.jpg" alt="Customer look 5 — Maryam A." loading="lazy" width="400" height="400" />
+                    <span class="ugc-ig-badge" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141z"/></svg></span>
+                    <span class="ugc-tile-meta"><span class="ugc-tile-name">Maryam A.</span><span class="ugc-tile-tag">Linen Co-ord</span></span>
+                </a>
+                <a class="ugc-tile" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="View post by Sana T.">
+                    <img src="assets/images/UGC/06.jpg" alt="Customer look 6 — Sana T." loading="lazy" width="400" height="400" />
+                    <span class="ugc-ig-badge" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141z"/></svg></span>
+                    <span class="ugc-tile-meta"><span class="ugc-tile-name">Sana T.</span><span class="ugc-tile-tag">Occasion Wear</span></span>
+                </a>
+                <a class="ugc-tile" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="View post by Noor B.">
+                    <img src="assets/images/UGC/07.jpg" alt="Customer look 7 — Noor B." loading="lazy" width="400" height="400" />
+                    <span class="ugc-ig-badge" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141z"/></svg></span>
+                    <span class="ugc-tile-meta"><span class="ugc-tile-name">Noor B.</span><span class="ugc-tile-tag">Everyday Cotton</span></span>
+                </a>
+                <a class="ugc-tile" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener" aria-label="View post by Rania Q.">
+                    <img src="assets/images/UGC/08.jpg" alt="Customer look 8 — Rania Q." loading="lazy" width="400" height="400" />
+                    <span class="ugc-ig-badge" aria-hidden="true"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141z"/></svg></span>
+                    <span class="ugc-tile-meta"><span class="ugc-tile-name">Rania Q.</span><span class="ugc-tile-tag">Festive Set</span></span>
+                </a>
+            </div>
+            <div class="ugc-cta">
+                <p>Get featured on our wall — tag <strong>@soft.garments</strong> on Instagram with <strong>#SoftgarmentsStyle</strong></p>
+                <a class="btn btn-outline" href="https://www.instagram.com/soft.garments/" target="_blank" rel="noopener">Follow us on Instagram</a>
             </div>
         </div>
     </section>
@@ -6456,6 +6672,18 @@
                 const waMsg = 'Hi Softgarments! I used your Fit Finder and got size ' + size + '. My height is ' + ft + 'ft ' + inch + 'in and weight is ' + kg + 'kg. Can you confirm?';
                 resultEl.classList.add('is-on');
                 resultEl.innerHTML = 'Your recommended size is <strong>' + size + '</strong> for a ' + fitLabel + ' fit.<br>Not sure? <a href="https://wa.me/923379022920?text=' + encodeURIComponent(waMsg) + '" target="_blank" rel="noopener" style="color:var(--deep-rose);font-weight:700;text-decoration:underline;">Confirm on WhatsApp</a>';
+            });
+        })();
+
+        // ── UGC wall: image fallback if any file is missing ──────────
+        (function () {
+            const tiles = document.querySelectorAll('.ugc-tile img');
+            if (!tiles.length) return;
+            tiles.forEach(function (img) {
+                img.addEventListener('error', function () {
+                    this.onerror = null;
+                    this.src = 'https://picsum.photos/seed/ugc-' + Math.random().toString(36).slice(2, 8) + '/400/400';
+                });
             });
         })();
     </script>
