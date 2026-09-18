@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy & Cookie Policy | Softgarments Pakistan</title>
-    <meta name="description" content="Read Softgarments' Privacy & Cookie Policy. Learn how we collect, use and protect your personal data when you shop premium women's clothing online in Pakistan." />
+    <meta name="description" content="Softgarments' Privacy & Cookie Policy — clear, honest, and easy to read. Learn how we collect, use and protect your personal data when you shop premium women's clothing online in Pakistan." />
     <meta name="keywords" content="Softgarments privacy policy, cookie policy Pakistan, online shopping privacy, data protection clothing brand, women's clothing Pakistan privacy" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#A75A69" />
@@ -33,11 +33,7 @@
         "name": "Privacy & Cookie Policy",
         "url": "https://softgarments.pk/privacy-policy.html",
         "description": "Privacy and Cookie Policy for Softgarments — the best online clothing brand in Pakistan.",
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "Softgarments",
-            "url": "https://softgarments.pk"
-        }
+        "isPartOf": { "@type": "WebSite", "name": "Softgarments", "url": "https://softgarments.pk" }
     }
     </script>
 
@@ -67,6 +63,8 @@
             --ink: #4A3B3E;
             --ink-soft: #8A7377;
             --white: #ffffff;
+            --safe-green: #4a8a4a;
+            --safe-green-soft: #e8f0e5;
             --glass-dark: color-mix(in srgb, var(--deep-rose) 76%, #1e1216);
             --glass-dark-deep: color-mix(in srgb, var(--deep-rose) 62%, #140c0f);
             --radius-sm: 12px;
@@ -116,6 +114,16 @@
             transition: top .25s var(--ease-out);
         }
         .skip-link:focus { top: 16px; outline: 2px solid var(--white); outline-offset: 3px; }
+
+        .read-progress {
+            position: fixed; top: 0; left: 0;
+            height: 3px; width: 0%;
+            background: linear-gradient(90deg, var(--rose-soft), var(--deep-rose), var(--rose));
+            z-index: 200;
+            transition: width .1s linear;
+            border-radius: 0 3px 3px 0;
+            box-shadow: 0 0 12px rgba(167, 90, 105, .4);
+        }
 
         header.nav {
             position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 100;
@@ -242,7 +250,7 @@
         .nav-mobile-cta { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .1); }
         .nav-mobile-cta .btn { width: 100%; justify-content: center; padding: 16px 24px; }
 
-        .section { padding: clamp(64px, 8vw, 108px) var(--site-pad-x); position: relative; }
+        .section { padding: clamp(56px, 7vw, 92px) var(--site-pad-x); position: relative; }
         .section--tint { background: var(--ivory-deep); }
         .wrap { max-width: var(--site-max); width: 100%; margin: 0 auto; }
         .eyebrow {
@@ -251,233 +259,1091 @@
             display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px;
         }
 
-        /* ═══════════ LEGAL PAGE LAYOUT ═══════════ */
-        .legal-hero {
+        /* ═══════════ HERO ═══════════ */
+        .pp-hero {
             position: relative; overflow: hidden;
-            padding: calc(var(--nav-height) + clamp(40px, 6vw, 70px)) var(--site-pad-x) clamp(40px, 5vw, 70px);
+            padding: calc(var(--nav-height) + clamp(40px, 6vw, 76px)) var(--site-pad-x) clamp(50px, 6vw, 80px);
             background:
                 radial-gradient(circle at 15% 25%, color-mix(in srgb, var(--rose-soft) 60%, transparent) 0%, transparent 55%),
                 radial-gradient(circle at 85% 75%, color-mix(in srgb, var(--mauve) 45%, transparent) 0%, transparent 50%),
                 var(--ivory);
-            text-align: center;
+            overflow: hidden;
         }
-        .legal-hero-inner { max-width: 820px; margin: 0 auto; }
-        .legal-hero .eyebrow { justify-content: center; }
-        .legal-hero h1 {
+        .pp-hero::before {
+            content: "";
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, color-mix(in srgb, var(--rose-soft) 40%, transparent) 0%, transparent 65%);
+            filter: blur(20px);
+            pointer-events: none;
+        }
+        .pp-hero-inner {
+            max-width: var(--site-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: clamp(32px, 4vw, 64px);
+            align-items: center;
+            position: relative; z-index: 1;
+        }
+        .pp-hero-copy .eyebrow { margin-bottom: 18px; }
+        .pp-hero-copy h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 500; font-size: clamp(34px, 5vw, 60px);
-            line-height: 1.14; letter-spacing: -.01em; color: var(--ink);
-            margin-bottom: 18px;
+            font-weight: 500;
+            font-size: clamp(38px, 5.2vw, 64px);
+            line-height: 1.1;
+            letter-spacing: -.015em;
+            color: var(--ink);
+            margin-bottom: 20px;
         }
-        .legal-hero h1 em { font-style: italic; color: var(--deep-rose); }
-        .legal-hero p {
-            font-size: clamp(15px, 1.1vw, 17px); line-height: 1.8;
-            color: var(--ink-soft); max-width: 620px; margin: 0 auto;
+        .pp-hero-copy h1 em { font-style: italic; color: var(--deep-rose); }
+        .pp-hero-copy > p {
+            font-size: clamp(15.5px, 1.1vw, 17.5px);
+            line-height: 1.8;
+            color: var(--ink-soft);
+            max-width: 560px;
+            margin-bottom: 24px;
         }
-        .legal-meta {
-            display: inline-flex; align-items: center; gap: 8px;
-            margin-top: 24px; font-size: 12.5px; font-weight: 600;
-            letter-spacing: .12em; text-transform: uppercase; color: var(--deep-rose);
-            background: color-mix(in srgb, var(--rose-soft) 32%, transparent);
-            border: 1px solid rgba(216, 167, 177, .45);
-            padding: 8px 16px; border-radius: 999px;
+        .pp-hero-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
         }
-        .legal-meta svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+        .pp-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--ink-soft);
+        }
+        .pp-meta-item svg {
+            width: 15px; height: 15px;
+            fill: none; stroke: var(--deep-rose); stroke-width: 2;
+            stroke-linecap: round; stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+        .pp-meta-item strong { color: var(--deep-rose); font-weight: 700; }
 
-        .legal-layout {
-            max-width: var(--site-max); margin: 0 auto;
-            display: grid; grid-template-columns: 260px 1fr;
-            gap: clamp(32px, 4vw, 64px); align-items: start;
+        .pp-hero-visual {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            max-width: 420px;
+            margin: 0 auto;
+            display: grid;
+            place-items: center;
         }
-        .legal-toc {
-            position: sticky; top: calc(var(--nav-height) + 20px);
+        .pp-seal {
+            position: relative;
+            width: 82%;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--deep-rose);
+            box-shadow: 0 30px 70px rgba(167, 90, 105, .22), inset 0 0 0 10px var(--ivory);
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+        }
+        .pp-seal::before {
+            content: "";
+            position: absolute;
+            inset: 20px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(216, 167, 177, .6);
+            animation: sealRotate 30s linear infinite;
+        }
+        @keyframes sealRotate {
+            to { transform: rotate(360deg); }
+        }
+        .pp-seal-icon {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--rose-soft), var(--rose));
+            margin-bottom: 14px;
+            box-shadow: 0 8px 24px rgba(167, 90, 105, .2);
+        }
+        .pp-seal-icon svg {
+            width: 34px; height: 34px;
+            fill: none; stroke: var(--deep-rose); stroke-width: 1.6;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+        .pp-seal h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 6px;
+        }
+        .pp-seal p {
+            font-size: 11px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin: 0;
+        }
+        .pp-orbit-dot {
+            position: absolute;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--deep-rose);
+            box-shadow: 0 0 0 6px rgba(167, 90, 105, .15);
+        }
+        .pp-orbit-dot.dot-1 { top: 8%; left: 20%; animation: floatDot 6s ease-in-out infinite; }
+        .pp-orbit-dot.dot-2 { top: 22%; right: 12%; animation: floatDot 7s ease-in-out infinite 1s; background: var(--rose); box-shadow: 0 0 0 6px rgba(216, 167, 177, .25); }
+        .pp-orbit-dot.dot-3 { bottom: 15%; left: 12%; animation: floatDot 5s ease-in-out infinite .5s; background: var(--mauve); box-shadow: 0 0 0 6px rgba(201, 163, 160, .25); }
+        .pp-orbit-dot.dot-4 { bottom: 22%; right: 18%; animation: floatDot 8s ease-in-out infinite 1.5s; }
+        @keyframes floatDot {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        /* ═══════════ AT A GLANCE ═══════════ */
+        .pp-glance {
+            max-width: var(--site-max);
+            margin: clamp(-20px, -1.5vw, -14px) auto 0;
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(14px, 1.8vw, 20px);
+        }
+        .pp-glance-card {
+            background: var(--white);
+            border: 1px solid rgba(216, 167, 177, .3);
+            border-radius: var(--radius-lg);
+            padding: clamp(20px, 2.4vw, 26px) clamp(18px, 2vw, 22px);
+            box-shadow: var(--shadow-md);
+            transition: transform .35s var(--ease-out), box-shadow .35s ease, border-color .35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .pp-glance-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rose-soft), var(--deep-rose), var(--rose));
+            transform: scaleX(0); transform-origin: left;
+            transition: transform .4s var(--ease-out);
+        }
+        .pp-glance-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--rose);
+        }
+        .pp-glance-card:hover::before { transform: scaleX(1); }
+        .pp-glance-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: grid; place-items: center;
+            background: linear-gradient(135deg, var(--rose-soft), rgba(232, 196, 203, .5));
+            margin-bottom: 14px;
+        }
+        .pp-glance-icon svg {
+            width: 22px; height: 22px;
+            fill: none; stroke: var(--deep-rose); stroke-width: 1.8;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+        .pp-glance-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: .02em;
+            color: var(--ink);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .pp-glance-card p {
+            font-size: 12.5px;
+            line-height: 1.6;
+            color: var(--ink-soft);
+        }
+
+        /* ═══════════ LAYOUT ═══════════ */
+        .pp-layout {
+            max-width: var(--site-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: clamp(32px, 4vw, 56px);
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .pp-side {
+            position: sticky;
+            top: calc(var(--nav-height) + 20px);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .pp-side-toc {
             background: var(--white);
             border: 1px solid rgba(216, 167, 177, .28);
             border-radius: var(--radius-lg);
-            padding: 24px 22px;
+            padding: 22px 20px;
             box-shadow: var(--shadow-sm);
         }
-        .legal-toc h4 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 11.5px; font-weight: 700;
-            letter-spacing: .16em; text-transform: uppercase;
-            color: var(--ink-soft); margin-bottom: 14px;
+        .pp-side-toc-head {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 16px;
         }
-        .legal-toc ol {
-            list-style: none; display: flex; flex-direction: column; gap: 4px;
+        .pp-side-toc-head h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+        .pp-toc-progress {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--deep-rose);
+        }
+        .pp-toc-progress small {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--ink-soft);
+            letter-spacing: .04em;
+        }
+        .pp-toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
             counter-reset: toc;
         }
-        .legal-toc ol li { counter-increment: toc; }
-        .legal-toc ol li a {
-            display: block; padding: 8px 12px;
-            font-size: 13px; font-weight: 500; color: var(--ink-soft);
-            text-decoration: none; border-radius: var(--radius-sm);
+        .pp-toc-list li { counter-increment: toc; }
+        .pp-toc-list a {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 8px 12px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--ink-soft);
+            text-decoration: none;
+            border-radius: var(--radius-sm);
             border-left: 2px solid transparent;
             transition: color .2s ease, background .2s ease, border-color .2s ease;
+            line-height: 1.4;
         }
-        .legal-toc ol li a::before {
-            content: counter(toc, decimal-leading-zero) " ";
-            color: var(--deep-rose); font-weight: 700; margin-right: 6px;
+        .pp-toc-list a .toc-num {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--deep-rose);
+            letter-spacing: .02em;
+            padding-top: 2px;
+            flex-shrink: 0;
         }
-        .legal-toc ol li a:hover {
-            color: var(--deep-rose); background: var(--ivory-deep);
+        .pp-toc-list a:hover {
+            color: var(--deep-rose);
+            background: var(--ivory-deep);
             border-left-color: var(--deep-rose);
         }
+        .pp-toc-list a.is-current {
+            color: var(--deep-rose);
+            background: color-mix(in srgb, var(--rose-soft) 25%, transparent);
+            border-left-color: var(--deep-rose);
+            font-weight: 600;
+        }
 
-        .legal-body {
+        .pp-side-help {
+            background: linear-gradient(135deg, var(--deep-rose) 0%, #8f4a58 100%);
+            border-radius: var(--radius-lg);
+            padding: 22px 20px;
+            color: #fff;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        .pp-side-help::before {
+            content: "";
+            position: absolute;
+            top: -30px; right: -30px;
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .12);
+        }
+        .pp-side-help-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: grid; place-items: center;
+            background: rgba(255, 255, 255, .18);
+            margin-bottom: 12px;
+            position: relative;
+        }
+        .pp-side-help-icon svg {
+            width: 20px; height: 20px;
+            fill: none; stroke: #fff; stroke-width: 2;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+        .pp-side-help h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 6px;
+            position: relative;
+        }
+        .pp-side-help p {
+            font-size: 12px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, .85);
+            margin-bottom: 12px;
+            position: relative;
+        }
+        .pp-side-help a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff;
+            color: var(--deep-rose);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            position: relative;
+            transition: transform .25s var(--ease-out);
+        }
+        .pp-side-help a:hover { transform: translateY(-1px); }
+        .pp-side-help a svg {
+            width: 13px; height: 13px;
+            fill: currentColor;
+        }
+
+        .pp-side-facts {
+            background: var(--white);
+            border: 1px solid rgba(216, 167, 177, .28);
+            border-radius: var(--radius-lg);
+            padding: 20px 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .pp-side-facts h5 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 14px;
+        }
+        .pp-side-facts-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .pp-side-facts-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: var(--ink-soft);
+        }
+        .pp-side-facts-list li svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            fill: none;
+            stroke: var(--safe-green);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .pp-side-facts-list li strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+        .pp-side-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed rgba(216, 167, 177, .5);
+        }
+        .pp-side-stat {
+            text-align: center;
+            padding: 8px 4px;
+        }
+        .pp-side-stat strong {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--deep-rose);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .pp-side-stat span {
+            font-size: 9.5px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--ink-soft);
+        }
+
+        .pp-side-contact {
+            background: var(--ivory-deep);
+            border: 1px solid rgba(216, 167, 177, .3);
+            border-radius: var(--radius-lg);
+            padding: 18px 18px;
+        }
+        .pp-side-contact h5 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 12px;
+        }
+        .pp-side-contact a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            text-decoration: none;
+            font-size: 12.5px;
+            color: var(--ink);
+            transition: color .2s ease;
+        }
+        .pp-side-contact a:hover { color: var(--deep-rose); }
+        .pp-side-contact a svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            fill: var(--deep-rose);
+        }
+        .pp-side-contact a div {
+            min-width: 0;
+            flex: 1;
+        }
+        .pp-side-contact a strong {
+            font-weight: 600;
+            display: block;
+            font-size: 12.5px;
+            line-height: 1.3;
+            word-break: break-word;
+        }
+        .pp-side-contact a small {
+            display: block;
+            font-size: 10.5px;
+            color: var(--ink-soft);
+            font-weight: 400;
+        }
+
+        /* ═══════════ MAIN CONTENT ═══════════ */
+        .pp-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .pp-intro {
+            background: var(--white);
+            border: 1px solid rgba(216, 167, 177, .25);
+            border-radius: var(--radius-lg);
+            padding: clamp(26px, 3vw, 34px) clamp(22px, 2.6vw, 30px);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+        .pp-intro-icon {
+            width: 52px; height: 52px;
+            border-radius: var(--radius-md);
+            display: grid; place-items: center;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--rose-soft), var(--rose));
+            box-shadow: 0 8px 20px rgba(167, 90, 105, .18);
+        }
+        .pp-intro-icon svg {
+            width: 26px; height: 26px;
+            fill: none; stroke: var(--deep-rose); stroke-width: 1.6;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+        .pp-intro-body p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--ink-soft);
+            margin-bottom: 10px;
+        }
+        .pp-intro-body p:last-child { margin-bottom: 0; }
+        .pp-intro-body p strong { color: var(--ink); font-weight: 600; }
+
+        /* ═══════════ SECTION CARDS — REDESIGNED HEAD ═══════════ */
+        .pp-section {
             background: var(--white);
             border: 1px solid rgba(216, 167, 177, .22);
             border-radius: var(--radius-lg);
-            padding: clamp(30px, 4vw, 52px) clamp(24px, 3.5vw, 48px);
+            overflow: hidden;
             box-shadow: var(--shadow-sm);
-        }
-        .legal-body > p:first-of-type {
-            font-size: 16px; line-height: 1.85;
-            color: var(--ink); margin-bottom: 26px;
-            padding-bottom: 26px;
-            border-bottom: 1px solid rgba(216, 167, 177, .25);
-        }
-        .legal-section {
-            padding-top: 32px;
             scroll-margin-top: calc(var(--nav-height) + 20px);
+            transition: border-color .3s ease, box-shadow .3s ease;
         }
-        .legal-section:first-of-type { padding-top: 0; }
-        .legal-section h2 {
+        .pp-section:hover { border-color: var(--rose); }
+
+        .pp-section-head {
+            display: flex;
+            gap: clamp(12px, 2vw, 16px);
+            align-items: center;
+            padding: clamp(18px, 2.4vw, 24px) clamp(20px, 2.8vw, 30px);
+            border-bottom: 1px solid rgba(216, 167, 177, .22);
+            background: linear-gradient(180deg, color-mix(in srgb, var(--rose-soft) 14%, transparent), transparent 70%);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Subtle left accent */
+        .pp-section-head::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 22%;
+            bottom: 22%;
+            width: 3px;
+            border-radius: 0 3px 3px 0;
+            background: linear-gradient(180deg, var(--rose-soft), var(--deep-rose));
+        }
+        .pp-section-num {
+            flex-shrink: 0;
+            width: clamp(42px, 5vw, 48px);
+            height: clamp(42px, 5vw, 48px);
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--deep-rose) 0%, #8f4a58 100%);
+            color: #fff;
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(22px, 2.4vw, 30px);
-            font-weight: 600; color: var(--ink);
-            line-height: 1.25; margin-bottom: 14px;
-            display: flex; align-items: baseline; gap: 12px;
+            font-size: clamp(20px, 2.4vw, 24px);
+            font-weight: 700;
+            line-height: 1;
+            box-shadow: 0 6px 16px rgba(167, 90, 105, .28), inset 0 1px 0 rgba(255, 255, 255, .2);
+            position: relative;
         }
-        .legal-section h2 span {
+        .pp-section-head-text {
+            flex: 1;
+            min-width: 0;
+        }
+        .pp-section-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--deep-rose);
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+        .pp-section-head h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(20px, 2.4vw, 26px);
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.15;
+            letter-spacing: -.005em;
+        }
+
+        .pp-section-body {
+            padding: clamp(22px, 2.8vw, 30px) clamp(22px, 2.8vw, 32px);
+        }
+        .pp-section-body > p {
+            font-size: 14.5px;
+            line-height: 1.85;
+            color: var(--ink-soft);
+            margin-bottom: 16px;
+        }
+        .pp-section-body > p:last-child { margin-bottom: 0; }
+        .pp-section-body > p strong { color: var(--ink); font-weight: 600; }
+        .pp-section-body h3 {
             font-family: 'Poppins', sans-serif;
-            font-size: 14px; font-weight: 700;
-            color: var(--deep-rose); letter-spacing: .04em;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: .02em;
+            margin: 20px 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pp-section-body h3::before {
+            content: "";
+            width: 16px; height: 2px;
+            border-radius: 2px;
+            background: var(--deep-rose);
             flex-shrink: 0;
         }
-        .legal-section h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 15.5px; font-weight: 700;
-            color: var(--ink); margin: 22px 0 8px;
+        .pp-section-body h3:first-child { margin-top: 0; }
+        .pp-section-body ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 18px;
         }
-        .legal-section p {
-            font-size: 14.5px; line-height: 1.85;
-            color: var(--ink-soft); margin-bottom: 14px;
-        }
-        .legal-section p strong { color: var(--ink); font-weight: 600; }
-        .legal-section ul {
-            list-style: none; padding: 0;
-            display: flex; flex-direction: column; gap: 8px;
-            margin: 8px 0 16px;
-        }
-        .legal-section ul li {
+        .pp-section-body ul li {
             position: relative;
-            padding-left: 22px;
-            font-size: 14.5px; line-height: 1.75;
+            padding-left: 24px;
+            font-size: 14px;
+            line-height: 1.7;
             color: var(--ink-soft);
         }
-        .legal-section ul li::before {
-            content: ""; position: absolute;
-            left: 4px; top: 10px;
-            width: 6px; height: 6px; border-radius: 50%;
+        .pp-section-body ul li::before {
+            content: "";
+            position: absolute;
+            left: 4px; top: 9px;
+            width: 7px; height: 7px;
+            border-radius: 50%;
             background: var(--deep-rose);
+            box-shadow: 0 0 0 3px rgba(167, 90, 105, .12);
         }
-        .legal-section ul li strong { color: var(--ink); font-weight: 600; }
-        .legal-section a {
-            color: var(--deep-rose); font-weight: 600;
-            text-decoration: underline; text-underline-offset: 3px;
+        .pp-section-body ul li strong { color: var(--ink); font-weight: 600; }
+        .pp-section-body a {
+            color: var(--deep-rose);
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
             text-decoration-color: rgba(167, 90, 105, .4);
             transition: text-decoration-color .2s ease;
         }
-        .legal-section a:hover { text-decoration-color: var(--deep-rose); }
+        .pp-section-body a:hover { text-decoration-color: var(--deep-rose); }
 
-        .legal-callout {
-            display: flex; gap: 14px; align-items: flex-start;
-            background: color-mix(in srgb, var(--rose-soft) 32%, transparent);
+        .pp-callout {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: color-mix(in srgb, var(--rose-soft) 30%, transparent);
             border: 1px solid rgba(216, 167, 177, .5);
             border-left: 3px solid var(--deep-rose);
             border-radius: var(--radius-md);
             padding: 16px 18px;
-            margin: 16px 0;
+            margin: 18px 0;
         }
-        .legal-callout svg {
-            width: 20px; height: 20px; flex-shrink: 0;
-            fill: var(--deep-rose); margin-top: 2px;
+        .pp-callout.warn {
+            background: #fdf3e0;
+            border-color: rgba(168, 112, 32, .3);
+            border-left-color: #a87020;
         }
-        .legal-callout p {
-            margin: 0 !important; font-size: 14px !important;
-            color: var(--ink) !important; line-height: 1.7 !important;
+        .pp-callout.good {
+            background: var(--safe-green-soft);
+            border-color: rgba(74, 138, 74, .3);
+            border-left-color: var(--safe-green);
         }
+        .pp-callout-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: grid; place-items: center;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, .7);
+        }
+        .pp-callout-icon svg {
+            width: 20px; height: 20px;
+            fill: none; stroke: var(--deep-rose); stroke-width: 2;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+        .pp-callout.warn .pp-callout-icon svg { stroke: #a87020; }
+        .pp-callout.good .pp-callout-icon svg { stroke: var(--safe-green); }
+        .pp-callout p {
+            margin: 0 !important;
+            font-size: 13.5px !important;
+            color: var(--ink) !important;
+            line-height: 1.7 !important;
+        }
+        .pp-callout p strong { color: var(--deep-rose); }
 
-        .legal-table {
+        .pp-table-wrap {
+            margin: 18px 0;
+            border: 1px solid rgba(216, 167, 177, .25);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        .pp-table {
             width: 100%;
             border-collapse: collapse;
             font-family: 'Poppins', sans-serif;
-            font-size: 13.5px;
-            margin: 12px 0 18px;
+            font-size: 13px;
         }
-        .legal-table th {
+        .pp-table thead { background: var(--ivory-deep); }
+        .pp-table th {
             text-align: left;
+            font-size: 10.5px;
             font-weight: 700;
-            font-size: 11.5px;
-            letter-spacing: .08em;
+            letter-spacing: .1em;
             text-transform: uppercase;
             color: var(--ink-soft);
-            padding: 12px 14px;
-            background: var(--ivory-deep);
+            padding: 13px 18px;
             border-bottom: 1px solid rgba(216, 167, 177, .4);
         }
-        .legal-table th:first-child { border-radius: 10px 0 0 0; }
-        .legal-table th:last-child { border-radius: 0 10px 0 0; }
-        .legal-table td {
-            padding: 12px 14px;
-            border-bottom: 1px solid rgba(216, 167, 177, .2);
+        .pp-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(216, 167, 177, .15);
             color: var(--ink-soft);
             vertical-align: top;
+            line-height: 1.55;
         }
-        .legal-table td:first-child { color: var(--ink); font-weight: 600; }
-        .legal-table tr:last-child td { border-bottom: none; }
+        .pp-table tr:last-child td { border-bottom: none; }
+        .pp-table tr:hover { background: color-mix(in srgb, var(--rose-soft) 10%, transparent); }
+        .pp-table td:first-child { color: var(--ink); font-weight: 600; }
 
-        .legal-contact {
-            margin-top: clamp(40px, 5vw, 60px);
+        /* Cookie center */
+        .cookie-center {
+            background: linear-gradient(135deg, #fdf3f5 0%, #fbf1e9 100%);
+            border: 1.5px solid rgba(216, 167, 177, .5);
+            border-radius: var(--radius-lg);
+            padding: clamp(22px, 2.8vw, 30px);
+            margin: 18px 0;
+        }
+        .cookie-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed rgba(216, 167, 177, .55);
+        }
+        .cookie-head-icon {
+            width: 42px; height: 42px;
+            border-radius: 11px;
+            display: grid; place-items: center;
+            background: var(--white);
+            box-shadow: 0 4px 12px rgba(167, 90, 105, .12);
+            flex-shrink: 0;
+        }
+        .cookie-head-icon svg {
+            width: 22px; height: 22px;
+            fill: none; stroke: var(--deep-rose); stroke-width: 1.8;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+        .cookie-head h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.2;
+        }
+        .cookie-head p {
+            font-size: 12.5px;
+            color: var(--ink-soft);
+            margin-top: 2px;
+        }
+        .cookie-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .cookie-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, .7);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(216, 167, 177, .35);
+            transition: background .25s ease, border-color .25s ease;
+        }
+        .cookie-item:hover { background: #fff; border-color: var(--rose); }
+        .cookie-item-body { flex: 1; min-width: 0; }
+        .cookie-item-body h5 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .cookie-item-body h5 .cookie-tag {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 3px 7px;
+            border-radius: 999px;
+            background: var(--rose-soft);
+            color: var(--deep-rose);
+        }
+        .cookie-item-body h5 .cookie-tag.essential {
+            background: #e8f0e5;
+            color: var(--safe-green);
+        }
+        .cookie-item-body p {
+            font-size: 12px;
+            line-height: 1.55;
+            color: var(--ink-soft);
+        }
+        .cookie-switch {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        .cookie-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .cookie-switch-label {
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: rgba(216, 167, 177, .5);
+            cursor: pointer;
+            transition: background .3s ease;
+        }
+        .cookie-switch-label::before {
+            content: "";
+            position: absolute;
+            top: 3px; left: 3px;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+            transition: transform .3s var(--ease-out);
+        }
+        .cookie-switch input:checked + .cookie-switch-label { background: var(--deep-rose); }
+        .cookie-switch input:checked + .cookie-switch-label::before { transform: translateX(20px); }
+        .cookie-switch input:disabled + .cookie-switch-label { opacity: .55; cursor: not-allowed; }
+        .cookie-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px dashed rgba(216, 167, 177, .55);
+        }
+        .cookie-actions .btn { padding: 11px 20px; font-size: 13px; }
+        .cookie-status {
+            display: none;
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            background: var(--safe-green-soft);
+            color: var(--safe-green);
+            font-size: 12.5px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .cookie-status.is-on { display: block; }
+
+        /* Rights */
+        .rights-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 18px 0;
+        }
+        .right-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px 18px;
+            background: var(--ivory);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--deep-rose);
+            transition: transform .3s var(--ease-out), background .25s ease;
+        }
+        .right-item:hover {
+            transform: translateX(4px);
+            background: color-mix(in srgb, var(--rose-soft) 22%, var(--ivory));
+        }
+        .right-item-icon {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            display: grid; place-items: center;
+            flex-shrink: 0;
+            background: var(--white);
+            box-shadow: 0 2px 6px rgba(167, 90, 105, .1);
+        }
+        .right-item-icon svg {
+            width: 16px; height: 16px;
+            fill: none; stroke: var(--deep-rose); stroke-width: 2;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+        .right-item-body strong {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 3px;
+        }
+        .right-item-body span {
+            font-size: 12.5px;
+            line-height: 1.55;
+            color: var(--ink-soft);
+        }
+
+        /* Retention */
+        .retention-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .retention-card {
+            padding: 16px;
+            border-radius: var(--radius-md);
+            background: var(--ivory);
+            border: 1px solid rgba(216, 167, 177, .3);
+            text-align: center;
+        }
+        .retention-card .retention-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--deep-rose);
+            margin-bottom: 6px;
+        }
+        .retention-card .retention-num small {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .04em;
+            color: var(--ink-soft);
+            margin-left: 2px;
+        }
+        .retention-card strong {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+        .retention-card span {
+            font-size: 11.5px;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        /* Contact CTA */
+        .pp-contact {
             background:
                 radial-gradient(circle at 12% 18%, rgba(255, 255, 255, .14) 0%, transparent 42%),
                 radial-gradient(circle at 88% 82%, rgba(255, 255, 255, .08) 0%, transparent 38%),
                 linear-gradient(135deg, var(--deep-rose) 0%, #9a4f5d 42%, #b86b7a 72%, color-mix(in srgb, var(--mauve) 80%, var(--deep-rose)) 100%);
             border-radius: var(--radius-xl);
-            padding: clamp(32px, 4vw, 48px) clamp(24px, 4vw, 48px);
-            color: #fff; text-align: center;
+            padding: clamp(32px, 4vw, 48px) clamp(24px, 3.4vw, 44px);
+            color: #fff;
+            text-align: center;
             box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
         }
-        .legal-contact h3 {
+        .pp-contact::before {
+            content: "";
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, .12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .pp-contact-icon {
+            width: 68px; height: 68px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            display: grid; place-items: center;
+            background: rgba(255, 255, 255, .16);
+            border: 2px solid rgba(255, 255, 255, .32);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        .pp-contact-icon svg {
+            width: 32px; height: 32px;
+            fill: none; stroke: #fff; stroke-width: 1.6;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+        .pp-contact h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(22px, 2.6vw, 32px);
-            font-weight: 500; margin-bottom: 10px;
+            font-size: clamp(24px, 3vw, 34px);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            position: relative;
         }
-        .legal-contact p {
-            font-size: 14.5px; line-height: 1.7;
+        .pp-contact h3 em { font-style: italic; color: var(--rose-soft); }
+        .pp-contact p {
+            font-size: 14.5px;
+            line-height: 1.75;
             color: rgba(255, 255, 255, .9);
-            max-width: 500px; margin: 0 auto 22px;
+            max-width: 500px;
+            margin: 0 auto 24px;
+            position: relative;
         }
-        .legal-contact-actions {
-            display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+        .pp-contact-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
         }
-        .legal-contact .btn-white {
+        .pp-contact .btn-white {
             background: #fff; color: var(--deep-rose);
             box-shadow: 0 14px 34px rgba(0, 0, 0, .18);
         }
-        .legal-contact .btn-white:hover { transform: translateY(-2px); background: var(--ivory); }
-        .legal-contact .btn-ghost {
+        .pp-contact .btn-white:hover { transform: translateY(-2px); background: var(--ivory); }
+        .pp-contact .btn-ghost {
             background: rgba(255, 255, 255, .14); color: #fff;
             border: 1.5px solid rgba(255, 255, 255, .35);
         }
-        .legal-contact .btn-ghost:hover { background: rgba(255, 255, 255, .22); }
+        .pp-contact .btn-ghost:hover { background: rgba(255, 255, 255, .22); }
+
+        /* Back to top */
+        .back-top {
+            position: fixed;
+            bottom: clamp(16px, 3vw, 28px);
+            right: clamp(80px, 6vw, 96px);
+            z-index: 55;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 1.5px solid rgba(216, 167, 177, .6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity .3s ease, visibility .3s ease, transform .3s var(--ease-out), background .25s ease;
+            cursor: pointer;
+        }
+        .back-top.is-on { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-top:hover { background: var(--deep-rose); border-color: var(--deep-rose); }
+        .back-top svg {
+            width: 18px; height: 18px;
+            fill: none; stroke: var(--deep-rose); stroke-width: 2.2;
+            stroke-linecap: round; stroke-linejoin: round;
+            transition: stroke .25s ease;
+        }
+        .back-top:hover svg { stroke: #fff; }
 
         footer {
             background: linear-gradient(180deg, #3d3235 0%, var(--ink) 100%);
             color: var(--ivory-deep);
             padding: clamp(56px, 7vw, 72px) var(--site-pad-x) 28px;
-            margin-top: clamp(60px, 7vw, 96px);
+            margin-top: clamp(56px, 7vw, 90px);
         }
         .footer-grid {
             display: grid;
@@ -544,6 +1410,24 @@
         .float-wa svg { width: 26px; height: 26px; fill: #fff; }
         @keyframes floatBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
+        /* ═══════════ RESPONSIVE ═══════════ */
+        @media (max-width: 1100px) {
+            nav.links { gap: 2px; }
+            nav.links > a { padding: 10px 12px; font-size: 13.5px; }
+            .pp-hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .pp-hero-copy > p { margin-left: auto; margin-right: auto; }
+            .pp-hero-meta { justify-content: center; }
+            .pp-hero-visual { max-width: 340px; margin-top: 20px; }
+            .pp-glance { grid-template-columns: repeat(2, 1fr); }
+            .pp-layout { grid-template-columns: 1fr; }
+            .pp-side { position: static; }
+            .pp-side-toc { position: static; }
+            .pp-side-facts,
+            .pp-side-contact { display: none; }
+            .rights-cards { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 40px; }
+            .footer-brand { grid-column: 1 / -1; max-width: 360px; }
+        }
         @media (max-width: 900px) {
             :root { --nav-pad-top: 8px; --nav-shell-h: 58px; --nav-shell-h-scrolled: 50px; }
             nav.links { display: none; }
@@ -553,33 +1437,82 @@
             .brand, nav.links, .nav-cta { justify-self: auto; }
             .nav-shell { border-radius: 22px; }
             header.nav .brand-logo { height: 48px; max-width: min(320px, 64vw); }
-            .legal-layout { grid-template-columns: 1fr; }
-            .legal-toc { position: static; }
+            .retention-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 640px) {
             :root { --nav-shell-h: 54px; --nav-shell-h-scrolled: 48px; }
-            .section { padding: 40px 16px; }
-            .legal-hero { padding: calc(var(--nav-height) + 28px) 16px 40px; }
-            .legal-hero h1 { font-size: clamp(28px, 8vw, 38px); }
-            .legal-body { padding: 24px 18px; border-radius: var(--radius-md); }
-            .legal-section h2 { flex-direction: column; gap: 4px; font-size: 22px; }
-            .legal-table { font-size: 12.5px; }
-            .legal-table th, .legal-table td { padding: 10px 10px; }
+            .section { padding: 44px 16px; }
+            .pp-hero { padding: calc(var(--nav-height) + 24px) 16px 32px; }
+            .pp-hero-copy h1 { font-size: clamp(30px, 8.5vw, 40px); }
+            .pp-hero-visual { max-width: 260px; }
+            .pp-seal h3 { font-size: 20px; }
+            .pp-glance { grid-template-columns: 1fr; gap: 12px; }
+            .pp-glance-card { padding: 18px; }
+            .pp-intro { flex-direction: column; gap: 14px; }
+
+            /* ── SECTION HEAD: KEEP SIDE-BY-SIDE ON MOBILE ── */
+            .pp-section-head {
+                flex-direction: row;
+                align-items: center;
+                gap: 12px;
+                padding: 16px 16px;
+            }
+            .pp-section-num {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+                border-radius: 11px;
+            }
+            .pp-section-tag {
+                font-size: 9px;
+                letter-spacing: .14em;
+                margin-bottom: 3px;
+            }
+            .pp-section-head h2 {
+                font-size: 19px;
+                line-height: 1.15;
+            }
+            .pp-section-body { padding: 20px 18px; }
+
+            .pp-table { font-size: 12px; }
+            .pp-table th, .pp-table td { padding: 11px 12px; }
+            .pp-table-wrap { overflow-x: auto; }
+            .cookie-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .cookie-switch { align-self: flex-end; }
+            .cookie-actions { flex-direction: column; }
+            .cookie-actions .btn { width: 100%; justify-content: center; }
+            .pp-contact-actions { flex-direction: column; align-items: stretch; }
+            .pp-contact-actions .btn { width: 100%; }
+            .back-top { right: 70px; width: 42px; height: 42px; }
+            .back-top svg { width: 16px; height: 16px; }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
             .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
             .float-wa { width: 48px; height: 48px; }
             .float-wa svg { width: 22px; height: 22px; }
+            .pp-section-head::before { top: 18%; bottom: 18%; }
+        }
+        @media (max-width: 400px) {
+            .pp-section-num {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .pp-section-head { padding: 14px 14px; gap: 10px; }
+            .pp-section-head h2 { font-size: 17px; }
+            .pp-section-tag { font-size: 8.5px; }
         }
         @media (prefers-reduced-motion: reduce) {
             * { animation-duration: .01ms !important; transition: none !important; }
+            .pp-seal::before { animation: none; }
         }
     </style>
 </head>
 <body>
 
+    <div class="read-progress" id="readProgress"></div>
+
     <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- ═══════════ NAV ═══════════ -->
     <header class="nav" id="siteHeader">
         <div class="nav-shell">
             <div class="nav-inner">
@@ -628,235 +1561,557 @@
     <main id="main">
 
     <!-- ═══════════ HERO ═══════════ -->
-    <section class="legal-hero">
-        <div class="legal-hero-inner">
-            <span class="eyebrow">Legal</span>
-            <h1>Privacy & <em>Cookie Policy</em></h1>
-            <p>Your privacy matters to us. This page explains what information Softgarments collects, how we use it, and the choices you have as a customer of Pakistan's best online clothing brand.</p>
-            <div class="legal-meta">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                Last updated: 1 January 2026
+    <section class="pp-hero">
+        <div class="pp-hero-inner">
+            <div class="pp-hero-copy">
+                <span class="eyebrow">Legal · Privacy & Cookies</span>
+                <h1>Your privacy, <em>protected.</em></h1>
+                <p>We keep this page simple and honest. No confusing legal jargon — just a clear explanation of what data we collect, why, and how you stay in control.</p>
+                <div class="pp-hero-meta">
+                    <span class="pp-meta-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        Last updated: <strong>1 January 2026</strong>
+                    </span>
+                    <span class="pp-meta-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+                        <strong>Your data, your rights</strong>
+                    </span>
+                    <span class="pp-meta-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+                        Reading time: <strong>4 min</strong>
+                    </span>
+                </div>
+            </div>
+
+            <div class="pp-hero-visual">
+                <div class="pp-seal">
+                    <div class="pp-seal-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </div>
+                    <h3>Privacy First</h3>
+                    <p>Softgarments Promise</p>
+                </div>
+                <span class="pp-orbit-dot dot-1"></span>
+                <span class="pp-orbit-dot dot-2"></span>
+                <span class="pp-orbit-dot dot-3"></span>
+                <span class="pp-orbit-dot dot-4"></span>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════ CONTENT ═══════════ -->
-    <section class="section" style="padding-top: 0;">
-        <div class="legal-layout">
+    <!-- ═══════════ AT A GLANCE ═══════════ -->
+    <div class="pp-glance">
+        <div class="pp-glance-card">
+            <div class="pp-glance-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h4>We Never Sell Your Data</h4>
+            <p>Your information is never sold, rented or traded with anyone. Period.</p>
+        </div>
+        <div class="pp-glance-card">
+            <div class="pp-glance-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            </div>
+            <h4>No Sensitive Data</h4>
+            <p>We never ask for your CNIC, bank account, card number or OTP.</p>
+        </div>
+        <div class="pp-glance-card">
+            <div class="pp-glance-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 4v16"/></svg>
+            </div>
+            <h4>You Control Cookies</h4>
+            <p>Toggle non-essential cookies on or off — anytime, no questions asked.</p>
+        </div>
+        <div class="pp-glance-card">
+            <div class="pp-glance-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h4>Real Human Replies</h4>
+            <p>Any privacy question goes to a real person on WhatsApp — not a bot.</p>
+        </div>
+    </div>
 
-            <!-- Table of contents -->
-            <aside class="legal-toc" aria-label="Table of contents">
-                <h4>On this page</h4>
-                <ol>
-                    <li><a href="#intro">Introduction</a></li>
-                    <li><a href="#collect">Information We Collect</a></li>
-                    <li><a href="#use">How We Use Your Data</a></li>
-                    <li><a href="#share">Sharing Your Data</a></li>
-                    <li><a href="#cookies">Cookies & Tracking</a></li>
-                    <li><a href="#security">Data Security</a></li>
-                    <li><a href="#rights">Your Rights</a></li>
-                    <li><a href="#retention">Data Retention</a></li>
-                    <li><a href="#children">Children's Privacy</a></li>
-                    <li><a href="#changes">Policy Changes</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ol>
+    <!-- ═══════════ MAIN CONTENT ═══════════ -->
+    <section class="section" style="padding-top: clamp(48px, 6vw, 76px);">
+        <div class="pp-layout">
+
+            <aside class="pp-side">
+                <nav class="pp-side-toc" aria-label="Table of contents">
+                    <div class="pp-side-toc-head">
+                        <h4>On this page</h4>
+                        <span class="pp-toc-progress" id="tocProgress">0<small>/11</small></span>
+                    </div>
+                    <ol class="pp-toc-list">
+                        <li><a href="#intro"><span class="toc-num">01</span> Introduction</a></li>
+                        <li><a href="#collect"><span class="toc-num">02</span> Information We Collect</a></li>
+                        <li><a href="#use"><span class="toc-num">03</span> How We Use Data</a></li>
+                        <li><a href="#share"><span class="toc-num">04</span> Sharing Your Data</a></li>
+                        <li><a href="#cookies"><span class="toc-num">05</span> Cookies & Tracking</a></li>
+                        <li><a href="#security"><span class="toc-num">06</span> Data Security</a></li>
+                        <li><a href="#rights"><span class="toc-num">07</span> Your Rights</a></li>
+                        <li><a href="#retention"><span class="toc-num">08</span> Data Retention</a></li>
+                        <li><a href="#children"><span class="toc-num">09</span> Children's Privacy</a></li>
+                        <li><a href="#changes"><span class="toc-num">10</span> Policy Changes</a></li>
+                        <li><a href="#contact"><span class="toc-num">11</span> Contact Us</a></li>
+                    </ol>
+                </nav>
+
+                <div class="pp-side-help">
+                    <div class="pp-side-help-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h5>Questions?</h5>
+                    <p>Message us on WhatsApp — we reply in minutes.</p>
+                    <a href="https://wa.me/923379022920" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/></svg>
+                        Ask on WhatsApp
+                    </a>
+                </div>
+
+                <div class="pp-side-facts">
+                    <h5>Your Data is Safe</h5>
+                    <ul class="pp-side-facts-list">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span><strong>Never sold</strong> to anyone</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span><strong>No CNIC, card</strong> or bank data</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span><strong>Encrypted</strong> WhatsApp chats</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                            <span><strong>You control</strong> your cookies</span>
+                        </li>
+                    </ul>
+                    <div class="pp-side-stats">
+                        <div class="pp-side-stat">
+                            <strong>0</strong>
+                            <span>Data Sold</span>
+                        </div>
+                        <div class="pp-side-stat">
+                            <strong>7d</strong>
+                            <span>Response Time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pp-side-contact">
+                    <h5>Quick Contact</h5>
+                    <a href="https://wa.me/923379022920" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z"/></svg>
+                        <div>
+                            <strong>+92 337 9022920</strong>
+                            <small>WhatsApp us anytime</small>
+                        </div>
+                    </a>
+                    <a href="mailto:softgarmentspk@gmail.com">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                        <div>
+                            <strong>softgarmentspk@gmail.com</strong>
+                            <small>Email for records</small>
+                        </div>
+                    </a>
+                </div>
             </aside>
 
-            <!-- Policy body -->
-            <article class="legal-body">
+            <div class="pp-content">
 
-                <p>Softgarments ("we", "our", "us") operates <strong>softgarments.pk</strong> and is committed to protecting your personal information. This Privacy & Cookie Policy describes how we collect, use and share your data when you browse our website, place an order via WhatsApp, or interact with our brand. By using our services, you agree to this policy.</p>
+                <div class="pp-intro">
+                    <div class="pp-intro-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L9 6l-3-1-1 3-3 1 1 3-1 3 3 1 1 3 3-1 3 4 3-4 3 1 1-3 3-1-1-3 1-3-3-1-1-3-3 1z"/></svg>
+                    </div>
+                    <div class="pp-intro-body">
+                        <p>Softgarments ("we", "our", "us") operates <strong>softgarments.pk</strong> and is committed to protecting your personal information. This policy explains how we collect, use and protect your data when you shop with us.</p>
+                        <p>Because we primarily take orders through WhatsApp, most information we receive is what you voluntarily share with us during an order conversation. By using our services, you agree to this policy.</p>
+                    </div>
+                </div>
 
-                <!-- 1 -->
-                <section class="legal-section" id="intro">
-                    <h2><span>01</span> Introduction</h2>
-                    <p>Softgarments is a Pakistani online clothing brand offering premium women's clothing — including kurtis, tops, co-ord sets, and occasion wear — delivered nationwide with Cash on Delivery. Because we primarily take orders through WhatsApp, most of the personal information we receive is what you voluntarily share with us during an order conversation.</p>
-                    <p>This policy applies to all visitors and customers, regardless of where you access our website from within Pakistan.</p>
-                </section>
-
-                <!-- 2 -->
-                <section class="legal-section" id="collect">
-                    <h2><span>02</span> Information We Collect</h2>
-                    <p>We only collect what we need to process your order and improve your experience. This includes:</p>
-
-                    <h3>Information you provide directly</h3>
-                    <ul>
-                        <li><strong>Order details:</strong> name, phone number, delivery address, city, and postal code.</li>
-                        <li><strong>Communication:</strong> messages you send via WhatsApp, email or social media.</li>
-                        <li><strong>Sizing preferences:</strong> measurements you share for a better fit.</li>
-                        <li><strong>Feedback:</strong> reviews, ratings and photos you voluntarily share.</li>
-                    </ul>
-
-                    <h3>Information collected automatically</h3>
-                    <ul>
-                        <li><strong>Device information:</strong> browser type, operating system, screen size.</li>
-                        <li><strong>Usage data:</strong> pages viewed, time spent, referring source.</li>
-                        <li><strong>IP address:</strong> used for analytics and basic security.</li>
-                    </ul>
-
-                    <div class="legal-callout">
-                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                        <p>We <strong>never</strong> collect your CNIC, bank account number, credit card details or any sensitive financial information. Our Cash on Delivery model means you pay only in person at the time of delivery.</p>
+                <section class="pp-section" id="intro">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">01</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Getting Started</span>
+                            <h2>Introduction</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>Softgarments is a Pakistani online clothing brand offering premium women's clothing — including kurtis, tops, co-ord sets, and occasion wear — delivered nationwide with Cash on Delivery.</p>
+                        <p>This policy applies to <strong>all visitors and customers</strong>, regardless of where you access our website from within Pakistan. It covers our website, our WhatsApp ordering channel, and any communication you have with our team.</p>
                     </div>
                 </section>
 
-                <!-- 3 -->
-                <section class="legal-section" id="use">
-                    <h2><span>03</span> How We Use Your Data</h2>
-                    <p>Your information is used strictly for the following purposes:</p>
-                    <ul>
-                        <li><strong>Order fulfilment:</strong> processing your order, dispatching it, and confirming delivery.</li>
-                        <li><strong>Customer support:</strong> answering sizing questions, tracking orders, and arranging exchanges.</li>
-                        <li><strong>Service updates:</strong> notifying you about order status via WhatsApp or SMS.</li>
-                        <li><strong>Improvements:</strong> understanding which products and styles are most loved, so we can improve our collection.</li>
-                        <li><strong>Legal compliance:</strong> meeting our obligations under Pakistani law.</li>
-                    </ul>
-                    <p>We do <strong>not</strong> use your data for automated decision-making, profiling, or targeted advertising on third-party platforms without your consent.</p>
+                <section class="pp-section" id="collect">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">02</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Data Collection</span>
+                            <h2>Information We Collect</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>We only collect what we need to process your order and improve your experience. Nothing more, nothing less.</p>
+
+                        <h3>Information you provide directly</h3>
+                        <ul>
+                            <li><strong>Order details:</strong> name, phone number, delivery address, city, and postal code.</li>
+                            <li><strong>Communication:</strong> messages you send via WhatsApp, email or social media.</li>
+                            <li><strong>Sizing preferences:</strong> measurements you share for a better fit.</li>
+                            <li><strong>Feedback:</strong> reviews, ratings and photos you voluntarily share.</li>
+                        </ul>
+
+                        <h3>Information collected automatically</h3>
+                        <ul>
+                            <li><strong>Device information:</strong> browser type, operating system, screen size.</li>
+                            <li><strong>Usage data:</strong> pages viewed, time spent, referring source.</li>
+                            <li><strong>IP address:</strong> used for analytics and basic security.</li>
+                        </ul>
+
+                        <div class="pp-callout warn">
+                            <div class="pp-callout-icon">
+                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+                            </div>
+                            <p>We <strong>never</strong> collect your CNIC, bank account number, credit card details or any sensitive financial information. Our Cash on Delivery model means you pay only in person at the time of delivery.</p>
+                        </div>
+                    </div>
                 </section>
 
-                <!-- 4 -->
-                <section class="legal-section" id="share">
-                    <h2><span>04</span> Sharing Your Data</h2>
-                    <p>We share your information only with trusted parties who help us serve you, and only to the extent necessary:</p>
-
-                    <table class="legal-table">
-                        <thead>
-                            <tr>
-                                <th>Recipient</th>
-                                <th>Purpose</th>
-                                <th>Data Shared</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Courier partners</td>
-                                <td>Delivering your order across Pakistan</td>
-                                <td>Name, phone, address, order details</td>
-                            </tr>
-                            <tr>
-                                <td>WhatsApp (Meta)</td>
-                                <td>Order communication and customer support</td>
-                                <td>Messages, phone number</td>
-                            </tr>
-                            <tr>
-                                <td>Website analytics</td>
-                                <td>Understanding visitor behaviour (anonymised)</td>
-                                <td>Device, IP, usage data</td>
-                            </tr>
-                            <tr>
-                                <td>Legal authorities</td>
-                                <td>When required by Pakistani law</td>
-                                <td>Only what is legally required</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <p>We do <strong>not sell</strong>, rent or trade your personal information to any third party for marketing purposes.</p>
+                <section class="pp-section" id="use">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">03</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Usage</span>
+                            <h2>How We Use Your Data</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>Your information is used <strong>strictly for the following purposes</strong>:</p>
+                        <ul>
+                            <li><strong>Order fulfilment:</strong> processing your order, dispatching it, and confirming delivery.</li>
+                            <li><strong>Customer support:</strong> answering sizing questions, tracking orders, and arranging exchanges.</li>
+                            <li><strong>Service updates:</strong> notifying you about order status via WhatsApp or SMS.</li>
+                            <li><strong>Improvements:</strong> understanding which products and styles are most loved, so we can improve our collection.</li>
+                            <li><strong>Legal compliance:</strong> meeting our obligations under Pakistani law.</li>
+                        </ul>
+                        <p>We do <strong>not</strong> use your data for automated decision-making, profiling, or targeted advertising on third-party platforms without your consent.</p>
+                    </div>
                 </section>
 
-                <!-- 5 -->
-                <section class="legal-section" id="cookies">
-                    <h2><span>05</span> Cookies & Tracking</h2>
-                    <p>Cookies are small text files stored on your device when you visit our website. Softgarments uses a limited set of cookies to keep the site functioning smoothly and to understand how visitors use it.</p>
+                <section class="pp-section" id="share">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">04</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Sharing</span>
+                            <h2>Sharing Your Data</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>We share your information only with trusted parties who help us serve you, and only to the extent necessary:</p>
 
-                    <h3>Types of cookies we use</h3>
-                    <ul>
-                        <li><strong>Essential cookies:</strong> required for the website to work (page navigation, security). These cannot be disabled.</li>
-                        <li><strong>Preference cookies:</strong> remember settings such as language, so you don't have to select them again.</li>
-                        <li><strong>Analytics cookies:</strong> help us understand which pages are visited most (anonymised data).</li>
-                        <li><strong>Third-party cookies:</strong> may be set by services we embed (e.g., Instagram Reels, Google Fonts).</li>
-                    </ul>
+                        <div class="pp-table-wrap">
+                            <table class="pp-table">
+                                <thead>
+                                    <tr>
+                                        <th>Recipient</th>
+                                        <th>Purpose</th>
+                                        <th>Data Shared</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Courier partners</td>
+                                        <td>Delivering your order across Pakistan</td>
+                                        <td>Name, phone, address, order details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>WhatsApp (Meta)</td>
+                                        <td>Order communication and customer support</td>
+                                        <td>Messages, phone number</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Website analytics</td>
+                                        <td>Understanding visitor behaviour (anonymised)</td>
+                                        <td>Device, IP, usage data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Legal authorities</td>
+                                        <td>When required by Pakistani law</td>
+                                        <td>Only what is legally required</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                    <h3>Managing cookies</h3>
-                    <p>You can control or delete cookies at any time through your browser settings. Most browsers allow you to:</p>
-                    <ul>
-                        <li>See what cookies are stored and delete them individually.</li>
-                        <li>Block third-party cookies.</li>
-                        <li>Block all cookies from specific sites.</li>
-                        <li>Block all cookies from being set.</li>
-                    </ul>
-                    <p>Please note: disabling essential cookies may affect how the website functions.</p>
+                        <div class="pp-callout good">
+                            <div class="pp-callout-icon">
+                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            </div>
+                            <p>We do <strong>not sell</strong>, rent or trade your personal information to any third party for marketing purposes. Ever.</p>
+                        </div>
+                    </div>
                 </section>
 
-                <!-- 6 -->
-                <section class="legal-section" id="security">
-                    <h2><span>06</span> Data Security</h2>
-                    <p>We take reasonable technical and organisational measures to protect your information against unauthorised access, loss or misuse. These include:</p>
-                    <ul>
-                        <li>Secure HTTPS connection across our website.</li>
-                        <li>Restricted access to customer order data on a need-to-know basis.</li>
-                        <li>Regular review of our communication and storage practices.</li>
-                    </ul>
-                    <p>While we do our best, no method of transmission over the internet is 100% secure. If you ever suspect that your information has been compromised, please contact us immediately on WhatsApp.</p>
+                <section class="pp-section" id="cookies">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">05</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Cookies</span>
+                            <h2>Cookies & Tracking</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>Cookies are small text files stored on your device when you visit our website. We use a limited set to keep the site functioning smoothly and understand how visitors use it.</p>
+
+                        <h3>Types of cookies we use</h3>
+                        <ul>
+                            <li><strong>Essential cookies:</strong> required for the website to work (page navigation, security). These cannot be disabled.</li>
+                            <li><strong>Preference cookies:</strong> remember settings such as language, so you don't have to select them again.</li>
+                            <li><strong>Analytics cookies:</strong> help us understand which pages are visited most (anonymised data).</li>
+                            <li><strong>Third-party cookies:</strong> may be set by services we embed (e.g., Instagram Reels, Google Fonts).</li>
+                        </ul>
+
+                        <div class="cookie-center">
+                            <div class="cookie-head">
+                                <div class="cookie-head-icon">
+                                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="8.5" cy="11" r="1"/><circle cx="15" cy="9" r="1"/><circle cx="14" cy="15" r="1"/><circle cx="9" cy="16" r="1"/></svg>
+                                </div>
+                                <div>
+                                    <h4>Cookie Preference Center</h4>
+                                    <p>Manage what we can store on your device</p>
+                                </div>
+                            </div>
+
+                            <div class="cookie-list">
+                                <div class="cookie-item">
+                                    <div class="cookie-item-body">
+                                        <h5>Essential Cookies <span class="cookie-tag essential">Always On</span></h5>
+                                        <p>Required for the website to function — page navigation, security, basic features.</p>
+                                    </div>
+                                    <label class="cookie-switch">
+                                        <input type="checkbox" checked disabled />
+                                        <span class="cookie-switch-label"></span>
+                                    </label>
+                                </div>
+
+                                <div class="cookie-item">
+                                    <div class="cookie-item-body">
+                                        <h5>Preference Cookies</h5>
+                                        <p>Remember your settings like language and layout preferences.</p>
+                                    </div>
+                                    <label class="cookie-switch">
+                                        <input type="checkbox" id="cookiePref" checked />
+                                        <span class="cookie-switch-label"></span>
+                                    </label>
+                                </div>
+
+                                <div class="cookie-item">
+                                    <div class="cookie-item-body">
+                                        <h5>Analytics Cookies</h5>
+                                        <p>Help us understand which pages are popular (anonymised data only).</p>
+                                    </div>
+                                    <label class="cookie-switch">
+                                        <input type="checkbox" id="cookieAnalytics" checked />
+                                        <span class="cookie-switch-label"></span>
+                                    </label>
+                                </div>
+
+                                <div class="cookie-item">
+                                    <div class="cookie-item-body">
+                                        <h5>Third-party Cookies</h5>
+                                        <p>Set by services we embed — Instagram, Google Fonts, etc.</p>
+                                    </div>
+                                    <label class="cookie-switch">
+                                        <input type="checkbox" id="cookieThirdParty" />
+                                        <span class="cookie-switch-label"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="cookie-actions">
+                                <button type="button" class="btn btn-primary" id="cookieSaveBtn">Save Preferences</button>
+                                <button type="button" class="btn btn-outline" id="cookieAcceptAllBtn">Accept All</button>
+                                <button type="button" class="btn btn-outline" id="cookieRejectBtn">Reject Non-Essential</button>
+                            </div>
+                            <div class="cookie-status" id="cookieStatus">Your cookie preferences have been saved.</div>
+                        </div>
+                    </div>
                 </section>
 
-                <!-- 7 -->
-                <section class="legal-section" id="rights">
-                    <h2><span>07</span> Your Rights</h2>
-                    <p>As a customer of Softgarments, you have the right to:</p>
-                    <ul>
-                        <li><strong>Access</strong> the personal information we hold about you.</li>
-                        <li><strong>Correct</strong> any inaccurate details we have on file.</li>
-                        <li><strong>Request deletion</strong> of your data (except where we are legally required to retain it).</li>
-                        <li><strong>Opt out</strong> of promotional messages at any time.</li>
-                        <li><strong>Withdraw consent</strong> for non-essential cookies.</li>
-                    </ul>
-                    <p>To exercise any of these rights, simply message us on WhatsApp at <a href="https://wa.me/923379022920" target="_blank" rel="noopener">+92 337 9022920</a> or email <a href="mailto:softgarmentspk@gmail.com">softgarmentspk@gmail.com</a>. We will respond within 7 working days.</p>
+                <section class="pp-section" id="security">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">06</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Security</span>
+                            <h2>Data Security</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>We take reasonable technical and organisational measures to protect your information against unauthorised access, loss or misuse. These include:</p>
+                        <ul>
+                            <li>Secure <strong>HTTPS connection</strong> across our website.</li>
+                            <li>Restricted access to customer order data on a <strong>need-to-know basis</strong>.</li>
+                            <li>Regular review of our communication and storage practices.</li>
+                            <li>End-to-end encrypted WhatsApp conversations for all order discussions.</li>
+                        </ul>
+                        <p>While we do our best, no method of transmission over the internet is 100% secure. If you ever suspect that your information has been compromised, please contact us immediately on WhatsApp.</p>
+                    </div>
                 </section>
 
-                <!-- 8 -->
-                <section class="legal-section" id="retention">
-                    <h2><span>08</span> Data Retention</h2>
-                    <p>We retain your personal information only for as long as necessary to fulfil the purposes outlined in this policy:</p>
-                    <ul>
-                        <li><strong>Order records:</strong> retained for up to 3 years for accounting and warranty purposes.</li>
-                        <li><strong>Customer conversations:</strong> kept for up to 2 years to help with exchanges and follow-ups.</li>
-                        <li><strong>Analytics data:</strong> stored in anonymised form, typically up to 26 months.</li>
-                    </ul>
-                    <p>After the retention period, your data is securely deleted or anonymised.</p>
+                <section class="pp-section" id="rights">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">07</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Your Rights</span>
+                            <h2>Your Rights</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>As a customer of Softgarments, you have the following rights — and they're not subject to fine print:</p>
+
+                        <div class="rights-cards">
+                            <div class="right-item">
+                                <div class="right-item-icon">
+                                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                </div>
+                                <div class="right-item-body">
+                                    <strong>Right to Access</strong>
+                                    <span>See the personal information we hold about you.</span>
+                                </div>
+                            </div>
+                            <div class="right-item">
+                                <div class="right-item-icon">
+                                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+                                </div>
+                                <div class="right-item-body">
+                                    <strong>Right to Correct</strong>
+                                    <span>Fix any inaccurate details we have on file.</span>
+                                </div>
+                            </div>
+                            <div class="right-item">
+                                <div class="right-item-icon">
+                                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+                                </div>
+                                <div class="right-item-body">
+                                    <strong>Right to Delete</strong>
+                                    <span>Request removal of your data (except where legally required).</span>
+                                </div>
+                            </div>
+                            <div class="right-item">
+                                <div class="right-item-icon">
+                                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                                </div>
+                                <div class="right-item-body">
+                                    <strong>Right to Opt Out</strong>
+                                    <span>Stop promotional messages anytime — no questions asked.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>To exercise any of these rights, simply message us on WhatsApp at <a href="https://wa.me/923379022920" target="_blank" rel="noopener">+92 337 9022920</a> or email <a href="mailto:softgarmentspk@gmail.com">softgarmentspk@gmail.com</a>. We respond within 7 working days.</p>
+                    </div>
                 </section>
 
-                <!-- 9 -->
-                <section class="legal-section" id="children">
-                    <h2><span>09</span> Children's Privacy</h2>
-                    <p>Softgarments sells women's clothing designed for adults. Our website and services are not directed at children under the age of 13, and we do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us so we can remove it.</p>
+                <section class="pp-section" id="retention">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">08</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Retention</span>
+                            <h2>Data Retention</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>We retain your personal information only for as long as necessary to fulfil the purposes outlined in this policy:</p>
+
+                        <div class="retention-grid">
+                            <div class="retention-card">
+                                <div class="retention-num">3<small>years</small></div>
+                                <strong>Order Records</strong>
+                                <span>Kept for accounting and warranty purposes.</span>
+                            </div>
+                            <div class="retention-card">
+                                <div class="retention-num">2<small>years</small></div>
+                                <strong>Conversations</strong>
+                                <span>Kept for exchanges and follow-ups.</span>
+                            </div>
+                            <div class="retention-card">
+                                <div class="retention-num">26<small>mo</small></div>
+                                <strong>Analytics Data</strong>
+                                <span>Stored in anonymised form only.</span>
+                            </div>
+                        </div>
+
+                        <p>After the retention period, your data is securely deleted or anonymised.</p>
+                    </div>
                 </section>
 
-                <!-- 10 -->
-                <section class="legal-section" id="changes">
-                    <h2><span>10</span> Policy Changes</h2>
-                    <p>We may update this Privacy & Cookie Policy from time to time to reflect changes in our practices, technology, or legal requirements. When we do, we will update the "Last updated" date at the top of this page. We encourage you to review this page periodically.</p>
-                    <p>Continued use of our website or services after changes means you accept the updated policy.</p>
+                <section class="pp-section" id="children">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">09</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Children</span>
+                            <h2>Children's Privacy</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>Softgarments sells women's clothing designed for adults. Our website and services are <strong>not directed at children under the age of 13</strong>, and we do not knowingly collect personal information from children.</p>
+                        <p>If you believe a child has provided us with personal data, please contact us so we can remove it immediately.</p>
+                    </div>
                 </section>
 
-                <!-- 11 -->
-                <section class="legal-section" id="contact">
-                    <h2><span>11</span> Contact Us</h2>
-                    <p>If you have any questions, concerns or requests regarding your privacy, please reach out:</p>
-                    <ul>
-                        <li><strong>WhatsApp:</strong> <a href="https://wa.me/923379022920" target="_blank" rel="noopener">+92 337 9022920</a></li>
-                        <li><strong>Email:</strong> <a href="mailto:softgarmentspk@gmail.com">softgarmentspk@gmail.com</a></li>
-                        <li><strong>Based in:</strong> Islamabad, Pakistan</li>
-                    </ul>
+                <section class="pp-section" id="changes">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">10</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Updates</span>
+                            <h2>Policy Changes</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>We may update this Privacy & Cookie Policy from time to time to reflect changes in our practices, technology, or legal requirements.</p>
+                        <p>When we do, we will update the <strong>"Last updated"</strong> date at the top of this page. We encourage you to review this page periodically. Continued use of our website or services after changes means you accept the updated policy.</p>
+                    </div>
                 </section>
 
-                <!-- Contact CTA -->
-                <div class="legal-contact">
-                    <h3>Questions about your privacy?</h3>
-                    <p>Message us directly on WhatsApp — our team replies fast and can address any data-related queries you may have.</p>
-                    <div class="legal-contact-actions">
+                <section class="pp-section" id="contact">
+                    <div class="pp-section-head">
+                        <div class="pp-section-num">11</div>
+                        <div class="pp-section-head-text">
+                            <span class="pp-section-tag">Reach Out</span>
+                            <h2>Contact Us</h2>
+                        </div>
+                    </div>
+                    <div class="pp-section-body">
+                        <p>If you have any questions, concerns or requests regarding your privacy, please reach out:</p>
+                        <ul>
+                            <li><strong>WhatsApp:</strong> <a href="https://wa.me/923379022920" target="_blank" rel="noopener">+92 337 9022920</a></li>
+                            <li><strong>Email:</strong> <a href="mailto:softgarmentspk@gmail.com">softgarmentspk@gmail.com</a></li>
+                            <li><strong>Based in:</strong> Islamabad, Pakistan</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div class="pp-contact">
+                    <div class="pp-contact-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>Questions about your <em>privacy?</em></h3>
+                    <p>Message us directly on WhatsApp — our team replies fast and can address any data-related query you may have.</p>
+                    <div class="pp-contact-actions">
                         <a href="https://wa.me/923379022920" target="_blank" rel="noopener" class="btn btn-white">Chat on WhatsApp</a>
                         <a href="mailto:softgarmentspk@gmail.com" class="btn btn-ghost">Email Us</a>
                     </div>
                 </div>
 
-            </article>
+            </div>
         </div>
     </section>
 
     </main>
 
-    <!-- ═══════════ FOOTER ═══════════ -->
     <footer id="footer-contact">
         <div class="footer-grid">
             <div class="footer-brand">
@@ -880,22 +2135,23 @@
                 <h5>Information</h5>
                 <ul>
                     <li><a href="privacy-policy.html">Privacy & Cookie Policy</a></li>
-                    <li><a href="#cat-formals">Order & Returns</a></li>
-                    <li><a href="#cat-luzella">Search Terms</a></li>
-                    <li><a href="#cat-ember">Size Guide</a></li>
-                    <li><a href="#cat-pink">Size Chart</a></li>
-                    <li><a href="#cat-merlot">Withdrawal Policy</a></li>
+                    <li><a href="order-returns.html">Order & Returns</a></li>
+                    <li><a href="shipping-information.html">Shipping Information</a></li>
+                    <li><a href="payment-security.html">Payment & Security</a></li>
+                    <li><a href="search-terms.html">Search Terms</a></li>
+                    <li><a href="size-guide.html">Size Guide</a></li>
+                    <li><a href="withdrawal-policy.html">Withdrawal Policy</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h5>Company</h5>
                 <ul>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="about.html">Our Story</a></li>
-                    <li><a href="#night">Shipping Information</a></li>
-                    <li><a href="#shape">Return & Exchange</a></li>
-                    <li><a href="#gh-news">Payment & Security</a></li>
-                    <li><a href="#view-home">Loyalty Programme</a></li>
+                    <li><a href="our-story.html">Our Story</a></li>
+                    <li><a href="shipping-information.html">Shipping Information</a></li>
+                    <li><a href="order-returns.html#returns">Return & Exchange</a></li>
+                    <li><a href="payment-security.html">Payment & Security</a></li>
+                    <li><a href="loyalty-programme.html">Loyalty Programme</a></li>
                 </ul>
             </div>
             <div class="footer-col footer-contact">
@@ -913,7 +2169,10 @@
         </div>
     </footer>
 
-    <!-- ═══════════ FLOATING WHATSAPP ═══════════ -->
+    <button class="back-top" id="backTop" type="button" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+
     <a class="float-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
     </a>
@@ -946,6 +2205,88 @@
         window.addEventListener('resize', () => {
             if (window.innerWidth > 900 && siteHeader.classList.contains('menu-open')) setMenuOpen(false);
         });
+
+        (function() {
+            const bar = document.getElementById('readProgress');
+            function update() {
+                const h = document.documentElement;
+                const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+                bar.style.width = (scrolled * 100) + '%';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
+
+        (function() {
+            const tocLinks = document.querySelectorAll('.pp-toc-list a');
+            const sections = document.querySelectorAll('.pp-section');
+            const progressEl = document.getElementById('tocProgress');
+            const seen = new Set();
+
+            function update() {
+                const fromTop = window.scrollY + 140;
+                let current = null;
+                sections.forEach(sec => {
+                    if (sec.offsetTop <= fromTop) current = sec.id;
+                });
+                tocLinks.forEach(a => {
+                    const href = a.getAttribute('href').slice(1);
+                    a.classList.toggle('is-current', href === current);
+                });
+                sections.forEach(sec => {
+                    if (sec.offsetTop <= fromTop) seen.add(sec.id);
+                });
+                progressEl.innerHTML = seen.size + '<small>/' + sections.length + '</small>';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
+
+        (function() {
+            const btn = document.getElementById('backTop');
+            btn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            function update() {
+                btn.classList.toggle('is-on', window.scrollY > 600);
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            update();
+        })();
+
+        (function() {
+            const pref = document.getElementById('cookiePref');
+            const analytics = document.getElementById('cookieAnalytics');
+            const thirdParty = document.getElementById('cookieThirdParty');
+            const status = document.getElementById('cookieStatus');
+            const saveBtn = document.getElementById('cookieSaveBtn');
+            const acceptAllBtn = document.getElementById('cookieAcceptAllBtn');
+            const rejectBtn = document.getElementById('cookieRejectBtn');
+            if (!pref || !analytics || !thirdParty) return;
+
+            function flash(msg) {
+                status.textContent = msg;
+                status.classList.add('is-on');
+                clearTimeout(status._t);
+                status._t = setTimeout(() => status.classList.remove('is-on'), 3000);
+            }
+
+            saveBtn.addEventListener('click', () => {
+                flash('Your cookie preferences have been saved.');
+            });
+            acceptAllBtn.addEventListener('click', () => {
+                pref.checked = true;
+                analytics.checked = true;
+                thirdParty.checked = true;
+                flash('All cookies accepted.');
+            });
+            rejectBtn.addEventListener('click', () => {
+                pref.checked = false;
+                analytics.checked = false;
+                thirdParty.checked = false;
+                flash('Non-essential cookies rejected.');
+            });
+        })();
     </script>
 
 </body>
