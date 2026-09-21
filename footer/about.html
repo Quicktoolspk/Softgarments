@@ -13,7 +13,6 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/favicon.svg" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Softgarments" />
     <meta property="og:title" content="About Softgarments | Premium Women's Clothing Brand in Pakistan" />
@@ -22,19 +21,16 @@
     <meta property="og:url" content="https://softgarments.pk/about.html" />
     <meta property="og:locale" content="en_PK" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="About Softgarments | Best Online Clothing Brand in Pakistan" />
     <meta name="twitter:description" content="Comfort-first women's clothing, designed in Pakistan. Discover our story." />
     <meta name="twitter:image" content="assets/logo.png" />
 
-    <!-- About Page Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "AboutPage",
         "name": "About Softgarments",
-        "description": "Learn about Softgarments, the best online clothing brand in Pakistan our story, our mission and the team behind our premium women's clothing.",
         "url": "https://softgarments.pk/about.html",
         "mainEntity": {
             "@type": "Organization",
@@ -43,14 +39,9 @@
             "logo": "assets/logo.png",
             "foundingDate": "2024",
             "foundingLocation": "Islamabad, Pakistan",
-            "description": "Softgarments is a Pakistani women's clothing brand offering premium, breathable, everyday essentials kurtis, co-ord sets, formal wear and occasion pieces delivered nationwide with Cash on Delivery.",
             "email": "softgarmentspk@gmail.com",
             "telephone": "+92-337-9022920",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Islamabad",
-                "addressCountry": "PK"
-            },
+            "address": { "@type": "PostalAddress", "addressLocality": "Islamabad", "addressCountry": "PK" },
             "areaServed": "Pakistan",
             "sameAs": [
                 "https://www.instagram.com/soft.garments/",
@@ -60,7 +51,6 @@
     }
     </script>
 
-    <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -179,6 +169,31 @@
                 var(--nav-glass-fill-scrolled);
             border-color: var(--nav-glass-border-strong);
         }
+        .nav-glass-sheen {
+            position: absolute;
+            inset: 1px;
+            border-radius: inherit;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .nav-glass-sheen::before {
+            content: "";
+            position: absolute;
+            top: -40%; left: -10%;
+            width: 55%; height: 120%;
+            background: radial-gradient(ellipse at center, color-mix(in srgb, var(--rose-soft) 28%, transparent) 0%, transparent 68%);
+            transform: rotate(-8deg);
+            opacity: .75;
+        }
+        .nav-glass-sheen::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 6%; right: 6%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--rose-soft) 65%, transparent) 25%, color-mix(in srgb, var(--rose) 50%, transparent) 50%, color-mix(in srgb, var(--rose-soft) 65%, transparent) 75%, transparent);
+            opacity: .85;
+        }
         .nav-inner {
             position: relative; z-index: 2;
             display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
@@ -271,7 +286,6 @@
             color: var(--deep-rose); font-weight: 600;
             display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px;
         }
-        /* Line before eyebrow removed */
         .section-title {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 500; font-size: clamp(32px, 4.5vw, 52px);
@@ -309,9 +323,7 @@
             line-height: 1.8; color: var(--ink-soft); max-width: 560px;
         }
         .about-hero-actions { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
-        .about-hero-stats {
-            display: flex; gap: 32px; margin-top: 46px; flex-wrap: wrap;
-        }
+        .about-hero-stats { display: flex; gap: 32px; margin-top: 46px; flex-wrap: wrap; }
         .about-hero-stat { display: flex; flex-direction: column; gap: 2px; }
         .about-hero-stat strong {
             font-family: 'Cormorant Garamond', serif;
@@ -326,9 +338,7 @@
             border-radius: var(--radius-xl); overflow: hidden;
             box-shadow: var(--shadow-xl);
         }
-        .about-hero-visual img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
+        .about-hero-visual img { width: 100%; height: 100%; object-fit: cover; }
         .about-hero-visual::after {
             content: ""; position: absolute; inset: 0;
             background: linear-gradient(180deg, transparent 55%, rgba(74, 59, 62, .18) 100%);
@@ -348,12 +358,8 @@
             background: linear-gradient(135deg, var(--rose-soft), var(--rose));
         }
         .about-hero-badge-icon svg { width: 22px; height: 22px; fill: var(--deep-rose); }
-        .about-hero-badge-text strong {
-            display: block; font-size: 14px; font-weight: 700; color: var(--ink);
-        }
-        .about-hero-badge-text span {
-            font-size: 12px; color: var(--ink-soft);
-        }
+        .about-hero-badge-text strong { display: block; font-size: 14px; font-weight: 700; color: var(--ink); }
+        .about-hero-badge-text span { font-size: 12px; color: var(--ink-soft); }
 
         .story-grid {
             display: grid; grid-template-columns: 1fr 1.1fr;
@@ -431,9 +437,7 @@
             font-size: clamp(20px, 2vw, 24px); font-weight: 600;
             color: var(--ink); margin-bottom: 10px; line-height: 1.25;
         }
-        .value-card p {
-            font-size: 14.5px; line-height: 1.7; color: var(--ink-soft);
-        }
+        .value-card p { font-size: 14.5px; line-height: 1.7; color: var(--ink-soft); }
 
         .timeline {
             position: relative; margin-top: clamp(40px, 5vw, 64px);
@@ -480,13 +484,8 @@
             transition: transform .35s var(--ease-out), box-shadow .35s ease;
         }
         .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-        .team-photo {
-            aspect-ratio: 1 / 1; overflow: hidden; background: var(--ivory-deep);
-        }
-        .team-photo img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform .6s var(--ease-out);
-        }
+        .team-photo { aspect-ratio: 1 / 1; overflow: hidden; background: var(--ivory-deep); }
+        .team-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-out); }
         .team-card:hover .team-photo img { transform: scale(1.05); }
         .team-body { padding: 22px 22px 26px; text-align: center; }
         .team-body h4 {
@@ -497,9 +496,7 @@
             font-size: 12px; font-weight: 600; letter-spacing: .14em;
             text-transform: uppercase; color: var(--deep-rose); margin-bottom: 12px;
         }
-        .team-bio {
-            font-size: 13.5px; line-height: 1.65; color: var(--ink-soft);
-        }
+        .team-bio { font-size: 13.5px; line-height: 1.65; color: var(--ink-soft); }
 
         .stats-banner {
             background:
@@ -606,9 +603,7 @@
             height: clamp(62px, 7vw, 76px); width: auto; max-width: 360px;
             filter: brightness(0) invert(1); opacity: .96;
         }
-        .footer-brand p {
-            font-size: 13.5px; line-height: 1.75; color: rgba(255, 248, 240, .68);
-        }
+        .footer-brand p { font-size: 13.5px; line-height: 1.75; color: rgba(255, 248, 240, .68); }
         .footer-social { display: flex; gap: 10px; margin-top: 4px; }
         .footer-social a {
             width: 38px; height: 38px; border-radius: 10px;
@@ -628,9 +623,7 @@
             text-decoration: none; transition: color .2s ease;
         }
         .footer-col ul a:hover { color: var(--rose-soft); }
-        .footer-contact-list li {
-            font-size: 14px; color: rgba(255, 248, 240, .72); line-height: 1.5;
-        }
+        .footer-contact-list li { font-size: 14px; color: rgba(255, 248, 240, .72); line-height: 1.5; }
         .footer-contact-list strong {
             display: block; font-size: 11px; letter-spacing: .08em;
             text-transform: uppercase; color: rgba(255, 255, 255, .45); margin-bottom: 3px;
@@ -718,9 +711,10 @@
     <!-- ═══════════ NAV ═══════════ -->
     <header class="nav" id="siteHeader">
         <div class="nav-shell">
+            <span class="nav-glass-sheen" aria-hidden="true"></span>
             <div class="nav-inner">
                 <a href="index.html" class="brand">
-                    <img class="brand-logo" src="assets/logo.png" alt="Softgarments — Best Online Clothing Brand in Pakistan" width="380" height="58" />
+                    <img class="brand-logo" src="assets/logo.png" alt="Softgarments" width="380" height="58" />
                 </a>
                 <nav class="links" aria-label="Main navigation">
                     <a href="index.html">Home</a>
@@ -1009,11 +1003,11 @@
 
     </main>
 
-     <!-- ═══════════ FOOTER ═══════════ -->
+    <!-- ═══════════ FOOTER ═══════════ -->
     <footer id="footer-contact">
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="#view-shop" class="brand">
+                <a href="index.html" class="brand">
                     <img class="brand-logo" src="assets/logo.png" alt="Softgarments" width="360" height="72" />
                 </a>
                 <p>Comfort You Deserve. Premium women's clothing designed for everyday softness, fit, and confidence.</p>
@@ -1032,23 +1026,24 @@
             <div class="footer-col">
                 <h5>Information</h5>
                 <ul>
-                    <li><a href="#cat-summer">Privacy & Cookie Policy</a></li>
-                    <li><a href="#cat-formals">Order & Returns</a></li>
-                    <li><a href="#cat-luzella">Search Terms</a></li>
-                    <li><a href="#cat-ember">Size Guide</a></li>
-                    <li><a href="#cat-pink">Size Chart</a></li>
-                    <li><a href="#cat-merlot">Withdrawal Policy</a></li>
+                    <li><a href="footer/privacy-policy.html">Privacy & Cookie Policy</a></li>
+                    <li><a href="footer/order-returns.html">Order & Returns</a></li>
+                    <li><a href="footer/shipping-information.html">Shipping Information</a></li>
+                    <li><a href="footer/payment-security.html">Payment & Security</a></li>
+                    <li><a href="footer/search-terms.html">Search Terms</a></li>
+                    <li><a href="footer/size-guide.html">Size Guide</a></li>
+                    <li><a href="footer/return-exchange.html">Return & Exchange</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h5>Company</h5>
                 <ul>
-                    <li><a href="#everyday">About</a></li>
-                    <li><a href="#everyday">Our Story</a></li>
-                    <li><a href="#night">Shipping Information</a></li>
-                    <li><a href="#shape">Return & Exchange</a></li>
-                    <li><a href="#gh-news">Payment & Security</a></li>
-                    <li><a href="#view-home">Loyalty Programme</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="our-story.html">Our Story</a></li>
+                    <li><a href="footer/shipping-information.html">Shipping Information</a></li>
+                    <li><a href="footer/return-exchange.html">Return & Exchange</a></li>
+                    <li><a href="footer/payment-security.html">Payment & Security</a></li>
+                    <li><a href="footer/loyalty-programme.html">Loyalty Programme</a></li>
                 </ul>
             </div>
             <div class="footer-col footer-contact">
@@ -1072,7 +1067,6 @@
     </a>
 
     <script>
-        // Header scroll state
         const siteHeader = document.getElementById('siteHeader');
         function updateHeaderScroll() {
             siteHeader.classList.toggle('is-scrolled', window.scrollY > 20);
@@ -1080,7 +1074,6 @@
         window.addEventListener('scroll', updateHeaderScroll, { passive: true });
         updateHeaderScroll();
 
-        // Mobile menu
         const toggle = document.querySelector('.menu-toggle');
         const mobilePanel = document.getElementById('mobileNav');
         const mobileLinks = document.querySelectorAll('.nav-mobile-links a, .nav-mobile-cta a');
@@ -1102,7 +1095,6 @@
             if (window.innerWidth > 900 && siteHeader.classList.contains('menu-open')) setMenuOpen(false);
         });
 
-        // Scroll reveal
         const io = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.12 });
