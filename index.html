@@ -3467,7 +3467,58 @@
         }
 
         .gh-viewall { text-align: center; margin-top: clamp(32px, 4vw, 48px); }
-
+/* ───────── featured collection (banner + carousel) ───────── */
+.fc-section { padding: clamp(56px, 7.5vw, 96px) 0 clamp(48px, 6vw, 72px); background: var(--ivory); }
+.fc-wrap { width: var(--site-max); margin-inline: auto; }
+.fc-banner { position: relative; border-radius: var(--radius-xl); overflow: hidden; aspect-ratio: 1600 / 620; margin-bottom: clamp(28px, 3.5vw, 44px); box-shadow: var(--shadow-lg); }
+.fc-banner img { width: 100%; height: 100%; object-fit: cover; }
+.fc-banner-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(74, 59, 62, .74) 0%, rgba(74, 59, 62, .08) 55%, rgba(74, 59, 62, .18) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(24px, 3.5vw, 48px); color: #fff; }
+.fc-banner-tag { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; padding: 7px 16px; border-radius: 999px; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .45); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); margin-bottom: 14px; }
+.fc-banner-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.6vw, 48px); font-weight: 500; line-height: 1.1; margin: 0 0 8px; letter-spacing: -.01em; text-shadow: 0 2px 18px rgba(74, 59, 62, .4); }
+.fc-banner-title em { font-style: normal; color: var(--rose-soft); }
+.fc-banner-sub { font-size: clamp(13px, 1.1vw, 15px); line-height: 1.6; max-width: 560px; color: rgba(255, 255, 255, .92); margin: 0 0 20px; }
+.fc-banner-cta { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; padding: 11px 22px; border-radius: 999px; background: #fff; color: var(--deep-rose); text-decoration: none; box-shadow: 0 8px 22px rgba(0, 0, 0, .18); transition: transform .25s var(--ease-out), box-shadow .25s ease; }
+.fc-banner-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0, 0, 0, .22); }
+.fc-carousel { position: relative; }
+.fc-viewport { overflow: hidden; padding: 6px 2px 8px; }
+.fc-track { display: flex; gap: clamp(12px, 1.4vw, 20px); transition: transform .6s var(--ease-out); will-change: transform; }
+.fc-card { position: relative; flex: 0 0 calc((100% - clamp(12px, 1.4vw, 20px) * 5) / 6); display: flex; flex-direction: column; background: var(--white); border-radius: var(--radius-md); overflow: hidden; border: 1px solid rgba(216, 167, 177, .22); box-shadow: var(--shadow-sm); transition: transform .35s var(--ease-out), box-shadow .35s ease, border-color .35s ease; }
+.fc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--rose); }
+.fc-card-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+.fc-card-img { position: relative; aspect-ratio: 302 / 420; overflow: hidden; background: var(--ivory-deep); }
+.fc-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease-out); }
+.fc-card:hover .fc-card-img img { transform: scale(1.06); }
+.fc-wish { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .94); border: none; padding: 0; cursor: pointer; z-index: 2; box-shadow: 0 2px 8px rgba(74, 59, 62, .16); transition: background .2s ease, transform .2s ease; }
+.fc-wish:hover { background: #fff; transform: scale(1.08); }
+.fc-wish svg { width: 15px; height: 15px; fill: none; stroke: var(--deep-rose); stroke-width: 1.8; stroke-linejoin: round; transition: fill .2s ease; }
+.fc-wish.is-on svg { fill: var(--deep-rose); }
+.fc-card-info { padding: 12px 12px 16px; text-align: center; }
+.fc-card-name { font-family: 'Poppins', sans-serif; font-size: 11.5px; font-weight: 500; letter-spacing: .02em; color: var(--ink-soft); line-height: 1.4; margin: 0 0 6px; min-height: 2.8em; }
+.fc-card-price { font-family: 'Poppins', sans-serif; font-size: 13.5px; font-weight: 700; color: #C0392B; letter-spacing: .01em; }
+.fc-arrow { position: absolute; top: 38%; transform: translateY(-50%); z-index: 5; width: 42px; height: 42px; border-radius: 50%; background: var(--white); border: 1.5px solid rgba(216, 167, 177, .5); color: var(--deep-rose); display: grid; place-items: center; cursor: pointer; box-shadow: var(--shadow-md); transition: background .2s ease, color .2s ease, transform .25s var(--ease-out), border-color .2s ease, opacity .2s ease; }
+.fc-arrow:hover { background: var(--deep-rose); color: #fff; border-color: var(--deep-rose); }
+.fc-arrow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.fc-arrow--prev { left: -18px; }
+.fc-arrow--next { right: -18px; }
+.fc-arrow[disabled] { opacity: .32; pointer-events: none; }
+.fc-dots { display: flex; justify-content: center; gap: 8px; margin-top: clamp(22px, 2.6vw, 30px); }
+.fc-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; background: rgba(167, 90, 105, .25); cursor: pointer; transition: background .25s ease, width .25s ease, border-radius .25s ease; }
+.fc-dots button.is-on { background: var(--deep-rose); width: 26px; border-radius: 999px; }
+@media (max-width: 1100px) {
+  .fc-card { flex-basis: calc((100% - clamp(12px, 1.4vw, 20px) * 3) / 4); }
+  .fc-arrow--prev { left: -10px; } .fc-arrow--next { right: -10px; }
+}
+@media (max-width: 760px) {
+  .fc-banner { aspect-ratio: 16 / 11; }
+  .fc-banner-sub { display: none; }
+  .fc-card { flex-basis: calc((100% - 12px) / 2); }
+  .fc-card-name { font-size: 11px; }
+  .fc-card-price { font-size: 12.5px; }
+  .fc-arrow { width: 36px; height: 36px; top: 42%; }
+  .fc-arrow--prev { left: -6px; } .fc-arrow--next { right: -6px; }
+  .fc-wish { width: 28px; height: 28px; top: 8px; right: 8px; }
+  .fc-wish svg { width: 13px; height: 13px; }
+}
         /* ───────── newsletter ───────── */
         .gh-news {
             width: var(--site-max);
@@ -4323,7 +4374,148 @@
             </a>
         </div>
     </section>
-  <!-- ═══════════ COLLECTION — Everyday Essentials ═══════════ -->
+ <!-- ═══════════ FEATURED COLLECTION ═══════════ -->
+<!-- ═══════════ FEATURED COLLECTION ═══════════ -->
+<section class="fc-section reveal" id="featured-collection">
+    <div class="fc-wrap">
+        <div class="fc-banner">
+            <img src="assets/images/Web_banner/Web_banner_generic_2.jpg" alt="Softgarments Featured Collection" loading="lazy" width="1600" height="620" />
+            <div class="fc-banner-overlay">
+                <span class="fc-banner-tag">Premium Edit · 2026</span>
+                <h2 class="fc-banner-title">The <em>Festive</em> Collection</h2>
+                <p class="fc-banner-sub">Handpicked pieces with intricate detailing — from embroidered three-piece suits to luxurious printed dupattas.</p>
+                <a class="fc-banner-cta" href="collection-RTW.html">
+                    Explore Collection
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="fc-carousel">
+            <button type="button" class="fc-arrow fc-arrow--prev" aria-label="Previous products">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="fc-viewport">
+                <div class="fc-track" id="fcTrack">
+
+                    <!-- 1 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Gul%20Mohar" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/01.jpg" alt="Unstitched 2 Piece Gul Mohar" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Unstitched 2 Piece<br>Gul Mohar</div><div class="fc-card-price">Rs. 3,100</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 2 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Noor" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/02.jpg" alt="Printed Lawn Suit Noor" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Printed Lawn Suit<br>Noor</div><div class="fc-card-price">Rs. 4,220</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 3 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Meher" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/03.jpg" alt="Embroidered 3 Piece Meher" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Embroidered 3 Piece<br>Meher</div><div class="fc-card-price">Rs. 5,200</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 4 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Zara" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/04.jpg" alt="Formal Embroidered Zara" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Formal Embroidered<br>Zara</div><div class="fc-card-price">Rs. 4,100</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 5 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Aiza" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/05.jpg" alt="Printed Cambric Aiza" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Printed Cambric<br>Aiza</div><div class="fc-card-price">Rs. 3,500</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 6 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Hira" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/06.jpg" alt="Luxury Chiffon Hira" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Luxury Chiffon<br>Hira</div><div class="fc-card-price">Rs. 5,200</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 7 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Sana" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/07.jpg" alt="Cotton Net Sana" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Cotton Net Suit<br>Sana</div><div class="fc-card-price">Rs. 3,600</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 8 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Rania" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/08.jpg" alt="Printed Silk Rania" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Printed Silk Suit<br>Rania</div><div class="fc-card-price">Rs. 4,800</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 9 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Mahnoor" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/01.jpg" alt="Embroidered Lawn Mahnoor" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Embroidered Lawn<br>Mahnoor</div><div class="fc-card-price">Rs. 4,500</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 10 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Lubna" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/02.jpg" alt="Khaddar Suit Lubna" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Khaddar Suit<br>Lubna</div><div class="fc-card-price">Rs. 2,900</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 11 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Nida" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/03.jpg" alt="Organza Party Wear Nida" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Organza Party Wear<br>Nida</div><div class="fc-card-price">Rs. 6,500</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                    <!-- 12 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Sadia" target="_blank" rel="noopener">
+                            <div class="fc-card-img"><img src="assets/images/COLLECTION/04.jpg" alt="Daily Wear Suit Sadia" loading="lazy" /></div>
+                            <div class="fc-card-info"><div class="fc-card-name">Daily Wear Suit<br>Sadia</div><div class="fc-card-price">Rs. 2,400</div></div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+                    </article>
+
+                </div>
+            </div>
+            <button type="button" class="fc-arrow fc-arrow--next" aria-label="Next products">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+        <div class="fc-dots" id="fcDots"></div>
+    </div>
+</section>
+    <!-- ═══════════ COLLECTION — Everyday Essentials ═══════════ -->
     <section class="gh-section reveal" id="everyday">
         <div class="gh-head">
             <h2 class="section-title">Everyday <em>Fashion</em></h2>
@@ -5969,7 +6161,75 @@
                 resultEl.innerHTML = 'Your recommended size is <strong>' + size + '</strong> for a ' + fitLabel + ' fit.<br>Not sure? <a href="https://wa.me/923379022920?text=' + encodeURIComponent(waMsg) + '" target="_blank" rel="noopener" style="color:var(--deep-rose);font-weight:700;text-decoration:underline;">Confirm on WhatsApp</a>';
             });
         })();
+// ── Featured Collection carousel ────────────────────────────
+(function () {
+    const track = document.getElementById('fcTrack');
+    const dotsWrap = document.getElementById('fcDots');
+    const carousel = document.querySelector('.fc-carousel');
+    if (!track || !carousel || !dotsWrap) return;
 
+    const prevBtn = carousel.querySelector('.fc-arrow--prev');
+    const nextBtn = carousel.querySelector('.fc-arrow--next');
+    const cards = [...track.children];
+    if (!cards.length) return;
+
+    let page = 0;
+
+    function perView() {
+        const w = window.innerWidth;
+        if (w <= 760) return 2;
+        if (w <= 1100) return 4;
+        return 6;
+    }
+    function totalPages() { return Math.max(1, Math.ceil(cards.length / perView())); }
+    function buildDots() {
+        dotsWrap.innerHTML = '';
+        for (let i = 0; i < totalPages(); i++) {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.setAttribute('aria-label', 'Go to page ' + (i + 1));
+            b.addEventListener('click', () => { page = i; render(); });
+            dotsWrap.appendChild(b);
+        }
+    }
+    function render() {
+        const pv = perView();
+        const total = totalPages();
+        if (page >= total) page = total - 1;
+        if (page < 0) page = 0;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+        const offset = -page * pv * (cardWidth + gap);
+        track.style.transform = 'translateX(' + offset + 'px)';
+        [...dotsWrap.children].forEach((d, i) => d.classList.toggle('is-on', i === page));
+        prevBtn.disabled = page === 0;
+        nextBtn.disabled = page >= total - 1;
+    }
+    prevBtn.addEventListener('click', () => { page--; render(); });
+    nextBtn.addEventListener('click', () => { page++; render(); });
+    track.querySelectorAll('.fc-wish').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            btn.classList.toggle('is-on');
+        });
+    });
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) < 40) return;
+        if (dx < 0 && page < totalPages() - 1) { page++; render(); }
+        else if (dx > 0 && page > 0) { page--; render(); }
+    }, { passive: true });
+    let rt;
+    window.addEventListener('resize', () => {
+        clearTimeout(rt);
+        rt = setTimeout(() => { page = 0; buildDots(); render(); }, 150);
+    });
+    buildDots();
+    render();
+})();
         // ── UGC wall: image fallback if any file is missing ──────────
         (function () {
             const tiles = document.querySelectorAll('.ugc-tile img');
