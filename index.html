@@ -3635,19 +3635,36 @@
         @media (max-width: 860px) {
             .gh-trust { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 760px) {
+                @media (max-width: 760px) {
             .gh-grid { grid-template-columns: repeat(2, 1fr); }
-            .gh-cats { grid-template-columns: repeat(2, 1fr); }
-            .gh-cat { aspect-ratio: 1.15 / 1; }
+            .gh-cats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .gh-cat {
+                aspect-ratio: 4 / 5;
+                border-radius: var(--radius-md);
+            }
+            .gh-cat img {
+                object-position: center 20%;
+            }
             .gh-hero-arrow { display: none; }
             .gh-quick { opacity: 1; transform: none; }
+            .gh-cat-meta {
+                bottom: 14px;
+                gap: 10px;
+                padding: 0 10px;
+            }
+            .gh-cat-name {
+                font-size: 13px;
+                letter-spacing: .06em;
+                line-height: 1.25;
+            }
             .gh-cat-cta {
-                width: calc(100% - 28px);
-                max-width: 150px;
-                padding: 7px 8px;
-                font-size: 9px;
-                letter-spacing: .1em;
-                line-height: 1.35;
+                width: auto;
+                max-width: none;
+                padding: 7px 14px;
+                font-size: 9.5px;
+                letter-spacing: .08em;
+                line-height: 1;
+                white-space: nowrap;
                 opacity: 1;
                 transform: none;
             }
