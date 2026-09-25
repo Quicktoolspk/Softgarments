@@ -239,11 +239,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: clamp(20px, 2.5vw, 36px) clamp(14px, 1.8vw, 24px);
         }
-        .col-card {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
+        .col-card { display: flex; flex-direction: column; cursor: pointer; }
         .col-card-img {
             position: relative;
             aspect-ratio: 4 / 5;
@@ -313,7 +309,7 @@
             text-transform: uppercase;
         }
 
-        /* ═══════════ PRODUCT POPUP MODAL ═══════════ */
+        /* ═══════════ PRODUCT POPUP MODAL — FULL SIZE IMAGE ═══════════ */
         .pd-modal {
             position: fixed;
             inset: 0;
@@ -321,32 +317,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: clamp(16px, 3vw, 40px);
+            padding: clamp(12px, 2vw, 28px);
             opacity: 0;
             visibility: hidden;
             transition: opacity .3s ease, visibility .3s ease;
         }
-        .pd-modal.is-open {
-            opacity: 1;
-            visibility: visible;
-        }
+        .pd-modal.is-open { opacity: 1; visibility: visible; }
         .pd-modal-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(20, 12, 15, .62);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            background: rgba(20, 12, 15, .72);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
         .pd-modal-shell {
             position: relative;
             z-index: 1;
             width: 100%;
-            max-width: 960px;
-            max-height: 92vh;
+            max-width: 1280px;
+            max-height: 95vh;
             background: #fff;
-            border-radius: 4px;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 32px 80px rgba(0,0,0,.28);
+            box-shadow: 0 32px 80px rgba(0,0,0,.34);
             transform: translateY(24px) scale(.98);
             opacity: 0;
             transition: transform .38s var(--ease), opacity .3s ease;
@@ -359,62 +352,186 @@
         }
         .pd-modal-close {
             position: absolute;
-            top: 16px;
-            right: 16px;
-            z-index: 3;
-            width: 42px;
-            height: 42px;
+            top: 18px;
+            right: 18px;
+            z-index: 5;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
-            background: rgba(255,255,255,.94);
+            background: rgba(255,255,255,.97);
             border: 1px solid var(--line);
             display: grid;
             place-items: center;
-            font-size: 24px;
+            font-size: 26px;
             line-height: 1;
             color: var(--col-ink);
-            box-shadow: 0 4px 14px rgba(0,0,0,.12);
+            box-shadow: 0 6px 18px rgba(0,0,0,.16);
             transition: background .2s ease, transform .2s ease, color .2s ease;
         }
         .pd-modal-close:hover {
             background: var(--col-ink);
             color: #fff;
-            transform: scale(1.06);
+            transform: scale(1.06) rotate(90deg);
         }
         .pd-modal-body {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            overflow-y: auto;
+            grid-template-columns: 1.45fr 1fr;
+            overflow: hidden;
             flex: 1;
+            min-height: 0;
+        }
+
+        /* Visual column (image + thumbs) */
+        .pd-modal-visual {
+            position: relative;
+            background: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
         }
         .pd-modal-img {
             position: relative;
-            background: #f5f5f5;
-            min-height: 320px;
+            flex: 1;
+            overflow: hidden;
+            cursor: zoom-in;
+            background: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 0;
         }
         .pd-modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
+            opacity: 1;
+            transition: opacity .28s ease;
+            padding: 8px;
+        }
+        .pd-modal-img.is-fading img { opacity: 0; }
+
+        /* Nav arrows on image */
+        .pd-modal-nav {
             position: absolute;
-            inset: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.96);
+            border: 1px solid var(--line);
+            display: grid;
+            place-items: center;
+            color: var(--col-ink);
+            box-shadow: 0 6px 18px rgba(0,0,0,.16);
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity .25s ease, background .2s ease, color .2s ease, transform .2s ease;
+            padding: 0;
+        }
+        .pd-modal-img:hover .pd-modal-nav,
+        .pd-modal-nav:focus-visible { opacity: 1; }
+        .pd-modal-nav:hover {
+            background: var(--col-ink);
+            color: #fff;
+            transform: translateY(-50%) scale(1.08);
+        }
+        .pd-modal-nav svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .pd-modal-nav--prev { left: 14px; }
+        .pd-modal-nav--next { right: 14px; }
+
+        /* Image counter badge */
+        .pd-modal-counter {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            z-index: 2;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            color: #fff;
+            background: rgba(20, 12, 15, .6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 7px 14px;
+            border-radius: 999px;
+            display: none;
+        }
+        .pd-modal-counter.is-on { display: block; }
+
+        /* Thumbnail strip */
+        .pd-modal-thumbs {
+            display: flex;
+            gap: 8px;
+            padding: 12px 16px;
+            background: #f2f2f2;
+            border-top: 1px solid rgba(0,0,0,.06);
+            overflow-x: auto;
+            scrollbar-width: thin;
+            justify-content: center;
+            -webkit-overflow-scrolling: touch;
+            flex-shrink: 0;
+        }
+        .pd-modal-thumbs.is-hidden { display: none; }
+        .pd-modal-thumb {
+            width: 62px;
+            height: 78px;
+            border-radius: 3px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+            padding: 0;
+            background: #fff;
+            transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .pd-modal-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+            pointer-events: none;
+            user-select: none;
         }
+        .pd-modal-thumb:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,.12);
+        }
+        .pd-modal-thumb.is-active {
+            border-color: var(--modal-rose);
+            box-shadow: 0 0 0 1px var(--modal-rose);
+        }
+
         .pd-modal-info {
-            padding: clamp(28px, 4vw, 48px);
+            padding: clamp(28px, 3vw, 46px) clamp(24px, 2.6vw, 40px);
             display: flex;
             flex-direction: column;
             justify-content: center;
+            overflow-y: auto;
+            background: #fff;
         }
         .pd-modal-category {
             font-size: 10px;
             font-weight: 600;
-            letter-spacing: .2em;
+            letter-spacing: .22em;
             text-transform: uppercase;
             color: var(--modal-rose);
             margin-bottom: 12px;
         }
         .pd-modal-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(26px, 3vw, 36px);
+            font-size: clamp(26px, 2.6vw, 38px);
             font-weight: 500;
             line-height: 1.15;
             color: var(--col-ink);
@@ -429,7 +546,7 @@
             flex-wrap: wrap;
         }
         .pd-modal-price .now {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--col-ink);
             letter-spacing: .02em;
@@ -447,12 +564,12 @@
             text-transform: uppercase;
             color: #fff;
             background: var(--modal-rose);
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 2px;
         }
         .pd-modal-desc {
-            font-size: 14px;
-            line-height: 1.75;
+            font-size: 14.5px;
+            line-height: 1.8;
             color: var(--col-ink-muted);
             margin: 0 0 26px;
         }
@@ -466,13 +583,13 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 16px 26px;
+            padding: 17px 28px;
             border-radius: 2px;
             background: var(--col-ink);
             color: #fff;
             font-size: 12px;
             font-weight: 600;
-            letter-spacing: .14em;
+            letter-spacing: .16em;
             text-transform: uppercase;
             transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
             align-self: flex-start;
@@ -480,19 +597,14 @@
         .pd-modal-wa:hover {
             background: var(--modal-rose);
             transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(167, 90, 105, .32);
+            box-shadow: 0 14px 32px rgba(167, 90, 105, .34);
         }
-        .pd-modal-wa svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-            flex-shrink: 0;
-        }
+        .pd-modal-wa svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
         .pd-modal-note {
             font-size: 11px;
             color: var(--col-ink-light);
-            letter-spacing: .06em;
-            margin-top: 14px;
+            letter-spacing: .08em;
+            margin-top: 16px;
             text-transform: uppercase;
         }
 
@@ -507,25 +619,31 @@
             .pd-modal { padding: 0; align-items: flex-end; }
             .pd-modal-shell {
                 max-width: 100%;
-                max-height: 94vh;
+                max-height: 96vh;
                 border-radius: 18px 18px 0 0;
                 transform: translateY(100%);
             }
             .pd-modal.is-open .pd-modal-shell { transform: translateY(0); }
             .pd-modal-body { grid-template-columns: 1fr; }
-            .pd-modal-img { min-height: 300px; max-height: 44vh; }
-            .pd-modal-img img { position: relative; height: 44vh; }
-            .pd-modal-info { padding: 24px 22px 32px; }
-            .pd-modal-title { font-size: 24px; }
+            .pd-modal-visual { min-height: auto; }
+            .pd-modal-img { min-height: 46vh; max-height: 52vh; flex: none; }
+            .pd-modal-img img { padding: 6px; }
+            .pd-modal-thumbs { padding: 10px 12px; justify-content: flex-start; flex-wrap: nowrap; }
+            .pd-modal-thumb { width: 50px; height: 63px; }
+            .pd-modal-nav { width: 40px; height: 40px; opacity: 1; }
+            .pd-modal-nav--prev { left: 8px; }
+            .pd-modal-nav--next { right: 8px; }
+            .pd-modal-info { padding: 22px 20px 32px; }
+            .pd-modal-title { font-size: 22px; }
             .pd-modal-price .now { font-size: 19px; }
             .pd-modal-wa { width: 100%; }
-            .pd-modal-close { top: 12px; right: 12px; width: 38px; height: 38px; }
+            .pd-modal-close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 22px; }
         }
         @media (max-width: 480px) {
             .col-hero h1 { font-size: clamp(28px, 8vw, 34px); letter-spacing: .03em; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .pd-modal, .pd-modal-shell { transition: none; }
+            .pd-modal, .pd-modal-shell, .pd-modal-img img { transition: none; }
         }
     </style>
 </head>
@@ -676,8 +794,18 @@
         <div class="pd-modal-shell">
             <button type="button" class="pd-modal-close" id="pdModalClose" aria-label="Close product details">&times;</button>
             <div class="pd-modal-body">
-                <div class="pd-modal-img">
-                    <img id="pdModalImg" src="" alt="" />
+                <div class="pd-modal-visual">
+                    <div class="pd-modal-img" id="pdModalImgWrap">
+                        <span class="pd-modal-counter" id="pdModalCounter"></span>
+                        <img id="pdModalImg" src="" alt="" />
+                        <button type="button" class="pd-modal-nav pd-modal-nav--prev" id="pdModalNavPrev" aria-label="Previous image">
+                            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button type="button" class="pd-modal-nav pd-modal-nav--next" id="pdModalNavNext" aria-label="Next image">
+                            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                    </div>
+                    <div class="pd-modal-thumbs is-hidden" id="pdModalThumbs"></div>
                 </div>
                 <div class="pd-modal-info">
                     <div class="pd-modal-category" id="pdModalCategory"></div>
@@ -765,16 +893,7 @@
     <script>
     /* ══════════════════════════════════════════════════════════
        SALE PRODUCTS — YAHAN EDIT KARO
-       ══════════════════════════════════════════════════════════
-       
-       Naya product add karne ke liye:
-       1. Neeche products array mein ek naya { } block add karo
-       2. Sab fields bharo (id, name, price, category, image, description)
-       3. Image ko assets/images/Sale/ folder mein save karo
-       4. Save karo + refresh (Ctrl + F5)
-       
-       POPUP AUTOMATIC KAAM KAREGA — koi extra setup nahi!
-    ══════════════════════════════════════════════════════════ */
+       ══════════════════════════════════════════════════════════ */
     window.SG_SALE_COLLECTION = {
         whatsapp: '923379022920',
         categoryLabels: {
@@ -788,21 +907,18 @@
             'shirts-tops': 'Shirts / Tops'
         },
         products: [
-        {
-                id: 10,
-                name: 'Lirarti',
-                price: 1450,
-                compareAt: 2000,
-                category: 'kurtis',
-                image: 'assets/images/Sale/10.jpg',
-                description: 'A graceful flo with a flattering fit and easy, breathable comfort.'
-            },{
+            {
                 id: 9,
                 name: 'Lira Floral Kurti',
                 price: 1450,
                 compareAt: 2000,
                 category: 'kurtis',
                 image: 'assets/images/Sale/09.jpg',
+                images: [
+                    'assets/images/Sale/09.jpg',
+                    'assets/images/Sale/09-2.jpg',
+                    'assets/images/Sale/09-3.jpg'
+                ],
                 description: 'A graceful floral kurti with a flattering fit and easy, breathable comfort.'
             },
             {
@@ -811,6 +927,11 @@
                 price: 950,
                 category: 'shirts-tops',
                 image: 'assets/images/Sale/08.jpg',
+                images: [
+                    'assets/images/Sale/08.jpg',
+                    'assets/images/Sale/08-2.jpg',
+                    'assets/images/Sale/08-3.jpg'
+                ],
                 description: 'A neat embroidered shirt with delicate detailing for everyday elegance.'
             },
             {
@@ -820,6 +941,11 @@
                 compareAt: 2800,
                 category: 'co-ords',
                 image: 'assets/images/Sale/07.jpg',
+                images: [
+                    'assets/images/Sale/07.jpg',
+                    'assets/images/Sale/07-2.jpg',
+                    'assets/images/Sale/07-3.jpg'
+                ],
                 description: 'A polished linen co-ord set made for breezy days and easy dressing.'
             },
             {
@@ -828,6 +954,11 @@
                 price: 1750,
                 category: 'festive',
                 image: 'assets/images/Sale/06.jpg',
+                images: [
+                    'assets/images/Sale/06.jpg',
+                    'assets/images/Sale/06-2.jpg',
+                    'assets/images/Sale/06-3.jpg'
+                ],
                 description: 'A festive printed dress with vibrant detailing for celebrations.'
             },
             {
@@ -836,6 +967,11 @@
                 price: 1250,
                 category: 'casual',
                 image: 'assets/images/Sale/05.jpg',
+                images: [
+                    'assets/images/Sale/05.jpg',
+                    'assets/images/Sale/05-2.jpg',
+                    'assets/images/Sale/05-3.jpg'
+                ],
                 description: 'A relaxed casual tunic with a clean silhouette for everyday wear.'
             },
             {
@@ -844,6 +980,11 @@
                 price: 1100,
                 category: 'formal',
                 image: 'assets/images/Sale/04.jpg',
+                images: [
+                    'assets/images/Sale/04.jpg',
+                    'assets/images/Sale/04-2.jpg',
+                    'assets/images/Sale/04-3.jpg'
+                ],
                 description: 'A straight-cut formal kurta with refined tailoring for office and events.'
             },
             {
@@ -852,6 +993,11 @@
                 price: 1350,
                 category: 'everyday',
                 image: 'assets/images/Sale/03.jpg',
+                images: [
+                    'assets/images/Sale/03.jpg',
+                    'assets/images/Sale/03-2.jpg',
+                    'assets/images/Sale/03-3.jpg'
+                ],
                 description: 'A soft cotton top designed for all-day comfort and easy styling.'
             },
             {
@@ -861,6 +1007,11 @@
                 compareAt: 1600,
                 category: 'co-ords',
                 image: 'assets/images/Sale/02.jpg',
+                images: [
+                    'assets/images/Sale/02.jpg',
+                    'assets/images/Sale/02-2.jpg',
+                    'assets/images/Sale/02-3.jpg'
+                ],
                 description: 'A stylish co-ord set perfect for occasions and semi-formal events.'
             },
             {
@@ -870,13 +1021,18 @@
                 compareAt: 2500,
                 category: 'dresses',
                 image: 'assets/images/Sale/01.jpg',
+                images: [
+                    'assets/images/Sale/01.jpg',
+                    'assets/images/Sale/01-2.jpg',
+                    'assets/images/Sale/01-3.jpg'
+                ],
                 description: 'A light summer dress with a fresh print for warm-weather days.'
             }
         ]
     };
 
     /* ══════════════════════════════════════════════════════════
-       Product Grid + Filter + Sort + Modal — AUTOMATIC
+       Product Grid + Filter + Sort + Modal + Gallery — AUTOMATIC
     ══════════════════════════════════════════════════════════ */
     (function() {
         var C = window.SG_SALE_COLLECTION;
@@ -893,11 +1049,15 @@
         var filterClear = document.getElementById('filterClear');
         var filterApply = document.getElementById('filterApply');
 
-        // Modal elements
         var modal = document.getElementById('pdModal');
         var modalOverlay = document.getElementById('pdModalOverlay');
         var modalClose = document.getElementById('pdModalClose');
+        var modalImgWrap = document.getElementById('pdModalImgWrap');
         var modalImg = document.getElementById('pdModalImg');
+        var modalCounter = document.getElementById('pdModalCounter');
+        var modalThumbs = document.getElementById('pdModalThumbs');
+        var modalNavPrev = document.getElementById('pdModalNavPrev');
+        var modalNavNext = document.getElementById('pdModalNavNext');
         var modalCategory = document.getElementById('pdModalCategory');
         var modalTitle = document.getElementById('pdModalTitle');
         var modalPrice = document.getElementById('pdModalPrice');
@@ -908,12 +1068,19 @@
         var activeCategories = ['everyday', 'casual', 'formal', 'festive', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];
         var priceRange = 'all';
 
+        var modalImages = [];
+        var modalIndex = 0;
+        var fadeTimer = null;
+
         function formatPrice(n) {
             return 'Rs. ' + n.toLocaleString('en-PK');
         }
-
         function categoryLabel(cat) {
             return (C.categoryLabels && C.categoryLabels[cat]) ? C.categoryLabels[cat] : cat;
+        }
+        function getProductImages(p) {
+            if (p.images && Array.isArray(p.images) && p.images.length > 0) return p.images.slice();
+            return p.image ? [p.image] : [];
         }
 
         function getFiltered() {
@@ -954,19 +1121,40 @@
             }).join('');
         }
 
-        /* ── Open Modal ── */
+        function setModalImage(idx) {
+            if (!modalImages.length) return;
+            modalIndex = ((idx % modalImages.length) + modalImages.length) % modalImages.length;
+            var src = modalImages[modalIndex];
+
+            modalImgWrap.classList.add('is-fading');
+            clearTimeout(fadeTimer);
+            fadeTimer = setTimeout(function() {
+                modalImg.src = src;
+                modalImgWrap.classList.remove('is-fading');
+            }, 150);
+
+            if (modalImages.length > 1) {
+                modalCounter.textContent = (modalIndex + 1) + ' / ' + modalImages.length;
+            }
+
+            var thumbs = modalThumbs.querySelectorAll('.pd-modal-thumb');
+            thumbs.forEach(function(t, i) {
+                t.classList.toggle('is-active', i === modalIndex);
+            });
+            var activeThumb = thumbs[modalIndex];
+            if (activeThumb && typeof activeThumb.scrollIntoView === 'function') {
+                try { activeThumb.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); } catch (e) {}
+            }
+        }
+
         function openModal(id) {
             var p = C.products.find(function(x) { return x.id === Number(id); });
             if (!p) return;
 
-            // Fill fields
-            modalImg.src = p.image;
-            modalImg.alt = p.name;
             modalCategory.textContent = categoryLabel(p.category);
             modalTitle.textContent = p.name;
             modalDesc.textContent = p.description || '';
 
-            // Price
             var priceHTML = '<span class="now">' + formatPrice(p.price) + '</span>';
             if (p.compareAt) {
                 var savePct = Math.round((1 - p.price / p.compareAt) * 100);
@@ -975,11 +1163,35 @@
             }
             modalPrice.innerHTML = priceHTML;
 
-            // WhatsApp link
             var msg = 'Hi Softgarments! I\'d like to order ' + p.name + ' (' + formatPrice(p.price) + ').';
             modalWa.href = 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent(msg);
 
-            // Open
+            modalImages = getProductImages(p);
+            modalIndex = 0;
+
+            modalImg.src = modalImages[0] || '';
+            modalImg.alt = p.name;
+
+            if (modalImages.length > 1) {
+                modalThumbs.classList.remove('is-hidden');
+                modalThumbs.innerHTML = modalImages.map(function(src, i) {
+                    return '<button type="button" class="pd-modal-thumb' + (i === 0 ? ' is-active' : '') + '" data-idx="' + i + '" aria-label="Image ' + (i + 1) + '">' +
+                        '<img src="' + src + '" alt="" loading="lazy">' +
+                        '</button>';
+                }).join('');
+                modalNavPrev.style.display = '';
+                modalNavNext.style.display = '';
+                modalCounter.classList.add('is-on');
+                modalCounter.textContent = '1 / ' + modalImages.length;
+            } else {
+                modalThumbs.classList.add('is-hidden');
+                modalThumbs.innerHTML = '';
+                modalNavPrev.style.display = 'none';
+                modalNavNext.style.display = 'none';
+                modalCounter.classList.remove('is-on');
+                modalCounter.textContent = '';
+            }
+
             modal.classList.add('is-open');
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
@@ -989,9 +1201,9 @@
             modal.classList.remove('is-open');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
+            clearTimeout(fadeTimer);
         }
 
-        /* ── Card click event (delegation, so it works for any new product) ── */
         grid.addEventListener('click', function(e) {
             var card = e.target.closest('.col-card');
             if (!card) return;
@@ -1005,14 +1217,32 @@
             openModal(card.getAttribute('data-id'));
         });
 
-        /* ── Modal close handlers ── */
-        modalClose.addEventListener('click', closeModal);
-        modalOverlay.addEventListener('click', closeModal);
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        modalThumbs.addEventListener('click', function(e) {
+            var t = e.target.closest('.pd-modal-thumb');
+            if (!t) return;
+            setModalImage(parseInt(t.getAttribute('data-idx'), 10));
+        });
+        modalNavPrev.addEventListener('click', function(e) {
+            e.stopPropagation();
+            setModalImage(modalIndex - 1);
+        });
+        modalNavNext.addEventListener('click', function(e) {
+            e.stopPropagation();
+            setModalImage(modalIndex + 1);
         });
 
-        /* ── Sort menu ── */
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', function(e) {
+            if (!modal.classList.contains('is-open')) return;
+            if (e.key === 'Escape') { closeModal(); return; }
+            if (modalImages.length > 1) {
+                if (e.key === 'ArrowLeft') { setModalImage(modalIndex - 1); }
+                if (e.key === 'ArrowRight') { setModalImage(modalIndex + 1); }
+            }
+        });
+
         sortBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             var open = sortMenu.classList.toggle('is-open');
@@ -1033,7 +1263,6 @@
             sortBtn.classList.remove('is-open');
         });
 
-        /* ── Filter drawer ── */
         function openFilter() {
             filterOverlay.classList.add('is-open');
             filterDrawer.classList.add('is-open');
