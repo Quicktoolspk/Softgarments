@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3-Piece Off-White Embroidered Arabic Lawn Suit | Softgarments Blog</title>
-    <meta name="description" content="Elevate your wardrobe with our 3-Piece Off-White Embroidered Arabic Lawn Suit. Hand-embroidered detailing on premium Arabic Lawn, available in S–XL. Perfect for summer, festive & semi-formal occasions." />
+    <title>2-Piece White Chiffon Gota Work Suit | Softgarments Blog</title>
+    <meta name="description" content="Add traditional charm to your wardrobe with our 2-Piece White Chiffon Gota Work Suit. Handmade LCD Gota work with delicate embroidery on pure Bamber Chiffon — perfect for Eid, weddings & festive occasions." />
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -833,77 +833,25 @@
             letter-spacing: .04em;
         }
 
-        /* Size Chart */
-        .size-chart {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 12px;
-            margin: 24px 0 30px;
+        /* Info Callout */
+        .info-callout {
+            background: linear-gradient(135deg, #fdf6f3 0%, #faf0ec 100%);
+            border-radius: var(--radius-md);
+            padding: 22px 26px;
+            margin: 26px 0;
+            border-left: 4px solid var(--rose);
         }
-        .size-card {
-            background: var(--white);
-            border-radius: var(--radius-sm);
-            padding: 16px 18px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            border-top: 3px solid var(--deep-rose);
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-        .size-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        .size-card .size-label {
+        .info-callout h4 {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--deep-rose);
-            letter-spacing: .06em;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
         }
-        .size-card .size-detail {
-            font-size: 12.5px;
-            color: var(--ink-soft);
-            line-height: 1.5;
-        }
-
-        /* Fabric Comparison Table */
-        .fabric-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 24px 0 30px;
-            background: var(--white);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-        .fabric-table th,
-        .fabric-table td {
-            padding: 14px 18px;
-            text-align: left;
-            border-bottom: 1px solid #f0e4de;
-            font-size: 14px;
-        }
-        .fabric-table th {
-            background: var(--deep-rose);
-            color: var(--white);
-            font-weight: 600;
-            font-size: 13px;
-            letter-spacing: .04em;
-            text-transform: uppercase;
-        }
-        .fabric-table td {
-            color: var(--ink-soft);
-            line-height: 1.6;
-        }
-        .fabric-table td:first-child {
-            font-weight: 600;
-            color: var(--ink);
-        }
-        .fabric-table tr:last-child td {
-            border-bottom: none;
-        }
-        .fabric-table tr:hover td {
-            background: #fdf6f3;
+        .info-callout p {
+            margin-bottom: 0;
+            font-size: 15.5px;
+            line-height: 1.75;
         }
 
         /* FAQ Accordion */
@@ -953,27 +901,6 @@
             color: var(--ink-soft);
         }
 
-        /* Info Callout */
-        .info-callout {
-            background: linear-gradient(135deg, #fdf6f3 0%, #faf0ec 100%);
-            border-radius: var(--radius-md);
-            padding: 22px 26px;
-            margin: 26px 0;
-            border-left: 4px solid var(--rose);
-        }
-        .info-callout h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--deep-rose);
-            margin-bottom: 10px;
-        }
-        .info-callout p {
-            margin-bottom: 0;
-            font-size: 15.5px;
-            line-height: 1.75;
-        }
-
         /* Keyword Tags */
         .keyword-tags {
             display: flex;
@@ -996,6 +923,188 @@
             color: var(--white);
         }
 
+        /* ───────── RELATED POSTS (BLOG CARDS) ───────── */
+        .related-section {
+            max-width: var(--site-max);
+            margin: 70px auto 0;
+            padding: 0 var(--site-pad-x);
+        }
+        .related-section__head {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .related-section__kicker {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--deep-rose);
+            background: #f5ede9;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+        .related-section__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(28px, 3.2vw, 38px);
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: .02em;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+        .related-section__sub {
+            font-size: 15px;
+            color: var(--ink-soft);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 26px;
+        }
+        .related-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s var(--ease-out), box-shadow .3s ease, border-color .3s ease;
+            border: 1px solid rgba(216, 167, 177, 0.15);
+            height: 100%;
+        }
+        .related-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(167, 90, 105, 0.25);
+        }
+        .related-card__image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #f5ede9;
+        }
+        .related-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .5s var(--ease-out);
+        }
+        .related-card:hover .related-card__image img {
+            transform: scale(1.05);
+        }
+        .related-card__category {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--deep-rose);
+            color: var(--white);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(167, 90, 105, 0.35);
+            z-index: 2;
+        }
+        .related-card__content {
+            padding: 20px 22px 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: 8px;
+        }
+        .related-card__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 21px;
+            font-weight: 600;
+            line-height: 1.28;
+            color: var(--ink);
+            margin: 0;
+            letter-spacing: .01em;
+        }
+        .related-card__title a {
+            text-decoration: none;
+            color: inherit;
+            transition: color .2s ease;
+        }
+        .related-card__title a:hover {
+            color: var(--deep-rose);
+        }
+        .related-card__date {
+            font-size: 12px;
+            color: var(--ink-soft);
+            font-weight: 400;
+            letter-spacing: .02em;
+        }
+        .related-card__description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            margin: 0;
+            flex: 1;
+        }
+        .related-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--deep-rose);
+            text-decoration: none;
+            transition: gap .25s ease, color .2s ease;
+            align-self: flex-start;
+        }
+        .related-card__link:hover {
+            gap: 10px;
+            color: #8f4a58;
+        }
+        .related-card__link svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform .25s ease;
+        }
+        .related-card__link:hover svg {
+            transform: translateX(2px);
+        }
+
+        @media (max-width: 1000px) {
+            .related-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 640px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .related-section {
+                margin-top: 50px;
+            }
+            .related-card__title {
+                font-size: 19px;
+            }
+            .related-card__content {
+                padding: 16px 18px 20px;
+            }
+            .related-card__description {
+                font-size: 13px;
+            }
+        }
+
         @media (max-width: 600px) {
             .product-infographic {
                 grid-template-columns: 1fr;
@@ -1004,19 +1113,11 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .fabric-table th,
-            .fabric-table td {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
             .toc-box {
                 padding: 18px 20px;
             }
             .toc-box h3 {
                 font-size: 19px;
-            }
-            .size-chart {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1393,35 +1494,34 @@
 
         <header class="article-header">
             <span class="article-category">Fashion</span>
-            <h1>3-Piece Off-White Embroidered Arabic Lawn Suit: Elegant, Lightweight &amp; Timeless</h1>
-            <span class="article-date">September 25, 2026 · 10 min read</span>
+            <h1>2-Piece White Chiffon Gota Work Suit: Handmade Elegance for Every Celebration</h1>
+            <span class="article-date">September 25, 2026 · 11 min read</span>
         </header>
 
         <main class="article-container">
 
-            <img class="article-image" src="../../assets/images/blog/off-white-arabic-lawn-suit.jpg" alt="3-Piece Off-White Embroidered Arabic Lawn Suit — Softgarments" loading="lazy" onerror="this.src='../../assets/images/blog/off-white-arabic-lawn-suit.jpg';">
+            <img class="article-image" src="../../assets/images/blog/white-chiffon-gota-suit.jpg" alt="2-Piece White Chiffon Gota Work Suit — Softgarments" loading="lazy" onerror="this.src='../../assets/images/blog/white-chiffon-gota-suit.jpg';">
 
             <div class="article-body">
 
                 <p>
-                    Some outfits whisper rather than shout — and this <strong>3-Piece Off-White Embroidered Arabic Lawn Suit</strong> is exactly that. Soft, luminous, and quietly regal, it's the kind of piece that makes you look effortlessly put-together without a single loud detail. Whether you're hosting a family lunch, attending a semi-formal event, or simply want to feel graceful on an ordinary summer day, this suit delivers.
+                    Some pieces don't follow trends — they carry tradition forward. Our <strong>2-Piece White Chiffon Gota Work Suit</strong> is exactly that: a beautifully crafted ensemble that honors the centuries-old art of Gota work while staying perfectly in tune with modern Pakistani elegance. Soft, luminous, and unmistakably regal, it's the kind of suit that makes every occasion feel a little more special.
                 </p>
 
                 <p>
-                    In this guide, we'll walk you through every detail — from what makes Arabic Lawn different from standard lawn, to how to style off-white without looking washed out, to size and length guidance, and how to care for hand embroidery so it lasts for years.
+                    In this guide, we'll take you behind the scenes — from the history of Gota work and the story of pure Bamber Chiffon, to styling ideas, unstitched fabric guidance, and how to care for delicate handmade detailing so it lasts for generations.
                 </p>
 
                 <div class="toc-box">
                     <h3>What's Inside This Guide</h3>
                     <ol>
                         <li><a href="#product-details">Product Details at a Glance</a></li>
-                        <li><a href="#arabic-lawn">What Is Arabic Lawn? (And Why It Feels Different)</a></li>
-                        <li><a href="#why-off-white">Why Off-White Is the Most Underrated Color in Summer Fashion</a></li>
-                        <li><a href="#hand-embroidery">The Value of Hand-Embroidered Detailing</a></li>
-                        <li><a href="#size-length">Size &amp; Length Guide (S, M, L, XL — 44–49 Inches)</a></li>
-                        <li><a href="#styling">How to Style Off-White Without Looking Washed Out</a></li>
-                        <li><a href="#occasions">Occasions This Suit Was Made For</a></li>
-                        <li><a href="#fabric-care">Fabric Care: Protecting Light Colors and Hand Embroidery</a></li>
+                        <li><a href="#gota-history">The History of Gota Work: A 400-Year-Old Art</a></li>
+                        <li><a href="#bamber-chiffon">What Is Pure Bamber Chiffon?</a></li>
+                        <li><a href="#unstitched-guide">Unstitched Fabric Guide: Cutting, Tailoring &amp; What to Expect</a></li>
+                        <li><a href="#why-white">Why White Is the Most Powerful Color for Weddings &amp; Eid</a></li>
+                        <li><a href="#styling">How to Style White Gota Work for Every Occasion</a></li>
+                        <li><a href="#fabric-care">Caring for Handmade Gota Work &amp; Chiffon</a></li>
                         <li><a href="#faq">Frequently Asked Questions</a></li>
                     </ol>
                 </div>
@@ -1434,8 +1534,8 @@
                             <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10a2 2 0 002 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/></svg>
                         </span>
                         <div class="infographic-text">
-                            <span class="infographic-label">Fabric</span>
-                            <span class="infographic-value">Premium Arabic Lawn</span>
+                            <span class="infographic-label">Shirt Fabric</span>
+                            <span class="infographic-value">Pure Bamber Chiffon</span>
                         </div>
                     </div>
                     <div class="infographic-item">
@@ -1443,7 +1543,16 @@
                             <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
                         </span>
                         <div class="infographic-text">
-                            <span class="infographic-label">Pattern</span>
+                            <span class="infographic-label">Shirt Pattern</span>
+                            <span class="infographic-value">Gota Work &amp; Embroidery</span>
+                        </div>
+                    </div>
+                    <div class="infographic-item">
+                        <span class="infographic-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 010 20 10 10 0 010-20z"/></svg>
+                        </span>
+                        <div class="infographic-text">
+                            <span class="infographic-label">Front Pattern</span>
                             <span class="infographic-value">Embroidered</span>
                         </div>
                     </div>
@@ -1452,8 +1561,44 @@
                             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 010 20 10 10 0 010-20z"/></svg>
                         </span>
                         <div class="infographic-text">
-                            <span class="infographic-label">Embroidery</span>
-                            <span class="infographic-value">Hand-Embroidered Detailing</span>
+                            <span class="infographic-label">Neckline</span>
+                            <span class="infographic-value">Embroidered</span>
+                        </div>
+                    </div>
+                    <div class="infographic-item">
+                        <span class="infographic-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 010 20 10 10 0 010-20z"/></svg>
+                        </span>
+                        <div class="infographic-text">
+                            <span class="infographic-label">Sleeves</span>
+                            <span class="infographic-value">Embroidered</span>
+                        </div>
+                    </div>
+                    <div class="infographic-item">
+                        <span class="infographic-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
+                        </span>
+                        <div class="infographic-text">
+                            <span class="infographic-label">Daman</span>
+                            <span class="infographic-value">Gota Work</span>
+                        </div>
+                    </div>
+                    <div class="infographic-item">
+                        <span class="infographic-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10a2 2 0 002 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/></svg>
+                        </span>
+                        <div class="infographic-text">
+                            <span class="infographic-label">Dupatta Fabric</span>
+                            <span class="infographic-value">Pure Bamber Chiffon</span>
+                        </div>
+                    </div>
+                    <div class="infographic-item">
+                        <span class="infographic-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 010 20 10 10 0 010-20z"/></svg>
+                        </span>
+                        <div class="infographic-text">
+                            <span class="infographic-label">Dupatta Pattern</span>
+                            <span class="infographic-value">Embroidered</span>
                         </div>
                     </div>
                     <div class="infographic-item">
@@ -1462,7 +1607,7 @@
                         </span>
                         <div class="infographic-text">
                             <span class="infographic-label">Pieces</span>
-                            <span class="infographic-value">3 Pcs <small>(Shirt, Trouser, Dupatta)</small></span>
+                            <span class="infographic-value">2 Pcs <small>(Unstitched)</small></span>
                         </div>
                     </div>
                     <div class="infographic-item">
@@ -1471,7 +1616,7 @@
                         </span>
                         <div class="infographic-text">
                             <span class="infographic-label">Color</span>
-                            <span class="infographic-value">Off White</span>
+                            <span class="infographic-value">White</span>
                         </div>
                     </div>
                     <div class="infographic-item">
@@ -1479,8 +1624,8 @@
                             <svg viewBox="0 0 24 24"><path d="M2 12h20M12 2v20"/></svg>
                         </span>
                         <div class="infographic-text">
-                            <span class="infographic-label">Sizes</span>
-                            <span class="infographic-value">S · M · L · XL</span>
+                            <span class="infographic-label">Shirt Cutting</span>
+                            <span class="infographic-value">2.5 Meter</span>
                         </div>
                     </div>
                     <div class="infographic-item">
@@ -1488,292 +1633,237 @@
                             <svg viewBox="0 0 24 24"><path d="M2 12h20M12 2v20"/></svg>
                         </span>
                         <div class="infographic-text">
-                            <span class="infographic-label">Length</span>
-                            <span class="infographic-value">44 – 49 Inches</span>
-                        </div>
-                    </div>
-                    <div class="infographic-item">
-                        <span class="infographic-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
-                        </span>
-                        <div class="infographic-text">
-                            <span class="infographic-label">Style</span>
-                            <span class="infographic-value">Stitched 3-Piece Suit</span>
+                            <span class="infographic-label">Dupatta Cutting</span>
+                            <span class="infographic-value">2.5 Meter</span>
                         </div>
                     </div>
                     <div class="product-code-box">
                         <span class="infographic-label">Product Code</span>
-                        <span class="infographic-value">MZ23000000046BMGS</span>
+                        <span class="infographic-value">MZ2987200062KIFNMT</span>
                     </div>
                 </div>
 
-                <h2 id="arabic-lawn">What Is Arabic Lawn? (And Why It Feels Different)</h2>
+                <h2 id="gota-history">The History of Gota Work: A 400-Year-Old Art</h2>
 
                 <p>
-                    If you've ever wondered why some lawn suits feel noticeably softer, finer, and more luxurious than others, the answer often lies in the weave and yarn quality. <strong>Arabic Lawn</strong> is a premium variant of traditional lawn fabric, characterized by a tighter, finer weave and a smoother, silkier hand-feel.
+                    <strong>Gota work</strong> — sometimes spelled <em>gota patti</em> — is one of the most distinctive and celebrated embroidery traditions of South Asia. Its origins trace back to the Mughal era, over 400 years ago, when royal ateliers in Delhi, Lahore, and Agra developed the technique to adorn courtly garments for emperors and nobility.
                 </p>
 
                 <p>
-                    Unlike standard lawn — which can sometimes feel slightly crisp or papery at first — Arabic Lawn drapes more gracefully and feels cooler against the skin from the very first wear. It also holds embroidery beautifully, which is why it's a favorite among designers who specialize in hand-embroidered work.
+                    The word <em>gota</em> comes from the Hindi/Sanskrit term for "ribbon," and refers to narrow strips of metallic fabric — traditionally woven from real gold and silver thread — that are appliquéd onto the base textile. In its most luxurious form, Gota was reserved for royalty. Over time, artisans refined the technique using gilt and silver-toned ribbons, making it accessible to a wider audience while preserving its regal character.
                 </p>
-
-                <table class="fabric-table">
-                    <thead>
-                        <tr>
-                            <th>Property</th>
-                            <th>Standard Lawn</th>
-                            <th>Arabic Lawn</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Weave</td>
-                            <td>Standard fine weave</td>
-                            <td>Tighter, finer weave</td>
-                        </tr>
-                        <tr>
-                            <td>Hand-Feel</td>
-                            <td>Crisp, slightly textured</td>
-                            <td>Soft, smooth, silky</td>
-                        </tr>
-                        <tr>
-                            <td>Breathability</td>
-                            <td>Excellent</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr>
-                            <td>Drape</td>
-                            <td>Structured</td>
-                            <td>Fluid, elegant</td>
-                        </tr>
-                        <tr>
-                            <td>Embroidery Suitability</td>
-                            <td>Good</td>
-                            <td>Excellent</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="info-callout">
-                    <h4>Why This Matters for Summer</h4>
-                    <p>In Pakistani summers, the difference between a fabric that breathes and one that traps heat is everything. Arabic Lawn's tighter weave doesn't compromise airflow — it actually wicks moisture efficiently while maintaining a cool, airy feel. That's why this suit works equally well for a warm afternoon gathering and a long evening event.</p>
-                </div>
-
-                <h2 id="why-off-white">Why Off-White Is the Most Underrated Color in Summer Fashion</h2>
 
                 <p>
-                    Most people reach for pure white in summer but <strong>off-white</strong> is arguably the smarter choice. Here's why:
+                    What makes Gota work special is its <strong>three-dimensional quality</strong>. Unlike flat embroidery, Gota motifs sit slightly raised from the fabric surface, catching the light and creating subtle shadows that give the design depth and movement. This is why Gota work looks equally stunning in daylight and under evening lighting.
                 </p>
-
-                <ul>
-                    <li><strong>It's softer on the eyes.</strong> Pure white can look stark or clinical in bright sunlight. Off-white — with its subtle warm undertone — feels gentler, more elegant, and more refined.</li>
-                    <li><strong>It flatters more skin tones.</strong> Pure white can wash out some complexions. Off-white complements warm, neutral, and olive undertones beautifully.</li>
-                    <li><strong>It hides minor imperfections.</strong> Unlike pure white, off-white is more forgiving when it comes to slight creasing or everyday wear.</li>
-                    <li><strong>It photographs beautifully.</strong> Off-white captures light without overexposing — which is why it looks stunning in both natural and indoor photography.</li>
-                    <li><strong>It pairs with everything.</strong> Gold, silver, pearl, rose gold, emerald, maroon — off-white is the neutral that lets your accessories do the talking.</li>
-                </ul>
 
                 <blockquote>
-                    Off-white isn't the absence of color — it's the presence of warmth. It's the shade of fresh cream, warm ivory, and soft moonlight.
+                    "Gota isn't just decoration — it's architecture for fabric. Each leaf, each petal, each curve is built up strip by strip until the design becomes something you can almost feel in three dimensions."
                 </blockquote>
 
-                <h2 id="hand-embroidery">The Value of Hand-Embroidered Detailing</h2>
-
-                <p>
-                    In an age of machine-produced everything, <strong>hand embroidery</strong> remains one of the few truly artisanal elements in fashion. Each stitch is placed by a skilled artisan, which means no two pieces are ever exactly identical. There's a subtle irregularity and warmth to hand-embroidered work that machines simply cannot replicate.
-                </p>
-
-                <p>
-                    Beyond its beauty, hand embroidery also carries cultural value. In Pakistan and across South Asia, hand embroidery has been passed down through generations — it's a craft that supports local artisans and keeps traditional techniques alive. When you choose a hand-embroidered suit, you're not just buying clothing; you're investing in heritage.
-                </p>
-
-                <h3>How to Spot Quality Hand Embroidery</h3>
+                <h3>Different Types of Gota Work You'll See</h3>
                 <ul>
-                    <li><strong>Look at the back of the fabric.</strong> Hand embroidery usually has a slightly less uniform reverse side — this is a sign of authentic handwork, not a flaw.</li>
-                    <li><strong>Feel for texture.</strong> Hand-embroidered thread has a subtle, dimensional feel that's different from the flat precision of machine work.</li>
-                    <li><strong>Check the density.</strong> Quality hand embroidery maintains consistent density across the pattern — no thin patches or skipped areas.</li>
-                    <li><strong>Observe the detail.</strong> Fine curves, small petals, and intricate motifs are typically a hallmark of skilled handwork.</li>
-                </ul>
-
-                <h2 id="size-length">Size &amp; Length Guide (S, M, L, XL — 44–49 Inches)</h2>
-
-                <p>
-                    This suit is available in four sizes, with shirt lengths ranging from <strong>44 to 49 inches</strong>. Here's a quick guide to help you choose:
-                </p>
-
-                <div class="size-chart">
-                    <div class="size-card">
-                        <div class="size-label">S</div>
-                        <div class="size-detail">Shirt Length approx. 44"<br>Chest approx. 19–20"</div>
-                    </div>
-                    <div class="size-card">
-                        <div class="size-label">M</div>
-                        <div class="size-detail">Shirt Length approx. 45–46"<br>Chest approx. 20–21"</div>
-                    </div>
-                    <div class="size-card">
-                        <div class="size-label">L</div>
-                        <div class="size-detail">Shirt Length approx. 47–48"<br>Chest approx. 21–22"</div>
-                    </div>
-                    <div class="size-card">
-                        <div class="size-label">XL</div>
-                        <div class="size-detail">Shirt Length approx. 49"<br>Chest approx. 22–23"</div>
-                    </div>
-                </div>
-
-                <p>
-                    <em>Note: Measurements are approximate and may vary by 1–3 cm due to manual measurement. If you're between sizes or unsure, send us your measurements on WhatsApp and we'll help you choose the right fit.</em>
-                </p>
-
-                <h3>Length Guide: 44 vs. 49 Inches</h3>
-                <ul>
-                    <li><strong>44 inches (Size S):</strong> Falls just above the knee or at mid-calf a shorter, more modern silhouette. Great for petite frames and casual styling.</li>
-                    <li><strong>45–46 inches (Size M):</strong> Standard mid-length the most versatile option for most body types.</li>
-                    <li><strong>47–48 inches (Size L):</strong> A graceful, slightly longer cut that reads as more formal.</li>
-                    <li><strong>49 inches (Size XL):</strong> The longest option a statement length that pairs beautifully with straight trousers or a Farshi Shalwar.</li>
-                </ul>
-
-                <h2 id="styling">How to Style Off-White Without Looking Washed Out</h2>
-
-                <p>
-                    Off-white is elegant, but it can look flat if styled without contrast. Here are our best tips to bring out its full potential:
-                </p>
-
-                <h3>1. Add Contrast with Accessories</h3>
-                <ul>
-                    <li><strong>Gold jewelry</strong> adds warmth and richness a classic pairing with off-white.</li>
-                    <li><strong>Emerald or deep green</strong> accessories create a striking, sophisticated contrast.</li>
-                    <li><strong>Maroon or burgundy</strong> accents add depth and festive energy.</li>
-                    <li><strong>Pearls</strong> keep the look soft and understated perfect for daytime elegance.</li>
-                </ul>
-
-                <h3>2. Play with Shoes</h3>
-                <ul>
-                    <li><strong>Nude or beige heels</strong> elongate the silhouette and keep the look cohesive.</li>
-                    <li><strong>Metallic gold or rose-gold flats</strong> add a subtle glow.</li>
-                    <li><strong>Deep-toned juttis</strong>  maroon, emerald, or navy  anchor the outfit beautifully.</li>
-                </ul>
-
-                <h3>3. Layer Thoughtfully</h3>
-                <ul>
-                    <li>A <strong>pastel or jewel-toned shawl</strong> can transform the outfit for evening wear.</li>
-                    <li>A <strong>contemporary clutch</strong> in a contrasting shade adds a modern edge.</li>
-                    <li>Keep the dupatta drape clean and elegant off-white works best with minimal fuss.</li>
-                </ul>
-
-                <h3>4. Makeup &amp; Hair</h3>
-                <ul>
-                    <li>Warm-toned makeup bronze, peach, or rose complements off-white beautifully.</li>
-                    <li>Deep berry or classic red lips create a stunning contrast for evening events.</li>
-                    <li>Soft, flowing hair or a sleek low bun both work the key is to keep the overall look polished.</li>
-                </ul>
-
-                <h2 id="occasions">Occasions This Suit Was Made For</h2>
-
-                <ul>
-                    <li><strong>Family Gatherings:</strong> The hand-embroidered detailing and soft color make it ideal for intimate family events.</li>
-                    <li><strong>Festive Occasions:</strong> Layer with statement jewelry and gold accents for Eid and celebrations.</li>
-                    <li><strong>Semi-Formal Events:</strong> Elegant, refined, and appropriate for lunches, dinners, and formal teas.</li>
-                    <li><strong>Summer Daywear:</strong> Breathable Arabic Lawn keeps you cool through long afternoons.</li>
-                    <li><strong>Nikkah &amp; Mehndi (Guest Wear):</strong> Off-white is a traditional and tasteful choice for wedding guests.</li>
-                    <li><strong>Everyday Elegance:</strong> A stitched 3-piece suit means no last-minute tailoring just wear and go.</li>
-                </ul>
-
-                <h2 id="fabric-care">Fabric Care: Protecting Light Colors and Hand Embroidery</h2>
-
-                <p>
-                    Off-white and hand embroidery require slightly more care than darker, machine-finished pieces but the effort is minimal and the payoff is years of wear. Here's how to care for this suit properly:
-                </p>
-
-                <ul>
-                    <li><strong>Wash in cold water only.</strong> Warm or hot water can cause off-white to yellow over time.</li>
-                    <li><strong>Use a mild detergent.</strong> Avoid bleach and harsh chemicals they can damage both the fabric and the embroidery.</li>
-                    <li><strong>Hand wash or use a delicate cycle.</strong> If using a machine, place the suit in a laundry bag to protect the embroidery.</li>
-                    <li><strong>Dry in shade, inside out.</strong> Direct sunlight can cause off-white to fade or develop yellow undertones.</li>
-                    <li><strong>Iron on the reverse side.</strong> Always use a low-to-medium heat setting and iron inside out to protect the embroidery.</li>
-                    <li><strong>Store folded, not hung.</strong> Hanging can stretch the fabric over time. Fold gently and store in a cool, dry place.</li>
-                    <li><strong>Use a fabric freshener.</strong> A light spritz of fabric freshener between wears helps keep the suit smelling fresh without frequent washing.</li>
+                    <li><strong>Gota Patti:</strong> Appliqué of flat Gota strips in floral, paisley, or geometric patterns.</li>
+                    <li><strong>Gota Kinari:</strong> Gota used as a border or edging — often along the daman or dupatta edges.</li>
+                    <li><strong>Gota Zari:</strong> A blend of Gota strips with fine metallic thread for extra detail.</li>
+                    <li><strong>LCD Gota Work:</strong> A modern variation that uses a slightly larger, more sculptural Gota ribbon — often with a subtle pearl or bead accent. This is what you'll see on our White Chiffon Gota Work Suit.</li>
                 </ul>
 
                 <div class="info-callout">
-                    <h4>Pro Tip: Preventing Yellowing</h4>
-                    <p>To keep off-white fabric looking bright, avoid storing it in plastic bags for long periods plastic traps moisture and can cause yellowing. Instead, wrap the folded suit in a clean cotton cloth or muslin and store it in a breathable garment bag.</p>
+                    <h4>Why Handmade Matters</h4>
+                    <p>A single hand-embroidered Gota panel can take a skilled artisan between 3 and 7 days to complete. The precision required to cut, fold, and appliqué each strip evenly is a craft passed down through generations — and no machine has been able to fully replicate the fluidity and hand-crafted irregularity of true Gota work.</p>
+                </div>
+
+                <h2 id="bamber-chiffon">What Is Pure Bamber Chiffon?</h2>
+
+                <p>
+                    <strong>Bamber Chiffon</strong> is a premium grade of chiffon woven from <em>Bemberg</em> yarn — a regenerated cellulose fiber derived from cotton linter, originally developed in Germany in the late 19th century. Despite its delicate appearance, Bamber Chiffon is stronger and more durable than standard synthetic chiffon, with a luxuriously soft, almost silken hand-feel.
+                </p>
+
+                <p>
+                    Here's why Bamber Chiffon is the ideal base for Gota work:
+                </p>
+
+                <ul>
+                    <li><strong>It holds shape beautifully.</strong> Gota work requires a fabric that supports the weight of appliqué without sagging — Bamber Chiffon delivers that structure while remaining light.</li>
+                    <li><strong>It has a subtle sheen.</strong> This soft, natural luster complements the metallic finish of Gota work, creating a cohesive, luminous look.</li>
+                    <li><strong>It drapes with fluidity.</strong> The dupatta falls gracefully, catching light and movement with every step.</li>
+                    <li><strong>It breathes.</strong> Bamber Chiffon is more breathable than synthetic chiffon — an important factor for Pakistani summer events.</li>
+                    <li><strong>It takes dye beautifully.</strong> The white on this suit is a soft, warm white — not stark — thanks to the quality of the base fabric.</li>
+                </ul>
+
+                <h3>Bamber Chiffon vs. Standard Chiffon</h3>
+                <ul>
+                    <li><strong>Standard chiffon:</strong> Often made from polyester or nylon — lightweight but can feel slightly synthetic against the skin, and less breathable.</li>
+                    <li><strong>Bamber Chiffon:</strong> Made from regenerated cellulose — softer, more breathable, with a subtle organic sheen. It also resists static and clings less to the body.</li>
+                </ul>
+
+                <h2 id="unstitched-guide">Unstitched Fabric Guide: Cutting, Tailoring &amp; What to Expect</h2>
+
+                <p>
+                    This is an <strong>unstitched 2-piece suit</strong>, which means you receive the fabric only — you can have it tailored exactly to your measurements and preferred silhouette. Here's what you need to know:
+                </p>
+
+                <h3>What's Included</h3>
+                <ul>
+                    <li><strong>Shirt:</strong> 2.5 meters of Pure Bamber Chiffon with Gota work on the daman and embroidery on the front, neckline, and sleeves.</li>
+                    <li><strong>Dupatta:</strong> 2.5 meters of Pure Bamber Chiffon with embroidered detailing.</li>
+                    <li><strong>Trouser:</strong> Not included — you can pair with a plain white or matching chiffon/cotton trouser of your choice.</li>
+                </ul>
+
+                <h3>Is 2.5 Meters Enough for a Full Shirt?</h3>
+                <p>
+                    Yes. A standard shirt cutting in Pakistan is typically 2.5 to 3 meters, depending on your height and the desired style. Two and a half meters is sufficient for:
+                </p>
+                <ul>
+                    <li>A straight-cut or A-line shirt up to 44–46 inches in length.</li>
+                    <li>Full-length sleeves (if you're under 5'6").</li>
+                    <li>A modest neckline and comfortable fitting.</li>
+                </ul>
+                <p>
+                    If you're taller than 5'6" or prefer an oversized or floor-length silhouette, we recommend ordering slightly more fabric to ensure a comfortable fit. Our team can guide you on WhatsApp before you order.
+                </p>
+
+                <h3>Tailoring Recommendations</h3>
+                <ul>
+                    <li><strong>Lining is essential.</strong> Because chiffon is sheer, ask your tailor to line the shirt with cotton or soft lining fabric for modesty and comfort.</li>
+                    <li><strong>Preserve the Gota work.</strong> Ask the tailor to cut around the embroidered panels and Gota work — not through them. Ideally, share the fabric with the tailor before cutting so they can plan the layout.</li>
+                    <li><strong>Choose a simple silhouette.</strong> With this much detailing on the fabric itself, a straight cut or subtle A-line keeps the focus on the workmanship.</li>
+                    <li><strong>Dupatta edge:</strong> You can leave the dupatta edges plain, or add a subtle satin or lace border for extra elegance.</li>
+                </ul>
+
+                <h2 id="why-white">Why White Is the Most Powerful Color for Weddings &amp; Eid</h2>
+
+                <p>
+                    In Pakistani and South Asian culture, white carries deep symbolic meaning. It represents purity, serenity, and new beginnings. It's worn at Nikkah ceremonies, Eid prayers, and intimate family celebrations — and for good reason:
+                </p>
+
+                <ul>
+                    <li><strong>It's universally flattering.</strong> White reflects light and works with every skin tone — especially when paired with warm gold or pearl jewelry.</li>
+                    <li><strong>It photographs beautifully.</strong> White captures light without overpowering — which is why it's a favorite for wedding guest wear.</li>
+                    <li><strong>It highlights craftsmanship.</strong> On white fabric, Gota work and embroidery stand out as the hero — no color competing for attention.</li>
+                    <li><strong>It works in every season.</strong> White is cool in summer and elegant in winter. It's the one color that never feels out of place.</li>
+                    <li><strong>It's timeless.</strong> Unlike trend-driven colors, white is the shade of heirloom pieces — the kind you keep and pass down.</li>
+                </ul>
+
+                <h2 id="styling">How to Style White Gota Work for Every Occasion</h2>
+
+                <h3>1. Eid &amp; Family Gatherings</h3>
+                <ul>
+                    <li>Pair with pearl or gold jewelry — a layered pearl necklace or delicate jhumkas work beautifully.</li>
+                    <li>Choose comfortable embellished flats or khussas in gold or ivory.</li>
+                    <li>Keep makeup fresh — a soft blush, rosy lip, and subtle highlighter.</li>
+                </ul>
+
+                <h3>2. Weddings &amp; Mehndi Events</h3>
+                <ul>
+                    <li>Add statement earrings — chandelier or chaandbali styles add drama.</li>
+                    <li>Use a metallic clutch — gold or rose-gold complements the Gota work.</li>
+                    <li>Pair with a matching dupatta drape over one shoulder for an elegant silhouette.</li>
+                </ul>
+
+                <h3>3. Nikkah &amp; Formal Ceremonies</h3>
+                <ul>
+                    <li>Keep it minimal and regal — a soft updo, small earrings, and a structured clutch.</li>
+                    <li>Choose nude or ivory heels to elongate the silhouette.</li>
+                    <li>A light pastel shawl can add warmth and depth without distracting from the Gota work.</li>
+                </ul>
+
+                <h3>4. Photoshoots &amp; Special Occasions</h3>
+                <ul>
+                    <li>White photographs best in natural light — outdoor morning or golden hour shoots are ideal.</li>
+                    <li>Keep backgrounds soft and muted to let the Gota work shine.</li>
+                    <li>Add fresh flowers — white jasmine or soft pink roses create a stunning contrast.</li>
+                </ul>
+
+                <h2 id="fabric-care">Caring for Handmade Gota Work &amp; Chiffon</h2>
+
+                <p>
+                    Gota work and Bamber Chiffon are delicate — but with the right care, they'll stay beautiful for years (and potentially decades).
+                </p>
+
+                <ul>
+                    <li><strong>Dry clean only.</strong> Water can tarnish the metallic Gota strips and weaken the chiffon weave. Always opt for professional dry cleaning.</li>
+                    <li><strong>Never machine wash.</strong> Even on a delicate cycle, machine washing can distort the Gota motifs and damage the embroidery.</li>
+                    <li><strong>Store flat or on padded hangers.</strong> Folding can crease the Gota work. If you must fold, place tissue paper between layers.</li>
+                    <li><strong>Avoid direct sunlight.</strong> Prolonged exposure can cause white chiffon to yellow and Gota strips to dull.</li>
+                    <li><strong>Iron with care.</strong> If ironing is needed, place a cotton cloth over the Gota work and use a low heat setting. Never iron directly on Gota strips.</li>
+                    <li><strong>Handle with clean, dry hands.</strong> Natural oils can transfer to chiffon and dull the Gota shine.</li>
+                    <li><strong>Store in a cotton or muslin bag.</strong> Avoid plastic bags — they trap moisture and can cause yellowing.</li>
+                    <li><strong>Air after each wear.</strong> Let the suit breathe for a few hours before returning it to storage.</li>
+                </ul>
+
+                <div class="info-callout">
+                    <h4>Pro Tip: Preserving Gota Shine</h4>
+                    <p>Over time, metallic Gota strips can dull slightly. To restore their shine, gently wipe them with a soft, dry cotton cloth. Never use water or polishing agents — they can strip the metallic finish permanently. If the Gota begins to lift at any edge, take it to a professional tailor immediately rather than attempting a home fix.</p>
                 </div>
 
                 <h2>Package Includes</h2>
 
                 <ul>
-                    <li>1 × Embroidered Shirt (Arabic Lawn)</li>
-                    <li>1 × Trouser (Arabic Lawn)</li>
-                    <li>1 × Dupatta (Arabic Lawn)</li>
+                    <li>1 × Gota Work Shirt (Unstitched — Pure Bamber Chiffon, 2.5 Meter)</li>
+                    <li>1 × Gota Work Dupatta (Unstitched — Pure Bamber Chiffon, 2.5 Meter)</li>
                 </ul>
 
                 <h2 id="faq">Frequently Asked Questions</h2>
 
                 <details class="faq-item">
-                    <summary>What is Arabic Lawn and how is it different from regular lawn?</summary>
-                    <p>Arabic Lawn is a premium variant of lawn fabric with a tighter, finer weave and a softer, smoother hand-feel. It drapes more elegantly, feels cooler against the skin, and holds hand embroidery beautifully — making it ideal for summer wear and formal detailing.</p>
-                </details>
-
-                <details class="faq-item">
                     <summary>Is this suit stitched or unstitched?</summary>
-                    <p>This is a fully <strong>stitched 3-piece suit</strong>. It includes a stitched shirt, trouser, and dupatta ready to wear straight out of the packaging with no tailoring required.</p>
+                    <p>This is an <strong>unstitched 2-piece suit</strong>. You receive the shirt and dupatta fabric only — you can have them tailored exactly to your measurements and preferred style. Trouser is not included.</p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>What sizes are available?</summary>
-                    <p>The suit is available in <strong>S, M, L, and XL</strong>, with shirt lengths ranging from approximately <strong>44 to 49 inches</strong>. Refer to the size chart above for detailed guidance, or message us on WhatsApp for personalized help.</p>
+                    <summary>What is Gota work, and how is it different from regular embroidery?</summary>
+                    <p>Gota work is a traditional South Asian craft where narrow strips of metallic fabric are appliquéd onto the base textile to create raised, three-dimensional motifs. Unlike flat embroidery, Gota work has a sculptural quality that catches light and adds depth to the design.</p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Will the off-white color look yellow over time?</summary>
-                    <p>With proper care, no. Wash in cold water, dry in shade (never direct sunlight), avoid bleach, and store in a breathable cotton or muslin cloth rather than plastic. These steps will keep the off-white looking fresh for years.</p>
+                    <summary>What is Pure Bamber Chiffon?</summary>
+                    <p>Bamber (Bemberg) Chiffon is a premium chiffon made from regenerated cellulose fiber. It's softer, more breathable, and more durable than standard synthetic chiffon, with a natural sheen that complements metallic Gota work beautifully.</p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Can I wear this suit for a wedding?</summary>
-                    <p>Absolutely. Off-white is a classic choice for wedding guest wear especially for Nikkah, Mehndi, and daytime wedding events. Pair it with gold or emerald jewelry and a jewel-toned clutch to elevate the look.</p>
+                    <summary>Is 2.5 meters enough for a full shirt?</summary>
+                    <p>Yes — for most heights and standard silhouettes (straight cut or subtle A-line), 2.5 meters is sufficient. If you're taller than 5'6" or prefer an oversized or floor-length design, we recommend ordering slightly more fabric. Message us on WhatsApp for personalized guidance.</p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>How do I care for the hand embroidery?</summary>
-                    <p>Always iron on the reverse side, avoid wringing or twisting the fabric, and dry clean if possible for the longest lifespan. For at-home care, hand wash gently in cold water with mild detergent and lay flat to dry.</p>
+                    <summary>Does the suit come with a trouser?</summary>
+                    <p>No — this is a 2-piece suit that includes only the shirt and dupatta. You can pair it with a plain white or matching chiffon/cotton trouser of your choice.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How should I care for Gota work?</summary>
+                    <p>Dry clean only. Never machine wash. Store flat or on padded hangers, away from direct sunlight. If ironing is needed, place a cotton cloth over the Gota work and use low heat. Air the suit after each wear before returning it to storage.</p>
                 </details>
 
                 <details class="faq-item">
                     <summary>Do you offer Cash on Delivery?</summary>
-                    <p>Yes. We offer <strong>nationwide Cash on Delivery</strong> across Pakistan, plus <strong>free delivery on orders over Rs. 3,000</strong>. You pay only when your order arrives at your door.</p>
+                    <p>Yes. We offer nationwide Cash on Delivery across Pakistan, plus free delivery on orders over Rs. 3,000. You pay only when your order arrives at your door.</p>
                 </details>
 
                 <h2>Shop Now at Softgarments</h2>
 
                 <p>
-                    Soft elegance. Regal detailing. Effortless style. 🤍
+                    Beautiful handmade detailing. Traditional charm. Timeless elegance. 🤍
                 </p>
 
                 <p>
-                    Ready to add this beautiful piece to your wardrobe? Shop now at <strong>Softgarments Comfort in Every Detail</strong>. Order via WhatsApp for nationwide cash on delivery and free delivery on orders over Rs. 3,000. Our team is happy to help you choose the right size and answer any questions before you order.
+                    Ready to add this heirloom-worthy piece to your wardrobe? Shop now at <strong>Softgarments — Comfort in Every Detail</strong>. Order via WhatsApp for nationwide cash on delivery and free delivery on orders over Rs. 3,000. Our team is happy to answer any questions about tailoring, sizing, or styling before you order.
                 </p>
-
-                <h3 style="margin-top: 40px;">Explore More from Our Blog</h3>
-                <ul>
-                    <li><a href="2-piece-cotton-embroidered-shirt-farshi-shalwar.html" class="inline-link">2-Piece Cotton Embroidered Shirt &amp; Farshi Shalwar Full Guide</a></li>
-                    <li><a href="black-white-floral-3-piece-suit.html" class="inline-link">Black White Floral 3-Piece Lawn Suit with Printed Dupatta</a></li>
-                    <li><a href="heavy-embroidered-chiffon-summer-dress.html" class="inline-link">Luxury Chiffon Elegance: Heavy Embroidered Multicolor Summer Dress</a></li>
-                    <li><a href="summer-in-style-ss26.html" class="inline-link">Summer in Style SS-26: Complete Summer Wardrobe Guide 2026</a></li>
-                </ul>
 
                 <!-- SEO Keyword Tags -->
                 <div class="keyword-tags">
-                    <span class="keyword-tag">Off-White Arabic Lawn Suit</span>
-                    <span class="keyword-tag">3-Piece Embroidered Suit</span>
-                    <span class="keyword-tag">Hand Embroidered Lawn</span>
-                    <span class="keyword-tag">Pakistani Stitched Suit</span>
-                    <span class="keyword-tag">Summer Lawn Collection</span>
-                    <span class="keyword-tag">Off White Suit Pakistan</span>
-                    <span class="keyword-tag">Arabic Lawn Fabric</span>
-                    <span class="keyword-tag">Festive Wear Pakistan</span>
+                    <span class="keyword-tag">White Chiffon Gota Suit</span>
+                    <span class="keyword-tag">2-Piece Unstitched Suit</span>
+                    <span class="keyword-tag">Gota Work Pakistani</span>
+                    <span class="keyword-tag">Bamber Chiffon Suit</span>
+                    <span class="keyword-tag">Eid Collection 2026</span>
+                    <span class="keyword-tag">Wedding Wear Pakistan</span>
+                    <span class="keyword-tag">Handmade Gota Work</span>
+                    <span class="keyword-tag">White Formal Suit</span>
                     <span class="keyword-tag">Softgarments</span>
-                    <span class="keyword-tag">Ethnic Wear Online</span>
+                    <span class="keyword-tag">Festive Wear Online</span>
                 </div>
 
                 <a href="../blog/index.html" class="back-button">
@@ -1784,6 +1874,97 @@
             </div>
 
         </main>
+
+        <!-- ═══════════ RELATED POSTS ═══════════ -->
+        <section class="related-section" aria-labelledby="relatedHeading">
+            <div class="related-section__head">
+                <span class="related-section__kicker">You May Also Like</span>
+                <h2 class="related-section__title" id="relatedHeading">Explore More from Our Blog</h2>
+                <p class="related-section__sub">Discover more styling guides, collection launches, and fabric stories from the Softgarments journal.</p>
+            </div>
+
+            <div class="related-grid">
+
+                <!-- Card 1: Off-White Arabic Lawn Suit -->
+                <article class="related-card">
+                    <div class="related-card__image">
+                        <span class="related-card__category">Fashion</span>
+                        <img src="../../assets/images/blog/off-white-arabic-lawn-suit.jpg"
+                             alt="3-Piece Off-White Embroidered Arabic Lawn Suit"
+                             loading="lazy"
+                             onerror="this.src='../../assets/images/blog/off-white-arabic-lawn-suit.jpg';" />
+                    </div>
+                    <div class="related-card__content">
+                        <h3 class="related-card__title">
+                            <a href="posts/off-white-arabic-lawn-suit.html">
+                                3-Piece Off-White Embroidered Arabic Lawn Suit
+                            </a>
+                        </h3>
+                        <span class="related-card__date">September 25, 2026</span>
+                        <p class="related-card__description">
+                            Elegant, lightweight, and timeless — discover our hand-embroidered Arabic Lawn suit in soft off-white, perfect for summer days and festive events.
+                        </p>
+                        <a href="posts/off-white-arabic-lawn-suit.html" class="related-card__link">
+                            Read More
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 2: Summer in Style SS-26 -->
+                <article class="related-card">
+                    <div class="related-card__image">
+                        <span class="related-card__category">Collection</span>
+                        <img src="../../assets/images/blog/summer-in-style-ss26.png"
+                             alt="Summer in Style SS-26 Collection"
+                             loading="lazy"
+                             onerror="this.src='../../assets/images/blog/summer-in-style-ss26.png';" />
+                    </div>
+                    <div class="related-card__content">
+                        <h3 class="related-card__title">
+                            <a href="posts/summer-in-style-ss26.html">
+                                Summer in Style SS-26: Complete Summer Wardrobe Guide 2026
+                            </a>
+                        </h3>
+                        <span class="related-card__date">September 22, 2026</span>
+                        <p class="related-card__description">
+                            Your ultimate guide to the SS-26 collection — fabric science, color psychology, day-to-night styling, and sustainable wardrobe tips.
+                        </p>
+                        <a href="posts/summer-in-style-ss26.html" class="related-card__link">
+                            Read More
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 3: Farshi Shalwar Suit -->
+                <article class="related-card">
+                    <div class="related-card__image">
+                        <span class="related-card__category">Fashion</span>
+                        <img src="../../assets/images/blog/farshi-shalwar-suit.jpg"
+                             alt="2-Piece Cotton Embroidered Shirt & Farshi Shalwar"
+                             loading="lazy"
+                             onerror="this.src='../../assets/images/blog/farshi-shalwar-suit.jpg';" />
+                    </div>
+                    <div class="related-card__content">
+                        <h3 class="related-card__title">
+                            <a href="posts/farshi-shalwar-suit.html">
+                                2-Piece Cotton Embroidered Shirt &amp; Farshi Shalwar
+                            </a>
+                        </h3>
+                        <span class="related-card__date">September 16, 2026</span>
+                        <p class="related-card__description">
+                            Discover the resurgence of the Farshi Shalwar — handmade embroidery, pure cotton comfort, and styling ideas for every occasion.
+                        </p>
+                        <a href="posts/farshi-shalwar-suit.html" class="related-card__link">
+                            Read More
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
 
     </div>
 
