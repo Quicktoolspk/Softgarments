@@ -20,6 +20,7 @@
             --site-max: min(100% - 48px, 1440px);
             --pad: var(--site-pad-x);
             --ease: cubic-bezier(.22, 1, .36, 1);
+            --modal-rose: #A75A69;
         }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; overflow-x: clip; }
@@ -50,17 +51,17 @@
             letter-spacing: .04em;
             text-transform: uppercase;
             line-height: 1.15;
-            color: var(--ink);
+            color: var(--col-ink);
             max-width: 640px;
             margin: 0 auto;
         }
-        .col-hero h1 em { font-style: normal; color: var(--deep-rose); }
+        .col-hero h1 em { font-style: normal; color: var(--modal-rose); }
         .col-hero p {
             margin: 12px auto 0;
             max-width: 640px;
             font-size: 15px;
             line-height: 1.7;
-            color: var(--ink-soft);
+            color: var(--col-ink-muted);
         }
 
         .col-toolbar {
@@ -125,6 +126,7 @@
             visibility: hidden;
             transform: translateY(-6px);
             transition: opacity .25s, transform .25s var(--ease), visibility .25s;
+            z-index: 100;
         }
         .col-sort-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
         .col-sort-menu button {
@@ -208,7 +210,7 @@
             color: var(--col-ink);
             cursor: pointer;
         }
-        .col-filter-option input { accent-color: var(--deep-rose); width: 16px; height: 16px; }
+        .col-filter-option input { accent-color: var(--modal-rose); width: 16px; height: 16px; }
         .col-filter-foot {
             padding: 20px 24px;
             border-top: 1px solid var(--line);
@@ -237,7 +239,11 @@
             grid-template-columns: repeat(4, 1fr);
             gap: clamp(20px, 2.5vw, 36px) clamp(14px, 1.8vw, 24px);
         }
-        .col-card { display: flex; flex-direction: column; }
+        .col-card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
         .col-card-img {
             position: relative;
             aspect-ratio: 4 / 5;
@@ -307,6 +313,189 @@
             text-transform: uppercase;
         }
 
+        /* ═══════════ PRODUCT POPUP MODAL ═══════════ */
+        .pd-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(16px, 3vw, 40px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s ease, visibility .3s ease;
+        }
+        .pd-modal.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .pd-modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(20, 12, 15, .62);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        .pd-modal-shell {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 960px;
+            max-height: 92vh;
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 32px 80px rgba(0,0,0,.28);
+            transform: translateY(24px) scale(.98);
+            opacity: 0;
+            transition: transform .38s var(--ease), opacity .3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .pd-modal.is-open .pd-modal-shell {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .pd-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 3;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.94);
+            border: 1px solid var(--line);
+            display: grid;
+            place-items: center;
+            font-size: 24px;
+            line-height: 1;
+            color: var(--col-ink);
+            box-shadow: 0 4px 14px rgba(0,0,0,.12);
+            transition: background .2s ease, transform .2s ease, color .2s ease;
+        }
+        .pd-modal-close:hover {
+            background: var(--col-ink);
+            color: #fff;
+            transform: scale(1.06);
+        }
+        .pd-modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .pd-modal-img {
+            position: relative;
+            background: #f5f5f5;
+            min-height: 320px;
+        }
+        .pd-modal-img img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .pd-modal-info {
+            padding: clamp(28px, 4vw, 48px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .pd-modal-category {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--modal-rose);
+            margin-bottom: 12px;
+        }
+        .pd-modal-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 3vw, 36px);
+            font-weight: 500;
+            line-height: 1.15;
+            color: var(--col-ink);
+            margin: 0 0 16px;
+            letter-spacing: -.01em;
+        }
+        .pd-modal-price {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .pd-modal-price .now {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--col-ink);
+            letter-spacing: .02em;
+        }
+        .pd-modal-price .was {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--col-ink-light);
+            text-decoration: line-through;
+        }
+        .pd-modal-price .save-badge {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--modal-rose);
+            padding: 5px 10px;
+            border-radius: 2px;
+        }
+        .pd-modal-desc {
+            font-size: 14px;
+            line-height: 1.75;
+            color: var(--col-ink-muted);
+            margin: 0 0 26px;
+        }
+        .pd-modal-divider {
+            height: 1px;
+            background: var(--line);
+            margin: 0 0 22px;
+        }
+        .pd-modal-wa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 26px;
+            border-radius: 2px;
+            background: var(--col-ink);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+            align-self: flex-start;
+        }
+        .pd-modal-wa:hover {
+            background: var(--modal-rose);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(167, 90, 105, .32);
+        }
+        .pd-modal-wa svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+        .pd-modal-note {
+            font-size: 11px;
+            color: var(--col-ink-light);
+            letter-spacing: .06em;
+            margin-top: 14px;
+            text-transform: uppercase;
+        }
+
         @media (max-width: 1100px) { .col-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 760px) {
             .col-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; }
@@ -314,9 +503,29 @@
             .col-toolbar-center { grid-column: 1 / -1; order: -1; }
             .col-card-wa { opacity: 1; background: none; padding-bottom: 10px; }
             .col-card-wa span { font-size: 9px; padding: 7px 14px; background: rgba(0,0,0,.5); border: none; }
+
+            .pd-modal { padding: 0; align-items: flex-end; }
+            .pd-modal-shell {
+                max-width: 100%;
+                max-height: 94vh;
+                border-radius: 18px 18px 0 0;
+                transform: translateY(100%);
+            }
+            .pd-modal.is-open .pd-modal-shell { transform: translateY(0); }
+            .pd-modal-body { grid-template-columns: 1fr; }
+            .pd-modal-img { min-height: 300px; max-height: 44vh; }
+            .pd-modal-img img { position: relative; height: 44vh; }
+            .pd-modal-info { padding: 24px 22px 32px; }
+            .pd-modal-title { font-size: 24px; }
+            .pd-modal-price .now { font-size: 19px; }
+            .pd-modal-wa { width: 100%; }
+            .pd-modal-close { top: 12px; right: 12px; width: 38px; height: 38px; }
         }
         @media (max-width: 480px) {
             .col-hero h1 { font-size: clamp(28px, 8vw, 34px); letter-spacing: .03em; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .pd-modal, .pd-modal-shell { transition: none; }
         }
     </style>
 </head>
@@ -461,6 +670,31 @@
     </aside>
     </div>
 
+    <!-- ═══════════ PRODUCT POPUP MODAL ═══════════ -->
+    <div class="pd-modal" id="pdModal" role="dialog" aria-modal="true" aria-labelledby="pdModalTitle" aria-hidden="true">
+        <div class="pd-modal-overlay" id="pdModalOverlay"></div>
+        <div class="pd-modal-shell">
+            <button type="button" class="pd-modal-close" id="pdModalClose" aria-label="Close product details">&times;</button>
+            <div class="pd-modal-body">
+                <div class="pd-modal-img">
+                    <img id="pdModalImg" src="" alt="" />
+                </div>
+                <div class="pd-modal-info">
+                    <div class="pd-modal-category" id="pdModalCategory"></div>
+                    <h2 class="pd-modal-title" id="pdModalTitle"></h2>
+                    <div class="pd-modal-price" id="pdModalPrice"></div>
+                    <p class="pd-modal-desc" id="pdModalDesc"></p>
+                    <div class="pd-modal-divider"></div>
+                    <a class="pd-modal-wa" id="pdModalWa" href="#" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+                        Order on WhatsApp
+                    </a>
+                    <div class="pd-modal-note">Cash on Delivery · Nationwide</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ═══════════ FOOTER ═══════════ -->
     <footer id="contact">
         <div class="footer-grid">
@@ -531,9 +765,28 @@
     <script>
     /* ══════════════════════════════════════════════════════════
        SALE PRODUCTS — YAHAN EDIT KARO
-       ══════════════════════════════════════════════════════════ */
+       ══════════════════════════════════════════════════════════
+       
+       Naya product add karne ke liye:
+       1. Neeche products array mein ek naya { } block add karo
+       2. Sab fields bharo (id, name, price, category, image, description)
+       3. Image ko assets/images/Sale/ folder mein save karo
+       4. Save karo + refresh (Ctrl + F5)
+       
+       POPUP AUTOMATIC KAAM KAREGA — koi extra setup nahi!
+    ══════════════════════════════════════════════════════════ */
     window.SG_SALE_COLLECTION = {
         whatsapp: '923379022920',
+        categoryLabels: {
+            'everyday': 'Everyday Wear',
+            'casual': 'Casual Wear',
+            'formal': 'Formal Wear',
+            'festive': 'Festive Wear',
+            'co-ords': 'Co-ord Sets',
+            'dresses': 'Dresses',
+            'kurtis': 'Kurtis',
+            'shirts-tops': 'Shirts / Tops'
+        },
         products: [
             {
                 id: 9,
@@ -615,7 +868,7 @@
     };
 
     /* ══════════════════════════════════════════════════════════
-       Product Grid + Filter + Sort Logic — NICHE KUCH NAHI
+       Product Grid + Filter + Sort + Modal — AUTOMATIC
     ══════════════════════════════════════════════════════════ */
     (function() {
         var C = window.SG_SALE_COLLECTION;
@@ -632,12 +885,27 @@
         var filterClear = document.getElementById('filterClear');
         var filterApply = document.getElementById('filterApply');
 
+        // Modal elements
+        var modal = document.getElementById('pdModal');
+        var modalOverlay = document.getElementById('pdModalOverlay');
+        var modalClose = document.getElementById('pdModalClose');
+        var modalImg = document.getElementById('pdModalImg');
+        var modalCategory = document.getElementById('pdModalCategory');
+        var modalTitle = document.getElementById('pdModalTitle');
+        var modalPrice = document.getElementById('pdModalPrice');
+        var modalDesc = document.getElementById('pdModalDesc');
+        var modalWa = document.getElementById('pdModalWa');
+
         var currentSort = 'featured';
         var activeCategories = ['everyday', 'casual', 'formal', 'festive', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];
         var priceRange = 'all';
 
         function formatPrice(n) {
             return 'Rs. ' + n.toLocaleString('en-PK');
+        }
+
+        function categoryLabel(cat) {
+            return (C.categoryLabels && C.categoryLabels[cat]) ? C.categoryLabels[cat] : cat;
         }
 
         function getFiltered() {
@@ -666,19 +934,77 @@
             grid.innerHTML = list.map(function(p) {
                 var priceHtml = formatPrice(p.price);
                 if (p.compareAt) priceHtml += '<span class="was">' + formatPrice(p.compareAt) + '</span>';
-                return '<a class="col-card" href="product.html?id=' + p.id + '" aria-label="View ' + p.name + '">' +
+                return '<div class="col-card" data-id="' + p.id + '" role="button" tabindex="0" aria-label="View ' + p.name + '">' +
                     '<div class="col-card-img">' +
                     '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" width="400" height="500">' +
-                    '<div class="col-card-wa"><span>View Product</span></div>' +
+                    '<div class="col-card-wa"><span>View Details</span></div>' +
                     '</div>' +
                     '<div class="col-card-info">' +
                     '<div class="col-card-name">' + p.name + '</div>' +
                     '<div class="col-card-price">' + priceHtml + '</div>' +
-                    '</div></a>';
+                    '</div></div>';
             }).join('');
         }
 
-        /* Sort menu */
+        /* ── Open Modal ── */
+        function openModal(id) {
+            var p = C.products.find(function(x) { return x.id === Number(id); });
+            if (!p) return;
+
+            // Fill fields
+            modalImg.src = p.image;
+            modalImg.alt = p.name;
+            modalCategory.textContent = categoryLabel(p.category);
+            modalTitle.textContent = p.name;
+            modalDesc.textContent = p.description || '';
+
+            // Price
+            var priceHTML = '<span class="now">' + formatPrice(p.price) + '</span>';
+            if (p.compareAt) {
+                var savePct = Math.round((1 - p.price / p.compareAt) * 100);
+                priceHTML += '<span class="was">' + formatPrice(p.compareAt) + '</span>';
+                if (savePct > 0) priceHTML += '<span class="save-badge">Save ' + savePct + '%</span>';
+            }
+            modalPrice.innerHTML = priceHTML;
+
+            // WhatsApp link
+            var msg = 'Hi Softgarments! I\'d like to order ' + p.name + ' (' + formatPrice(p.price) + ').';
+            modalWa.href = 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent(msg);
+
+            // Open
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        /* ── Card click event (delegation, so it works for any new product) ── */
+        grid.addEventListener('click', function(e) {
+            var card = e.target.closest('.col-card');
+            if (!card) return;
+            openModal(card.getAttribute('data-id'));
+        });
+        grid.addEventListener('keydown', function(e) {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            var card = e.target.closest('.col-card');
+            if (!card) return;
+            e.preventDefault();
+            openModal(card.getAttribute('data-id'));
+        });
+
+        /* ── Modal close handlers ── */
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+
+        /* ── Sort menu ── */
         sortBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             var open = sortMenu.classList.toggle('is-open');
@@ -699,7 +1025,7 @@
             sortBtn.classList.remove('is-open');
         });
 
-        /* Filter drawer */
+        /* ── Filter drawer ── */
         function openFilter() {
             filterOverlay.classList.add('is-open');
             filterDrawer.classList.add('is-open');
