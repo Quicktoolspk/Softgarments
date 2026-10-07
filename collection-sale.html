@@ -764,6 +764,7 @@
                 <label class="col-filter-option"><input type="checkbox" name="cat" value="casual" checked /> Casual Wear</label>
                 <label class="col-filter-option"><input type="checkbox" name="cat" value="formal" checked /> Formal Wear</label>
                 <label class="col-filter-option"><input type="checkbox" name="cat" value="festive" checked /> Festive Wear</label>
+                <label class="col-filter-option"><input type="checkbox" name="cat" value="suits" checked /> 2 &amp; 3 Piece Suits</label>
                 <label class="col-filter-option"><input type="checkbox" name="cat" value="co-ords" checked /> Co-ord Sets</label>
                 <label class="col-filter-option"><input type="checkbox" name="cat" value="dresses" checked /> Dresses</label>
                 <label class="col-filter-option"><input type="checkbox" name="cat" value="kurtis" checked /> Kurtis</label>
@@ -897,15 +898,16 @@
     window.SG_SALE_COLLECTION = {
         whatsapp: '923379022920',
         categoryLabels: {
-            'everyday': 'Everyday Wear',
-            'casual': 'Casual Wear',
-            'formal': 'Formal Wear',
-            'festive': 'Festive Wear',
-            'co-ords': 'Co-ord Sets',
-            'dresses': 'Dresses',
-            'kurtis': 'Kurtis',
-            'shirts-tops': 'Shirts / Tops'
-        },
+    'everyday': 'Everyday Wear',
+    'casual': 'Casual Wear',
+    'formal': 'Formal Wear',
+    'festive': 'Festive Wear',
+    'suits': '2 & 3 Piece Suits',
+    'co-ords': 'Co-ord Sets',
+    'dresses': 'Dresses',
+    'kurtis': 'Kurtis',
+    'shirts-tops': 'Shirts / Tops'
+},
         products: [
             {
                 id: 10,
@@ -939,9 +941,10 @@
             },
             {
                 id: 8,
-                name: 'Zara Embroidered Shirt',
-                price: 950,
-                category: 'shirts-tops',
+                name: 'Noor-e-Chiffon Hand Embroidered 2 Pcs Suit',
+                price: 3200,
+                compareAt: 4000,
+                category: 'suits',
                 image: 'assets/images/Sale/08.jpg',
                 images: [
                     'assets/images/Sale/08.jpg',
@@ -1081,7 +1084,7 @@
         var modalWa = document.getElementById('pdModalWa');
 
         var currentSort = 'featured';
-        var activeCategories = ['everyday', 'casual', 'formal', 'festive', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];
+        var activeCategories = ['everyday', 'casual', 'formal', 'festive', 'suits', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];
         var priceRange = 'all';
 
         var modalImages = [];
@@ -1309,7 +1312,7 @@
         filterClear.addEventListener('click', function() {
             filterDrawer.querySelectorAll('input[name="cat"]').forEach(function(el) { el.checked = true; });
             filterDrawer.querySelector('input[name="price"][value="all"]').checked = true;
-            activeCategories = ['everyday', 'casual', 'formal', 'festive', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];
+            activeCategories = ['everyday', 'casual', 'formal', 'festive', 'suits', 'co-ords', 'dresses', 'kurtis', 'shirts-tops'];
             priceRange = 'all';
             closeFilter();
             render();
