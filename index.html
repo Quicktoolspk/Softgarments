@@ -95,7 +95,6 @@
             --mauve: #C9A3A0;
             --ink: #4A3B3E;
             --ink-soft: #8A7377;
-            /* Dark glass palette — deep-rose tinted (matches btn-primary) */
             --glass-dark: color-mix(in srgb, var(--deep-rose) 76%, #1e1216);
             --glass-dark-deep: color-mix(in srgb, var(--deep-rose) 62%, #140c0f);
             --glass-dark-rose: color-mix(in srgb, var(--deep-rose) 88%, var(--rose) 12%);
@@ -117,7 +116,6 @@
             --nav-height: calc(var(--nav-pad-top) + var(--nav-shell-h));
             --nav-shell-h-scrolled: 56px;
             --nav-height-scrolled: calc(var(--nav-pad-top) + var(--nav-shell-h-scrolled));
-            /* Brand dark rose glass tokens */
             --nav-glass-fill: color-mix(in srgb, var(--glass-dark) 78%, transparent);
             --nav-glass-fill-scrolled: color-mix(in srgb, var(--glass-dark-deep) 88%, transparent);
             --nav-glass-rose-wash: color-mix(in srgb, var(--glass-dark-rose) 38%, transparent);
@@ -128,7 +126,6 @@
             --nav-text: var(--ivory);
             --nav-text-hover: var(--white);
             --nav-link-hover-bg: color-mix(in srgb, var(--deep-rose) 55%, transparent);
-            /* Site width — screen size ke mutabiq adjust */
             --site-max: min(100% - 48px, 1680px);
             --site-pad-x: clamp(20px, 4vw, 64px);
         }
@@ -744,7 +741,6 @@
             padding: 12px clamp(12px, 2vw, 28px);
             overflow: visible;
         }
-        /* ── Fan-out image stack — background cover like center card ── */
         .hero-frame {
             position: relative;
             width: 100%;
@@ -3061,12 +3057,10 @@
 
         /* ══════════════════════════════════════════════════════════════
            HOME (root view) — Garnet-style layout, Softgarments palette
-           All selectors prefixed .gh- so nothing collides with the
-           existing view styles above.
            ═════════════════════════════════════════════════════════════ */
         :root { --ann-h: 38px; }
 
-        /* ───────── announcement bar (fixed, retracts on scroll) ───────── */
+        /* ───────── announcement bar ───────── */
         .gh-ann {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -3117,9 +3111,6 @@
         .gh-ann-prev { left: 10px; }
         .gh-ann-next { right: 10px; }
 
-        /* Nav sits below the bar until it retracts. Offset via `top`, not
-           padding — header.nav already declares `transition: padding`, so a
-           padding-based offset animates instead of just applying. */
         body.has-ann header.nav { top: var(--ann-h); transition: top .35s var(--ease-out); }
         body.has-ann.ann-hidden header.nav { top: 0; }
 
@@ -3128,7 +3119,7 @@
             position: relative;
             width: 100%;
             height: 90vh;
-            height: 90svh;          /* stable while the mobile URL bar shows/hides */
+            height: 90svh;
             min-height: 460px;
             overflow: hidden;
             background: var(--ivory-deep);
@@ -3295,7 +3286,7 @@
             background: linear-gradient(90deg, transparent, var(--rose), transparent);
         }
 
-        /* ───────── shop by category — full-bleed, no gutters ───────── */
+        /* ───────── shop by category ───────── */
         .gh-cats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -3382,6 +3373,7 @@
             box-shadow: var(--shadow-sm);
             border: 1px solid rgba(216, 167, 177, .2);
             transition: transform .35s var(--ease-out), box-shadow .35s ease, border-color .35s ease;
+            cursor: pointer;
         }
         .gh-card:hover {
             transform: translateY(-6px);
@@ -3393,6 +3385,7 @@
             aspect-ratio: 302 / 380;
             overflow: hidden;
             background: var(--ivory-deep);
+            display: block;
         }
         .gh-card-img img {
             width: 100%;
@@ -3440,7 +3433,7 @@
         }
         .gh-card:hover .gh-quick, .gh-card:focus-visible .gh-quick { opacity: 1; transform: translateY(0); }
         .gh-quick:hover { background: var(--deep-rose); color: #fff; }
-        .gh-card-info { padding: 16px 16px 20px; text-align: center; }
+        .gh-card-info { padding: 16px 16px 20px; text-align: center; display: block; }
         .gh-card-name {
             font-family: 'Poppins', sans-serif;
             font-size: clamp(13px, 1.15vw, 15px);
@@ -3450,6 +3443,7 @@
             color: #333;
             margin: 0 0 6px;
             line-height: 1.3;
+            display: block;
         }
         .gh-price { display: flex; align-items: baseline; justify-content: center; gap: 8px; flex-wrap: wrap; }
         .gh-price .gh-now {
@@ -3467,6 +3461,62 @@
         }
 
         .gh-viewall { text-align: center; margin-top: clamp(32px, 4vw, 48px); }
+
+        /* ───────── trust row ───────── */
+        .gh-trust {
+            width: var(--site-max);
+            margin-inline: auto;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(12px, 2vw, 28px);
+        }
+        .gh-trust-item {
+            min-width: 0;
+            padding: clamp(20px, 2.6vw, 30px) 16px;
+            border-radius: var(--radius-lg);
+            background: var(--white);
+            border: 1px solid rgba(216, 167, 177, .28);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform .25s var(--ease-out), box-shadow .25s ease;
+        }
+        .gh-trust-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .gh-trust-item svg {
+            display: block;
+            width: 26px;
+            height: 26px;
+            margin: 0 auto 12px;
+            fill: none;
+            stroke: var(--deep-rose);
+            stroke-width: 1.6;
+            flex-shrink: 0;
+        }
+        .gh-trust-item h4 {
+            margin: 0 0 6px;
+            color: var(--ink);
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: .06em;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+        .gh-trust-item p {
+            margin: 0;
+            color: var(--ink-soft);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        @media (max-width: 860px) {
+            .gh-trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 480px) {
+            .gh-trust-item { padding: 18px 12px; }
+            .gh-trust-item p { font-size: 12px; }
+        }
+
 /* ───────── featured collection (banner + carousel) ───────── */
 .fc-section { padding: clamp(56px, 7.5vw, 96px) 0 clamp(48px, 6vw, 72px); background: var(--ivory); }
 .fc-wrap { width: var(--site-max); margin-inline: auto; }
@@ -3519,689 +3569,324 @@
   .fc-wish { width: 28px; height: 28px; top: 8px; right: 8px; }
   .fc-wish svg { width: 13px; height: 13px; }
 }
-        /* ───────── newsletter ───────── */
-        .gh-news {
-            width: var(--site-max);
-            margin-inline: auto;
-            padding: clamp(38px, 5vw, 64px) clamp(22px, 4vw, 64px);
-            border-radius: var(--radius-xl);
-            text-align: center;
-            background:
-                linear-gradient(125deg, color-mix(in srgb, var(--deep-rose) 92%, #1e1216) 0%, var(--glass-dark-rose) 55%, color-mix(in srgb, var(--rose) 62%, var(--deep-rose)) 100%);
-            box-shadow: var(--shadow-xl);
-            color: #fff;
+
+        /* ───────── Product Preview Modal ───────── */
+        .pd-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(12px, 2vw, 28px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s ease, visibility .3s ease;
         }
-        .gh-news h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(28px, 4vw, 46px);
-            font-weight: 500;
-            margin: 0 0 12px;
-            line-height: 1.15;
-            letter-spacing: -.01em;
-        }
-        .gh-news h2 em {
-            font-style: normal;
-            color: var(--rose-soft);
-        }
-        .gh-news p { margin: 0 auto 26px; max-width: 520px; font-size: 15px; line-height: 1.7; color: rgba(255, 255, 255, .88); }
-        .gh-news-form { display: flex; gap: 10px; max-width: 520px; margin: 0 auto; flex-wrap: wrap; }
-        .gh-news-form input {
-            flex: 1 1 240px;
-            min-width: 0;
-            font-family: inherit;
-            font-size: 15px;
-            color: #fff;
-            padding: 15px 20px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, .34);
-            background: rgba(255, 255, 255, .12);
+        .pd-modal.is-open { opacity: 1; visibility: visible; }
+        .pd-modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(20, 12, 15, .72);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
-        .gh-news-form input::placeholder { color: rgba(255, 255, 255, .62); }
-        .gh-news-form input:focus { outline: none; border-color: var(--rose-soft); background: rgba(255, 255, 255, .2); }
-        .gh-news-note { margin-top: 14px; font-size: 13px; color: rgba(255, 255, 255, .78); min-height: 19px; }
-
-        /* ───────── reels ───────── */
-        .gh-reels-wrap { width: var(--site-max); margin-inline: auto; }
-        .gh-reels-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: clamp(14px, 1.8vw, 26px);
-        }
-        .gh-reel {
+        .pd-modal-shell {
             position: relative;
-            display: block;
-            aspect-ratio: 9 / 16;
+            z-index: 1;
+            width: 100%;
+            max-width: 1280px;
+            max-height: 95vh;
+            background: #fff;
+            border-radius: 6px;
             overflow: hidden;
-            border-radius: var(--radius-lg);
-            background: var(--ink);
-            box-shadow: var(--shadow-md);
-            text-decoration: none;
-            transition: transform .35s var(--ease-out), box-shadow .35s ease;
+            box-shadow: 0 32px 80px rgba(0,0,0,.34);
+            transform: translateY(24px) scale(.98);
+            opacity: 0;
+            transition: transform .38s var(--ease-out), opacity .3s ease;
+            display: flex;
+            flex-direction: column;
         }
-        .gh-reel:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
-        .gh-reel-video {
+        .pd-modal.is-open .pd-modal-shell {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .pd-modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            z-index: 5;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.97);
+            border: 1px solid #e8e8e8;
+            display: grid;
+            place-items: center;
+            font-size: 26px;
+            line-height: 1;
+            color: #1a1a1a;
+            box-shadow: 0 6px 18px rgba(0,0,0,.16);
+            cursor: pointer;
+            transition: background .2s ease, transform .2s ease, color .2s ease;
+        }
+        .pd-modal-close:hover {
+            background: #1a1a1a;
+            color: #fff;
+            transform: scale(1.06) rotate(90deg);
+        }
+        .pd-modal-body {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr;
+            overflow: hidden;
+            flex: 1;
+            min-height: 0;
+        }
+        .pd-modal-visual {
+            position: relative;
+            background: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        .pd-modal-img {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+            cursor: zoom-in;
+            background: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 0;
+        }
+        .pd-modal-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            display: block;
+            object-fit: contain;
+            object-position: center center;
+            opacity: 1;
+            transition: opacity .28s ease;
+            padding: 8px;
         }
-        .gh-reel-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(74, 59, 62, .82) 0%, rgba(74, 59, 62, .05) 55%);
-            pointer-events: none;
-            transition: background .35s ease;
-        }
-        .gh-reel:hover .gh-reel-overlay {
-            background: linear-gradient(to top, rgba(167, 90, 105, .88) 0%, rgba(74, 59, 62, .15) 60%);
-        }
-        .gh-reel-play {
+        .pd-modal-img.is-fading img { opacity: 0; }
+        .pd-modal-nav {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(.9);
-            width: 58px;
-            height: 58px;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
+            background: rgba(255,255,255,.96);
+            border: 1px solid #e8e8e8;
             display: grid;
             place-items: center;
-            background: rgba(255, 255, 255, .2);
-            border: 1.5px solid rgba(255, 255, 255, .65);
+            color: #1a1a1a;
+            box-shadow: 0 6px 18px rgba(0,0,0,.16);
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity .25s ease, background .2s ease, color .2s ease, transform .2s ease;
+            padding: 0;
+        }
+        .pd-modal-img:hover .pd-modal-nav,
+        .pd-modal-nav:focus-visible { opacity: 1; }
+        .pd-modal-nav:hover {
+            background: #1a1a1a;
+            color: #fff;
+            transform: translateY(-50%) scale(1.08);
+        }
+        .pd-modal-nav svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .pd-modal-nav--prev { left: 14px; }
+        .pd-modal-nav--next { right: 14px; }
+        .pd-modal-counter {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            z-index: 2;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            color: #fff;
+            background: rgba(20, 12, 15, .6);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            color: #fff;
-            opacity: 0;
-            transition: opacity .3s ease, transform .35s var(--ease-out);
-            pointer-events: none;
-        }
-        .gh-reel-play svg { width: 22px; height: 22px; margin-left: 2px; fill: currentColor; }
-        .gh-reel:hover .gh-reel-play,
-        .gh-reel:focus-visible .gh-reel-play { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        .gh-reel-meta {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: clamp(14px, 2vw, 22px);
-            padding: 0 16px;
-            text-align: left;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            z-index: 2;
-        }
-        .gh-reel-tag {
-            font-size: 10.5px;
-            font-weight: 700;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--rose-soft);
-        }
-        .gh-reel-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(16px, 1.6vw, 20px);
-            font-weight: 500;
-            line-height: 1.2;
-        }
-        @media (max-width: 760px) {
-            .gh-reels-grid { gap: 10px; }
-            .gh-reel { border-radius: var(--radius-md); }
-            .gh-reel-play { width: 44px; height: 44px; }
-            .gh-reel-play svg { width: 16px; height: 16px; }
-            .gh-reel-title { font-size: 13px; }
-            .gh-reel-tag { font-size: 9px; letter-spacing: .1em; }
-        }
-        @media (max-width: 480px) {
-            .gh-reels-grid { gap: 6px; }
-            .gh-reel-meta { padding: 0 8px; bottom: 8px; }
-        }
-
-        /* ───────── trust badge row ───────── */
-        .gh-trust {
-            width: var(--site-max);
-            margin-inline: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: clamp(12px, 2vw, 28px);
-        }
-        .gh-trust-item {
-            text-align: center;
-            padding: clamp(20px, 2.6vw, 30px) 16px;
-            border-radius: var(--radius-lg);
-            background: var(--white);
-            border: 1px solid rgba(216, 167, 177, .28);
-            box-shadow: var(--shadow-sm);
-        }
-        .gh-trust-item svg { width: 26px; height: 26px; fill: none; stroke: var(--deep-rose); stroke-width: 1.6; margin-bottom: 12px; }
-        .gh-trust-item h4 { font-size: 13.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); margin: 0 0 6px; }
-        .gh-trust-item p { font-size: 13px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
-
-        /* ───────── responsive ───────── */
-        @media (max-width: 1100px) {
-            .gh-grid { grid-template-columns: repeat(3, 1fr); }
-            .gh-cats { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 860px) {
-            .gh-trust { grid-template-columns: repeat(2, 1fr); }
-        }
-                @media (max-width: 760px) {
-            .gh-grid { grid-template-columns: repeat(2, 1fr); }
-            .gh-cats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .gh-cat {
-                aspect-ratio: 4 / 5;
-                border-radius: var(--radius-md);
-            }
-            .gh-cat img {
-                object-position: center 20%;
-            }
-            .gh-hero-arrow { display: none; }
-            .gh-quick { opacity: 1; transform: none; }
-            .gh-cat-meta {
-                bottom: 14px;
-                gap: 10px;
-                padding: 0 10px;
-            }
-            .gh-cat-name {
-                font-size: 13px;
-                letter-spacing: .06em;
-                line-height: 1.25;
-            }
-            .gh-cat-cta {
-                width: auto;
-                max-width: none;
-                padding: 7px 14px;
-                font-size: 9.5px;
-                letter-spacing: .08em;
-                line-height: 1;
-                white-space: nowrap;
-                opacity: 1;
-                transform: none;
-            }
-
-            /* Collection grids — compact mobile cards */
-            #everyday h2.section-title,
-            #night h2.section-title,
-            #shape h2.section-title {
-                font-size: 22px;
-                letter-spacing: .02em;
-            }
-            #everyday .gh-head p,
-            #night .gh-head p,
-            #shape .gh-head p {
-                font-size: 13px;
-                line-height: 1.55;
-                margin-top: 10px;
-            }
-            #everyday .gh-badge,
-            #night .gh-badge,
-            #shape .gh-badge {
-                top: 8px;
-                left: 8px;
-                font-size: 8px;
-                letter-spacing: .06em;
-                padding: 4px 8px;
-            }
-            #everyday .gh-quick,
-            #night .gh-quick,
-            #shape .gh-quick {
-                left: 8px;
-                right: 8px;
-                bottom: 8px;
-                font-size: 8px;
-                font-weight: 600;
-                letter-spacing: .04em;
-                line-height: 1.2;
-                padding: 6px 8px;
-                border-radius: 8px;
-                white-space: nowrap;
-            } 
-            .gh-cats { gap: 8px; }
-            .gh-cat { aspect-ratio: 4 / 5; }
-            .gh-cat-name { font-size: 11.5px; letter-spacing: .04em; }
-            .gh-cat-cta {
-                padding: 6px 10px;
-                font-size: 8.5px;
-                letter-spacing: .06em;
-            }
-            
-
-            #everyday .gh-card-info,
-            #night .gh-card-info,
-            #shape .gh-card-info { padding: 10px 8px 12px; }
-            #everyday .gh-card-name,
-            #night .gh-card-name,
-            #shape .gh-card-name {
-                font-size: 11px;
-                letter-spacing: .04em;
-                line-height: 1.25;
-                margin-bottom: 4px;
-            }
-            #everyday .gh-price,
-            #night .gh-price,
-            #shape .gh-price { gap: 6px; }
-            #everyday .gh-price .gh-now,
-            #night .gh-price .gh-now,
-            #shape .gh-price .gh-now { font-size: 12px; }
-            #everyday .gh-price .gh-was,
-            #night .gh-price .gh-was,
-            #shape .gh-price .gh-was { font-size: 10.5px; }
-        }
-        @media (max-width: 480px) {
-            :root { --ann-h: 46px; }
-            .gh-ann { font-size: 10.5px; letter-spacing: .06em; padding: 0 34px; }
-            .gh-card-info { padding: 12px 10px 16px; }
-            .gh-card-name { font-size: 12.5px; letter-spacing: .08em; }
-            .gh-price .gh-now { font-size: 13px; }
-            .gh-price .gh-was { font-size: 12px; }
-            .gh-news-form input { flex: 1 1 100%; }
-            .gh-news-form .btn { width: 100%; justify-content: center; }
-
-            #everyday h2.section-title,
-            #night h2.section-title,
-            #shape h2.section-title { font-size: 20px; }
-            #everyday .gh-card-info,
-            #night .gh-card-info,
-            #shape .gh-card-info { padding: 8px 6px 10px; }
-            #everyday .gh-card-name,
-            #night .gh-card-name,
-            #shape .gh-card-name { font-size: 10.5px; letter-spacing: .03em; }
-            #everyday .gh-price .gh-now,
-            #night .gh-price .gh-now,
-            #shape .gh-price .gh-now { font-size: 11.5px; }
-            #everyday .gh-price .gh-was,
-            #night .gh-price .gh-was,
-            #shape .gh-price .gh-was { font-size: 10px; }
-            #everyday .gh-quick,
-            #night .gh-quick,
-            #shape .gh-quick {
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
-                font-size: 7.5px;
-                letter-spacing: .03em;
-                padding: 5px 6px;
-            }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .gh-slide, .gh-slide img, .gh-cat img, .gh-card, .gh-card-img img { transition: none; }
-            .gh-slide.is-on img { transform: none; }
-        }
-        /* ───────── size guide & fit finder ───────── */
-        .sg-size-wrap { width: var(--site-max); margin-inline: auto; }
-        .sg-size-grid {
-            display: grid;
-            grid-template-columns: 1.15fr .85fr;
-            gap: clamp(20px, 2.5vw, 32px);
-            align-items: stretch;
-        }
-        .sg-size-chart,
-        .sg-fit-finder {
-            background: var(--white);
-            border: 1px solid rgba(216, 167, 177, .28);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            padding: clamp(22px, 2.6vw, 32px);
-        }
-        .sg-size-tabs {
-            display: flex;
-            gap: 6px;
-            background: var(--ivory-deep);
-            padding: 6px;
+            padding: 7px 14px;
             border-radius: 999px;
-            margin-bottom: 20px;
-        }
-        .sg-size-tab {
-            flex: 1;
-            font-family: inherit;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .02em;
-            color: var(--ink-soft);
-            background: transparent;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: background .25s ease, color .25s ease, box-shadow .25s ease;
-            white-space: nowrap;
-        }
-        .sg-size-tab:hover { color: var(--deep-rose); }
-        .sg-size-tab.is-on {
-            background: var(--white);
-            color: var(--deep-rose);
-            box-shadow: var(--shadow-sm);
-        }
-        .sg-size-panels { position: relative; }
-        .sg-size-table {
             display: none;
-            width: 100%;
-            border-collapse: collapse;
-            font-family: 'Poppins', sans-serif;
-            font-size: 13.5px;
         }
-        .sg-size-table.is-on { display: table; }
-        .sg-size-table th {
-            text-align: left;
-            font-weight: 700;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            font-size: 11px;
-            color: var(--ink-soft);
-            padding: 10px 12px;
-            border-bottom: 1px solid rgba(216, 167, 177, .4);
-        }
-        .sg-size-table td {
-            padding: 12px;
-            border-bottom: 1px solid rgba(216, 167, 177, .2);
-            color: var(--ink);
-        }
-        .sg-size-table tr:last-child td { border-bottom: none; }
-        .sg-size-table td:first-child {
-            font-weight: 700;
-            color: var(--deep-rose);
-            letter-spacing: .04em;
-        }
-        .sg-size-note {
-            margin-top: 16px;
-            font-size: 12.5px;
-            line-height: 1.6;
-            color: var(--ink-soft);
-        }
-        .sg-fit-finder { display: flex; flex-direction: column; gap: 18px; }
-        .sg-fit-head h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(22px, 2.2vw, 28px);
-            font-weight: 500;
-            line-height: 1.2;
-            color: var(--ink);
-            margin: 8px 0 6px;
-        }
-        .sg-fit-head p {
-            font-size: 13.5px;
-            line-height: 1.6;
-            color: var(--ink-soft);
-            margin: 0;
-        }
-        .sg-fit-tag {
-            display: inline-block;
-            font-size: 10.5px;
-            font-weight: 700;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--deep-rose);
-            background: color-mix(in srgb, var(--rose-soft) 32%, transparent);
-            padding: 6px 12px;
-            border-radius: 999px;
-        }
-        .sg-fit-form { display: flex; flex-direction: column; gap: 14px; }
-        .sg-fit-field { display: block; }
-        .sg-fit-field > span {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-bottom: 8px;
-        }
-        .sg-fit-row { display: flex; align-items: center; gap: 8px; }
-        .sg-fit-row input {
-            flex: 1;
-            min-width: 0;
-            font-family: inherit;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--ink);
-            background: var(--ivory);
-            border: 1.5px solid rgba(216, 167, 177, .45);
-            border-radius: var(--radius-sm);
-            padding: 12px 14px;
-            text-align: center;
-            transition: border-color .2s ease, background .2s ease;
-        }
-        .sg-fit-row input:focus {
-            outline: none;
-            border-color: var(--deep-rose);
-            background: var(--white);
-        }
-        .sg-fit-row small { font-size: 12px; font-weight: 600; color: var(--ink-soft); }
-        .sg-fit-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-        .sg-fit-pill {
-            flex: 1;
-            min-width: 90px;
-            font-family: inherit;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--ink-soft);
-            background: var(--ivory);
-            border: 1.5px solid rgba(216, 167, 177, .45);
-            border-radius: 999px;
-            padding: 10px 14px;
-            cursor: pointer;
-            transition: background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
-        }
-        .sg-fit-pill:hover { border-color: var(--rose); color: var(--deep-rose); }
-        .sg-fit-pill.is-on {
-            background: var(--deep-rose);
-            border-color: var(--deep-rose);
-            color: var(--white);
-            box-shadow: 0 6px 16px rgba(167, 90, 105, .22);
-        }
-        .sg-fit-submit { width: 100%; justify-content: center; margin-top: 4px; }
-        .sg-fit-result {
-            display: none;
-            margin: 4px 0 0;
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--ink);
-            background: color-mix(in srgb, var(--rose-soft) 30%, transparent);
-            border: 1px solid rgba(216, 167, 177, .45);
-            border-radius: var(--radius-sm);
-            padding: 12px 14px;
-            text-align: center;
-        }
-        .sg-fit-result.is-on { display: block; }
-        .sg-fit-result strong { color: var(--deep-rose); font-weight: 700; }
-        .sg-fit-wa {
-            display: inline-flex;
-            align-items: center;
+        .pd-modal-counter.is-on { display: block; }
+        .pd-modal-thumbs {
+            display: flex;
             gap: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--deep-rose);
-            text-decoration: none;
-            align-self: flex-start;
-            transition: gap .25s ease, color .25s ease;
+            padding: 12px 16px;
+            background: #f2f2f2;
+            border-top: 1px solid rgba(0,0,0,.06);
+            overflow-x: auto;
+            scrollbar-width: thin;
+            justify-content: center;
+            -webkit-overflow-scrolling: touch;
+            flex-shrink: 0;
         }
-        .sg-fit-wa:hover { gap: 12px; color: #8f4a58; }
-        .sg-size-tips {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: clamp(14px, 1.8vw, 22px);
-            margin-top: clamp(22px, 2.6vw, 30px);
-        }
-        .sg-size-tip {
-            background: var(--white);
-            border: 1px solid rgba(216, 167, 177, .28);
-            border-radius: var(--radius-md);
-            padding: clamp(18px, 2vw, 22px);
-            transition: transform .3s var(--ease-out), box-shadow .3s ease, border-color .3s ease;
-        }
-        .sg-size-tip:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--rose);
-        }
-        .sg-size-tip-icon { font-size: 24px; line-height: 1; margin-bottom: 10px; }
-        .sg-size-tip h4 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: .04em;
-            color: var(--ink);
-            margin: 0 0 6px;
-        }
-        .sg-size-tip p {
-            font-size: 13px;
-            line-height: 1.6;
-            color: var(--ink-soft);
-            margin: 0;
-        }
-        @media (max-width: 900px) {
-            .sg-size-grid { grid-template-columns: 1fr; }
-            .sg-size-tips { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 560px) {
-            .sg-size-tips { grid-template-columns: 1fr; }
-            .sg-size-tab { font-size: 12px; padding: 9px 10px; }
-            .sg-fit-pill { min-width: 0; font-size: 12px; padding: 9px 12px; }
-            .sg-size-table { font-size: 12.5px; }
-            .sg-size-table th, .sg-size-table td { padding: 10px 8px; }
-        }
-        /* ───────── customer UGC wall ───────── */
-        .ugc-wrap { width: var(--site-max); margin-inline: auto; }
-        .ugc-intro {
-            text-align: center;
-            max-width: 660px;
-            margin: 0 auto clamp(24px, 3vw, 36px);
-        }
-        .ugc-hashtag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--deep-rose);
-            background: color-mix(in srgb, var(--rose-soft) 30%, transparent);
-            border: 1px solid rgba(216, 167, 177, .45);
-            padding: 8px 16px;
-            border-radius: 999px;
-            text-decoration: none;
-            transition: background .25s ease, transform .25s var(--ease-out), box-shadow .25s ease;
-        }
-        .ugc-hashtag:hover {
-            background: var(--rose-soft);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-        }
-        .ugc-hashtag svg { width: 15px; height: 15px; fill: currentColor; }
-        .ugc-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: clamp(10px, 1.4vw, 18px);
-        }
-        .ugc-tile {
-            position: relative;
-            display: block;
-            aspect-ratio: 1 / 1;
+        .pd-modal-thumbs.is-hidden { display: none; }
+        .pd-modal-thumb {
+            width: 62px;
+            height: 78px;
+            border-radius: 3px;
             overflow: hidden;
-            border-radius: var(--radius-md);
-            background: var(--ivory-deep);
+            border: 2px solid transparent;
             cursor: pointer;
-            text-decoration: none;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(216, 167, 177, .22);
-            transition: transform .35s var(--ease-out), box-shadow .35s ease, border-color .35s ease;
+            padding: 0;
+            background: #fff;
+            transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+            flex-shrink: 0;
+            position: relative;
         }
-        .ugc-tile:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--rose);
-        }
-        .ugc-tile img {
+        .pd-modal-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform .6s var(--ease-out);
-        }
-        .ugc-tile:hover img { transform: scale(1.07); }
-        .ugc-tile::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(74, 59, 62, .72) 0%, rgba(74, 59, 62, .05) 55%);
-            opacity: 0;
-            transition: opacity .3s ease;
+            display: block;
             pointer-events: none;
+            user-select: none;
         }
-        .ugc-tile:hover::after { opacity: 1; }
-        .ugc-ig-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: rgba(255, 255, 255, .92);
-            box-shadow: 0 4px 12px rgba(74, 59, 62, .18);
-            z-index: 2;
-            opacity: .92;
-            transition: transform .3s ease, opacity .3s ease;
+        .pd-modal-thumb:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,.12);
         }
-        .ugc-tile:hover .ugc-ig-badge { transform: scale(1.08); opacity: 1; }
-        .ugc-ig-badge svg { width: 15px; height: 15px; fill: var(--deep-rose); }
-        .ugc-tile-meta {
-            position: absolute;
-            left: 0; right: 0;
-            bottom: 0;
-            padding: 12px 14px;
-            z-index: 2;
+        .pd-modal-thumb.is-active {
+            border-color: var(--deep-rose);
+            box-shadow: 0 0 0 1px var(--deep-rose);
+        }
+        .pd-modal-info {
+            padding: clamp(28px, 3vw, 46px) clamp(24px, 2.6vw, 40px);
             display: flex;
             flex-direction: column;
-            gap: 3px;
-            color: #fff;
-            opacity: 0;
-            transform: translateY(8px);
-            transition: opacity .3s ease, transform .35s var(--ease-out);
-            text-align: left;
+            justify-content: center;
+            overflow-y: auto;
+            background: #fff;
         }
-        .ugc-tile:hover .ugc-tile-meta,
-        .ugc-tile:focus-visible .ugc-tile-meta {
-            opacity: 1;
-            transform: translateY(0);
+        .pd-modal-category {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--deep-rose);
+            margin-bottom: 12px;
         }
-        .ugc-tile-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+        .pd-modal-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 2.6vw, 38px);
+            font-weight: 500;
+            line-height: 1.15;
+            color: #1a1a1a;
+            margin: 0 0 16px;
+            letter-spacing: -.01em;
+        }
+        .pd-modal-price {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .pd-modal-price .now {
+            font-size: 24px;
             font-weight: 700;
-            line-height: 1.2;
+            color: #1a1a1a;
             letter-spacing: .02em;
         }
-        .ugc-tile-tag {
-            font-family: 'Poppins', sans-serif;
+        .pd-modal-price .was {
+            font-size: 16px;
+            font-weight: 400;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .pd-modal-price .save-badge {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--deep-rose);
+            padding: 6px 12px;
+            border-radius: 2px;
+        }
+        .pd-modal-desc {
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #666;
+            margin: 0 0 26px;
+        }
+        .pd-modal-divider {
+            height: 1px;
+            background: #e8e8e8;
+            margin: 0 0 22px;
+        }
+        .pd-modal-wa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 17px 28px;
+            border-radius: 2px;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+            align-self: flex-start;
+            text-decoration: none;
+        }
+        .pd-modal-wa:hover {
+            background: var(--deep-rose);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(167, 90, 105, .34);
+        }
+        .pd-modal-wa svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+        .pd-modal-note {
             font-size: 11px;
-            font-weight: 500;
-            letter-spacing: .04em;
-            color: var(--rose-soft);
+            color: #999;
+            letter-spacing: .08em;
+            margin-top: 16px;
+            text-transform: uppercase;
         }
-        .ugc-cta {
-            text-align: center;
-            margin-top: clamp(28px, 3.5vw, 42px);
+        @media (max-width: 760px) {
+            .pd-modal { padding: 0; align-items: flex-end; }
+            .pd-modal-shell {
+                max-width: 100%;
+                max-height: 96vh;
+                border-radius: 18px 18px 0 0;
+                transform: translateY(100%);
+            }
+            .pd-modal.is-open .pd-modal-shell { transform: translateY(0); }
+            .pd-modal-body { grid-template-columns: 1fr; }
+            .pd-modal-visual { min-height: auto; }
+            .pd-modal-img { min-height: 46vh; max-height: 52vh; flex: none; }
+            .pd-modal-img img { padding: 6px; }
+            .pd-modal-thumbs { padding: 10px 12px; justify-content: flex-start; flex-wrap: nowrap; }
+            .pd-modal-thumb { width: 50px; height: 63px; }
+            .pd-modal-nav { width: 40px; height: 40px; opacity: 1; }
+            .pd-modal-nav--prev { left: 8px; }
+            .pd-modal-nav--next { right: 8px; }
+            .pd-modal-info { padding: 22px 20px 32px; }
+            .pd-modal-title { font-size: 22px; }
+            .pd-modal-price .now { font-size: 19px; }
+            .pd-modal-wa { width: 100%; }
+            .pd-modal-close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 22px; }
         }
-        .ugc-cta p {
-            font-size: 14px;
-            line-height: 1.7;
-            color: var(--ink-soft);
-            margin: 0 0 14px;
-        }
-        .ugc-cta p strong { color: var(--deep-rose); font-weight: 700; }
-        @media (max-width: 900px) {
-            .ugc-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 560px) {
-            .ugc-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-            .ugc-tile { border-radius: var(--radius-sm); }
-            .ugc-tile-meta { opacity: 1; transform: none; padding: 8px 10px; }
-            .ugc-tile-name { font-size: 11px; }
-            .ugc-tile-tag { font-size: 9.5px; }
-            .ugc-ig-badge { width: 24px; height: 24px; top: 6px; right: 6px; }
-            .ugc-ig-badge svg { width: 12px; height: 12px; }
+        @media (prefers-reduced-motion: reduce) {
+            .pd-modal, .pd-modal-shell, .pd-modal-img img { transition: none; }
         }
     </style>
 </head>
@@ -4375,7 +4060,6 @@
         </div>
     </section>
  <!-- ═══════════ FEATURED COLLECTION ═══════════ -->
-<!-- ═══════════ FEATURED COLLECTION ═══════════ -->
 <section class="fc-section reveal" id="featured-collection">
     <div class="fc-wrap">
         <div class="fc-banner">
@@ -4391,331 +4075,232 @@
             </div>
         </div>
 
-       <div class="fc-carousel">
-    <button type="button" class="fc-arrow fc-arrow--prev" aria-label="Previous products">
-        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
+        <div class="fc-carousel">
+            <button type="button" class="fc-arrow fc-arrow--prev" aria-label="Previous products">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
 
-    <div class="fc-viewport">
-        <div class="fc-track" id="fcTrack">
+            <div class="fc-viewport">
+                <div class="fc-track" id="fcTrack">
 
-            <!-- 12 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%202%20Pcs%20Hand%20Embroidered%20Chiffon%20Suit" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/12.jpg" alt="2 Pcs Hand Embroidered Chiffon Suit" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">2 Pcs Hand Embroidered<br>Chiffon Suit</div>
-                        <div class="fc-card-price">Rs. 3,300</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 12 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%202%20Pcs%20Hand%20Embroidered%20Chiffon%20Suit" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/12.jpg" alt="2 Pcs Hand Embroidered Chiffon Suit" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">2 Pcs Hand Embroidered<br>Chiffon Suit</div>
+                                <div class="fc-card-price">Rs. 3,300</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 11 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%203%20Piece%20Digital%20Printed%20Swiss%20Lawn%20Suit" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/11.jpg" alt="3 Piece Digital Printed Swiss Lawn Suit" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">3 Piece Digital Printed<br>Swiss Lawn Suit</div>
-                        <div class="fc-card-price">Rs. 4,000</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 11 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%203%20Piece%20Digital%20Printed%20Swiss%20Lawn%20Suit" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/11.jpg" alt="3 Piece Digital Printed Swiss Lawn Suit" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">3 Piece Digital Printed<br>Swiss Lawn Suit</div>
+                                <div class="fc-card-price">Rs. 4,000</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 10 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Elegant%20Off-White%20Embroidery%20Kurti" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/10.jpg" alt="Elegant Off-White Embroidery Kurti" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">Elegant Off-White<br>Embroidery Kurti</div>
-                        <div class="fc-card-price">Rs. 5,540</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 10 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Elegant%20Off-White%20Embroidery%20Kurti" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/10.jpg" alt="Elegant Off-White Embroidery Kurti" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">Elegant Off-White<br>Embroidery Kurti</div>
+                                <div class="fc-card-price">Rs. 5,540</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 9 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%202%20Pcs%20Womens%20Unstitched%20Gota%20Work%20Suit" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/09.jpg" alt="2 Pcs Womens Unstitched Gota Work Suit" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">2 Pcs Womens Unstitched<br>Gota Work Suit</div>
-                        <div class="fc-card-price">Rs. 3,000</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 9 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%202%20Pcs%20Womens%20Unstitched%20Gota%20Work%20Suit" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/09.jpg" alt="2 Pcs Womens Unstitched Gota Work Suit" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">2 Pcs Womens Unstitched<br>Gota Work Suit</div>
+                                <div class="fc-card-price">Rs. 3,000</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 8 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Noor-e-Chiffon%20Hand%20Embroidered%202%20Pcs%20Suit" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/08.jpg" alt="Noor-e-Chiffon Hand Embroidered 2 Pcs Suit" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">Noor-e-Chiffon Hand Embroidered<br>2 Pcs Suit</div>
-                        <div class="fc-card-price">Rs. 3,200</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 8 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Noor-e-Chiffon%20Hand%20Embroidered%202%20Pcs%20Suit" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/08.jpg" alt="Noor-e-Chiffon Hand Embroidered 2 Pcs Suit" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">Noor-e-Chiffon Hand Embroidered<br>2 Pcs Suit</div>
+                                <div class="fc-card-price">Rs. 3,200</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 7 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%203%20Pcs%20Womens%20Unstitched%20Embroidered%20Dhanak%20Suit" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/07.jpg" alt="3 Pcs Women's Unstitched Embroidered Dhanak Suit" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">3 Pcs Women's Unstitched<br>Embroidered Dhanak Suit</div>
-                        <div class="fc-card-price">Rs. 3,600</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 7 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%203%20Pcs%20Womens%20Unstitched%20Embroidered%20Dhanak%20Suit" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/07.jpg" alt="3 Pcs Women's Unstitched Embroidered Dhanak Suit" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">3 Pcs Women's Unstitched<br>Embroidered Dhanak Suit</div>
+                                <div class="fc-card-price">Rs. 3,600</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 6 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%202%20Pcs%20Womens%20Stitched%20Cotton%20Embroidered%20Shirt%20and%20Farshi%20Shalwar" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/06.jpg" alt="2 Pcs Women's Stitched Cotton Embroidered Shirt & Farshi Shalwar" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">2 Pcs Stitched Cotton<br>Embroidered Shirt & Farshi Shalwar</div>
-                        <div class="fc-card-price">Rs. 4,000</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 6 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%202%20Pcs%20Womens%20Stitched%20Cotton%20Embroidered%20Shirt%20and%20Farshi%20Shalwar" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/06.jpg" alt="2 Pcs Women's Stitched Cotton Embroidered Shirt & Farshi Shalwar" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">2 Pcs Stitched Cotton<br>Embroidered Shirt & Farshi Shalwar</div>
+                                <div class="fc-card-price">Rs. 4,000</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 5 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Black%20Embroidered%203-Piece%20Lawn%20Suit%20with%20Printed%20Shawl" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/05.jpg" alt="Black Embroidered 3-Piece Lawn Suit with Printed Shawl" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">Black Embroidered 3-Piece<br>Lawn Suit with Printed Shawl</div>
-                        <div class="fc-card-price">Rs. 4,000</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 5 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Black%20Embroidered%203-Piece%20Lawn%20Suit%20with%20Printed%20Shawl" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/05.jpg" alt="Black Embroidered 3-Piece Lawn Suit with Printed Shawl" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">Black Embroidered 3-Piece<br>Lawn Suit with Printed Shawl</div>
+                                <div class="fc-card-price">Rs. 4,000</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 4 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Blue%20Digital%20Print%203-Piece%20Lawn%20Suit" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/04.jpg" alt="Blue Digital Print 3-Piece Lawn Suit" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">Blue Digital Print<br>3-Piece Lawn Suit</div>
-                        <div class="fc-card-price">Rs. 4,000</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 4 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Blue%20Digital%20Print%203-Piece%20Lawn%20Suit" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/04.jpg" alt="Blue Digital Print 3-Piece Lawn Suit" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">Blue Digital Print<br>3-Piece Lawn Suit</div>
+                                <div class="fc-card-price">Rs. 4,000</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 3 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Women%27s%20Block%20Printed%202-Piece%20Linen%20Suit" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/03.jpg" alt="Women's Block Printed 2-Piece Linen Suit" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">Women's Block Printed<br>2-Piece Linen Suit</div>
-                        <div class="fc-card-price">Rs. 2,250</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 3 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Women%27s%20Block%20Printed%202-Piece%20Linen%20Suit" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/03.jpg" alt="Women's Block Printed 2-Piece Linen Suit" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">Women's Block Printed<br>2-Piece Linen Suit</div>
+                                <div class="fc-card-price">Rs. 2,250</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 2 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Black%20Embroidered%203-Piece%20Lawn%20Suit%20for%20Women" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/02.jpg" alt="Black Embroidered 3-Piece Lawn Suit for Women" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">Black Embroidered<br>3-Piece Lawn Suit</div>
-                        <div class="fc-card-price">Rs. 4,000</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 2 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Black%20Embroidered%203-Piece%20Lawn%20Suit%20for%20Women" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/02.jpg" alt="Black Embroidered 3-Piece Lawn Suit for Women" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">Black Embroidered<br>3-Piece Lawn Suit</div>
+                                <div class="fc-card-price">Rs. 4,000</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
-            <!-- 1 -->
-            <article class="fc-card">
-                <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Brown%20Block%20Printed%20Arabic%20Lawn%203-Piece%20Suit" target="_blank" rel="noopener">
-                    <div class="fc-card-img">
-                        <img src="assets/images/Sale/01.jpg" alt="Brown Block Printed Arabic Lawn 3-Piece Suit" loading="lazy" />
-                    </div>
-                    <div class="fc-card-info">
-                        <div class="fc-card-name">Brown Block Printed<br>Arabic Lawn 3-Piece Suit</div>
-                        <div class="fc-card-price">Rs. 3,000</div>
-                    </div>
-                </a>
-                <button type="button" class="fc-wish" aria-label="Wishlist">
-                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                </button>
-            </article>
+                    <!-- 1 -->
+                    <article class="fc-card">
+                        <a class="fc-card-link" href="https://wa.me/923379022920?text=Hi%20Softgarments!%20I%27d%20like%20to%20order%20Brown%20Block%20Printed%20Arabic%20Lawn%203-Piece%20Suit" target="_blank" rel="noopener">
+                            <div class="fc-card-img">
+                                <img src="assets/images/Sale/01.jpg" alt="Brown Block Printed Arabic Lawn 3-Piece Suit" loading="lazy" />
+                            </div>
+                            <div class="fc-card-info">
+                                <div class="fc-card-name">Brown Block Printed<br>Arabic Lawn 3-Piece Suit</div>
+                                <div class="fc-card-price">Rs. 3,000</div>
+                            </div>
+                        </a>
+                        <button type="button" class="fc-wish" aria-label="Wishlist">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </button>
+                    </article>
 
+                </div>
+            </div>
+
+            <button type="button" class="fc-arrow fc-arrow--next" aria-label="Next products">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+
+        <div class="fc-dots" id="fcDots"></div>
+    </div>
+</section>
+
+<!-- ═══════════ COLLECTION — Everyday Essentials ═══════════ -->
+<section class="gh-section reveal" id="everyday">
+    <div class="gh-head">
+        <h2 class="section-title">Everyday <em>Fashion</em></h2>
+        <span class="gh-rule"></span>
+        <p>Discover comfortable everyday clothing designed with quality fabrics, modern styles and effortless versatility.</p>
+    </div>
+    <div class="gh-wrap">
+        <div class="gh-grid" id="homeEverydayGrid"></div>
+        <div class="gh-viewall">
+            <a class="btn btn-outline" href="collection-RTW.html" target="_blank" rel="noopener">View all</a>
         </div>
     </div>
-
-    <button type="button" class="fc-arrow fc-arrow--next" aria-label="Next products">
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-</div>
-
-<div class="fc-dots" id="fcDots"></div>
-    <!-- ═══════════ COLLECTION — Everyday Essentials ═══════════ -->
-    <section class="gh-section reveal" id="everyday">
-        <div class="gh-head">
-            <h2 class="section-title">Everyday <em>Fashion</em></h2>
-            <span class="gh-rule"></span>
-            <p>Discover comfortable everyday clothing designed with quality fabrics, modern styles and effortless versatility.</p>
-            <div class="gh-wrap">
-            <div class="gh-grid">
-
-                <!-- Product 6 -->
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Cotton%20Embroidered%20Suit%20%28Rs.%204%2C000%29." target="_blank" rel="noopener" aria-label="Order Cotton Embroidered Suit on WhatsApp">
-                    <span class="gh-card-img">
-                        <img data-sg-collection="Soft Garments" src="assets/images/Sale/06-3.jpg" alt="Cotton Embroidered Suit" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Cotton Embroidered<br>Suit</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 4,000</span><span class="gh-was">Rs. 5,000</span></span>
-                    </span>
-                </a>
-
-                <!-- Product 12 -->
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Hand%20Embroidered%20Chiffon%20Suit%20%28Rs.%203%2C300%29." target="_blank" rel="noopener" aria-label="Order Hand Embroidered Chiffon Suit on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">50% OFF</span>
-                        <img data-sg-collection="Soft Garments" src="assets/images/Sale/12-5.jpg" alt="Hand Embroidered Chiffon Suit" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Hand Embroidered<br>Chiffon Suit</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 3,300</span><span class="gh-was">Rs. 6,600</span></span>
-                    </span>
-                </a>
-
-                <!-- Product 9 -->
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Gota%20Work%20Suit%20%28Rs.%203%2C000%29." target="_blank" rel="noopener" aria-label="Order Gota Work Suit on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">25% OFF</span>
-                        <img data-sg-collection="Soft Garments" src="assets/images/Sale/09.3.jpg" alt="Gota Work Suit" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Unstitched Gota<br>Work Suit</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 3,000</span><span class="gh-was">Rs. 4,000</span></span>
-                    </span>
-                </a>
-
-                <!-- Product 4 -->
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Blue%20Digital%20Print%20Lawn%20Suit%20%28Rs.%204%2C000%29." target="_blank" rel="noopener" aria-label="Order Blue Digital Print Lawn Suit on WhatsApp">
-                    <span class="gh-card-img">
-                        <img data-sg-collection="Soft Garments" src="assets/images/Sale/04.jpg" alt="Blue Digital Print Lawn Suit" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Blue Digital Print<br>Lawn Suit</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 4,000</span><span class="gh-was">Rs. 5,000</span></span>
-                    </span>
-                </a>
-
-                <!-- Product 13 -->
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Hand%20Embroidered%20Suit%20%28Rs.%203%2C000%29." target="_blank" rel="noopener" aria-label="Order Hand Embroidered Suit on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">55% OFF</span>
-                        <img data-sg-collection="Soft Garments" src="assets/images/Sale/13-2.jpg" alt="Hand Embroidered Suit" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Hand Embroidered<br>2 Pcs Suit</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 3,000</span><span class="gh-was">Rs. 6,600</span></span>
-                    </span>
-                </a>
-
-                <!-- Product 7 -->
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Embroidered%20Dhanak%20Suit%20%28Rs.%203%2C600%29." target="_blank" rel="noopener" aria-label="Order Embroidered Dhanak Suit on WhatsApp">
-                    <span class="gh-card-img">
-                        <img data-sg-collection="Soft Garments" src="assets/images/Sale/07.jpg" alt="Embroidered Dhanak Suit" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Embroidered<br>Dhanak Suit</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 3,600</span><span class="gh-was">Rs. 4,500</span></span>
-                    </span>
-                </a>
-
-                <!-- Product 2 -->
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Black%20Embroidered%20Lawn%20Suit%20%28Rs.%204%2C000%29." target="_blank" rel="noopener" aria-label="Order Black Embroidered Lawn Suit on WhatsApp">
-                    <span class="gh-card-img">
-                        <img data-sg-collection="Soft Garments" src="assets/images/Sale/02.jpg" alt="Black Embroidered Lawn Suit" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Black Embroidered<br>Lawn Suit</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 4,000</span><span class="gh-was">Rs. 5,000</span></span>
-                    </span>
-                </a>
-
-                <!-- Product 1 -->
-                <a class="gh-card" href="https://wa.me/923379022920?text=Hi%20Softgarments%21%20I%27d%20like%20to%20order%20Brown%20Block%20Printed%20Lawn%20Suit%20%28Rs.%203%2C000%29." target="_blank" rel="noopener" aria-label="Order Brown Block Printed Lawn Suit on WhatsApp">
-                    <span class="gh-card-img">
-                        <span class="gh-badge">14% OFF</span>
-                        <img data-sg-collection="Soft Garments" src="assets/images/Sale/01.jpg" alt="Brown Block Printed Lawn Suit" loading="lazy" width="420" height="528" />
-                        <span class="gh-quick">Order on WhatsApp</span>
-                    </span>
-                    <span class="gh-card-info">
-                        <span class="gh-card-name">Brown Block Printed<br>Lawn Suit</span>
-                        <span class="gh-price"><span class="gh-now">Rs. 3,000</span><span class="gh-was">Rs. 3,500</span></span>
-                    </span>
-                </a>
-
-            </div>
-        </div>
-            <div class="gh-viewall">
-                <a class="btn btn-outline" href="collection-RTW.html" target="_blank" rel="noopener">View all</a>
-            </div>
-        </div>
-    </section>
+</section>
 <!-- ═══════════ TRUST ROW ═══════════ -->
     <section class="gh-section gh-section--tint reveal" id="gh-trust">
         <div class="gh-trust">
@@ -4906,6 +4491,7 @@
             </div>
         </div>
     </section>
+    </div>
     <!-- ═════════════ SHOP LINK VIEW — index.html ══════════════════ -->
     <div class="view" id="view-home">
 
@@ -5377,6 +4963,41 @@
     <a class="float-wa" href="https://wa.me/923379022920" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
     </a>
+
+    <!-- ═══════════ PRODUCT PREVIEW MODAL ═══════════ -->
+    <div class="pd-modal" id="homePdModal" role="dialog" aria-modal="true" aria-labelledby="homePdTitle" aria-hidden="true">
+        <div class="pd-modal-overlay" id="homePdOverlay"></div>
+        <div class="pd-modal-shell">
+            <button type="button" class="pd-modal-close" id="homePdClose" aria-label="Close product details">&times;</button>
+            <div class="pd-modal-body">
+                <div class="pd-modal-visual">
+                    <div class="pd-modal-img" id="homePdImgWrap">
+                        <span class="pd-modal-counter" id="homePdCounter"></span>
+                        <img id="homePdImg" src="" alt="" />
+                        <button type="button" class="pd-modal-nav pd-modal-nav--prev" id="homePdNavPrev" aria-label="Previous image">
+                            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button type="button" class="pd-modal-nav pd-modal-nav--next" id="homePdNavNext" aria-label="Next image">
+                            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                    </div>
+                    <div class="pd-modal-thumbs is-hidden" id="homePdThumbs"></div>
+                </div>
+                <div class="pd-modal-info">
+                    <div class="pd-modal-category" id="homePdCategory"></div>
+                    <h2 class="pd-modal-title" id="homePdTitle"></h2>
+                    <div class="pd-modal-price" id="homePdPrice"></div>
+                    <p class="pd-modal-desc" id="homePdDesc"></p>
+                    <div class="pd-modal-divider"></div>
+                    <a class="pd-modal-wa" id="homePdWa" href="#" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.3-63.3-28.3-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.5 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/></svg>
+                        Order on WhatsApp
+                    </a>
+                    <div class="pd-modal-note">Cash on Delivery · Nationwide</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/site-images.js"></script>
     <script>
@@ -6344,6 +5965,289 @@
                     this.src = 'https://picsum.photos/seed/ugc-' + Math.random().toString(36).slice(2, 8) + '/400/400';
                 });
             });
+        })();
+
+        /* ══════════════════════════════════════════════════════════
+           EVERYDAY PRODUCTS + PREVIEW MODAL
+           ══════════════════════════════════════════════════════════ */
+        (function() {
+            var WHATSAPP = '923379022920';
+
+            var PRODUCTS = [
+                            {
+                                id: 'home-6',
+                                name: 'Cotton Embroidered Suit',
+                                price: 4000,
+                                compareAt: 5000,
+                                category: 'Embroidered',
+                                image: 'assets/images/Sale/06.jpg',
+                                images: [
+                                    'assets/images/Sale/06.jpg',
+                                    'assets/images/Sale/06-2.jpg',
+                                    'assets/images/Sale/06-3.jpg'
+                                ],
+                                description: 'A premium cotton embroidered suit with detailed threadwork and a comfortable fit for all-day wear.'
+                            },
+                            {
+                                id: 'home-12',
+                                name: 'Hand Embroidered Chiffon Suit',
+                                price: 3300,
+                                compareAt: 6600,
+                                category: 'Chiffon',
+                                image: 'assets/images/Sale/12.jpg',
+                                images: [
+                                    'assets/images/Sale/12.jpg',
+                                    'assets/images/Sale/12-5.jpg'
+                                ],
+                                description: 'A luxurious hand-embroidered chiffon suit with fine detailing, perfect for festive occasions.'
+                            },
+                            {
+                                id: 'home-9',
+                                name: 'Unstitched Gota Work Suit',
+                                price: 3000,
+                                compareAt: 4000,
+                                category: 'Gota Work',
+                                image: 'assets/images/Sale/09.jpg',
+                                images: [
+                                    'assets/images/Sale/09.jpg',
+                                    'assets/images/Sale/09.2.jpg',
+                                    'assets/images/Sale/09.3.jpg'
+                                ],
+                                description: 'An unstitched gota work suit with traditional embellishments, ready to be tailored to your fit.'
+                            },
+                            {
+                                id: 'home-4',
+                                name: 'Blue Digital Print Lawn Suit',
+                                price: 4000,
+                                compareAt: 5000,
+                                category: 'Lawn',
+                                image: 'assets/images/Sale/04.jpg',
+                                images: [
+                                    'assets/images/Sale/04.jpg',
+                                    'assets/images/Sale/04-2.jpg',
+                                    'assets/images/Sale/04-3.jpg'
+                                ],
+                                description: 'A vibrant blue digital print lawn suit with modern patterns for a fresh everyday look.'
+                            },
+                            {
+                                id: 'home-13',
+                                name: 'Hand Embroidered 2 Pcs Suit',
+                                price: 3000,
+                                compareAt: 6600,
+                                category: 'Embroidered',
+                                image: 'assets/images/Sale/13-2.jpg',
+                                images: [
+                                    'assets/images/Sale/13-2.jpg'
+                                ],
+                                description: 'A beautiful two-piece hand-embroidered suit with delicate craftsmanship and premium fabric.'
+                            },
+                            {
+                                id: 'home-7',
+                                name: 'Embroidered Dhanak Suit',
+                                price: 3600,
+                                compareAt: 4500,
+                                category: 'Dhanak',
+                                image: 'assets/images/Sale/07.jpg',
+                                images: [
+                                    'assets/images/Sale/07.jpg',
+                                    'assets/images/Sale/07-2.jpg',
+                                    'assets/images/Sale/07-3.jpg'
+                                ],
+                                description: 'A warm and stylish embroidered Dhanak suit, ideal for cooler weather and everyday elegance.'
+                            },
+                            {
+                                id: 'home-2',
+                                name: 'Black Embroidered Lawn Suit',
+                                price: 4000,
+                                compareAt: 5000,
+                                category: 'Lawn',
+                                image: 'assets/images/Sale/02.jpg',
+                                images: [
+                                    'assets/images/Sale/02.jpg',
+                                    'assets/images/Sale/02-2.jpg',
+                                    'assets/images/Sale/02-3.jpg'
+                                ],
+                                description: 'A classic black embroidered lawn suit with intricate detailing for a sophisticated look.'
+                            },
+                            {
+                                id: 'home-1',
+                                name: 'Brown Block Printed Lawn Suit',
+                                price: 3000,
+                                compareAt: 3500,
+                                category: 'Lawn',
+                                image: 'assets/images/Sale/01.jpg',
+                                images: [
+                                    'assets/images/Sale/01.jpg',
+                                    'assets/images/Sale/01-2.jpg',
+                                    'assets/images/Sale/01-3.jpg'
+                                ],
+                                description: 'A brown block printed lawn suit with earthy tones and a comfortable, breathable fit.'
+                            }
+                        ];
+
+            var grid = document.getElementById('homeEverydayGrid');
+            if (!grid) return;
+
+            function formatPrice(n) {
+                return 'Rs. ' + n.toLocaleString('en-PK');
+            }
+
+            function renderGrid() {
+                grid.innerHTML = PRODUCTS.map(function(p) {
+                    var priceHtml = formatPrice(p.price);
+                    if (p.compareAt) {
+                        priceHtml += '<span class="gh-was">' + formatPrice(p.compareAt) + '</span>';
+                    }
+                    var badge = '';
+                    if (p.compareAt) {
+                        var pct = Math.round((1 - p.price / p.compareAt) * 100);
+                        if (pct > 0) badge = '<span class="gh-badge">' + pct + '% OFF</span>';
+                    }
+                    return '<div class="gh-card" data-home-id="' + p.id + '" role="button" tabindex="0" aria-label="View ' + p.name + '">' +
+                        '<span class="gh-card-img">' +
+                            badge +
+                            '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" width="420" height="528" />' +
+                            '<span class="gh-quick">View Details</span>' +
+                        '</span>' +
+                        '<span class="gh-card-info">' +
+                            '<span class="gh-card-name">' + p.name + '</span>' +
+                            '<span class="gh-price"><span class="gh-now">' + priceHtml + '</span></span>' +
+                        '</span>' +
+                    '</div>';
+                }).join('');
+            }
+
+            var modal = document.getElementById('homePdModal');
+            var overlay = document.getElementById('homePdOverlay');
+            var closeBtn = document.getElementById('homePdClose');
+            var imgWrap = document.getElementById('homePdImgWrap');
+            var modalImg = document.getElementById('homePdImg');
+            var counter = document.getElementById('homePdCounter');
+            var thumbs = document.getElementById('homePdThumbs');
+            var navPrev = document.getElementById('homePdNavPrev');
+            var navNext = document.getElementById('homePdNavNext');
+            var mCategory = document.getElementById('homePdCategory');
+            var mTitle = document.getElementById('homePdTitle');
+            var mPrice = document.getElementById('homePdPrice');
+            var mDesc = document.getElementById('homePdDesc');
+            var mWa = document.getElementById('homePdWa');
+
+            var currentImages = [];
+            var currentIndex = 0;
+            var fadeTimer = null;
+
+            function setImage(idx) {
+                if (!currentImages.length) return;
+                currentIndex = ((idx % currentImages.length) + currentImages.length) % currentImages.length;
+                var src = currentImages[currentIndex];
+
+                imgWrap.classList.add('is-fading');
+                clearTimeout(fadeTimer);
+                fadeTimer = setTimeout(function() {
+                    modalImg.src = src;
+                    imgWrap.classList.remove('is-fading');
+                }, 150);
+
+                if (currentImages.length > 1) {
+                    counter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
+                }
+                var thumbEls = thumbs.querySelectorAll('.pd-modal-thumb');
+                thumbEls.forEach(function(t, i) {
+                    t.classList.toggle('is-active', i === currentIndex);
+                });
+            }
+
+            function openModal(id) {
+                var p = PRODUCTS.find(function(x) { return x.id === id; });
+                if (!p) return;
+
+                mCategory.textContent = p.category || '';
+                mTitle.textContent = p.name;
+                mDesc.textContent = p.description || '';
+
+                var priceHTML = '<span class="now">' + formatPrice(p.price) + '</span>';
+                if (p.compareAt) {
+                    var pct = Math.round((1 - p.price / p.compareAt) * 100);
+                    priceHTML += '<span class="was">' + formatPrice(p.compareAt) + '</span>';
+                    if (pct > 0) priceHTML += '<span class="save-badge">Save ' + pct + '%</span>';
+                }
+                mPrice.innerHTML = priceHTML;
+
+                var msg = 'Hi Softgarments! I\'d like to order ' + p.name + ' (' + formatPrice(p.price) + ').';
+                mWa.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
+
+                currentImages = (p.images && Array.isArray(p.images) && p.images.length) ? p.images.slice() : [p.image];
+                currentIndex = 0;
+
+                modalImg.src = currentImages[0];
+                modalImg.alt = p.name;
+
+                if (currentImages.length > 1) {
+                    thumbs.classList.remove('is-hidden');
+                    thumbs.innerHTML = currentImages.map(function(src, i) {
+                        return '<button type="button" class="pd-modal-thumb' + (i === 0 ? ' is-active' : '') + '" data-idx="' + i + '" aria-label="Image ' + (i+1) + '">' +
+                            '<img src="' + src + '" alt="" loading="lazy">' +
+                        '</button>';
+                    }).join('');
+                    navPrev.style.display = '';
+                    navNext.style.display = '';
+                    counter.classList.add('is-on');
+                    counter.textContent = '1 / ' + currentImages.length;
+                } else {
+                    thumbs.classList.add('is-hidden');
+                    thumbs.innerHTML = '';
+                    navPrev.style.display = 'none';
+                    navNext.style.display = 'none';
+                    counter.classList.remove('is-on');
+                    counter.textContent = '';
+                }
+
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                clearTimeout(fadeTimer);
+            }
+
+            grid.addEventListener('click', function(e) {
+                var card = e.target.closest('.gh-card');
+                if (!card) return;
+                e.preventDefault();
+                openModal(card.getAttribute('data-home-id'));
+            });
+            grid.addEventListener('keydown', function(e) {
+                if (e.key !== 'Enter' && e.key !== ' ') return;
+                var card = e.target.closest('.gh-card');
+                if (!card) return;
+                e.preventDefault();
+                openModal(card.getAttribute('data-home-id'));
+            });
+
+            thumbs.addEventListener('click', function(e) {
+                var t = e.target.closest('.pd-modal-thumb');
+                if (!t) return;
+                setImage(parseInt(t.getAttribute('data-idx'), 10));
+            });
+            navPrev.addEventListener('click', function(e) { e.stopPropagation(); setImage(currentIndex - 1); });
+            navNext.addEventListener('click', function(e) { e.stopPropagation(); setImage(currentIndex + 1); });
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+
+            document.addEventListener('keydown', function(e) {
+                if (!modal.classList.contains('is-open')) return;
+                if (e.key === 'Escape') { closeModal(); return; }
+                if (currentImages.length > 1) {
+                    if (e.key === 'ArrowLeft') setImage(currentIndex - 1);
+                    if (e.key === 'ArrowRight') setImage(currentIndex + 1);
+                }
+            });
+
+            renderGrid();
         })();
     </script>
 
