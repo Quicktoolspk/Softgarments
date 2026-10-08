@@ -3355,6 +3355,20 @@
         .gh-cat:hover .gh-cat-cta, .gh-cat:focus-visible .gh-cat-cta { opacity: 1; transform: translateY(0); }
         .gh-cat-cta:hover { background: rgba(255, 255, 255, .24); }
 
+        @media (max-width: 640px) {
+            #gh-cats .gh-cats {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            #gh-cats .gh-cat {
+                aspect-ratio: 4 / 5;
+            }
+            #everyday .gh-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+        }
+
         /* ───────── collection blocks — product grid ───────── */
         .gh-wrap { width: var(--site-max); margin-inline: auto; }
         .gh-grid {
