@@ -6108,10 +6108,9 @@
 
             function renderGrid() {
                 grid.innerHTML = PRODUCTS.map(function(p) {
-                    var priceHtml = formatPrice(p.price);
-                    if (p.compareAt) {
-                        priceHtml += '<span class="gh-was">' + formatPrice(p.compareAt) + '</span>';
-                    }
+                    var compareAtHtml = p.compareAt
+                        ? '<span class="gh-was">' + formatPrice(p.compareAt) + '</span>'
+                        : '';
                     var badge = '';
                     if (p.compareAt) {
                         var pct = Math.round((1 - p.price / p.compareAt) * 100);
@@ -6125,7 +6124,7 @@
                         '</span>' +
                         '<span class="gh-card-info">' +
                             '<span class="gh-card-name">' + p.name + '</span>' +
-                            '<span class="gh-price"><span class="gh-now">' + priceHtml + '</span></span>' +
+                            '<span class="gh-price"><span class="gh-now">' + formatPrice(p.price) + '</span>' + compareAtHtml + '</span>' +
                         '</span>' +
                     '</div>';
                 }).join('');
