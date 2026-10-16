@@ -1133,13 +1133,6 @@
         var activeCategories = ['everyday', 'seasonal', 'occasion'];
         var priceRange = 'all';
 
-        /* ═══ Global auto-cycle timers ═══ */
-        var cardTimers = [];
-        function clearAllTimers() {
-            cardTimers.forEach(function(t) { clearInterval(t); });
-            cardTimers = [];
-        }
-
         function formatPrice(n) {
             return 'Rs. ' + n.toLocaleString('en-PK');
         }
@@ -1172,8 +1165,6 @@
         }
 
         function render() {
-            clearAllTimers();
-
             var list = getFiltered();
             countEl.textContent = list.length + ' product' + (list.length !== 1 ? 's' : '');
 
@@ -1183,22 +1174,11 @@
             }
 
             grid.innerHTML = list.map(function(p, i) {
+                // Support both single image and multiple images; no auto-slide, just first image visible.
                 var imgs = (p.images && p.images.length) ? p.images : ['assets/images/Product-images-P1/' + String(p.id).padStart(2,'0') + '.jpg'];
-                var stackHTML = imgs.map(function(src, idx) {
-                    return '<img src="' + src + '" alt="' + p.name + '" loading="lazy" ' +
-                        'class="' + (idx === 0 ? 'is-active' : '') + '" data-idx="' + idx + '" ' +
-                        'onerror="this.style.display=\'none\'" />';
-                }).join('');
+                var firstSrc = imgs[0];
 
-                var dotsHTML = '';
-                if (imgs.length > 1) {
-                    dotsHTML = '<div class="col-card-dots">' +
-                        imgs.map(function(_, idx) {
-                            return '<span class="' + (idx === 0 ? 'is-active' : '') + '" data-idx="' + idx + '"></span>';
-                        }).join('') +
-                        '</div>';
-                }
-
+                // Badge logic (sale or new)
                 var badgeHTML = '';
                 if (p.compareAt && p.compareAt > p.price) {
                     var off = Math.round((1 - p.price / p.compareAt) * 100);
@@ -1218,8 +1198,9 @@
                     '<button type="button" class="col-card-wish" aria-label="Add to wishlist" onclick="event.preventDefault();event.stopPropagation();this.classList.toggle(\'is-active\');">' +
                         '<svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' +
                     '</button>' +
-                    '<div class="img-stack" data-product="' + p.id + '">' + stackHTML + '</div>' +
-                    dotsHTML +
+                    '<div class="img-stack">' +
+                        '<img src="' + firstSrc + '" alt="' + p.name + '" loading="lazy" class="is-active" onerror="this.style.display=\'none\'" />' +
+                    '</div>' +
                     '<div class="col-card-quick"><span>View Product</span></div>' +
                     '</div>' +
                     '<div class="col-card-info">' +
@@ -1229,74 +1210,6 @@
                     starsHTML(p.rating, p.reviews) +
                     '</div></a>';
             }).join('');
-
-            /* ═══════════════════════════════════════════════════════
-               AUTO-CYCLE — har card independently, chahe hover ho ya na
-               Mobile + Desktop dono pe kaam karta hai.
-               Pehli image se shuru, phir 1.8s pe agli, loop.
-               Hover pe tez (1.2s), hover off pe normal (1.8s).
-            ═══════════════════════════════════════════════════════ */
-            grid.querySelectorAll('.col-card').forEach(function(card) {
-                var stack = card.querySelector('.img-stack');
-                var dots = card.querySelectorAll('.col-card-dots span');
-                if (!stack) return;
-
-                var imgs = stack.querySelectorAll('img');
-                if (imgs.length < 2) return; // sirf 1 image ho to kuch nahi
-
-                var current = 0;
-                var interval = 1800; // normal speed
-                var timer = null;
-                var isPaused = false;
-
-                function show(idx) {
-                    if (idx === current) return;
-                    imgs[current].classList.remove('is-active');
-                    imgs[idx].classList.add('is-active');
-                    dots.forEach(function(d, i) { d.classList.toggle('is-active', i === idx); });
-                    current = idx;
-                }
-
-                function startTimer() {
-                    if (timer) clearInterval(timer);
-                    timer = setInterval(function() {
-                        if (isPaused) return;
-                        show((current + 1) % imgs.length);
-                    }, interval);
-                    cardTimers.push(timer);
-                }
-
-                startTimer();
-
-                /* Hover pe tez + pause on dot click */
-                card.addEventListener('mouseenter', function() {
-                    interval = 1200;
-                    if (timer) clearInterval(timer);
-                    startTimer();
-                });
-                card.addEventListener('mouseleave', function() {
-                    interval = 1800;
-                    if (timer) clearInterval(timer);
-                    startTimer();
-                });
-
-                /* Dot click — manual select, timer reset */
-                dots.forEach(function(dot) {
-                    dot.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        show(parseInt(dot.dataset.idx, 10));
-                    });
-                });
-
-                /* Touch devices — hover ki jagah touch se pause */
-                card.addEventListener('touchstart', function() {
-                    isPaused = true;
-                }, { passive: true });
-                card.addEventListener('touchend', function() {
-                    setTimeout(function() { isPaused = false; }, 3000);
-                }, { passive: true });
-            });
         }
 
         sortBtn.addEventListener('click', function(e) {
