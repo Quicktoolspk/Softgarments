@@ -5339,9 +5339,10 @@
 
         // Scroll reveal
         const revealEls = document.querySelectorAll('.reveal');
+        const revealThreshold = window.innerWidth <= 640 ? 0.02 : 0.15;
         const io = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.15 });
+        }, { threshold: revealThreshold, rootMargin: '0px 0px 80px 0px' });
         revealEls.forEach(el => io.observe(el));
 
         // CTA scroll-triggered animation sequence
