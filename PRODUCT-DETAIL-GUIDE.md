@@ -15,12 +15,12 @@ Collection se kisi bhi product par click karein → detail page khulega.
 ### Step 1 — Photos upload karein
 
 ```
-assets/images/collection/21.jpg
-assets/images/collection/21b.jpg   ← optional extra gallery images
+assets/images/collection/21.webp
+assets/images/collection/21b.webp  ← optional extra gallery images
 ```
 
 - Main image: **800 × 1000 px** (portrait)
-- Extra angles: same size, naam `21b.jpg`, `21c.jpg` etc.
+- Extra angles: same size, naam `21b.webp`, `21c.webp` etc.
 
 ### Step 2 — `assets/collection-products.js` mein product add karein
 
@@ -33,7 +33,7 @@ assets/images/collection/21b.jpg   ← optional extra gallery images
     price: 2450,
     compareAt: 3200,        // optional — sale price dikhegi
     category: "everyday",   // everyday | night | shape | lingerie
-    image: "21.jpg"
+    image: "21.webp"
 }
 ```
 
@@ -46,8 +46,8 @@ assets/images/collection/21b.jpg   ← optional extra gallery images
     price: 2450,
     compareAt: 3200,
     category: "everyday",
-    image: "21.jpg",
-    images: ["21.jpg", "21b.jpg"],          // gallery — ek ho to thumb strip hide
+    image: "21.webp",
+    images: ["21.webp", "21b.webp"],         // gallery — ek ho to thumb strip hide
     optionGroups: [
         { key: "pack", label: "Pack", options: ["Single", "Pack of 2"], default: "Single" },
         { key: "size", label: "Size", options: ["S", "M", "L", "XL"], default: "M" }
@@ -149,7 +149,7 @@ Table edit karna ho to `product.html` mein `.pd-size-table` section.
 
 ## Quick checklist — naya product
 
-- [ ] Photo upload `assets/images/collection/XX.jpg`
+- [ ] Photo upload `assets/images/collection/XX.webp`
 - [ ] `collection-products.js` mein object add (unique `id`)
 - [ ] Optional: `description`, `images`, `optionGroups`
 - [ ] Test: `product.html?id=XX`

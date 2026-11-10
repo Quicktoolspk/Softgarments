@@ -15,12 +15,12 @@
 Image save karein is folder mein:
 
 ```
-assets/images/collection/21.jpg
+assets/images/collection/21.webp
 ```
 
 - Size: **800 × 1000 px** (portrait)
-- Format: JPG ya WebP
-- Naam: number sequence use karein (`21.jpg`, `22.jpg`, …)
+- Format: WebP
+- Naam: number sequence use karein (`21.webp`, `22.webp`, …)
 
 ### Step 2 — Product data add karein
 
@@ -35,7 +35,7 @@ File kholein: **`assets/collection-products.js`**
     price: 3450,
     compareAt: 4600,        // optional — purani price (sale dikhegi)
     category: "shape",      // everyday | night | shape | lingerie
-    image: "21.jpg"
+    image: "21.webp"
 }
 ```
 
@@ -54,7 +54,7 @@ Browser mein `collection.html` hard refresh karein. Product count automatically 
 | `price`    | Yes      | `1450` (no commas)   |
 | `compareAt`| No       | Old price for sale   |
 | `category` | Yes      | Filter ke liye       |
-| `image`    | Yes      | `21.jpg` filename    |
+| `image`    | Yes      | `21.webp` filename    |
 
 ---
 

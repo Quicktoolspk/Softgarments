@@ -13,8 +13,8 @@ window.SG_RTW_COLLECTION = {
             compareAt: 2990,
             category: 'kurtis',
             description: 'A polished ready-to-wear kurti with an easy silhouette for everyday elegance.',
-            image: 'assets/images/Product-images-RTW/01.jpg',
-            gallery: ['assets/images/Product-images-RTW/01.jpg', 'assets/images/Product-images-RTW/01-2.jpg', 'assets/images/Product-images-RTW/01-3.jpg']
+            image: 'assets/images/Product-images-RTW/01.webp',
+            gallery: ['assets/images/Product-images-RTW/01.webp', 'assets/images/Product-images-RTW/01-2.webp', 'assets/images/Product-images-RTW/01-3.webp']
         },
         {
             id: 102,
@@ -23,8 +23,8 @@ window.SG_RTW_COLLECTION = {
             compareAt: 3890,
             category: 'casual',
             description: 'A relaxed matching set in soft fabric, designed for effortless casual dressing.',
-            image: 'assets/images/Product-images-RTW/02.jpg',
-            gallery: ['assets/images/Product-images-RTW/02.jpg', 'assets/images/Product-images-RTW/02-2.jpg', 'assets/images/Product-images-RTW/02-3.jpg']
+            image: 'assets/images/Product-images-RTW/02.webp',
+            gallery: ['assets/images/Product-images-RTW/02.webp', 'assets/images/Product-images-RTW/02-2.webp', 'assets/images/Product-images-RTW/02-3.webp']
         },
         {
             id: 103,
@@ -32,8 +32,8 @@ window.SG_RTW_COLLECTION = {
             price: 2290,
             category: 'shirts-tops',
             description: 'A breathable linen-look shirt with a clean shape for warm days and easy layering.',
-            image: 'assets/images/Product-images-RTW/03.jpg',
-            gallery: ['assets/images/Product-images-RTW/03.jpg', 'assets/images/Product-images-RTW/03-2.jpg']
+            image: 'assets/images/Product-images-RTW/03.webp',
+            gallery: ['assets/images/Product-images-RTW/03.webp', 'assets/images/Product-images-RTW/03-2.webp']
         },
         {
             id: 104,
@@ -42,8 +42,8 @@ window.SG_RTW_COLLECTION = {
             compareAt: 4290,
             category: 'formal',
             description: 'A refined straight dress that moves easily from the workday to evening plans.',
-            image: 'assets/images/Product-images-RTW/04.jpg',
-            gallery: ['assets/images/Product-images-RTW/04.jpg', 'assets/images/Product-images-RTW/04-2.jpg', 'assets/images/Product-images-RTW/04-3.jpg']
+            image: 'assets/images/Product-images-RTW/04.webp',
+            gallery: ['assets/images/Product-images-RTW/04.webp', 'assets/images/Product-images-RTW/04-2.webp', 'assets/images/Product-images-RTW/04-3.webp']
         },
         {
             id: 105,
@@ -52,8 +52,8 @@ window.SG_RTW_COLLECTION = {
             compareAt: 4690,
             category: 'festive',
             description: 'A graceful printed dress with a fluid fit for celebrations and special occasions.',
-            image: 'assets/images/Product-images-RTW/05.jpg',
-            gallery: ['assets/images/Product-images-RTW/05.jpg', 'assets/images/Product-images-RTW/05-2.jpg']
+            image: 'assets/images/Product-images-RTW/05.webp',
+            gallery: ['assets/images/Product-images-RTW/05.webp', 'assets/images/Product-images-RTW/05-2.webp']
         },
         {
             id: 106,
@@ -61,8 +61,8 @@ window.SG_RTW_COLLECTION = {
             price: 1690,
             category: 'shirts-tops',
             description: 'A soft cotton top with a neat neckline and versatile styling for every day.',
-            image: 'assets/images/Product-images-RTW/06.jpg',
-            gallery: ['assets/images/Product-images-RTW/06.jpg', 'assets/images/Product-images-RTW/06-2.jpg', 'assets/images/Product-images-RTW/06-3.jpg']
+            image: 'assets/images/Product-images-RTW/06.webp',
+            gallery: ['assets/images/Product-images-RTW/06.webp', 'assets/images/Product-images-RTW/06-2.webp', 'assets/images/Product-images-RTW/06-3.webp']
         },
         {
             id: 107,
@@ -71,8 +71,8 @@ window.SG_RTW_COLLECTION = {
             compareAt: 4990,
             category: 'co-ords',
             description: 'A sophisticated co-ord set with a comfortable fit for elevated occasion dressing.',
-            image: 'assets/images/Product-images-RTW/07.jpg',
-            gallery: ['assets/images/Product-images-RTW/07.jpg', 'assets/images/Product-images-RTW/07-2.jpg']
+            image: 'assets/images/Product-images-RTW/07.webp',
+            gallery: ['assets/images/Product-images-RTW/07.webp', 'assets/images/Product-images-RTW/07-2.webp']
         },
         {
             id: 108,
@@ -81,8 +81,8 @@ window.SG_RTW_COLLECTION = {
             compareAt: 3990,
             category: 'dresses',
             description: 'A relaxed maxi dress with graceful movement and premium everyday comfort.',
-            image: 'assets/images/Product-images-RTW/08.jpg',
-            gallery: ['assets/images/Product-images-RTW/08.jpg', 'assets/images/Product-images-RTW/08-2.jpg', 'assets/images/Product-images-RTW/08-3.jpg']
+            image: 'assets/images/Product-images-RTW/08.webp',
+            gallery: ['assets/images/Product-images-RTW/08.webp', 'assets/images/Product-images-RTW/08-2.webp', 'assets/images/Product-images-RTW/08-3.webp']
         }
     ]
 };

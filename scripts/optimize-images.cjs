@@ -21,11 +21,23 @@ const ignoredDirectories = new Set([
   "vendor",
 ]);
 const rasterExtensions = new Set([
+  ".avif",
+  ".bmp",
+  ".heic",
+  ".heif",
+  ".jfif",
+  ".jpe",
   ".png",
   ".jpg",
   ".jpeg",
+  ".jp2",
+  ".j2k",
+  ".jxl",
   ".gif",
-  ".bmp",
+  ".pbm",
+  ".pgm",
+  ".ppm",
+  ".pnm",
   ".tif",
   ".tiff",
 ]);
@@ -65,7 +77,12 @@ const textExtensions = new Set([
   ".yml",
 ]);
 const imageReferencePattern =
-  /(?:https?:\/\/[^"'`\s<>]+|(?:\/|\.{1,2}\/)?[A-Za-z0-9_%~./-]+\.(?:png|jpe?g|gif|bmp|tiff?|webp|svg)(?:[?#][^"'`\s<>)]*)?)/gi;
+  /(?:https?:\/\/[^"'`\s<>]+|(?:\/|\.{1,2}\/)?[A-Za-z0-9_%~. /-]+\.(?:png|jpe?g|jpe|jfif|gif|bmp|tiff?|webp|avif|heic|heif|jp2|j2k|jxl|pbm|pgm|ppm|pnm|svg(?:z|\.gz)?)(?:[?#][^"'`\s<>)]*)?)/gi;
+
+function isSvg(filePath) {
+  const lowerPath = filePath.toLowerCase();
+  return lowerPath.endsWith(".svg") || lowerPath.endsWith(".svgz") || lowerPath.endsWith(".svg.gz");
+}
 
 function relativePath(filePath) {
   return path.relative(projectRoot, filePath).split(path.sep).join("/");
@@ -88,21 +105,29 @@ async function walk(directory, files = []) {
   return files;
 }
 
-function referenceVariants(imagePath, basenameCounts) {
-  const relPath = relativePath(imagePath);
-  const encodedPath = relPath
+function referenceVariantPairs(sourcePath, targetPath, basenameCounts) {
+  const sourceRelative = relativePath(sourcePath);
+  const targetRelative = relativePath(targetPath);
+  const encodePath = (value) =>
+    value
     .split("/")
     .map((segment) => encodeURIComponent(segment))
     .join("/");
-  const variants = new Set([
-    relPath,
-    encodedPath,
-    relPath.replaceAll("/", "\\"),
-    relPath.replaceAll("/", "\\\\"),
-  ]);
-  const basename = path.posix.basename(relPath);
-  if (basenameCounts.get(basename) === 1) variants.add(basename);
-  return [...variants].sort((a, b) => b.length - a.length);
+  const pairs = [
+    [sourceRelative, targetRelative],
+    [encodePath(sourceRelative), encodePath(targetRelative)],
+    [sourceRelative.replaceAll("/", "\\"), targetRelative.replaceAll("/", "\\")],
+    [sourceRelative.replaceAll("/", "\\\\"), targetRelative.replaceAll("/", "\\\\")],
+  ];
+  const sourceBasename = path.posix.basename(sourceRelative);
+  const targetBasename = path.posix.basename(targetRelative);
+  if (
+    basenameCounts.get(sourceBasename) === 1 &&
+    sourceBasename !== targetBasename
+  ) {
+    pairs.push([sourceBasename, targetBasename]);
+  }
+  return pairs.sort((a, b) => b[0].length - a[0].length);
 }
 
 function imageTargetPath(imagePath) {
@@ -112,21 +137,70 @@ function imageTargetPath(imagePath) {
 async function readTextFiles(files) {
   const textFiles = [];
   for (const filePath of files) {
-    if (!textExtensions.has(path.extname(filePath).toLowerCase())) continue;
+    if (
+      !textExtensions.has(path.extname(filePath).toLowerCase()) ||
+      path.basename(filePath) === "image-optimization-report.json"
+    ) {
+      continue;
+    }
     const contents = await fs.readFile(filePath, "utf8");
     textFiles.push({ filePath, contents });
   }
   return textFiles;
 }
 
+async function existsWithExactCase(filePath) {
+  const relative = path.relative(projectRoot, filePath);
+  if (
+    !relative ||
+    relative === ".." ||
+    relative.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relative)
+  ) {
+    return false;
+  }
+
+  let currentPath = projectRoot;
+  for (const segment of relative.split(path.sep)) {
+    let entries;
+    try {
+      entries = await fs.readdir(currentPath);
+    } catch (error) {
+      if (error.code === "ENOENT") return false;
+      throw error;
+    }
+    if (!entries.includes(segment)) return false;
+    currentPath = path.join(currentPath, segment);
+  }
+
+  try {
+    await fs.access(currentPath);
+    return true;
+  } catch (error) {
+    if (error.code === "ENOENT") return false;
+    throw error;
+  }
+}
+
 async function makeBackup(imagePaths) {
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-  const backupDirectory = path.resolve(
-    projectRoot,
-    "..",
-    `${path.basename(projectRoot)}-image-backup-${timestamp}`
-  );
-  await fs.mkdir(backupDirectory);
+  const backupDirectory = process.env.IMAGE_OPTIMIZATION_BACKUP_DIR
+    ? path.resolve(projectRoot, process.env.IMAGE_OPTIMIZATION_BACKUP_DIR)
+    : path.resolve(
+        projectRoot,
+        "..",
+        `${path.basename(projectRoot)}-image-backup-${timestamp}`
+      );
+  const backupRelativePath = path.relative(projectRoot, backupDirectory);
+  if (
+    !backupRelativePath ||
+    (backupRelativePath !== ".." &&
+      !backupRelativePath.startsWith(`..${path.sep}`)) ||
+    path.isAbsolute(backupRelativePath)
+  ) {
+    throw new Error("The image backup directory must be outside the project.");
+  }
+  await fs.mkdir(backupDirectory, { recursive: true });
 
   for (const imagePath of imagePaths) {
     const backupPath = path.join(backupDirectory, relativePath(imagePath));
@@ -166,11 +240,27 @@ async function convertImage(imagePath, outputPath) {
   const outputHeight = isMultiPage
     ? outputMetadata.pageHeight || outputMetadata.height
     : outputMetadata.height;
+  let opacityChanged = false;
+  if (sourceMetadata.hasAlpha || outputMetadata.hasAlpha) {
+    const [sourceStats, outputStats] = await Promise.all([
+      sharp(imagePath).stats(),
+      sharp(outputPath).stats(),
+    ]);
+    opacityChanged = sourceStats.isOpaque !== outputStats.isOpaque;
+  }
+  const animationChanged =
+    isMultiPage &&
+    ((outputMetadata.pages || 1) !== sourceMetadata.pages ||
+      (sourceMetadata.delay &&
+        JSON.stringify(outputMetadata.delay) !== JSON.stringify(sourceMetadata.delay)) ||
+      (sourceMetadata.loop !== undefined &&
+        outputMetadata.loop !== sourceMetadata.loop));
 
   if (
     outputMetadata.width !== expectedWidth ||
     outputHeight !== expectedHeight ||
-    (isMultiPage && (outputMetadata.pages || 1) !== sourceMetadata.pages)
+    opacityChanged ||
+    animationChanged
   ) {
     throw new Error(
       `Image dimensions or frame count changed during conversion: ${relativePath(imagePath)}`
@@ -210,14 +300,18 @@ async function verifyLocalReferences(textFiles) {
 
   for (const { filePath, contents } of textFiles) {
     for (const reference of localImageReferences(contents)) {
-      if (/^(?:https?:)?\/\//i.test(reference) || /^data:/i.test(reference)) continue;
+      const trimmedReference = reference.trim();
+      if (reference.startsWith(" ") || /^(?:https?:)?\/\//i.test(trimmedReference) || /^data:/i.test(trimmedReference)) {
+        continue;
+      }
 
       let cleanReference;
       try {
-        cleanReference = decodeURIComponent(reference.split(/[?#]/, 1)[0]);
+        cleanReference = decodeURIComponent(trimmedReference.split(/[?#]/, 1)[0]);
       } catch {
-        cleanReference = reference.split(/[?#]/, 1)[0];
+        cleanReference = trimmedReference.split(/[?#]/, 1)[0];
       }
+      if (!cleanReference.includes("/") && !cleanReference.includes("\\")) continue;
       const candidates = cleanReference.startsWith("/")
         ? [path.join(projectRoot, cleanReference.slice(1))]
         : [
@@ -225,12 +319,7 @@ async function verifyLocalReferences(textFiles) {
             path.resolve(projectRoot, cleanReference),
           ];
       const existenceChecks = await Promise.all(
-        candidates.map((candidate) =>
-          fs.access(candidate).then(
-            () => true,
-            () => false
-          )
-        )
+        candidates.map(existsWithExactCase)
       );
       if (!existenceChecks.some(Boolean)) {
         missing.push(`${relativePath(filePath)} -> ${reference}`);
@@ -251,7 +340,7 @@ async function verifyLocalReferences(textFiles) {
 async function main() {
   const allFiles = await walk(projectRoot);
   const svgFiles = allFiles
-    .filter((filePath) => path.extname(filePath).toLowerCase() === ".svg")
+    .filter(isSvg)
     .map(relativePath);
   const imagePaths = allFiles.filter((filePath) =>
     rasterExtensions.has(path.extname(filePath).toLowerCase())
@@ -261,6 +350,42 @@ async function main() {
   for (const imagePath of imagePaths) {
     const basename = path.posix.basename(relativePath(imagePath));
     basenameCounts.set(basename, (basenameCounts.get(basename) || 0) + 1);
+  }
+
+  const legacyWebpDirectory = path.join(projectRoot, "assets", "images", "webp");
+  const legacyWebpPaths = allFiles.filter(
+    (filePath) =>
+      filePath.startsWith(`${legacyWebpDirectory}${path.sep}`) &&
+      path.extname(filePath).toLowerCase() === ".webp"
+  );
+  const legacyDuplicates = [];
+  const sourceByStem = new Map(
+    imagePaths.map((imagePath) => [
+      imagePath.slice(0, -path.extname(imagePath).length),
+      imagePath,
+    ])
+  );
+  for (const legacyPath of legacyWebpPaths) {
+    const sourceStem = path.join(
+      projectRoot,
+      "assets",
+      "images",
+      path.relative(legacyWebpDirectory, legacyPath).slice(0, -".webp".length)
+    );
+    const sourcePath = sourceByStem.get(sourceStem);
+    if (sourcePath) {
+      legacyDuplicates.push({
+        legacyPath,
+        sourcePath,
+        outputPath: imageTargetPath(sourcePath),
+      });
+    }
+  }
+
+  const legacyBasenameCounts = new Map();
+  for (const { legacyPath } of legacyDuplicates) {
+    const basename = path.posix.basename(relativePath(legacyPath));
+    legacyBasenameCounts.set(basename, (legacyBasenameCounts.get(basename) || 0) + 1);
   }
 
   const targetCollisions = [];
@@ -288,25 +413,37 @@ async function main() {
 
   for (const imagePath of imagePaths) {
     const outputPath = imageTargetPath(imagePath);
-    const sourceReferences = referenceVariants(imagePath, basenameCounts);
-
-    for (const sourceReference of sourceReferences) {
-      referenceReplacements.push([
-        sourceReference,
-        `${sourceReference.slice(0, -path.extname(imagePath).length)}.webp`,
-      ]);
-      staleReferenceVariants.push(sourceReference);
-    }
+    const referencePairs = referenceVariantPairs(
+      imagePath,
+      outputPath,
+      basenameCounts
+    );
+    referenceReplacements.push(...referencePairs);
+    staleReferenceVariants.push(...referencePairs.map(([source]) => source));
     replacementByImage.set(imagePath, outputPath);
+  }
+  for (const { legacyPath, outputPath } of legacyDuplicates) {
+    const referencePairs = referenceVariantPairs(
+      legacyPath,
+      outputPath,
+      legacyBasenameCounts
+    );
+    referenceReplacements.push(...referencePairs);
+    staleReferenceVariants.push(...referencePairs.map(([source]) => source));
   }
   referenceReplacements.sort((a, b) => b[0].length - a[0].length);
 
   let backupDirectory = null;
   const converted = [];
   const changedTextFiles = [];
+  let deletionStarted = false;
+  const backupPaths = [
+    ...imagePaths,
+    ...legacyDuplicates.map(({ legacyPath }) => legacyPath),
+  ];
 
   try {
-    if (imagePaths.length) backupDirectory = await makeBackup(imagePaths);
+    if (backupPaths.length) backupDirectory = await makeBackup(backupPaths);
 
     for (const [imagePath, outputPath] of replacementByImage) {
       await fs.mkdir(path.dirname(outputPath), { recursive: true });
@@ -326,10 +463,15 @@ async function main() {
       }
     }
 
+    const changedFilesByPath = new Map(
+      changedTextFiles.map((changed) => [changed.filePath, changed.updatedContents])
+    );
     const staleReferences = [];
     for (const textFile of textFiles) {
+      const currentContents =
+        changedFilesByPath.get(textFile.filePath) || textFile.contents;
       for (const variant of staleReferenceVariants) {
-        if (textFile.contents.includes(variant)) {
+        if (currentContents.includes(variant)) {
           staleReferences.push(`${relativePath(textFile.filePath)} -> ${variant}`);
           break;
         }
@@ -344,22 +486,28 @@ async function main() {
       );
     }
 
-    const changedFilesByPath = new Map(
-      changedTextFiles.map((changed) => [changed.filePath, changed.updatedContents])
-    );
-    await verifyLocalReferences(
-      textFiles.map(({ filePath, contents }) => ({
+    const verificationTextFiles = textFiles
+      .filter(({ filePath }) => ![".md", ".txt"].includes(path.extname(filePath).toLowerCase()))
+      .map(({ filePath, contents }) => ({
         filePath,
         contents: changedFilesByPath.get(filePath) || contents,
-      }))
-    );
+      }));
+    await verifyLocalReferences(verificationTextFiles);
 
+    deletionStarted = true;
     for (const imagePath of imagePaths) {
       await fs.unlink(imagePath);
+    }
+    let legacyWebpBytesRemoved = 0;
+    for (const { legacyPath } of legacyDuplicates) {
+      legacyWebpBytesRemoved += (await fs.stat(legacyPath)).size;
+      await fs.unlink(legacyPath);
     }
 
     const originalBytes = converted.reduce((sum, item) => sum + item.originalBytes, 0);
     const optimizedBytes = converted.reduce((sum, item) => sum + item.optimizedBytes, 0);
+    const bytesRemoved = originalBytes + legacyWebpBytesRemoved;
+    const totalBytesSaved = bytesRemoved - optimizedBytes;
     const report = {
       generatedAt: new Date().toISOString(),
       quality: 80,
@@ -368,31 +516,50 @@ async function main() {
       svgFilesSkipped: svgFiles,
       originalBytes,
       optimizedBytes,
-      totalBytesSaved: originalBytes - optimizedBytes,
-      savingsPercent: originalBytes
-        ? Number((((originalBytes - optimizedBytes) / originalBytes) * 100).toFixed(2))
+      legacyWebpBytesRemoved,
+      totalBytesSaved,
+      savingsPercent: bytesRemoved
+        ? Number(((totalBytesSaved / bytesRemoved) * 100).toFixed(2))
         : 0,
       backupDirectory: backupDirectory ? path.relative(projectRoot, backupDirectory) : null,
       images: converted,
     };
     const reportPath = path.join(projectRoot, "image-optimization-report.json");
-    await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+    let existingReport = true;
+    try {
+      await fs.access(reportPath);
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+      existingReport = false;
+    }
+    if (converted.length || legacyWebpBytesRemoved || !existingReport) {
+      await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+    }
 
-    console.log(`\nOptimized ${converted.length} image(s).`);
-    console.log(`Original size: ${(originalBytes / 1024 / 1024).toFixed(2)} MiB`);
-    console.log(`Optimized size: ${(optimizedBytes / 1024 / 1024).toFixed(2)} MiB`);
-    console.log(`Storage saved: ${((originalBytes - optimizedBytes) / 1024 / 1024).toFixed(2)} MiB`);
-    console.log(`SVG files left unchanged: ${svgFiles.length}`);
-    if (backupDirectory) console.log(`Originals backed up to: ${backupDirectory}`);
+    if (converted.length || legacyWebpBytesRemoved) {
+      console.log(`\nOptimized ${converted.length} image(s).`);
+      console.log(`Original size: ${(originalBytes / 1024 / 1024).toFixed(2)} MiB`);
+      console.log(`Optimized size: ${(optimizedBytes / 1024 / 1024).toFixed(2)} MiB`);
+      console.log(
+        `Legacy duplicate WebP files removed: ${legacyDuplicates.length} (${(legacyWebpBytesRemoved / 1024 / 1024).toFixed(2)} MiB)`
+      );
+      console.log(`Net storage saved: ${(totalBytesSaved / 1024 / 1024).toFixed(2)} MiB`);
+      console.log(`SVG files left unchanged: ${svgFiles.length}`);
+      if (backupDirectory) console.log(`Originals backed up to: ${backupDirectory}`);
+    } else {
+      console.log("\nNo new raster images to optimize; previous report preserved.");
+    }
     console.log(`Report: ${relativePath(reportPath)}`);
   } catch (error) {
-    for (const textFile of changedTextFiles.reverse()) {
-      await fs.writeFile(textFile.filePath, textFile.originalContents, "utf8");
-    }
-    for (const outputPath of replacementByImage.values()) {
-      await fs.unlink(outputPath).catch((cleanupError) => {
-        if (cleanupError.code !== "ENOENT") throw cleanupError;
-      });
+    if (!deletionStarted) {
+      for (const textFile of changedTextFiles.reverse()) {
+        await fs.writeFile(textFile.filePath, textFile.originalContents, "utf8");
+      }
+      for (const outputPath of replacementByImage.values()) {
+        await fs.unlink(outputPath).catch((cleanupError) => {
+          if (cleanupError.code !== "ENOENT") throw cleanupError;
+        });
+      }
     }
     throw error;
   }

@@ -98,7 +98,7 @@
         }
 
         function fallbackSrc() {
-            return (C.imageFallbacks && C.imageFallbacks[idx]) ? C.imageFallbacks[idx] : 'assets/images/Product-images-P1/01.jpg';
+            return (C.imageFallbacks && C.imageFallbacks[idx]) ? C.imageFallbacks[idx] : 'assets/images/Product-images-P1/01.webp';
         }
 
         function initSelections() {

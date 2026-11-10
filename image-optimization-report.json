@@ -1,0 +1,4827 @@
+{
+  "generatedAt": "2026-11-10T01:24:41.225Z",
+  "quality": 80,
+  "effort": 6,
+  "convertedImageCount": 481,
+  "svgFilesSkipped": [
+    "assets/favicon.svg"
+  ],
+  "originalBytes": 359921117,
+  "optimizedBytes": 75907726,
+  "legacyWebpBytesRemoved": 79171566,
+  "totalBytesSaved": 363184957,
+  "savingsPercent": 82.71,
+  "backupDirectory": "../Softgarments-image-backup-2026-11-10T01-15-01-009Z",
+  "images": [
+    {
+      "source": "assets/images/CATEGORY-2/01.1.jpg",
+      "output": "assets/images/CATEGORY-2/01.1.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 287822,
+      "optimizedBytes": 206168,
+      "savedBytes": 81654
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.10.jpg",
+      "output": "assets/images/CATEGORY-2/01.10.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 590731,
+      "optimizedBytes": 472860,
+      "savedBytes": 117871
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.11.jpg",
+      "output": "assets/images/CATEGORY-2/01.11.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 246873,
+      "optimizedBytes": 267618,
+      "savedBytes": -20745
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.12.jpg",
+      "output": "assets/images/CATEGORY-2/01.12.webp",
+      "width": 400,
+      "height": 711,
+      "frames": 1,
+      "originalBytes": 33383,
+      "optimizedBytes": 15288,
+      "savedBytes": 18095
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.13.jpg",
+      "output": "assets/images/CATEGORY-2/01.13.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 257879,
+      "optimizedBytes": 267986,
+      "savedBytes": -10107
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.14.jpg",
+      "output": "assets/images/CATEGORY-2/01.14.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 378419,
+      "optimizedBytes": 265196,
+      "savedBytes": 113223
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.15.jpg",
+      "output": "assets/images/CATEGORY-2/01.15.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 414738,
+      "optimizedBytes": 268210,
+      "savedBytes": 146528
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.16.jpg",
+      "output": "assets/images/CATEGORY-2/01.16.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 259750,
+      "optimizedBytes": 163536,
+      "savedBytes": 96214
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.2.jpg",
+      "output": "assets/images/CATEGORY-2/01.2.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 200420,
+      "optimizedBytes": 122254,
+      "savedBytes": 78166
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.3.jpg",
+      "output": "assets/images/CATEGORY-2/01.3.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 516538,
+      "optimizedBytes": 389728,
+      "savedBytes": 126810
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.4.jpg",
+      "output": "assets/images/CATEGORY-2/01.4.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 266447,
+      "optimizedBytes": 150812,
+      "savedBytes": 115635
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.5.jpg",
+      "output": "assets/images/CATEGORY-2/01.5.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 243585,
+      "optimizedBytes": 177110,
+      "savedBytes": 66475
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.6.jpg",
+      "output": "assets/images/CATEGORY-2/01.6.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 230978,
+      "optimizedBytes": 149444,
+      "savedBytes": 81534
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.7.jpg",
+      "output": "assets/images/CATEGORY-2/01.7.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 367650,
+      "optimizedBytes": 273132,
+      "savedBytes": 94518
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.8.jpg",
+      "output": "assets/images/CATEGORY-2/01.8.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 194306,
+      "optimizedBytes": 176924,
+      "savedBytes": 17382
+    },
+    {
+      "source": "assets/images/CATEGORY-2/01.9.jpg",
+      "output": "assets/images/CATEGORY-2/01.9.webp",
+      "width": 2400,
+      "height": 3600,
+      "frames": 1,
+      "originalBytes": 1106511,
+      "optimizedBytes": 636992,
+      "savedBytes": 469519
+    },
+    {
+      "source": "assets/images/COLLECTION/01.jpg",
+      "output": "assets/images/COLLECTION/01.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 382960,
+      "optimizedBytes": 438134,
+      "savedBytes": -55174
+    },
+    {
+      "source": "assets/images/COLLECTION/02.jpg",
+      "output": "assets/images/COLLECTION/02.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 270775,
+      "optimizedBytes": 301596,
+      "savedBytes": -30821
+    },
+    {
+      "source": "assets/images/COLLECTION/03.jpg",
+      "output": "assets/images/COLLECTION/03.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 450439,
+      "optimizedBytes": 261962,
+      "savedBytes": 188477
+    },
+    {
+      "source": "assets/images/COLLECTION/04.jpg",
+      "output": "assets/images/COLLECTION/04.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 541965,
+      "optimizedBytes": 350458,
+      "savedBytes": 191507
+    },
+    {
+      "source": "assets/images/COLLECTION/05.jpg",
+      "output": "assets/images/COLLECTION/05.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 562852,
+      "optimizedBytes": 379796,
+      "savedBytes": 183056
+    },
+    {
+      "source": "assets/images/COLLECTION/06.jpg",
+      "output": "assets/images/COLLECTION/06.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 365536,
+      "optimizedBytes": 202252,
+      "savedBytes": 163284
+    },
+    {
+      "source": "assets/images/COLLECTION/07.jpg",
+      "output": "assets/images/COLLECTION/07.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 650431,
+      "optimizedBytes": 408998,
+      "savedBytes": 241433
+    },
+    {
+      "source": "assets/images/COLLECTION/08.jpg",
+      "output": "assets/images/COLLECTION/08.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 331515,
+      "optimizedBytes": 176614,
+      "savedBytes": 154901
+    },
+    {
+      "source": "assets/images/COLLECTION-2/09.jpg",
+      "output": "assets/images/COLLECTION-2/09.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 435536,
+      "optimizedBytes": 268264,
+      "savedBytes": 167272
+    },
+    {
+      "source": "assets/images/COLLECTION-2/11.jpg",
+      "output": "assets/images/COLLECTION-2/11.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 705212,
+      "optimizedBytes": 523816,
+      "savedBytes": 181396
+    },
+    {
+      "source": "assets/images/COLLECTION-2/12.jpg",
+      "output": "assets/images/COLLECTION-2/12.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 447886,
+      "optimizedBytes": 277240,
+      "savedBytes": 170646
+    },
+    {
+      "source": "assets/images/COLLECTION-2/13.jpg",
+      "output": "assets/images/COLLECTION-2/13.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 368793,
+      "optimizedBytes": 192972,
+      "savedBytes": 175821
+    },
+    {
+      "source": "assets/images/COLLECTION-2/15.jpg",
+      "output": "assets/images/COLLECTION-2/15.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 193699,
+      "optimizedBytes": 100664,
+      "savedBytes": 93035
+    },
+    {
+      "source": "assets/images/COLLECTION-2/16.jpg",
+      "output": "assets/images/COLLECTION-2/16.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 511971,
+      "optimizedBytes": 313638,
+      "savedBytes": 198333
+    },
+    {
+      "source": "assets/images/COLLECTION-2/17.jpg",
+      "output": "assets/images/COLLECTION-2/17.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 450439,
+      "optimizedBytes": 261962,
+      "savedBytes": 188477
+    },
+    {
+      "source": "assets/images/COLLECTION-2/18.jpg",
+      "output": "assets/images/COLLECTION-2/18.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 737603,
+      "optimizedBytes": 575728,
+      "savedBytes": 161875
+    },
+    {
+      "source": "assets/images/COLLECTION-3/01-2.jpg",
+      "output": "assets/images/COLLECTION-3/01-2.webp",
+      "width": 806,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 45682,
+      "optimizedBytes": 34482,
+      "savedBytes": 11200
+    },
+    {
+      "source": "assets/images/COLLECTION-3/01-3.jpg",
+      "output": "assets/images/COLLECTION-3/01-3.webp",
+      "width": 973,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 62439,
+      "optimizedBytes": 47832,
+      "savedBytes": 14607
+    },
+    {
+      "source": "assets/images/COLLECTION-3/01-4.jpg",
+      "output": "assets/images/COLLECTION-3/01-4.webp",
+      "width": 760,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 42805,
+      "optimizedBytes": 32754,
+      "savedBytes": 10051
+    },
+    {
+      "source": "assets/images/COLLECTION-3/01.jpg",
+      "output": "assets/images/COLLECTION-3/01.webp",
+      "width": 788,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 41601,
+      "optimizedBytes": 30498,
+      "savedBytes": 11103
+    },
+    {
+      "source": "assets/images/COLLECTION-3/02-2.jpg",
+      "output": "assets/images/COLLECTION-3/02-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 238221,
+      "optimizedBytes": 171216,
+      "savedBytes": 67005
+    },
+    {
+      "source": "assets/images/COLLECTION-3/02.jpg",
+      "output": "assets/images/COLLECTION-3/02.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 223320,
+      "optimizedBytes": 141920,
+      "savedBytes": 81400
+    },
+    {
+      "source": "assets/images/COLLECTION-3/03-2.jpg",
+      "output": "assets/images/COLLECTION-3/03-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 88680,
+      "optimizedBytes": 58838,
+      "savedBytes": 29842
+    },
+    {
+      "source": "assets/images/COLLECTION-3/03-3.jpg",
+      "output": "assets/images/COLLECTION-3/03-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 80281,
+      "optimizedBytes": 51240,
+      "savedBytes": 29041
+    },
+    {
+      "source": "assets/images/COLLECTION-3/03.jpg",
+      "output": "assets/images/COLLECTION-3/03.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 84676,
+      "optimizedBytes": 55690,
+      "savedBytes": 28986
+    },
+    {
+      "source": "assets/images/COLLECTION-3/04-2.jpg",
+      "output": "assets/images/COLLECTION-3/04-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 311465,
+      "optimizedBytes": 237430,
+      "savedBytes": 74035
+    },
+    {
+      "source": "assets/images/COLLECTION-3/04-3.jpg",
+      "output": "assets/images/COLLECTION-3/04-3.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 213813,
+      "optimizedBytes": 149822,
+      "savedBytes": 63991
+    },
+    {
+      "source": "assets/images/COLLECTION-3/04.jpg",
+      "output": "assets/images/COLLECTION-3/04.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 234792,
+      "optimizedBytes": 155638,
+      "savedBytes": 79154
+    },
+    {
+      "source": "assets/images/COLLECTION-3/05-2.jpg",
+      "output": "assets/images/COLLECTION-3/05-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 168071,
+      "optimizedBytes": 100572,
+      "savedBytes": 67499
+    },
+    {
+      "source": "assets/images/COLLECTION-3/05-3.jpg",
+      "output": "assets/images/COLLECTION-3/05-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 180996,
+      "optimizedBytes": 118120,
+      "savedBytes": 62876
+    },
+    {
+      "source": "assets/images/COLLECTION-3/05.jpg",
+      "output": "assets/images/COLLECTION-3/05.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 178730,
+      "optimizedBytes": 114406,
+      "savedBytes": 64324
+    },
+    {
+      "source": "assets/images/COLLECTION-3/06-2.jpg",
+      "output": "assets/images/COLLECTION-3/06-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 302485,
+      "optimizedBytes": 236636,
+      "savedBytes": 65849
+    },
+    {
+      "source": "assets/images/COLLECTION-3/06-3.jpg",
+      "output": "assets/images/COLLECTION-3/06-3.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 242265,
+      "optimizedBytes": 168106,
+      "savedBytes": 74159
+    },
+    {
+      "source": "assets/images/COLLECTION-3/06-4.jpg",
+      "output": "assets/images/COLLECTION-3/06-4.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 268493,
+      "optimizedBytes": 201924,
+      "savedBytes": 66569
+    },
+    {
+      "source": "assets/images/COLLECTION-3/06.jpg",
+      "output": "assets/images/COLLECTION-3/06.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 188151,
+      "optimizedBytes": 119054,
+      "savedBytes": 69097
+    },
+    {
+      "source": "assets/images/COLLECTION-3/07-2.jpg",
+      "output": "assets/images/COLLECTION-3/07-2.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 209606,
+      "optimizedBytes": 136788,
+      "savedBytes": 72818
+    },
+    {
+      "source": "assets/images/COLLECTION-3/07-3.jpg",
+      "output": "assets/images/COLLECTION-3/07-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 322373,
+      "optimizedBytes": 234024,
+      "savedBytes": 88349
+    },
+    {
+      "source": "assets/images/COLLECTION-3/07.jpg",
+      "output": "assets/images/COLLECTION-3/07.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 296723,
+      "optimizedBytes": 217008,
+      "savedBytes": 79715
+    },
+    {
+      "source": "assets/images/COLLECTION-3/08-2.jpg",
+      "output": "assets/images/COLLECTION-3/08-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2157147,
+      "optimizedBytes": 98890,
+      "savedBytes": 2058257
+    },
+    {
+      "source": "assets/images/COLLECTION-3/08-3.jpg",
+      "output": "assets/images/COLLECTION-3/08-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3485887,
+      "optimizedBytes": 339508,
+      "savedBytes": 3146379
+    },
+    {
+      "source": "assets/images/COLLECTION-3/08.jpg",
+      "output": "assets/images/COLLECTION-3/08.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2221649,
+      "optimizedBytes": 118494,
+      "savedBytes": 2103155
+    },
+    {
+      "source": "assets/images/COLLECTION-3/09.2.jpg",
+      "output": "assets/images/COLLECTION-3/09.2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 627401,
+      "optimizedBytes": 73008,
+      "savedBytes": 554393
+    },
+    {
+      "source": "assets/images/COLLECTION-3/09.3.jpg",
+      "output": "assets/images/COLLECTION-3/09.3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 432898,
+      "optimizedBytes": 166912,
+      "savedBytes": 265986
+    },
+    {
+      "source": "assets/images/COLLECTION-3/09.jpg",
+      "output": "assets/images/COLLECTION-3/09.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 324478,
+      "optimizedBytes": 123550,
+      "savedBytes": 200928
+    },
+    {
+      "source": "assets/images/COLLECTION-3/10.1.jpg",
+      "output": "assets/images/COLLECTION-3/10.1.webp",
+      "width": 1080,
+      "height": 1440,
+      "frames": 1,
+      "originalBytes": 200046,
+      "optimizedBytes": 66322,
+      "savedBytes": 133724
+    },
+    {
+      "source": "assets/images/COLLECTION-3/10.2.jpg",
+      "output": "assets/images/COLLECTION-3/10.2.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 290007,
+      "optimizedBytes": 95870,
+      "savedBytes": 194137
+    },
+    {
+      "source": "assets/images/COLLECTION-3/10.3.jpg",
+      "output": "assets/images/COLLECTION-3/10.3.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 298372,
+      "optimizedBytes": 103812,
+      "savedBytes": 194560
+    },
+    {
+      "source": "assets/images/COLLECTION-3/10.4.jpg",
+      "output": "assets/images/COLLECTION-3/10.4.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 232592,
+      "optimizedBytes": 69818,
+      "savedBytes": 162774
+    },
+    {
+      "source": "assets/images/COLLECTION-3/10.jpg",
+      "output": "assets/images/COLLECTION-3/10.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 275076,
+      "optimizedBytes": 90688,
+      "savedBytes": 184388
+    },
+    {
+      "source": "assets/images/COLLECTION-3/11-2.jpg",
+      "output": "assets/images/COLLECTION-3/11-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2291560,
+      "optimizedBytes": 132488,
+      "savedBytes": 2159072
+    },
+    {
+      "source": "assets/images/COLLECTION-3/11-3.jpg",
+      "output": "assets/images/COLLECTION-3/11-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 632797,
+      "optimizedBytes": 78178,
+      "savedBytes": 554619
+    },
+    {
+      "source": "assets/images/COLLECTION-3/11-4.jpg",
+      "output": "assets/images/COLLECTION-3/11-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 562295,
+      "optimizedBytes": 66546,
+      "savedBytes": 495749
+    },
+    {
+      "source": "assets/images/COLLECTION-3/11.jpg",
+      "output": "assets/images/COLLECTION-3/11.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2637875,
+      "optimizedBytes": 172216,
+      "savedBytes": 2465659
+    },
+    {
+      "source": "assets/images/COLLECTION-3/12-2.jpg",
+      "output": "assets/images/COLLECTION-3/12-2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 636345,
+      "optimizedBytes": 91982,
+      "savedBytes": 544363
+    },
+    {
+      "source": "assets/images/COLLECTION-3/12-3.jpg",
+      "output": "assets/images/COLLECTION-3/12-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 667297,
+      "optimizedBytes": 95618,
+      "savedBytes": 571679
+    },
+    {
+      "source": "assets/images/COLLECTION-3/12-4.jpg",
+      "output": "assets/images/COLLECTION-3/12-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 689708,
+      "optimizedBytes": 99618,
+      "savedBytes": 590090
+    },
+    {
+      "source": "assets/images/COLLECTION-3/12-5.jpg",
+      "output": "assets/images/COLLECTION-3/12-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 806706,
+      "optimizedBytes": 129780,
+      "savedBytes": 676926
+    },
+    {
+      "source": "assets/images/COLLECTION-3/12.jpg",
+      "output": "assets/images/COLLECTION-3/12.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2230369,
+      "optimizedBytes": 160212,
+      "savedBytes": 2070157
+    },
+    {
+      "source": "assets/images/COLLECTION-3/13-2.jpg",
+      "output": "assets/images/COLLECTION-3/13-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 343764,
+      "optimizedBytes": 309238,
+      "savedBytes": 34526
+    },
+    {
+      "source": "assets/images/COLLECTION-3/13-3.jpg",
+      "output": "assets/images/COLLECTION-3/13-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 142217,
+      "optimizedBytes": 92608,
+      "savedBytes": 49609
+    },
+    {
+      "source": "assets/images/COLLECTION-3/13.jpg",
+      "output": "assets/images/COLLECTION-3/13.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 160888,
+      "optimizedBytes": 111388,
+      "savedBytes": 49500
+    },
+    {
+      "source": "assets/images/COLLECTION-3/14-2.jpg",
+      "output": "assets/images/COLLECTION-3/14-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 625365,
+      "optimizedBytes": 67866,
+      "savedBytes": 557499
+    },
+    {
+      "source": "assets/images/COLLECTION-3/14-3.jpg",
+      "output": "assets/images/COLLECTION-3/14-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 507952,
+      "optimizedBytes": 46212,
+      "savedBytes": 461740
+    },
+    {
+      "source": "assets/images/COLLECTION-3/14-4.jpg",
+      "output": "assets/images/COLLECTION-3/14-4.webp",
+      "width": 941,
+      "height": 1672,
+      "frames": 1,
+      "originalBytes": 2155296,
+      "optimizedBytes": 115712,
+      "savedBytes": 2039584
+    },
+    {
+      "source": "assets/images/COLLECTION-3/14-5.jpg",
+      "output": "assets/images/COLLECTION-3/14-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 744322,
+      "optimizedBytes": 94390,
+      "savedBytes": 649932
+    },
+    {
+      "source": "assets/images/COLLECTION-3/14.jpg",
+      "output": "assets/images/COLLECTION-3/14.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 1953512,
+      "optimizedBytes": 64674,
+      "savedBytes": 1888838
+    },
+    {
+      "source": "assets/images/COLLECTION-3/15-2.jpg",
+      "output": "assets/images/COLLECTION-3/15-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 651113,
+      "optimizedBytes": 86740,
+      "savedBytes": 564373
+    },
+    {
+      "source": "assets/images/COLLECTION-3/15-3.jpg",
+      "output": "assets/images/COLLECTION-3/15-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 722808,
+      "optimizedBytes": 107446,
+      "savedBytes": 615362
+    },
+    {
+      "source": "assets/images/COLLECTION-3/15-4.jpg",
+      "output": "assets/images/COLLECTION-3/15-4.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 649839,
+      "optimizedBytes": 83244,
+      "savedBytes": 566595
+    },
+    {
+      "source": "assets/images/COLLECTION-3/15-5.jpg",
+      "output": "assets/images/COLLECTION-3/15-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 794646,
+      "optimizedBytes": 127492,
+      "savedBytes": 667154
+    },
+    {
+      "source": "assets/images/COLLECTION-3/15.jpg",
+      "output": "assets/images/COLLECTION-3/15.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 683406,
+      "optimizedBytes": 104394,
+      "savedBytes": 579012
+    },
+    {
+      "source": "assets/images/COLLECTION-3/16-2.jpg",
+      "output": "assets/images/COLLECTION-3/16-2.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 792062,
+      "optimizedBytes": 122654,
+      "savedBytes": 669408
+    },
+    {
+      "source": "assets/images/COLLECTION-3/16-3.jpg",
+      "output": "assets/images/COLLECTION-3/16-3.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 721112,
+      "optimizedBytes": 101482,
+      "savedBytes": 619630
+    },
+    {
+      "source": "assets/images/COLLECTION-3/16-4.jpg",
+      "output": "assets/images/COLLECTION-3/16-4.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3524177,
+      "optimizedBytes": 376844,
+      "savedBytes": 3147333
+    },
+    {
+      "source": "assets/images/COLLECTION-3/16.jpg",
+      "output": "assets/images/COLLECTION-3/16.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2336469,
+      "optimizedBytes": 167356,
+      "savedBytes": 2169113
+    },
+    {
+      "source": "assets/images/COLLECTION-3/17.jpg",
+      "output": "assets/images/COLLECTION-3/17.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 450439,
+      "optimizedBytes": 261962,
+      "savedBytes": 188477
+    },
+    {
+      "source": "assets/images/COLLECTION-3/18.jpg",
+      "output": "assets/images/COLLECTION-3/18.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 737603,
+      "optimizedBytes": 575728,
+      "savedBytes": 161875
+    },
+    {
+      "source": "assets/images/COLLECTION-3/19.jpg",
+      "output": "assets/images/COLLECTION-3/19.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 414738,
+      "optimizedBytes": 268210,
+      "savedBytes": 146528
+    },
+    {
+      "source": "assets/images/COLLECTION-3/20.jpg",
+      "output": "assets/images/COLLECTION-3/20.webp",
+      "width": 2400,
+      "height": 3600,
+      "frames": 1,
+      "originalBytes": 1106511,
+      "optimizedBytes": 636992,
+      "savedBytes": 469519
+    },
+    {
+      "source": "assets/images/Fabrics/01-2.jpg",
+      "output": "assets/images/Fabrics/01-2.webp",
+      "width": 806,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 45682,
+      "optimizedBytes": 34482,
+      "savedBytes": 11200
+    },
+    {
+      "source": "assets/images/Fabrics/01-3.jpg",
+      "output": "assets/images/Fabrics/01-3.webp",
+      "width": 973,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 62439,
+      "optimizedBytes": 47832,
+      "savedBytes": 14607
+    },
+    {
+      "source": "assets/images/Fabrics/01-4.jpg",
+      "output": "assets/images/Fabrics/01-4.webp",
+      "width": 760,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 42805,
+      "optimizedBytes": 32754,
+      "savedBytes": 10051
+    },
+    {
+      "source": "assets/images/Fabrics/01.jpg",
+      "output": "assets/images/Fabrics/01.webp",
+      "width": 788,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 41601,
+      "optimizedBytes": 30498,
+      "savedBytes": 11103
+    },
+    {
+      "source": "assets/images/Fabrics/02-2.jpg",
+      "output": "assets/images/Fabrics/02-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 238221,
+      "optimizedBytes": 171216,
+      "savedBytes": 67005
+    },
+    {
+      "source": "assets/images/Fabrics/02.jpg",
+      "output": "assets/images/Fabrics/02.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 223320,
+      "optimizedBytes": 141920,
+      "savedBytes": 81400
+    },
+    {
+      "source": "assets/images/Fabrics/03-2.jpg",
+      "output": "assets/images/Fabrics/03-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 88680,
+      "optimizedBytes": 58838,
+      "savedBytes": 29842
+    },
+    {
+      "source": "assets/images/Fabrics/03-3.jpg",
+      "output": "assets/images/Fabrics/03-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 80281,
+      "optimizedBytes": 51240,
+      "savedBytes": 29041
+    },
+    {
+      "source": "assets/images/Fabrics/03.jpg",
+      "output": "assets/images/Fabrics/03.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 84676,
+      "optimizedBytes": 55690,
+      "savedBytes": 28986
+    },
+    {
+      "source": "assets/images/Fabrics/04-2.jpg",
+      "output": "assets/images/Fabrics/04-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 311465,
+      "optimizedBytes": 237430,
+      "savedBytes": 74035
+    },
+    {
+      "source": "assets/images/Fabrics/04-3.jpg",
+      "output": "assets/images/Fabrics/04-3.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 213813,
+      "optimizedBytes": 149822,
+      "savedBytes": 63991
+    },
+    {
+      "source": "assets/images/Fabrics/04.jpg",
+      "output": "assets/images/Fabrics/04.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 234792,
+      "optimizedBytes": 155638,
+      "savedBytes": 79154
+    },
+    {
+      "source": "assets/images/Fabrics/05-2.jpg",
+      "output": "assets/images/Fabrics/05-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 168071,
+      "optimizedBytes": 100572,
+      "savedBytes": 67499
+    },
+    {
+      "source": "assets/images/Fabrics/05-3.jpg",
+      "output": "assets/images/Fabrics/05-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 180996,
+      "optimizedBytes": 118120,
+      "savedBytes": 62876
+    },
+    {
+      "source": "assets/images/Fabrics/05.jpg",
+      "output": "assets/images/Fabrics/05.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 178730,
+      "optimizedBytes": 114406,
+      "savedBytes": 64324
+    },
+    {
+      "source": "assets/images/Fabrics/06-2.jpg",
+      "output": "assets/images/Fabrics/06-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 302485,
+      "optimizedBytes": 236636,
+      "savedBytes": 65849
+    },
+    {
+      "source": "assets/images/Fabrics/06-3.jpg",
+      "output": "assets/images/Fabrics/06-3.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 242265,
+      "optimizedBytes": 168106,
+      "savedBytes": 74159
+    },
+    {
+      "source": "assets/images/Fabrics/06-4.jpg",
+      "output": "assets/images/Fabrics/06-4.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 268493,
+      "optimizedBytes": 201924,
+      "savedBytes": 66569
+    },
+    {
+      "source": "assets/images/Fabrics/06.jpg",
+      "output": "assets/images/Fabrics/06.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 188151,
+      "optimizedBytes": 119054,
+      "savedBytes": 69097
+    },
+    {
+      "source": "assets/images/Fabrics/07-2.jpg",
+      "output": "assets/images/Fabrics/07-2.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 209606,
+      "optimizedBytes": 136788,
+      "savedBytes": 72818
+    },
+    {
+      "source": "assets/images/Fabrics/07-3.jpg",
+      "output": "assets/images/Fabrics/07-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 322373,
+      "optimizedBytes": 234024,
+      "savedBytes": 88349
+    },
+    {
+      "source": "assets/images/Fabrics/07.jpg",
+      "output": "assets/images/Fabrics/07.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 296723,
+      "optimizedBytes": 217008,
+      "savedBytes": 79715
+    },
+    {
+      "source": "assets/images/Fabrics/08-2.jpg",
+      "output": "assets/images/Fabrics/08-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2157147,
+      "optimizedBytes": 98890,
+      "savedBytes": 2058257
+    },
+    {
+      "source": "assets/images/Fabrics/08-3.jpg",
+      "output": "assets/images/Fabrics/08-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3485887,
+      "optimizedBytes": 339508,
+      "savedBytes": 3146379
+    },
+    {
+      "source": "assets/images/Fabrics/08.jpg",
+      "output": "assets/images/Fabrics/08.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2221649,
+      "optimizedBytes": 118494,
+      "savedBytes": 2103155
+    },
+    {
+      "source": "assets/images/Fabrics/09.2.jpg",
+      "output": "assets/images/Fabrics/09.2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 627401,
+      "optimizedBytes": 73008,
+      "savedBytes": 554393
+    },
+    {
+      "source": "assets/images/Fabrics/09.3.jpg",
+      "output": "assets/images/Fabrics/09.3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 432898,
+      "optimizedBytes": 166912,
+      "savedBytes": 265986
+    },
+    {
+      "source": "assets/images/Fabrics/09.jpg",
+      "output": "assets/images/Fabrics/09.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 324478,
+      "optimizedBytes": 123550,
+      "savedBytes": 200928
+    },
+    {
+      "source": "assets/images/Fabrics/10.1.jpg",
+      "output": "assets/images/Fabrics/10.1.webp",
+      "width": 1080,
+      "height": 1440,
+      "frames": 1,
+      "originalBytes": 200046,
+      "optimizedBytes": 66322,
+      "savedBytes": 133724
+    },
+    {
+      "source": "assets/images/Fabrics/10.2.jpg",
+      "output": "assets/images/Fabrics/10.2.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 290007,
+      "optimizedBytes": 95870,
+      "savedBytes": 194137
+    },
+    {
+      "source": "assets/images/Fabrics/10.3.jpg",
+      "output": "assets/images/Fabrics/10.3.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 298372,
+      "optimizedBytes": 103812,
+      "savedBytes": 194560
+    },
+    {
+      "source": "assets/images/Fabrics/10.4.jpg",
+      "output": "assets/images/Fabrics/10.4.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 232592,
+      "optimizedBytes": 69818,
+      "savedBytes": 162774
+    },
+    {
+      "source": "assets/images/Fabrics/10.jpg",
+      "output": "assets/images/Fabrics/10.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 275076,
+      "optimizedBytes": 90688,
+      "savedBytes": 184388
+    },
+    {
+      "source": "assets/images/Fabrics/11-2.jpg",
+      "output": "assets/images/Fabrics/11-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2291560,
+      "optimizedBytes": 132488,
+      "savedBytes": 2159072
+    },
+    {
+      "source": "assets/images/Fabrics/11-3.jpg",
+      "output": "assets/images/Fabrics/11-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 632797,
+      "optimizedBytes": 78178,
+      "savedBytes": 554619
+    },
+    {
+      "source": "assets/images/Fabrics/11-4.jpg",
+      "output": "assets/images/Fabrics/11-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 562295,
+      "optimizedBytes": 66546,
+      "savedBytes": 495749
+    },
+    {
+      "source": "assets/images/Fabrics/11.jpg",
+      "output": "assets/images/Fabrics/11.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2637875,
+      "optimizedBytes": 172216,
+      "savedBytes": 2465659
+    },
+    {
+      "source": "assets/images/Fabrics/12-2.jpg",
+      "output": "assets/images/Fabrics/12-2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 636345,
+      "optimizedBytes": 91982,
+      "savedBytes": 544363
+    },
+    {
+      "source": "assets/images/Fabrics/12-3.jpg",
+      "output": "assets/images/Fabrics/12-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 667297,
+      "optimizedBytes": 95618,
+      "savedBytes": 571679
+    },
+    {
+      "source": "assets/images/Fabrics/12-4.jpg",
+      "output": "assets/images/Fabrics/12-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 689708,
+      "optimizedBytes": 99618,
+      "savedBytes": 590090
+    },
+    {
+      "source": "assets/images/Fabrics/12-5.jpg",
+      "output": "assets/images/Fabrics/12-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 806706,
+      "optimizedBytes": 129780,
+      "savedBytes": 676926
+    },
+    {
+      "source": "assets/images/Fabrics/12.jpg",
+      "output": "assets/images/Fabrics/12.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2230369,
+      "optimizedBytes": 160212,
+      "savedBytes": 2070157
+    },
+    {
+      "source": "assets/images/Fabrics/13-2.jpg",
+      "output": "assets/images/Fabrics/13-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 343764,
+      "optimizedBytes": 309238,
+      "savedBytes": 34526
+    },
+    {
+      "source": "assets/images/Fabrics/13-3.jpg",
+      "output": "assets/images/Fabrics/13-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 142217,
+      "optimizedBytes": 92608,
+      "savedBytes": 49609
+    },
+    {
+      "source": "assets/images/Fabrics/13.jpg",
+      "output": "assets/images/Fabrics/13.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 160888,
+      "optimizedBytes": 111388,
+      "savedBytes": 49500
+    },
+    {
+      "source": "assets/images/Fabrics/14-2.jpg",
+      "output": "assets/images/Fabrics/14-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 625365,
+      "optimizedBytes": 67866,
+      "savedBytes": 557499
+    },
+    {
+      "source": "assets/images/Fabrics/14-3.jpg",
+      "output": "assets/images/Fabrics/14-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 507952,
+      "optimizedBytes": 46212,
+      "savedBytes": 461740
+    },
+    {
+      "source": "assets/images/Fabrics/14-4.jpg",
+      "output": "assets/images/Fabrics/14-4.webp",
+      "width": 941,
+      "height": 1672,
+      "frames": 1,
+      "originalBytes": 2155296,
+      "optimizedBytes": 115712,
+      "savedBytes": 2039584
+    },
+    {
+      "source": "assets/images/Fabrics/14-5.jpg",
+      "output": "assets/images/Fabrics/14-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 744322,
+      "optimizedBytes": 94390,
+      "savedBytes": 649932
+    },
+    {
+      "source": "assets/images/Fabrics/14.jpg",
+      "output": "assets/images/Fabrics/14.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 1953512,
+      "optimizedBytes": 64674,
+      "savedBytes": 1888838
+    },
+    {
+      "source": "assets/images/Fabrics/15-2.jpg",
+      "output": "assets/images/Fabrics/15-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 651113,
+      "optimizedBytes": 86740,
+      "savedBytes": 564373
+    },
+    {
+      "source": "assets/images/Fabrics/15-3.jpg",
+      "output": "assets/images/Fabrics/15-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 722808,
+      "optimizedBytes": 107446,
+      "savedBytes": 615362
+    },
+    {
+      "source": "assets/images/Fabrics/15-4.jpg",
+      "output": "assets/images/Fabrics/15-4.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 649839,
+      "optimizedBytes": 83244,
+      "savedBytes": 566595
+    },
+    {
+      "source": "assets/images/Fabrics/15-5.jpg",
+      "output": "assets/images/Fabrics/15-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 794646,
+      "optimizedBytes": 127492,
+      "savedBytes": 667154
+    },
+    {
+      "source": "assets/images/Fabrics/15.jpg",
+      "output": "assets/images/Fabrics/15.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 683406,
+      "optimizedBytes": 104394,
+      "savedBytes": 579012
+    },
+    {
+      "source": "assets/images/Fabrics/16-2.jpg",
+      "output": "assets/images/Fabrics/16-2.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 792062,
+      "optimizedBytes": 122654,
+      "savedBytes": 669408
+    },
+    {
+      "source": "assets/images/Fabrics/16-3.jpg",
+      "output": "assets/images/Fabrics/16-3.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 721112,
+      "optimizedBytes": 101482,
+      "savedBytes": 619630
+    },
+    {
+      "source": "assets/images/Fabrics/16-4.jpg",
+      "output": "assets/images/Fabrics/16-4.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3524177,
+      "optimizedBytes": 376844,
+      "savedBytes": 3147333
+    },
+    {
+      "source": "assets/images/Fabrics/16.jpg",
+      "output": "assets/images/Fabrics/16.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2336469,
+      "optimizedBytes": 167356,
+      "savedBytes": 2169113
+    },
+    {
+      "source": "assets/images/Fabrics/17.jpg",
+      "output": "assets/images/Fabrics/17.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 450439,
+      "optimizedBytes": 261962,
+      "savedBytes": 188477
+    },
+    {
+      "source": "assets/images/Fabrics/18.jpg",
+      "output": "assets/images/Fabrics/18.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 737603,
+      "optimizedBytes": 575728,
+      "savedBytes": 161875
+    },
+    {
+      "source": "assets/images/Fabrics/19.jpg",
+      "output": "assets/images/Fabrics/19.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 414738,
+      "optimizedBytes": 268210,
+      "savedBytes": 146528
+    },
+    {
+      "source": "assets/images/Fabrics/20.jpg",
+      "output": "assets/images/Fabrics/20.webp",
+      "width": 2400,
+      "height": 3600,
+      "frames": 1,
+      "originalBytes": 1106511,
+      "optimizedBytes": 636992,
+      "savedBytes": 469519
+    },
+    {
+      "source": "assets/images/Latest Blog/21.jpg",
+      "output": "assets/images/Latest Blog/21.webp",
+      "width": 1200,
+      "height": 800,
+      "frames": 1,
+      "originalBytes": 213530,
+      "optimizedBytes": 113574,
+      "savedBytes": 99956
+    },
+    {
+      "source": "assets/images/Latest Blog/22.png",
+      "output": "assets/images/Latest Blog/22.webp",
+      "width": 1024,
+      "height": 687,
+      "frames": 1,
+      "originalBytes": 1090855,
+      "optimizedBytes": 66316,
+      "savedBytes": 1024539
+    },
+    {
+      "source": "assets/images/Latest Products/11.jpg",
+      "output": "assets/images/Latest Products/11.webp",
+      "width": 1340,
+      "height": 1785,
+      "frames": 1,
+      "originalBytes": 577786,
+      "optimizedBytes": 479814,
+      "savedBytes": 97972
+    },
+    {
+      "source": "assets/images/Product-images-P1/01-2.jpg",
+      "output": "assets/images/Product-images-P1/01-2.webp",
+      "width": 806,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 45682,
+      "optimizedBytes": 34482,
+      "savedBytes": 11200
+    },
+    {
+      "source": "assets/images/Product-images-P1/01-3.jpg",
+      "output": "assets/images/Product-images-P1/01-3.webp",
+      "width": 973,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 62439,
+      "optimizedBytes": 47832,
+      "savedBytes": 14607
+    },
+    {
+      "source": "assets/images/Product-images-P1/01-4.jpg",
+      "output": "assets/images/Product-images-P1/01-4.webp",
+      "width": 760,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 42805,
+      "optimizedBytes": 32754,
+      "savedBytes": 10051
+    },
+    {
+      "source": "assets/images/Product-images-P1/01.jpg",
+      "output": "assets/images/Product-images-P1/01.webp",
+      "width": 788,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 41601,
+      "optimizedBytes": 30498,
+      "savedBytes": 11103
+    },
+    {
+      "source": "assets/images/Product-images-P1/02-2.jpg",
+      "output": "assets/images/Product-images-P1/02-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 238221,
+      "optimizedBytes": 171216,
+      "savedBytes": 67005
+    },
+    {
+      "source": "assets/images/Product-images-P1/02.jpg",
+      "output": "assets/images/Product-images-P1/02.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 223320,
+      "optimizedBytes": 141920,
+      "savedBytes": 81400
+    },
+    {
+      "source": "assets/images/Product-images-P1/03-2.jpg",
+      "output": "assets/images/Product-images-P1/03-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 88680,
+      "optimizedBytes": 58838,
+      "savedBytes": 29842
+    },
+    {
+      "source": "assets/images/Product-images-P1/03-3.jpg",
+      "output": "assets/images/Product-images-P1/03-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 80281,
+      "optimizedBytes": 51240,
+      "savedBytes": 29041
+    },
+    {
+      "source": "assets/images/Product-images-P1/03.jpg",
+      "output": "assets/images/Product-images-P1/03.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 84676,
+      "optimizedBytes": 55690,
+      "savedBytes": 28986
+    },
+    {
+      "source": "assets/images/Product-images-P1/04-2.jpg",
+      "output": "assets/images/Product-images-P1/04-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 311465,
+      "optimizedBytes": 237430,
+      "savedBytes": 74035
+    },
+    {
+      "source": "assets/images/Product-images-P1/04-3.jpg",
+      "output": "assets/images/Product-images-P1/04-3.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 213813,
+      "optimizedBytes": 149822,
+      "savedBytes": 63991
+    },
+    {
+      "source": "assets/images/Product-images-P1/04.jpg",
+      "output": "assets/images/Product-images-P1/04.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 234792,
+      "optimizedBytes": 155638,
+      "savedBytes": 79154
+    },
+    {
+      "source": "assets/images/Product-images-P1/05-2.jpg",
+      "output": "assets/images/Product-images-P1/05-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 168071,
+      "optimizedBytes": 100572,
+      "savedBytes": 67499
+    },
+    {
+      "source": "assets/images/Product-images-P1/05-3.jpg",
+      "output": "assets/images/Product-images-P1/05-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 180996,
+      "optimizedBytes": 118120,
+      "savedBytes": 62876
+    },
+    {
+      "source": "assets/images/Product-images-P1/05.jpg",
+      "output": "assets/images/Product-images-P1/05.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 178730,
+      "optimizedBytes": 114406,
+      "savedBytes": 64324
+    },
+    {
+      "source": "assets/images/Product-images-P1/06-2.jpg",
+      "output": "assets/images/Product-images-P1/06-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 302485,
+      "optimizedBytes": 236636,
+      "savedBytes": 65849
+    },
+    {
+      "source": "assets/images/Product-images-P1/06-3.jpg",
+      "output": "assets/images/Product-images-P1/06-3.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 242265,
+      "optimizedBytes": 168106,
+      "savedBytes": 74159
+    },
+    {
+      "source": "assets/images/Product-images-P1/06-4.jpg",
+      "output": "assets/images/Product-images-P1/06-4.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 268493,
+      "optimizedBytes": 201924,
+      "savedBytes": 66569
+    },
+    {
+      "source": "assets/images/Product-images-P1/06.jpg",
+      "output": "assets/images/Product-images-P1/06.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 188151,
+      "optimizedBytes": 119054,
+      "savedBytes": 69097
+    },
+    {
+      "source": "assets/images/Product-images-P1/07-2.jpg",
+      "output": "assets/images/Product-images-P1/07-2.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 209606,
+      "optimizedBytes": 136788,
+      "savedBytes": 72818
+    },
+    {
+      "source": "assets/images/Product-images-P1/07-3.jpg",
+      "output": "assets/images/Product-images-P1/07-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 322373,
+      "optimizedBytes": 234024,
+      "savedBytes": 88349
+    },
+    {
+      "source": "assets/images/Product-images-P1/07.jpg",
+      "output": "assets/images/Product-images-P1/07.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 296723,
+      "optimizedBytes": 217008,
+      "savedBytes": 79715
+    },
+    {
+      "source": "assets/images/Product-images-P1/08-2.jpg",
+      "output": "assets/images/Product-images-P1/08-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2157147,
+      "optimizedBytes": 98890,
+      "savedBytes": 2058257
+    },
+    {
+      "source": "assets/images/Product-images-P1/08-3.jpg",
+      "output": "assets/images/Product-images-P1/08-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3485887,
+      "optimizedBytes": 339508,
+      "savedBytes": 3146379
+    },
+    {
+      "source": "assets/images/Product-images-P1/08.jpg",
+      "output": "assets/images/Product-images-P1/08.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2221649,
+      "optimizedBytes": 118494,
+      "savedBytes": 2103155
+    },
+    {
+      "source": "assets/images/Product-images-P1/09.2.jpg",
+      "output": "assets/images/Product-images-P1/09.2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 627401,
+      "optimizedBytes": 73008,
+      "savedBytes": 554393
+    },
+    {
+      "source": "assets/images/Product-images-P1/09.3.jpg",
+      "output": "assets/images/Product-images-P1/09.3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 432898,
+      "optimizedBytes": 166912,
+      "savedBytes": 265986
+    },
+    {
+      "source": "assets/images/Product-images-P1/09.jpg",
+      "output": "assets/images/Product-images-P1/09.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 324478,
+      "optimizedBytes": 123550,
+      "savedBytes": 200928
+    },
+    {
+      "source": "assets/images/Product-images-P1/10.1.jpg",
+      "output": "assets/images/Product-images-P1/10.1.webp",
+      "width": 1080,
+      "height": 1440,
+      "frames": 1,
+      "originalBytes": 200046,
+      "optimizedBytes": 66322,
+      "savedBytes": 133724
+    },
+    {
+      "source": "assets/images/Product-images-P1/10.2.jpg",
+      "output": "assets/images/Product-images-P1/10.2.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 290007,
+      "optimizedBytes": 95870,
+      "savedBytes": 194137
+    },
+    {
+      "source": "assets/images/Product-images-P1/10.3.jpg",
+      "output": "assets/images/Product-images-P1/10.3.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 298372,
+      "optimizedBytes": 103812,
+      "savedBytes": 194560
+    },
+    {
+      "source": "assets/images/Product-images-P1/10.4.jpg",
+      "output": "assets/images/Product-images-P1/10.4.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 232592,
+      "optimizedBytes": 69818,
+      "savedBytes": 162774
+    },
+    {
+      "source": "assets/images/Product-images-P1/10.jpg",
+      "output": "assets/images/Product-images-P1/10.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 275076,
+      "optimizedBytes": 90688,
+      "savedBytes": 184388
+    },
+    {
+      "source": "assets/images/Product-images-P1/11-2.jpg",
+      "output": "assets/images/Product-images-P1/11-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2291560,
+      "optimizedBytes": 132488,
+      "savedBytes": 2159072
+    },
+    {
+      "source": "assets/images/Product-images-P1/11-3.jpg",
+      "output": "assets/images/Product-images-P1/11-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 632797,
+      "optimizedBytes": 78178,
+      "savedBytes": 554619
+    },
+    {
+      "source": "assets/images/Product-images-P1/11-4.jpg",
+      "output": "assets/images/Product-images-P1/11-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 562295,
+      "optimizedBytes": 66546,
+      "savedBytes": 495749
+    },
+    {
+      "source": "assets/images/Product-images-P1/11.jpg",
+      "output": "assets/images/Product-images-P1/11.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2637875,
+      "optimizedBytes": 172216,
+      "savedBytes": 2465659
+    },
+    {
+      "source": "assets/images/Product-images-P1/12-2.jpg",
+      "output": "assets/images/Product-images-P1/12-2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 636345,
+      "optimizedBytes": 91982,
+      "savedBytes": 544363
+    },
+    {
+      "source": "assets/images/Product-images-P1/12-3.jpg",
+      "output": "assets/images/Product-images-P1/12-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 667297,
+      "optimizedBytes": 95618,
+      "savedBytes": 571679
+    },
+    {
+      "source": "assets/images/Product-images-P1/12-4.jpg",
+      "output": "assets/images/Product-images-P1/12-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 689708,
+      "optimizedBytes": 99618,
+      "savedBytes": 590090
+    },
+    {
+      "source": "assets/images/Product-images-P1/12-5.jpg",
+      "output": "assets/images/Product-images-P1/12-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 806706,
+      "optimizedBytes": 129780,
+      "savedBytes": 676926
+    },
+    {
+      "source": "assets/images/Product-images-P1/12.jpg",
+      "output": "assets/images/Product-images-P1/12.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2230369,
+      "optimizedBytes": 160212,
+      "savedBytes": 2070157
+    },
+    {
+      "source": "assets/images/Product-images-P1/13-2.jpg",
+      "output": "assets/images/Product-images-P1/13-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 343764,
+      "optimizedBytes": 309238,
+      "savedBytes": 34526
+    },
+    {
+      "source": "assets/images/Product-images-P1/13-3.jpg",
+      "output": "assets/images/Product-images-P1/13-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 142217,
+      "optimizedBytes": 92608,
+      "savedBytes": 49609
+    },
+    {
+      "source": "assets/images/Product-images-P1/13.jpg",
+      "output": "assets/images/Product-images-P1/13.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 160888,
+      "optimizedBytes": 111388,
+      "savedBytes": 49500
+    },
+    {
+      "source": "assets/images/Product-images-P1/14-2.jpg",
+      "output": "assets/images/Product-images-P1/14-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 625365,
+      "optimizedBytes": 67866,
+      "savedBytes": 557499
+    },
+    {
+      "source": "assets/images/Product-images-P1/14-3.jpg",
+      "output": "assets/images/Product-images-P1/14-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 507952,
+      "optimizedBytes": 46212,
+      "savedBytes": 461740
+    },
+    {
+      "source": "assets/images/Product-images-P1/14-4.jpg",
+      "output": "assets/images/Product-images-P1/14-4.webp",
+      "width": 941,
+      "height": 1672,
+      "frames": 1,
+      "originalBytes": 2155296,
+      "optimizedBytes": 115712,
+      "savedBytes": 2039584
+    },
+    {
+      "source": "assets/images/Product-images-P1/14-5.jpg",
+      "output": "assets/images/Product-images-P1/14-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 744322,
+      "optimizedBytes": 94390,
+      "savedBytes": 649932
+    },
+    {
+      "source": "assets/images/Product-images-P1/14.jpg",
+      "output": "assets/images/Product-images-P1/14.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 1953512,
+      "optimizedBytes": 64674,
+      "savedBytes": 1888838
+    },
+    {
+      "source": "assets/images/Product-images-P1/15-2.jpg",
+      "output": "assets/images/Product-images-P1/15-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 651113,
+      "optimizedBytes": 86740,
+      "savedBytes": 564373
+    },
+    {
+      "source": "assets/images/Product-images-P1/15-3.jpg",
+      "output": "assets/images/Product-images-P1/15-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 722808,
+      "optimizedBytes": 107446,
+      "savedBytes": 615362
+    },
+    {
+      "source": "assets/images/Product-images-P1/15-4.jpg",
+      "output": "assets/images/Product-images-P1/15-4.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 649839,
+      "optimizedBytes": 83244,
+      "savedBytes": 566595
+    },
+    {
+      "source": "assets/images/Product-images-P1/15-5.jpg",
+      "output": "assets/images/Product-images-P1/15-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 794646,
+      "optimizedBytes": 127492,
+      "savedBytes": 667154
+    },
+    {
+      "source": "assets/images/Product-images-P1/15.jpg",
+      "output": "assets/images/Product-images-P1/15.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 683406,
+      "optimizedBytes": 104394,
+      "savedBytes": 579012
+    },
+    {
+      "source": "assets/images/Product-images-P1/16-2.jpg",
+      "output": "assets/images/Product-images-P1/16-2.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 792062,
+      "optimizedBytes": 122654,
+      "savedBytes": 669408
+    },
+    {
+      "source": "assets/images/Product-images-P1/16-3.jpg",
+      "output": "assets/images/Product-images-P1/16-3.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 721112,
+      "optimizedBytes": 101482,
+      "savedBytes": 619630
+    },
+    {
+      "source": "assets/images/Product-images-P1/16-4.jpg",
+      "output": "assets/images/Product-images-P1/16-4.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3524177,
+      "optimizedBytes": 376844,
+      "savedBytes": 3147333
+    },
+    {
+      "source": "assets/images/Product-images-P1/16.jpg",
+      "output": "assets/images/Product-images-P1/16.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2336469,
+      "optimizedBytes": 167356,
+      "savedBytes": 2169113
+    },
+    {
+      "source": "assets/images/Product-images-P1/17-2.jpg",
+      "output": "assets/images/Product-images-P1/17-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2582968,
+      "optimizedBytes": 180496,
+      "savedBytes": 2402472
+    },
+    {
+      "source": "assets/images/Product-images-P1/17-3.jpg",
+      "output": "assets/images/Product-images-P1/17-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2377854,
+      "optimizedBytes": 134502,
+      "savedBytes": 2243352
+    },
+    {
+      "source": "assets/images/Product-images-P1/17-4.jpg",
+      "output": "assets/images/Product-images-P1/17-4.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3206012,
+      "optimizedBytes": 305952,
+      "savedBytes": 2900060
+    },
+    {
+      "source": "assets/images/Product-images-P1/17-5.jpg",
+      "output": "assets/images/Product-images-P1/17-5.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3085165,
+      "optimizedBytes": 274126,
+      "savedBytes": 2811039
+    },
+    {
+      "source": "assets/images/Product-images-P1/17.jpg",
+      "output": "assets/images/Product-images-P1/17.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2387407,
+      "optimizedBytes": 143418,
+      "savedBytes": 2243989
+    },
+    {
+      "source": "assets/images/Product-images-P1/18.jpg",
+      "output": "assets/images/Product-images-P1/18.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 737603,
+      "optimizedBytes": 575728,
+      "savedBytes": 161875
+    },
+    {
+      "source": "assets/images/Product-images-P1/19.jpg",
+      "output": "assets/images/Product-images-P1/19.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 414738,
+      "optimizedBytes": 268210,
+      "savedBytes": 146528
+    },
+    {
+      "source": "assets/images/Product-images-P1/20.jpg",
+      "output": "assets/images/Product-images-P1/20.webp",
+      "width": 2400,
+      "height": 3600,
+      "frames": 1,
+      "originalBytes": 1106511,
+      "optimizedBytes": 636992,
+      "savedBytes": 469519
+    },
+    {
+      "source": "assets/images/Product-images-RTW/01-2.jpg",
+      "output": "assets/images/Product-images-RTW/01-2.webp",
+      "width": 806,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 45682,
+      "optimizedBytes": 34482,
+      "savedBytes": 11200
+    },
+    {
+      "source": "assets/images/Product-images-RTW/01-3.jpg",
+      "output": "assets/images/Product-images-RTW/01-3.webp",
+      "width": 973,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 62439,
+      "optimizedBytes": 47832,
+      "savedBytes": 14607
+    },
+    {
+      "source": "assets/images/Product-images-RTW/01-4.jpg",
+      "output": "assets/images/Product-images-RTW/01-4.webp",
+      "width": 760,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 42805,
+      "optimizedBytes": 32754,
+      "savedBytes": 10051
+    },
+    {
+      "source": "assets/images/Product-images-RTW/01.jpg",
+      "output": "assets/images/Product-images-RTW/01.webp",
+      "width": 788,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 41601,
+      "optimizedBytes": 30498,
+      "savedBytes": 11103
+    },
+    {
+      "source": "assets/images/Product-images-RTW/02-2.jpg",
+      "output": "assets/images/Product-images-RTW/02-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 238221,
+      "optimizedBytes": 171216,
+      "savedBytes": 67005
+    },
+    {
+      "source": "assets/images/Product-images-RTW/02-3.jpg",
+      "output": "assets/images/Product-images-RTW/02-3.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 562852,
+      "optimizedBytes": 379796,
+      "savedBytes": 183056
+    },
+    {
+      "source": "assets/images/Product-images-RTW/02.jpg",
+      "output": "assets/images/Product-images-RTW/02.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 223320,
+      "optimizedBytes": 141920,
+      "savedBytes": 81400
+    },
+    {
+      "source": "assets/images/Product-images-RTW/03-2.jpg",
+      "output": "assets/images/Product-images-RTW/03-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 88680,
+      "optimizedBytes": 58838,
+      "savedBytes": 29842
+    },
+    {
+      "source": "assets/images/Product-images-RTW/03-3.jpg",
+      "output": "assets/images/Product-images-RTW/03-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 80281,
+      "optimizedBytes": 51240,
+      "savedBytes": 29041
+    },
+    {
+      "source": "assets/images/Product-images-RTW/03.jpg",
+      "output": "assets/images/Product-images-RTW/03.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 84676,
+      "optimizedBytes": 55690,
+      "savedBytes": 28986
+    },
+    {
+      "source": "assets/images/Product-images-RTW/04-2.jpg",
+      "output": "assets/images/Product-images-RTW/04-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 311465,
+      "optimizedBytes": 237430,
+      "savedBytes": 74035
+    },
+    {
+      "source": "assets/images/Product-images-RTW/04-3.jpg",
+      "output": "assets/images/Product-images-RTW/04-3.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 213813,
+      "optimizedBytes": 149822,
+      "savedBytes": 63991
+    },
+    {
+      "source": "assets/images/Product-images-RTW/04.jpg",
+      "output": "assets/images/Product-images-RTW/04.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 234792,
+      "optimizedBytes": 155638,
+      "savedBytes": 79154
+    },
+    {
+      "source": "assets/images/Product-images-RTW/05-2.jpg",
+      "output": "assets/images/Product-images-RTW/05-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 168071,
+      "optimizedBytes": 100572,
+      "savedBytes": 67499
+    },
+    {
+      "source": "assets/images/Product-images-RTW/05-3.jpg",
+      "output": "assets/images/Product-images-RTW/05-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 180996,
+      "optimizedBytes": 118120,
+      "savedBytes": 62876
+    },
+    {
+      "source": "assets/images/Product-images-RTW/05.jpg",
+      "output": "assets/images/Product-images-RTW/05.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 178730,
+      "optimizedBytes": 114406,
+      "savedBytes": 64324
+    },
+    {
+      "source": "assets/images/Product-images-RTW/06-2.jpg",
+      "output": "assets/images/Product-images-RTW/06-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 302485,
+      "optimizedBytes": 236636,
+      "savedBytes": 65849
+    },
+    {
+      "source": "assets/images/Product-images-RTW/06-3.jpg",
+      "output": "assets/images/Product-images-RTW/06-3.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 242265,
+      "optimizedBytes": 168106,
+      "savedBytes": 74159
+    },
+    {
+      "source": "assets/images/Product-images-RTW/06-4.jpg",
+      "output": "assets/images/Product-images-RTW/06-4.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 268493,
+      "optimizedBytes": 201924,
+      "savedBytes": 66569
+    },
+    {
+      "source": "assets/images/Product-images-RTW/06.jpg",
+      "output": "assets/images/Product-images-RTW/06.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 188151,
+      "optimizedBytes": 119054,
+      "savedBytes": 69097
+    },
+    {
+      "source": "assets/images/Product-images-RTW/07-2.jpg",
+      "output": "assets/images/Product-images-RTW/07-2.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 209606,
+      "optimizedBytes": 136788,
+      "savedBytes": 72818
+    },
+    {
+      "source": "assets/images/Product-images-RTW/07-3.jpg",
+      "output": "assets/images/Product-images-RTW/07-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 322373,
+      "optimizedBytes": 234024,
+      "savedBytes": 88349
+    },
+    {
+      "source": "assets/images/Product-images-RTW/07.jpg",
+      "output": "assets/images/Product-images-RTW/07.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 296723,
+      "optimizedBytes": 217008,
+      "savedBytes": 79715
+    },
+    {
+      "source": "assets/images/Product-images-RTW/08-2.jpg",
+      "output": "assets/images/Product-images-RTW/08-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2157147,
+      "optimizedBytes": 98890,
+      "savedBytes": 2058257
+    },
+    {
+      "source": "assets/images/Product-images-RTW/08-3.jpg",
+      "output": "assets/images/Product-images-RTW/08-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3485887,
+      "optimizedBytes": 339508,
+      "savedBytes": 3146379
+    },
+    {
+      "source": "assets/images/Product-images-RTW/08.jpg",
+      "output": "assets/images/Product-images-RTW/08.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2221649,
+      "optimizedBytes": 118494,
+      "savedBytes": 2103155
+    },
+    {
+      "source": "assets/images/Product-images-RTW/09.2.jpg",
+      "output": "assets/images/Product-images-RTW/09.2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 627401,
+      "optimizedBytes": 73008,
+      "savedBytes": 554393
+    },
+    {
+      "source": "assets/images/Product-images-RTW/09.3.jpg",
+      "output": "assets/images/Product-images-RTW/09.3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 432898,
+      "optimizedBytes": 166912,
+      "savedBytes": 265986
+    },
+    {
+      "source": "assets/images/Product-images-RTW/09.jpg",
+      "output": "assets/images/Product-images-RTW/09.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 324478,
+      "optimizedBytes": 123550,
+      "savedBytes": 200928
+    },
+    {
+      "source": "assets/images/Product-images-RTW/10.1.jpg",
+      "output": "assets/images/Product-images-RTW/10.1.webp",
+      "width": 1080,
+      "height": 1440,
+      "frames": 1,
+      "originalBytes": 200046,
+      "optimizedBytes": 66322,
+      "savedBytes": 133724
+    },
+    {
+      "source": "assets/images/Product-images-RTW/10.2.jpg",
+      "output": "assets/images/Product-images-RTW/10.2.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 290007,
+      "optimizedBytes": 95870,
+      "savedBytes": 194137
+    },
+    {
+      "source": "assets/images/Product-images-RTW/10.3.jpg",
+      "output": "assets/images/Product-images-RTW/10.3.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 298372,
+      "optimizedBytes": 103812,
+      "savedBytes": 194560
+    },
+    {
+      "source": "assets/images/Product-images-RTW/10.4.jpg",
+      "output": "assets/images/Product-images-RTW/10.4.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 232592,
+      "optimizedBytes": 69818,
+      "savedBytes": 162774
+    },
+    {
+      "source": "assets/images/Product-images-RTW/10.jpg",
+      "output": "assets/images/Product-images-RTW/10.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 275076,
+      "optimizedBytes": 90688,
+      "savedBytes": 184388
+    },
+    {
+      "source": "assets/images/Product-images-RTW/11-2.jpg",
+      "output": "assets/images/Product-images-RTW/11-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2291560,
+      "optimizedBytes": 132488,
+      "savedBytes": 2159072
+    },
+    {
+      "source": "assets/images/Product-images-RTW/11-3.jpg",
+      "output": "assets/images/Product-images-RTW/11-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 632797,
+      "optimizedBytes": 78178,
+      "savedBytes": 554619
+    },
+    {
+      "source": "assets/images/Product-images-RTW/11-4.jpg",
+      "output": "assets/images/Product-images-RTW/11-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 562295,
+      "optimizedBytes": 66546,
+      "savedBytes": 495749
+    },
+    {
+      "source": "assets/images/Product-images-RTW/11.jpg",
+      "output": "assets/images/Product-images-RTW/11.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2637875,
+      "optimizedBytes": 172216,
+      "savedBytes": 2465659
+    },
+    {
+      "source": "assets/images/Product-images-RTW/12-2.jpg",
+      "output": "assets/images/Product-images-RTW/12-2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 636345,
+      "optimizedBytes": 91982,
+      "savedBytes": 544363
+    },
+    {
+      "source": "assets/images/Product-images-RTW/12-3.jpg",
+      "output": "assets/images/Product-images-RTW/12-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 667297,
+      "optimizedBytes": 95618,
+      "savedBytes": 571679
+    },
+    {
+      "source": "assets/images/Product-images-RTW/12-4.jpg",
+      "output": "assets/images/Product-images-RTW/12-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 689708,
+      "optimizedBytes": 99618,
+      "savedBytes": 590090
+    },
+    {
+      "source": "assets/images/Product-images-RTW/12-5.jpg",
+      "output": "assets/images/Product-images-RTW/12-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 806706,
+      "optimizedBytes": 129780,
+      "savedBytes": 676926
+    },
+    {
+      "source": "assets/images/Product-images-RTW/12.jpg",
+      "output": "assets/images/Product-images-RTW/12.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2230369,
+      "optimizedBytes": 160212,
+      "savedBytes": 2070157
+    },
+    {
+      "source": "assets/images/Product-images-RTW/13-2.jpg",
+      "output": "assets/images/Product-images-RTW/13-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 343764,
+      "optimizedBytes": 309238,
+      "savedBytes": 34526
+    },
+    {
+      "source": "assets/images/Product-images-RTW/13-3.jpg",
+      "output": "assets/images/Product-images-RTW/13-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 142217,
+      "optimizedBytes": 92608,
+      "savedBytes": 49609
+    },
+    {
+      "source": "assets/images/Product-images-RTW/13.jpg",
+      "output": "assets/images/Product-images-RTW/13.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 160888,
+      "optimizedBytes": 111388,
+      "savedBytes": 49500
+    },
+    {
+      "source": "assets/images/Product-images-RTW/14-2.jpg",
+      "output": "assets/images/Product-images-RTW/14-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 625365,
+      "optimizedBytes": 67866,
+      "savedBytes": 557499
+    },
+    {
+      "source": "assets/images/Product-images-RTW/14-3.jpg",
+      "output": "assets/images/Product-images-RTW/14-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 507952,
+      "optimizedBytes": 46212,
+      "savedBytes": 461740
+    },
+    {
+      "source": "assets/images/Product-images-RTW/14-4.jpg",
+      "output": "assets/images/Product-images-RTW/14-4.webp",
+      "width": 941,
+      "height": 1672,
+      "frames": 1,
+      "originalBytes": 2155296,
+      "optimizedBytes": 115712,
+      "savedBytes": 2039584
+    },
+    {
+      "source": "assets/images/Product-images-RTW/14-5.jpg",
+      "output": "assets/images/Product-images-RTW/14-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 744322,
+      "optimizedBytes": 94390,
+      "savedBytes": 649932
+    },
+    {
+      "source": "assets/images/Product-images-RTW/14.jpg",
+      "output": "assets/images/Product-images-RTW/14.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 1953512,
+      "optimizedBytes": 64674,
+      "savedBytes": 1888838
+    },
+    {
+      "source": "assets/images/Product-images-RTW/15-2.jpg",
+      "output": "assets/images/Product-images-RTW/15-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 651113,
+      "optimizedBytes": 86740,
+      "savedBytes": 564373
+    },
+    {
+      "source": "assets/images/Product-images-RTW/15-3.jpg",
+      "output": "assets/images/Product-images-RTW/15-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 722808,
+      "optimizedBytes": 107446,
+      "savedBytes": 615362
+    },
+    {
+      "source": "assets/images/Product-images-RTW/15-4.jpg",
+      "output": "assets/images/Product-images-RTW/15-4.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 649839,
+      "optimizedBytes": 83244,
+      "savedBytes": 566595
+    },
+    {
+      "source": "assets/images/Product-images-RTW/15-5.jpg",
+      "output": "assets/images/Product-images-RTW/15-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 794646,
+      "optimizedBytes": 127492,
+      "savedBytes": 667154
+    },
+    {
+      "source": "assets/images/Product-images-RTW/15.jpg",
+      "output": "assets/images/Product-images-RTW/15.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 683406,
+      "optimizedBytes": 104394,
+      "savedBytes": 579012
+    },
+    {
+      "source": "assets/images/Product-images-RTW/16-2.jpg",
+      "output": "assets/images/Product-images-RTW/16-2.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 792062,
+      "optimizedBytes": 122654,
+      "savedBytes": 669408
+    },
+    {
+      "source": "assets/images/Product-images-RTW/16-3.jpg",
+      "output": "assets/images/Product-images-RTW/16-3.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 721112,
+      "optimizedBytes": 101482,
+      "savedBytes": 619630
+    },
+    {
+      "source": "assets/images/Product-images-RTW/16-4.jpg",
+      "output": "assets/images/Product-images-RTW/16-4.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3524177,
+      "optimizedBytes": 376844,
+      "savedBytes": 3147333
+    },
+    {
+      "source": "assets/images/Product-images-RTW/16.jpg",
+      "output": "assets/images/Product-images-RTW/16.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2336469,
+      "optimizedBytes": 167356,
+      "savedBytes": 2169113
+    },
+    {
+      "source": "assets/images/Product-images-RTW/17-2.jpg.png",
+      "output": "assets/images/Product-images-RTW/17-2.jpg.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2582968,
+      "optimizedBytes": 180496,
+      "savedBytes": 2402472
+    },
+    {
+      "source": "assets/images/Product-images-RTW/17-3.jpg.png",
+      "output": "assets/images/Product-images-RTW/17-3.jpg.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2377854,
+      "optimizedBytes": 134502,
+      "savedBytes": 2243352
+    },
+    {
+      "source": "assets/images/Product-images-RTW/17-4.jpg.png",
+      "output": "assets/images/Product-images-RTW/17-4.jpg.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3206012,
+      "optimizedBytes": 305952,
+      "savedBytes": 2900060
+    },
+    {
+      "source": "assets/images/Product-images-RTW/17-5.jpg.png",
+      "output": "assets/images/Product-images-RTW/17-5.jpg.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3085165,
+      "optimizedBytes": 274126,
+      "savedBytes": 2811039
+    },
+    {
+      "source": "assets/images/Product-images-RTW/17.jpg.png",
+      "output": "assets/images/Product-images-RTW/17.jpg.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2387407,
+      "optimizedBytes": 143418,
+      "savedBytes": 2243989
+    },
+    {
+      "source": "assets/images/Product-images-RTW/18.jpg",
+      "output": "assets/images/Product-images-RTW/18.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 737603,
+      "optimizedBytes": 575728,
+      "savedBytes": 161875
+    },
+    {
+      "source": "assets/images/Product-images-RTW/19.jpg",
+      "output": "assets/images/Product-images-RTW/19.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 414738,
+      "optimizedBytes": 268210,
+      "savedBytes": 146528
+    },
+    {
+      "source": "assets/images/Product-images-RTW/20.jpg",
+      "output": "assets/images/Product-images-RTW/20.webp",
+      "width": 2400,
+      "height": 3600,
+      "frames": 1,
+      "originalBytes": 1106511,
+      "optimizedBytes": 636992,
+      "savedBytes": 469519
+    },
+    {
+      "source": "assets/images/Sale/01-2.jpg",
+      "output": "assets/images/Sale/01-2.webp",
+      "width": 806,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 45682,
+      "optimizedBytes": 34482,
+      "savedBytes": 11200
+    },
+    {
+      "source": "assets/images/Sale/01-3.jpg",
+      "output": "assets/images/Sale/01-3.webp",
+      "width": 973,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 62439,
+      "optimizedBytes": 47832,
+      "savedBytes": 14607
+    },
+    {
+      "source": "assets/images/Sale/01-4.jpg",
+      "output": "assets/images/Sale/01-4.webp",
+      "width": 760,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 42805,
+      "optimizedBytes": 32754,
+      "savedBytes": 10051
+    },
+    {
+      "source": "assets/images/Sale/01.jpg",
+      "output": "assets/images/Sale/01.webp",
+      "width": 788,
+      "height": 768,
+      "frames": 1,
+      "originalBytes": 41601,
+      "optimizedBytes": 30498,
+      "savedBytes": 11103
+    },
+    {
+      "source": "assets/images/Sale/02-2.jpg",
+      "output": "assets/images/Sale/02-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 238221,
+      "optimizedBytes": 171216,
+      "savedBytes": 67005
+    },
+    {
+      "source": "assets/images/Sale/02.jpg",
+      "output": "assets/images/Sale/02.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 223320,
+      "optimizedBytes": 141920,
+      "savedBytes": 81400
+    },
+    {
+      "source": "assets/images/Sale/03-2.jpg",
+      "output": "assets/images/Sale/03-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 88680,
+      "optimizedBytes": 58838,
+      "savedBytes": 29842
+    },
+    {
+      "source": "assets/images/Sale/03-3.jpg",
+      "output": "assets/images/Sale/03-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 80281,
+      "optimizedBytes": 51240,
+      "savedBytes": 29041
+    },
+    {
+      "source": "assets/images/Sale/03.jpg",
+      "output": "assets/images/Sale/03.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 84676,
+      "optimizedBytes": 55690,
+      "savedBytes": 28986
+    },
+    {
+      "source": "assets/images/Sale/04-2.jpg",
+      "output": "assets/images/Sale/04-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 311465,
+      "optimizedBytes": 237430,
+      "savedBytes": 74035
+    },
+    {
+      "source": "assets/images/Sale/04-3.jpg",
+      "output": "assets/images/Sale/04-3.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 213813,
+      "optimizedBytes": 149822,
+      "savedBytes": 63991
+    },
+    {
+      "source": "assets/images/Sale/04.jpg",
+      "output": "assets/images/Sale/04.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 234792,
+      "optimizedBytes": 155638,
+      "savedBytes": 79154
+    },
+    {
+      "source": "assets/images/Sale/05-2.jpg",
+      "output": "assets/images/Sale/05-2.webp",
+      "width": 1440,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 168071,
+      "optimizedBytes": 100572,
+      "savedBytes": 67499
+    },
+    {
+      "source": "assets/images/Sale/05-3.jpg",
+      "output": "assets/images/Sale/05-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 180996,
+      "optimizedBytes": 118120,
+      "savedBytes": 62876
+    },
+    {
+      "source": "assets/images/Sale/05.jpg",
+      "output": "assets/images/Sale/05.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 178730,
+      "optimizedBytes": 114406,
+      "savedBytes": 64324
+    },
+    {
+      "source": "assets/images/Sale/06-2.jpg",
+      "output": "assets/images/Sale/06-2.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 302485,
+      "optimizedBytes": 236636,
+      "savedBytes": 65849
+    },
+    {
+      "source": "assets/images/Sale/06-3.jpg",
+      "output": "assets/images/Sale/06-3.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 242265,
+      "optimizedBytes": 168106,
+      "savedBytes": 74159
+    },
+    {
+      "source": "assets/images/Sale/06-4.jpg",
+      "output": "assets/images/Sale/06-4.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 268493,
+      "optimizedBytes": 201924,
+      "savedBytes": 66569
+    },
+    {
+      "source": "assets/images/Sale/06.jpg",
+      "output": "assets/images/Sale/06.webp",
+      "width": 1440,
+      "height": 1921,
+      "frames": 1,
+      "originalBytes": 188151,
+      "optimizedBytes": 119054,
+      "savedBytes": 69097
+    },
+    {
+      "source": "assets/images/Sale/07-2.jpg",
+      "output": "assets/images/Sale/07-2.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 209606,
+      "optimizedBytes": 136788,
+      "savedBytes": 72818
+    },
+    {
+      "source": "assets/images/Sale/07-3.jpg",
+      "output": "assets/images/Sale/07-3.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 322373,
+      "optimizedBytes": 234024,
+      "savedBytes": 88349
+    },
+    {
+      "source": "assets/images/Sale/07.jpg",
+      "output": "assets/images/Sale/07.webp",
+      "width": 1440,
+      "height": 1801,
+      "frames": 1,
+      "originalBytes": 296723,
+      "optimizedBytes": 217008,
+      "savedBytes": 79715
+    },
+    {
+      "source": "assets/images/Sale/08-2.jpg",
+      "output": "assets/images/Sale/08-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2157147,
+      "optimizedBytes": 98890,
+      "savedBytes": 2058257
+    },
+    {
+      "source": "assets/images/Sale/08-3.jpg",
+      "output": "assets/images/Sale/08-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3485887,
+      "optimizedBytes": 339508,
+      "savedBytes": 3146379
+    },
+    {
+      "source": "assets/images/Sale/08.jpg",
+      "output": "assets/images/Sale/08.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2221649,
+      "optimizedBytes": 118494,
+      "savedBytes": 2103155
+    },
+    {
+      "source": "assets/images/Sale/09.2.jpg",
+      "output": "assets/images/Sale/09.2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 627401,
+      "optimizedBytes": 73008,
+      "savedBytes": 554393
+    },
+    {
+      "source": "assets/images/Sale/09.3.jpg",
+      "output": "assets/images/Sale/09.3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 432898,
+      "optimizedBytes": 166912,
+      "savedBytes": 265986
+    },
+    {
+      "source": "assets/images/Sale/09.jpg",
+      "output": "assets/images/Sale/09.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 324478,
+      "optimizedBytes": 123550,
+      "savedBytes": 200928
+    },
+    {
+      "source": "assets/images/Sale/10.1.jpg",
+      "output": "assets/images/Sale/10.1.webp",
+      "width": 1080,
+      "height": 1440,
+      "frames": 1,
+      "originalBytes": 200046,
+      "optimizedBytes": 66322,
+      "savedBytes": 133724
+    },
+    {
+      "source": "assets/images/Sale/10.2.jpg",
+      "output": "assets/images/Sale/10.2.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 290007,
+      "optimizedBytes": 95870,
+      "savedBytes": 194137
+    },
+    {
+      "source": "assets/images/Sale/10.3.jpg",
+      "output": "assets/images/Sale/10.3.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 298372,
+      "optimizedBytes": 103812,
+      "savedBytes": 194560
+    },
+    {
+      "source": "assets/images/Sale/10.4.jpg",
+      "output": "assets/images/Sale/10.4.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 232592,
+      "optimizedBytes": 69818,
+      "savedBytes": 162774
+    },
+    {
+      "source": "assets/images/Sale/10.jpg",
+      "output": "assets/images/Sale/10.webp",
+      "width": 1080,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 275076,
+      "optimizedBytes": 90688,
+      "savedBytes": 184388
+    },
+    {
+      "source": "assets/images/Sale/11-2.jpg",
+      "output": "assets/images/Sale/11-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2291560,
+      "optimizedBytes": 132488,
+      "savedBytes": 2159072
+    },
+    {
+      "source": "assets/images/Sale/11-3.jpg",
+      "output": "assets/images/Sale/11-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 632797,
+      "optimizedBytes": 78178,
+      "savedBytes": 554619
+    },
+    {
+      "source": "assets/images/Sale/11-4.jpg",
+      "output": "assets/images/Sale/11-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 562295,
+      "optimizedBytes": 66546,
+      "savedBytes": 495749
+    },
+    {
+      "source": "assets/images/Sale/11.jpg",
+      "output": "assets/images/Sale/11.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2637875,
+      "optimizedBytes": 172216,
+      "savedBytes": 2465659
+    },
+    {
+      "source": "assets/images/Sale/12-2.jpg",
+      "output": "assets/images/Sale/12-2.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 636345,
+      "optimizedBytes": 91982,
+      "savedBytes": 544363
+    },
+    {
+      "source": "assets/images/Sale/12-3.jpg",
+      "output": "assets/images/Sale/12-3.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 667297,
+      "optimizedBytes": 95618,
+      "savedBytes": 571679
+    },
+    {
+      "source": "assets/images/Sale/12-4.jpg",
+      "output": "assets/images/Sale/12-4.webp",
+      "width": 921,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 689708,
+      "optimizedBytes": 99618,
+      "savedBytes": 590090
+    },
+    {
+      "source": "assets/images/Sale/12-5.jpg",
+      "output": "assets/images/Sale/12-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 806706,
+      "optimizedBytes": 129780,
+      "savedBytes": 676926
+    },
+    {
+      "source": "assets/images/Sale/12.jpg",
+      "output": "assets/images/Sale/12.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2230369,
+      "optimizedBytes": 160212,
+      "savedBytes": 2070157
+    },
+    {
+      "source": "assets/images/Sale/13-2.jpg",
+      "output": "assets/images/Sale/13-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 343764,
+      "optimizedBytes": 309238,
+      "savedBytes": 34526
+    },
+    {
+      "source": "assets/images/Sale/13-3.jpg",
+      "output": "assets/images/Sale/13-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 142217,
+      "optimizedBytes": 92608,
+      "savedBytes": 49609
+    },
+    {
+      "source": "assets/images/Sale/13.jpg",
+      "output": "assets/images/Sale/13.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 160888,
+      "optimizedBytes": 111388,
+      "savedBytes": 49500
+    },
+    {
+      "source": "assets/images/Sale/14-2.jpg",
+      "output": "assets/images/Sale/14-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 625365,
+      "optimizedBytes": 67866,
+      "savedBytes": 557499
+    },
+    {
+      "source": "assets/images/Sale/14-3.jpg",
+      "output": "assets/images/Sale/14-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 507952,
+      "optimizedBytes": 46212,
+      "savedBytes": 461740
+    },
+    {
+      "source": "assets/images/Sale/14-4.jpg",
+      "output": "assets/images/Sale/14-4.webp",
+      "width": 941,
+      "height": 1672,
+      "frames": 1,
+      "originalBytes": 2155296,
+      "optimizedBytes": 115712,
+      "savedBytes": 2039584
+    },
+    {
+      "source": "assets/images/Sale/14-5.jpg",
+      "output": "assets/images/Sale/14-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 744322,
+      "optimizedBytes": 94390,
+      "savedBytes": 649932
+    },
+    {
+      "source": "assets/images/Sale/14.jpg",
+      "output": "assets/images/Sale/14.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 1953512,
+      "optimizedBytes": 64674,
+      "savedBytes": 1888838
+    },
+    {
+      "source": "assets/images/Sale/15-2.jpg",
+      "output": "assets/images/Sale/15-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 651113,
+      "optimizedBytes": 86740,
+      "savedBytes": 564373
+    },
+    {
+      "source": "assets/images/Sale/15-3.jpg",
+      "output": "assets/images/Sale/15-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 722808,
+      "optimizedBytes": 107446,
+      "savedBytes": 615362
+    },
+    {
+      "source": "assets/images/Sale/15-4.jpg",
+      "output": "assets/images/Sale/15-4.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 649839,
+      "optimizedBytes": 83244,
+      "savedBytes": 566595
+    },
+    {
+      "source": "assets/images/Sale/15-5.jpg",
+      "output": "assets/images/Sale/15-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 794646,
+      "optimizedBytes": 127492,
+      "savedBytes": 667154
+    },
+    {
+      "source": "assets/images/Sale/15.jpg",
+      "output": "assets/images/Sale/15.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 683406,
+      "optimizedBytes": 104394,
+      "savedBytes": 579012
+    },
+    {
+      "source": "assets/images/Sale/16-2.jpg",
+      "output": "assets/images/Sale/16-2.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 792062,
+      "optimizedBytes": 122654,
+      "savedBytes": 669408
+    },
+    {
+      "source": "assets/images/Sale/16-3.jpg",
+      "output": "assets/images/Sale/16-3.webp",
+      "width": 922,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 721112,
+      "optimizedBytes": 101482,
+      "savedBytes": 619630
+    },
+    {
+      "source": "assets/images/Sale/16-4.jpg",
+      "output": "assets/images/Sale/16-4.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3524177,
+      "optimizedBytes": 376844,
+      "savedBytes": 3147333
+    },
+    {
+      "source": "assets/images/Sale/16.jpg",
+      "output": "assets/images/Sale/16.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2336469,
+      "optimizedBytes": 167356,
+      "savedBytes": 2169113
+    },
+    {
+      "source": "assets/images/Sale/17-2.jpg",
+      "output": "assets/images/Sale/17-2.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2582968,
+      "optimizedBytes": 180496,
+      "savedBytes": 2402472
+    },
+    {
+      "source": "assets/images/Sale/17-3.jpg",
+      "output": "assets/images/Sale/17-3.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2377854,
+      "optimizedBytes": 134502,
+      "savedBytes": 2243352
+    },
+    {
+      "source": "assets/images/Sale/17-4.jpg",
+      "output": "assets/images/Sale/17-4.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3206012,
+      "optimizedBytes": 305952,
+      "savedBytes": 2900060
+    },
+    {
+      "source": "assets/images/Sale/17-5.jpg",
+      "output": "assets/images/Sale/17-5.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 3085165,
+      "optimizedBytes": 274126,
+      "savedBytes": 2811039
+    },
+    {
+      "source": "assets/images/Sale/17.jpg",
+      "output": "assets/images/Sale/17.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2387407,
+      "optimizedBytes": 143418,
+      "savedBytes": 2243989
+    },
+    {
+      "source": "assets/images/Sale/18.jpg",
+      "output": "assets/images/Sale/18.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 737603,
+      "optimizedBytes": 575728,
+      "savedBytes": 161875
+    },
+    {
+      "source": "assets/images/Sale/19.jpg",
+      "output": "assets/images/Sale/19.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 414738,
+      "optimizedBytes": 268210,
+      "savedBytes": 146528
+    },
+    {
+      "source": "assets/images/Sale/20.jpg",
+      "output": "assets/images/Sale/20.webp",
+      "width": 2400,
+      "height": 3600,
+      "frames": 1,
+      "originalBytes": 1106511,
+      "optimizedBytes": 636992,
+      "savedBytes": 469519
+    },
+    {
+      "source": "assets/images/TOP SALE/6.jpg",
+      "output": "assets/images/TOP SALE/6.webp",
+      "width": 1080,
+      "height": 1231,
+      "frames": 1,
+      "originalBytes": 312377,
+      "optimizedBytes": 250736,
+      "savedBytes": 61641
+    },
+    {
+      "source": "assets/images/UGC/01.jpg",
+      "output": "assets/images/UGC/01.webp",
+      "width": 1024,
+      "height": 1024,
+      "frames": 1,
+      "originalBytes": 709066,
+      "optimizedBytes": 106688,
+      "savedBytes": 602378
+    },
+    {
+      "source": "assets/images/UGC/02.jpg",
+      "output": "assets/images/UGC/02.webp",
+      "width": 1024,
+      "height": 1024,
+      "frames": 1,
+      "originalBytes": 668977,
+      "optimizedBytes": 103366,
+      "savedBytes": 565611
+    },
+    {
+      "source": "assets/images/UGC/03.jpg",
+      "output": "assets/images/UGC/03.webp",
+      "width": 1024,
+      "height": 1024,
+      "frames": 1,
+      "originalBytes": 656962,
+      "optimizedBytes": 101510,
+      "savedBytes": 555452
+    },
+    {
+      "source": "assets/images/UGC/04.jpg",
+      "output": "assets/images/UGC/04.webp",
+      "width": 1024,
+      "height": 1024,
+      "frames": 1,
+      "originalBytes": 673864,
+      "optimizedBytes": 107490,
+      "savedBytes": 566374
+    },
+    {
+      "source": "assets/images/UGC/05.jpg",
+      "output": "assets/images/UGC/05.webp",
+      "width": 1024,
+      "height": 1024,
+      "frames": 1,
+      "originalBytes": 802329,
+      "optimizedBytes": 168238,
+      "savedBytes": 634091
+    },
+    {
+      "source": "assets/images/UGC/06.jpg",
+      "output": "assets/images/UGC/06.webp",
+      "width": 1024,
+      "height": 1024,
+      "frames": 1,
+      "originalBytes": 732421,
+      "optimizedBytes": 123668,
+      "savedBytes": 608753
+    },
+    {
+      "source": "assets/images/UGC/07.jpg",
+      "output": "assets/images/UGC/07.webp",
+      "width": 1024,
+      "height": 1024,
+      "frames": 1,
+      "originalBytes": 741677,
+      "optimizedBytes": 134154,
+      "savedBytes": 607523
+    },
+    {
+      "source": "assets/images/UGC/08.jpg",
+      "output": "assets/images/UGC/08.webp",
+      "width": 1024,
+      "height": 1024,
+      "frames": 1,
+      "originalBytes": 851060,
+      "optimizedBytes": 185398,
+      "savedBytes": 665662
+    },
+    {
+      "source": "assets/images/Web_banner/Web_banner_generic.jpg",
+      "output": "assets/images/Web_banner/Web_banner_generic.webp",
+      "width": 3200,
+      "height": 1608,
+      "frames": 1,
+      "originalBytes": 537614,
+      "optimizedBytes": 366184,
+      "savedBytes": 171430
+    },
+    {
+      "source": "assets/images/Web_banner/Web_banner_generic_2.jpg",
+      "output": "assets/images/Web_banner/Web_banner_generic_2.webp",
+      "width": 3200,
+      "height": 1608,
+      "frames": 1,
+      "originalBytes": 557873,
+      "optimizedBytes": 361052,
+      "savedBytes": 196821
+    },
+    {
+      "source": "assets/images/Web_banner/Web_banner_generic_3.jpg",
+      "output": "assets/images/Web_banner/Web_banner_generic_3.webp",
+      "width": 3200,
+      "height": 1603,
+      "frames": 1,
+      "originalBytes": 820692,
+      "optimizedBytes": 624934,
+      "savedBytes": 195758
+    },
+    {
+      "source": "assets/images/Web_banner/Web_banner_generic_5.jpg",
+      "output": "assets/images/Web_banner/Web_banner_generic_5.webp",
+      "width": 3200,
+      "height": 1608,
+      "frames": 1,
+      "originalBytes": 269014,
+      "optimizedBytes": 191892,
+      "savedBytes": 77122
+    },
+    {
+      "source": "assets/images/blog/Everyday-Style-Guide.jpg",
+      "output": "assets/images/blog/Everyday-Style-Guide.webp",
+      "width": 2100,
+      "height": 1400,
+      "frames": 1,
+      "originalBytes": 121199,
+      "optimizedBytes": 154122,
+      "savedBytes": -32923
+    },
+    {
+      "source": "assets/images/blog/New-Fabric-Choices.jpg",
+      "output": "assets/images/blog/New-Fabric-Choices.webp",
+      "width": 1024,
+      "height": 512,
+      "frames": 1,
+      "originalBytes": 756570,
+      "optimizedBytes": 43902,
+      "savedBytes": 712668
+    },
+    {
+      "source": "assets/images/blog/Stylish-Modern-Wear.jpg",
+      "output": "assets/images/blog/Stylish-Modern-Wear.webp",
+      "width": 5760,
+      "height": 3842,
+      "frames": 1,
+      "originalBytes": 915722,
+      "optimizedBytes": 614204,
+      "savedBytes": 301518
+    },
+    {
+      "source": "assets/images/blog/Summer-Sale.jpg",
+      "output": "assets/images/blog/Summer-Sale.webp",
+      "width": 1024,
+      "height": 687,
+      "frames": 1,
+      "originalBytes": 1090855,
+      "optimizedBytes": 66316,
+      "savedBytes": 1024539
+    },
+    {
+      "source": "assets/images/blog/Sustainable-Fabric-Choices.jpg",
+      "output": "assets/images/blog/Sustainable-Fabric-Choices.webp",
+      "width": 1724,
+      "height": 970,
+      "frames": 1,
+      "originalBytes": 145014,
+      "optimizedBytes": 74522,
+      "savedBytes": 70492
+    },
+    {
+      "source": "assets/images/blog/Top-Style-Trends-for-2026.jpg",
+      "output": "assets/images/blog/Top-Style-Trends-for-2026.webp",
+      "width": 2000,
+      "height": 1125,
+      "frames": 1,
+      "originalBytes": 219214,
+      "optimizedBytes": 173794,
+      "savedBytes": 45420
+    },
+    {
+      "source": "assets/images/blog/black-mustard-lawn-suit.jpg",
+      "output": "assets/images/blog/black-mustard-lawn-suit.webp",
+      "width": 1734,
+      "height": 907,
+      "frames": 1,
+      "originalBytes": 2203447,
+      "optimizedBytes": 111286,
+      "savedBytes": 2092161
+    },
+    {
+      "source": "assets/images/blog/black-white-floral-3-piece-suit.jpg",
+      "output": "assets/images/blog/black-white-floral-3-piece-suit.webp",
+      "width": 1920,
+      "height": 1080,
+      "frames": 1,
+      "originalBytes": 1873005,
+      "optimizedBytes": 101238,
+      "savedBytes": 1771767
+    },
+    {
+      "source": "assets/images/blog/chiffon-summer-dress.jpg.png",
+      "output": "assets/images/blog/chiffon-summer-dress.jpg.webp",
+      "width": 1920,
+      "height": 1080,
+      "frames": 1,
+      "originalBytes": 2827459,
+      "optimizedBytes": 184468,
+      "savedBytes": 2642991
+    },
+    {
+      "source": "assets/images/blog/designer-dress.jpg",
+      "output": "assets/images/blog/designer-dress.webp",
+      "width": 1200,
+      "height": 800,
+      "frames": 1,
+      "originalBytes": 213530,
+      "optimizedBytes": 113574,
+      "savedBytes": 99956
+    },
+    {
+      "source": "assets/images/blog/dhanak-embroidered-suit.jpg",
+      "output": "assets/images/blog/dhanak-embroidered-suit.webp",
+      "width": 1424,
+      "height": 752,
+      "frames": 1,
+      "originalBytes": 1999243,
+      "optimizedBytes": 169526,
+      "savedBytes": 1829717
+    },
+    {
+      "source": "assets/images/blog/farshi-shalwar-suit.jpg",
+      "output": "assets/images/blog/farshi-shalwar-suit.webp",
+      "width": 1600,
+      "height": 836,
+      "frames": 1,
+      "originalBytes": 344436,
+      "optimizedBytes": 148696,
+      "savedBytes": 195740
+    },
+    {
+      "source": "assets/images/blog/gota-work-chiffon-suit.jpg",
+      "output": "assets/images/blog/gota-work-chiffon-suit.webp",
+      "width": 1424,
+      "height": 752,
+      "frames": 1,
+      "originalBytes": 717649,
+      "optimizedBytes": 109546,
+      "savedBytes": 608103
+    },
+    {
+      "source": "assets/images/blog/how-to-choose-the-right-fabric.jpg",
+      "output": "assets/images/blog/how-to-choose-the-right-fabric.webp",
+      "width": 2000,
+      "height": 1330,
+      "frames": 1,
+      "originalBytes": 246274,
+      "optimizedBytes": 189538,
+      "savedBytes": 56736
+    },
+    {
+      "source": "assets/images/blog/lakhany-stitched-embroidered-dress.jpg",
+      "output": "assets/images/blog/lakhany-stitched-embroidered-dress.webp",
+      "width": 1734,
+      "height": 907,
+      "frames": 1,
+      "originalBytes": 2487751,
+      "optimizedBytes": 185804,
+      "savedBytes": 2301947
+    },
+    {
+      "source": "assets/images/blog/off-white-arabic-lawn-suit.jpg",
+      "output": "assets/images/blog/off-white-arabic-lawn-suit.webp",
+      "width": 1424,
+      "height": 752,
+      "frames": 1,
+      "originalBytes": 744389,
+      "optimizedBytes": 113534,
+      "savedBytes": 630855
+    },
+    {
+      "source": "assets/images/blog/placeholder.jpg",
+      "output": "assets/images/blog/placeholder.webp",
+      "width": 5760,
+      "height": 3842,
+      "frames": 1,
+      "originalBytes": 915722,
+      "optimizedBytes": 614204,
+      "savedBytes": 301518
+    },
+    {
+      "source": "assets/images/blog/shamoz-silk-embroidered-suit.jpg",
+      "output": "assets/images/blog/shamoz-silk-embroidered-suit.webp",
+      "width": 1734,
+      "height": 907,
+      "frames": 1,
+      "originalBytes": 2498385,
+      "optimizedBytes": 159516,
+      "savedBytes": 2338869
+    },
+    {
+      "source": "assets/images/blog/summer-fashion-trends-2026.jpg",
+      "output": "assets/images/blog/summer-fashion-trends-2026.webp",
+      "width": 1200,
+      "height": 800,
+      "frames": 1,
+      "originalBytes": 213530,
+      "optimizedBytes": 113574,
+      "savedBytes": 99956
+    },
+    {
+      "source": "assets/images/blog/summer-in-style-ss26.png",
+      "output": "assets/images/blog/summer-in-style-ss26.webp",
+      "width": 13500,
+      "height": 5626,
+      "frames": 1,
+      "originalBytes": 8475447,
+      "optimizedBytes": 1448340,
+      "savedBytes": 7027107
+    },
+    {
+      "source": "assets/images/blog/what-makes-a-quality-garment.jpg",
+      "output": "assets/images/blog/what-makes-a-quality-garment.webp",
+      "width": 1500,
+      "height": 1000,
+      "frames": 1,
+      "originalBytes": 937274,
+      "optimizedBytes": 69688,
+      "savedBytes": 867586
+    },
+    {
+      "source": "assets/images/blog/white-chiffon-gota-suit.jpg",
+      "output": "assets/images/blog/white-chiffon-gota-suit.webp",
+      "width": 1424,
+      "height": 752,
+      "frames": 1,
+      "originalBytes": 747186,
+      "optimizedBytes": 118406,
+      "savedBytes": 628780
+    },
+    {
+      "source": "assets/images/blog/white-chiffon-hand-embroidered-suit.jpg",
+      "output": "assets/images/blog/white-chiffon-hand-embroidered-suit.webp",
+      "width": 1734,
+      "height": 907,
+      "frames": 1,
+      "originalBytes": 2471339,
+      "optimizedBytes": 181382,
+      "savedBytes": 2289957
+    },
+    {
+      "source": "assets/images/categories/bodyshaper.jpg",
+      "output": "assets/images/categories/bodyshaper.webp",
+      "width": 405,
+      "height": 539,
+      "frames": 1,
+      "originalBytes": 29315,
+      "optimizedBytes": 25118,
+      "savedBytes": 4197
+    },
+    {
+      "source": "assets/images/categories/bras.jpg",
+      "output": "assets/images/categories/bras.webp",
+      "width": 720,
+      "height": 865,
+      "frames": 1,
+      "originalBytes": 108441,
+      "optimizedBytes": 96886,
+      "savedBytes": 11555
+    },
+    {
+      "source": "assets/images/categories/lingerie.jpg",
+      "output": "assets/images/categories/lingerie.webp",
+      "width": 736,
+      "height": 981,
+      "frames": 1,
+      "originalBytes": 129126,
+      "optimizedBytes": 98696,
+      "savedBytes": 30430
+    },
+    {
+      "source": "assets/images/categories/nighties.jpg",
+      "output": "assets/images/categories/nighties.webp",
+      "width": 736,
+      "height": 1308,
+      "frames": 1,
+      "originalBytes": 112899,
+      "optimizedBytes": 67082,
+      "savedBytes": 45817
+    },
+    {
+      "source": "assets/images/categories/panties.jpg",
+      "output": "assets/images/categories/panties.webp",
+      "width": 719,
+      "height": 1043,
+      "frames": 1,
+      "originalBytes": 85354,
+      "optimizedBytes": 50662,
+      "savedBytes": 34692
+    },
+    {
+      "source": "assets/images/categories/sets.jpg",
+      "output": "assets/images/categories/sets.webp",
+      "width": 735,
+      "height": 890,
+      "frames": 1,
+      "originalBytes": 105155,
+      "optimizedBytes": 84338,
+      "savedBytes": 20817
+    },
+    {
+      "source": "assets/images/hero/01.jpg",
+      "output": "assets/images/hero/01.webp",
+      "width": 720,
+      "height": 869,
+      "frames": 1,
+      "originalBytes": 117589,
+      "optimizedBytes": 91190,
+      "savedBytes": 26399
+    },
+    {
+      "source": "assets/images/hero/02.jpg",
+      "output": "assets/images/hero/02.webp",
+      "width": 736,
+      "height": 980,
+      "frames": 1,
+      "originalBytes": 114447,
+      "optimizedBytes": 80170,
+      "savedBytes": 34277
+    },
+    {
+      "source": "assets/images/hero/03.jpg",
+      "output": "assets/images/hero/03.webp",
+      "width": 735,
+      "height": 890,
+      "frames": 1,
+      "originalBytes": 105155,
+      "optimizedBytes": 84338,
+      "savedBytes": 20817
+    },
+    {
+      "source": "assets/images/hero/04.jpg",
+      "output": "assets/images/hero/04.webp",
+      "width": 736,
+      "height": 1104,
+      "frames": 1,
+      "originalBytes": 69148,
+      "optimizedBytes": 40836,
+      "savedBytes": 28312
+    },
+    {
+      "source": "assets/images/hero/05.jpg",
+      "output": "assets/images/hero/05.webp",
+      "width": 736,
+      "height": 981,
+      "frames": 1,
+      "originalBytes": 85817,
+      "optimizedBytes": 53690,
+      "savedBytes": 32127
+    },
+    {
+      "source": "assets/images/image 2/sg-about-hero-2.png",
+      "output": "assets/images/image 2/sg-about-hero-2.webp",
+      "width": 1110,
+      "height": 1417,
+      "frames": 1,
+      "originalBytes": 2237158,
+      "optimizedBytes": 184210,
+      "savedBytes": 2052948
+    },
+    {
+      "source": "assets/images/image 2/sg-about-hero-3.jpg",
+      "output": "assets/images/image 2/sg-about-hero-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 715994,
+      "optimizedBytes": 88694,
+      "savedBytes": 627300
+    },
+    {
+      "source": "assets/images/image 2/sg-about-hero-4.jpg",
+      "output": "assets/images/image 2/sg-about-hero-4.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 756900,
+      "optimizedBytes": 98748,
+      "savedBytes": 658152
+    },
+    {
+      "source": "assets/images/image 2/sg-about-hero-5.jpg",
+      "output": "assets/images/image 2/sg-about-hero-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 725119,
+      "optimizedBytes": 84722,
+      "savedBytes": 640397
+    },
+    {
+      "source": "assets/images/image 2/sg-about-hero.png",
+      "output": "assets/images/image 2/sg-about-hero.webp",
+      "width": 1122,
+      "height": 1402,
+      "frames": 1,
+      "originalBytes": 2508944,
+      "optimizedBytes": 189008,
+      "savedBytes": 2319936
+    },
+    {
+      "source": "assets/images/image 2/sg-courier.jpg",
+      "output": "assets/images/image 2/sg-courier.webp",
+      "width": 1000,
+      "height": 709,
+      "frames": 1,
+      "originalBytes": 124531,
+      "optimizedBytes": 63956,
+      "savedBytes": 60575
+    },
+    {
+      "source": "assets/images/image 2/sg-size-measure.jpg",
+      "output": "assets/images/image 2/sg-size-measure.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 367527,
+      "optimizedBytes": 27540,
+      "savedBytes": 339987
+    },
+    {
+      "source": "assets/images/image 2/sg-story-1.jpg",
+      "output": "assets/images/image 2/sg-story-1.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 751923,
+      "optimizedBytes": 86398,
+      "savedBytes": 665525
+    },
+    {
+      "source": "assets/images/image 2/sg-story-10.jpg",
+      "output": "assets/images/image 2/sg-story-10.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 629537,
+      "optimizedBytes": 76252,
+      "savedBytes": 553285
+    },
+    {
+      "source": "assets/images/image 2/sg-story-11.jpg",
+      "output": "assets/images/image 2/sg-story-11.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 773433,
+      "optimizedBytes": 122270,
+      "savedBytes": 651163
+    },
+    {
+      "source": "assets/images/image 2/sg-story-12.jpg",
+      "output": "assets/images/image 2/sg-story-12.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 663653,
+      "optimizedBytes": 74876,
+      "savedBytes": 588777
+    },
+    {
+      "source": "assets/images/image 2/sg-story-2.jpg",
+      "output": "assets/images/image 2/sg-story-2.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 800113,
+      "optimizedBytes": 104246,
+      "savedBytes": 695867
+    },
+    {
+      "source": "assets/images/image 2/sg-story-3.jpg",
+      "output": "assets/images/image 2/sg-story-3.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 796616,
+      "optimizedBytes": 93228,
+      "savedBytes": 703388
+    },
+    {
+      "source": "assets/images/image 2/sg-story-4.jpg",
+      "output": "assets/images/image 2/sg-story-4.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 814211,
+      "optimizedBytes": 99138,
+      "savedBytes": 715073
+    },
+    {
+      "source": "assets/images/image 2/sg-story-5.jpg",
+      "output": "assets/images/image 2/sg-story-5.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 837760,
+      "optimizedBytes": 103268,
+      "savedBytes": 734492
+    },
+    {
+      "source": "assets/images/image 2/sg-story-6.jpg",
+      "output": "assets/images/image 2/sg-story-6.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 711230,
+      "optimizedBytes": 82356,
+      "savedBytes": 628874
+    },
+    {
+      "source": "assets/images/image 2/sg-story-7.jpg",
+      "output": "assets/images/image 2/sg-story-7.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 753813,
+      "optimizedBytes": 108302,
+      "savedBytes": 645511
+    },
+    {
+      "source": "assets/images/image 2/sg-story-8.jpg",
+      "output": "assets/images/image 2/sg-story-8.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 790408,
+      "optimizedBytes": 115958,
+      "savedBytes": 674450
+    },
+    {
+      "source": "assets/images/image 2/sg-story-9.jpg",
+      "output": "assets/images/image 2/sg-story-9.webp",
+      "width": 928,
+      "height": 1152,
+      "frames": 1,
+      "originalBytes": 727395,
+      "optimizedBytes": 96546,
+      "savedBytes": 630849
+    },
+    {
+      "source": "assets/images/image 2/sg-verify.jpg",
+      "output": "assets/images/image 2/sg-verify.webp",
+      "width": 1152,
+      "height": 928,
+      "frames": 1,
+      "originalBytes": 735817,
+      "optimizedBytes": 97078,
+      "savedBytes": 638739
+    },
+    {
+      "source": "assets/images/products/01-everyday-comfort-bra.jpg",
+      "output": "assets/images/products/01-everyday-comfort-bra.webp",
+      "width": 1428,
+      "height": 1410,
+      "frames": 1,
+      "originalBytes": 2462960,
+      "optimizedBytes": 79584,
+      "savedBytes": 2383376
+    },
+    {
+      "source": "assets/images/products/01.jpg",
+      "output": "assets/images/products/01.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 255760,
+      "optimizedBytes": 134652,
+      "savedBytes": 121108
+    },
+    {
+      "source": "assets/images/products/02-cotton-panty-pack.jpg",
+      "output": "assets/images/products/02-cotton-panty-pack.webp",
+      "width": 634,
+      "height": 695,
+      "frames": 1,
+      "originalBytes": 39691,
+      "optimizedBytes": 15334,
+      "savedBytes": 24357
+    },
+    {
+      "source": "assets/images/products/02.jpg",
+      "output": "assets/images/products/02.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 216661,
+      "optimizedBytes": 117150,
+      "savedBytes": 99511
+    },
+    {
+      "source": "assets/images/products/03-bra-panty-set.jpg",
+      "output": "assets/images/products/03-bra-panty-set.webp",
+      "width": 720,
+      "height": 717,
+      "frames": 1,
+      "originalBytes": 100600,
+      "optimizedBytes": 55356,
+      "savedBytes": 45244
+    },
+    {
+      "source": "assets/images/products/03.jpg",
+      "output": "assets/images/products/03.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 390389,
+      "optimizedBytes": 271094,
+      "savedBytes": 119295
+    },
+    {
+      "source": "assets/images/products/04-night-wear.jpg",
+      "output": "assets/images/products/04-night-wear.webp",
+      "width": 555,
+      "height": 590,
+      "frames": 1,
+      "originalBytes": 56343,
+      "optimizedBytes": 25228,
+      "savedBytes": 31115
+    },
+    {
+      "source": "assets/images/products/04.jpg",
+      "output": "assets/images/products/04.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 319461,
+      "optimizedBytes": 209582,
+      "savedBytes": 109879
+    },
+    {
+      "source": "assets/images/products/05.jpg",
+      "output": "assets/images/products/05.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 669466,
+      "optimizedBytes": 453558,
+      "savedBytes": 215908
+    },
+    {
+      "source": "assets/images/products/06.jpg",
+      "output": "assets/images/products/06.webp",
+      "width": 1200,
+      "height": 1800,
+      "frames": 1,
+      "originalBytes": 258810,
+      "optimizedBytes": 143346,
+      "savedBytes": 115464
+    },
+    {
+      "source": "assets/images/products/07.jpg",
+      "output": "assets/images/products/07.webp",
+      "width": 900,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 232043,
+      "optimizedBytes": 115988,
+      "savedBytes": 116055
+    },
+    {
+      "source": "assets/images/products/08.jpg",
+      "output": "assets/images/products/08.webp",
+      "width": 900,
+      "height": 1350,
+      "frames": 1,
+      "originalBytes": 281961,
+      "optimizedBytes": 147460,
+      "savedBytes": 134501
+    },
+    {
+      "source": "assets/images/products/09.jpg",
+      "output": "assets/images/products/09.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 435536,
+      "optimizedBytes": 268264,
+      "savedBytes": 167272
+    },
+    {
+      "source": "assets/images/products/11.jpg",
+      "output": "assets/images/products/11.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 705212,
+      "optimizedBytes": 523816,
+      "savedBytes": 181396
+    },
+    {
+      "source": "assets/images/products/12.jpg",
+      "output": "assets/images/products/12.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 447886,
+      "optimizedBytes": 277240,
+      "savedBytes": 170646
+    },
+    {
+      "source": "assets/images/products/13.jpg",
+      "output": "assets/images/products/13.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 368793,
+      "optimizedBytes": 192972,
+      "savedBytes": 175821
+    },
+    {
+      "source": "assets/images/products/15.jpg",
+      "output": "assets/images/products/15.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 193699,
+      "optimizedBytes": 100664,
+      "savedBytes": 93035
+    },
+    {
+      "source": "assets/images/products/16.jpg",
+      "output": "assets/images/products/16.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 511971,
+      "optimizedBytes": 313638,
+      "savedBytes": 198333
+    },
+    {
+      "source": "assets/images/products/17.jpg",
+      "output": "assets/images/products/17.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 450439,
+      "optimizedBytes": 261962,
+      "savedBytes": 188477
+    },
+    {
+      "source": "assets/images/products/18.jpg",
+      "output": "assets/images/products/18.webp",
+      "width": 1600,
+      "height": 2400,
+      "frames": 1,
+      "originalBytes": 737603,
+      "optimizedBytes": 575728,
+      "savedBytes": 161875
+    },
+    {
+      "source": "assets/images/projects/01-everyday-comfort-bra.jpg",
+      "output": "assets/images/projects/01-everyday-comfort-bra.webp",
+      "width": 1428,
+      "height": 1410,
+      "frames": 1,
+      "originalBytes": 2462960,
+      "optimizedBytes": 79584,
+      "savedBytes": 2383376
+    },
+    {
+      "source": "assets/images/projects/02-cotton-panty-pack.jpg",
+      "output": "assets/images/projects/02-cotton-panty-pack.webp",
+      "width": 634,
+      "height": 695,
+      "frames": 1,
+      "originalBytes": 39691,
+      "optimizedBytes": 15334,
+      "savedBytes": 24357
+    },
+    {
+      "source": "assets/images/projects/03-bra-panty-set.jpg",
+      "output": "assets/images/projects/03-bra-panty-set.webp",
+      "width": 638,
+      "height": 527,
+      "frames": 1,
+      "originalBytes": 41292,
+      "optimizedBytes": 33590,
+      "savedBytes": 7702
+    },
+    {
+      "source": "assets/images/projects/04-night-wear.jpg",
+      "output": "assets/images/projects/04-night-wear.webp",
+      "width": 720,
+      "height": 961,
+      "frames": 1,
+      "originalBytes": 337273,
+      "optimizedBytes": 50032,
+      "savedBytes": 287241
+    },
+    {
+      "source": "assets/images/projects/bodyshaper.jpg",
+      "output": "assets/images/projects/bodyshaper.webp",
+      "width": 1200,
+      "height": 1890,
+      "frames": 1,
+      "originalBytes": 313032,
+      "optimizedBytes": 311748,
+      "savedBytes": 1284
+    },
+    {
+      "source": "assets/images/projects/bras.jpg",
+      "output": "assets/images/projects/bras.webp",
+      "width": 720,
+      "height": 739,
+      "frames": 1,
+      "originalBytes": 66534,
+      "optimizedBytes": 46132,
+      "savedBytes": 20402
+    },
+    {
+      "source": "assets/images/projects/hero-01.jpg",
+      "output": "assets/images/projects/hero-01.webp",
+      "width": 720,
+      "height": 869,
+      "frames": 1,
+      "originalBytes": 117589,
+      "optimizedBytes": 91190,
+      "savedBytes": 26399
+    },
+    {
+      "source": "assets/images/projects/hero-02.jpg",
+      "output": "assets/images/projects/hero-02.webp",
+      "width": 736,
+      "height": 980,
+      "frames": 1,
+      "originalBytes": 114447,
+      "optimizedBytes": 80170,
+      "savedBytes": 34277
+    },
+    {
+      "source": "assets/images/projects/hero-03.jpg",
+      "output": "assets/images/projects/hero-03.webp",
+      "width": 735,
+      "height": 890,
+      "frames": 1,
+      "originalBytes": 105155,
+      "optimizedBytes": 84338,
+      "savedBytes": 20817
+    },
+    {
+      "source": "assets/images/projects/hero-04.jpg",
+      "output": "assets/images/projects/hero-04.webp",
+      "width": 735,
+      "height": 969,
+      "frames": 1,
+      "originalBytes": 54543,
+      "optimizedBytes": 32096,
+      "savedBytes": 22447
+    },
+    {
+      "source": "assets/images/projects/hero-05.jpg",
+      "output": "assets/images/projects/hero-05.webp",
+      "width": 563,
+      "height": 687,
+      "frames": 1,
+      "originalBytes": 41224,
+      "optimizedBytes": 37026,
+      "savedBytes": 4198
+    },
+    {
+      "source": "assets/images/projects/lingerie.jpg",
+      "output": "assets/images/projects/lingerie.webp",
+      "width": 736,
+      "height": 981,
+      "frames": 1,
+      "originalBytes": 129126,
+      "optimizedBytes": 98696,
+      "savedBytes": 30430
+    },
+    {
+      "source": "assets/images/projects/nighties.jpg",
+      "output": "assets/images/projects/nighties.webp",
+      "width": 736,
+      "height": 920,
+      "frames": 1,
+      "originalBytes": 193207,
+      "optimizedBytes": 190198,
+      "savedBytes": 3009
+    },
+    {
+      "source": "assets/images/projects/panties.jpg",
+      "output": "assets/images/projects/panties.webp",
+      "width": 720,
+      "height": 920,
+      "frames": 1,
+      "originalBytes": 40268,
+      "optimizedBytes": 23128,
+      "savedBytes": 17140
+    },
+    {
+      "source": "assets/images/projects/sets.jpg",
+      "output": "assets/images/projects/sets.webp",
+      "width": 735,
+      "height": 890,
+      "frames": 1,
+      "originalBytes": 105155,
+      "optimizedBytes": 84338,
+      "savedBytes": 20817
+    },
+    {
+      "source": "assets/images/showcase/01-everyday-comfort-bra.jpg",
+      "output": "assets/images/showcase/01-everyday-comfort-bra.webp",
+      "width": 719,
+      "height": 736,
+      "frames": 1,
+      "originalBytes": 46489,
+      "optimizedBytes": 28692,
+      "savedBytes": 17797
+    },
+    {
+      "source": "assets/images/showcase/02-cotton-panty-pack.jpg",
+      "output": "assets/images/showcase/02-cotton-panty-pack.webp",
+      "width": 720,
+      "height": 962,
+      "frames": 1,
+      "originalBytes": 116810,
+      "optimizedBytes": 101760,
+      "savedBytes": 15050
+    },
+    {
+      "source": "assets/images/showcase/03-bra-panty-set.jpg",
+      "output": "assets/images/showcase/03-bra-panty-set.webp",
+      "width": 714,
+      "height": 530,
+      "frames": 1,
+      "originalBytes": 67108,
+      "optimizedBytes": 52664,
+      "savedBytes": 14444
+    },
+    {
+      "source": "assets/images/showcase/04-night-wear.jpg",
+      "output": "assets/images/showcase/04-night-wear.webp",
+      "width": 735,
+      "height": 916,
+      "frames": 1,
+      "originalBytes": 87074,
+      "optimizedBytes": 67414,
+      "savedBytes": 19660
+    },
+    {
+      "source": "assets/images/showcase/bodyshaper.jpg",
+      "output": "assets/images/showcase/bodyshaper.webp",
+      "width": 1200,
+      "height": 1890,
+      "frames": 1,
+      "originalBytes": 313032,
+      "optimizedBytes": 311748,
+      "savedBytes": 1284
+    },
+    {
+      "source": "assets/images/showcase/bras.jpg",
+      "output": "assets/images/showcase/bras.webp",
+      "width": 720,
+      "height": 865,
+      "frames": 1,
+      "originalBytes": 108441,
+      "optimizedBytes": 96886,
+      "savedBytes": 11555
+    },
+    {
+      "source": "assets/images/showcase/hero-01.jpg",
+      "output": "assets/images/showcase/hero-01.webp",
+      "width": 720,
+      "height": 702,
+      "frames": 1,
+      "originalBytes": 77025,
+      "optimizedBytes": 70386,
+      "savedBytes": 6639
+    },
+    {
+      "source": "assets/images/showcase/hero-02.jpg",
+      "output": "assets/images/showcase/hero-02.webp",
+      "width": 736,
+      "height": 980,
+      "frames": 1,
+      "originalBytes": 114447,
+      "optimizedBytes": 80170,
+      "savedBytes": 34277
+    },
+    {
+      "source": "assets/images/showcase/hero-03.jpg",
+      "output": "assets/images/showcase/hero-03.webp",
+      "width": 735,
+      "height": 890,
+      "frames": 1,
+      "originalBytes": 105155,
+      "optimizedBytes": 84338,
+      "savedBytes": 20817
+    },
+    {
+      "source": "assets/images/showcase/hero-04.jpg",
+      "output": "assets/images/showcase/hero-04.webp",
+      "width": 736,
+      "height": 978,
+      "frames": 1,
+      "originalBytes": 118259,
+      "optimizedBytes": 90758,
+      "savedBytes": 27501
+    },
+    {
+      "source": "assets/images/showcase/hero-05.jpg",
+      "output": "assets/images/showcase/hero-05.webp",
+      "width": 720,
+      "height": 900,
+      "frames": 1,
+      "originalBytes": 143383,
+      "optimizedBytes": 142128,
+      "savedBytes": 1255
+    },
+    {
+      "source": "assets/images/showcase/lingerie.jpg",
+      "output": "assets/images/showcase/lingerie.webp",
+      "width": 736,
+      "height": 981,
+      "frames": 1,
+      "originalBytes": 129126,
+      "optimizedBytes": 98696,
+      "savedBytes": 30430
+    },
+    {
+      "source": "assets/images/showcase/nighties.jpg",
+      "output": "assets/images/showcase/nighties.webp",
+      "width": 736,
+      "height": 920,
+      "frames": 1,
+      "originalBytes": 193207,
+      "optimizedBytes": 190198,
+      "savedBytes": 3009
+    },
+    {
+      "source": "assets/images/showcase/panties.jpg",
+      "output": "assets/images/showcase/panties.webp",
+      "width": 720,
+      "height": 989,
+      "frames": 1,
+      "originalBytes": 333158,
+      "optimizedBytes": 44332,
+      "savedBytes": 288826
+    },
+    {
+      "source": "assets/images/showcase/sets.jpg",
+      "output": "assets/images/showcase/sets.webp",
+      "width": 735,
+      "height": 890,
+      "frames": 1,
+      "originalBytes": 105155,
+      "optimizedBytes": 84338,
+      "savedBytes": 20817
+    },
+    {
+      "source": "assets/logo.png",
+      "output": "assets/logo.webp",
+      "width": 1024,
+      "height": 353,
+      "frames": 1,
+      "originalBytes": 45748,
+      "optimizedBytes": 11564,
+      "savedBytes": 34184
+    }
+  ]
+}

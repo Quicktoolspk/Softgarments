@@ -5,17 +5,17 @@
  */
 window.SG_IMAGES = {
     brand: {
-        logo: 'assets/logo.png'
+        logo: 'assets/logo.webp'
     },
 
     hero: {
         folder: 'assets/images/hero/',
         slides: [
-            '01.jpg',
-            '02.jpg',
-            '03.jpg',
-            '04.jpg',
-            '05.jpg'
+            '01.webp',
+            '02.webp',
+            '03.webp',
+            '04.webp',
+            '05.webp'
         ],
         alts: [
             'Softgarments — hero look 1',
@@ -27,19 +27,19 @@ window.SG_IMAGES = {
     },
 
     categories: {
-        bras:       'assets/images/categories/bras.jpg',
-        panties:    'assets/images/categories/panties.jpg',
-        sets:       'assets/images/categories/sets.jpg',
-        nighties:   'assets/images/categories/nighties.jpg',
-        bodyshaper: 'assets/images/categories/bodyshaper.jpg',
-        lingerie:   'assets/images/categories/lingerie.jpg'
+        bras:       'assets/images/categories/bras.webp',
+        panties:    'assets/images/categories/panties.webp',
+        sets:       'assets/images/categories/sets.webp',
+        nighties:   'assets/images/categories/nighties.webp',
+        bodyshaper: 'assets/images/categories/bodyshaper.webp',
+        lingerie:   'assets/images/categories/lingerie.webp'
     },
 
     products: [
-        'assets/images/products/01-everyday-comfort-bra.jpg',
-        'assets/images/products/02-cotton-panty-pack.jpg',
-        'assets/images/products/03-bra-panty-set.jpg',
-        'assets/images/products/04-night-wear.jpg'
+        'assets/images/products/01-everyday-comfort-bra.webp',
+        'assets/images/products/02-cotton-panty-pack.webp',
+        'assets/images/products/03-bra-panty-set.webp',
+        'assets/images/products/04-night-wear.webp'
     ],
 
     /* ── PROJECTS RING (above reviews) ──
@@ -51,21 +51,21 @@ window.SG_IMAGES = {
         sliceCount: 72,
         brandText: 'We are Softgarments.',
         items: [
-            { file: '01-everyday-comfort-bra.jpg', title: 'Everyday Comfort Bra', category: 'bras', categoryLabel: 'Bras', alt: 'Everyday comfort bra' },
-            { file: '02-cotton-panty-pack.jpg', title: 'Cotton Panty Pack', category: 'panties', categoryLabel: 'Panties', alt: 'Cotton panty pack' },
-            { file: '03-bra-panty-set.jpg', title: 'Bra & Panty Set', category: 'sets', categoryLabel: 'Bra Sets', alt: 'Matching bra and panty set' },
-            { file: '04-night-wear.jpg', title: 'Silk Night Wear', category: 'nighties', categoryLabel: 'Nighties', alt: 'Silk night wear' },
-            { file: 'bras.jpg', title: 'Signature Bra Collection', category: 'bras', categoryLabel: 'Bras', alt: 'Bras collection' },
-            { file: 'panties.jpg', title: 'Everyday Panties', category: 'panties', categoryLabel: 'Panties', alt: 'Panties collection' },
-            { file: 'sets.jpg', title: 'Lace Bra Set', category: 'sets', categoryLabel: 'Bra Sets', alt: 'Bra sets collection' },
-            { file: 'nighties.jpg', title: 'Evening Nightie', category: 'nighties', categoryLabel: 'Nighties', alt: 'Nighties collection' },
-            { file: 'bodyshaper.jpg', title: 'Seamless Bodyshaper', category: 'bodyshaper', categoryLabel: 'Bodyshaper', alt: 'Bodyshaper collection' },
-            { file: 'lingerie.jpg', title: 'Delicate Lingerie', category: 'lingerie', categoryLabel: 'Lingerie', alt: 'Lingerie collection' },
-            { file: 'hero-01.jpg', title: 'Softgarments Look I', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 1' },
-            { file: 'hero-02.jpg', title: 'Softgarments Look II', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 2' },
-            { file: 'hero-03.jpg', title: 'Softgarments Look III', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 3' },
-            { file: 'hero-04.jpg', title: 'Softgarments Look IV', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 4' },
-            { file: 'hero-05.jpg', title: 'Softgarments Look V', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 5' }
+            { file: '01-everyday-comfort-bra.webp', title: 'Everyday Comfort Bra', category: 'bras', categoryLabel: 'Bras', alt: 'Everyday comfort bra' },
+            { file: '02-cotton-panty-pack.webp', title: 'Cotton Panty Pack', category: 'panties', categoryLabel: 'Panties', alt: 'Cotton panty pack' },
+            { file: '03-bra-panty-set.webp', title: 'Bra & Panty Set', category: 'sets', categoryLabel: 'Bra Sets', alt: 'Matching bra and panty set' },
+            { file: '04-night-wear.webp', title: 'Silk Night Wear', category: 'nighties', categoryLabel: 'Nighties', alt: 'Silk night wear' },
+            { file: 'bras.webp', title: 'Signature Bra Collection', category: 'bras', categoryLabel: 'Bras', alt: 'Bras collection' },
+            { file: 'panties.webp', title: 'Everyday Panties', category: 'panties', categoryLabel: 'Panties', alt: 'Panties collection' },
+            { file: 'sets.webp', title: 'Lace Bra Set', category: 'sets', categoryLabel: 'Bra Sets', alt: 'Bra sets collection' },
+            { file: 'nighties.webp', title: 'Evening Nightie', category: 'nighties', categoryLabel: 'Nighties', alt: 'Nighties collection' },
+            { file: 'bodyshaper.webp', title: 'Seamless Bodyshaper', category: 'bodyshaper', categoryLabel: 'Bodyshaper', alt: 'Bodyshaper collection' },
+            { file: 'lingerie.webp', title: 'Delicate Lingerie', category: 'lingerie', categoryLabel: 'Lingerie', alt: 'Lingerie collection' },
+            { file: 'hero-01.webp', title: 'Softgarments Look I', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 1' },
+            { file: 'hero-02.webp', title: 'Softgarments Look II', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 2' },
+            { file: 'hero-03.webp', title: 'Softgarments Look III', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 3' },
+            { file: 'hero-04.webp', title: 'Softgarments Look IV', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 4' },
+            { file: 'hero-05.webp', title: 'Softgarments Look V', category: 'hero', categoryLabel: 'Featured', alt: 'Softgarments look 5' }
         ],
         categories: [
             { id: 'bras', label: 'Bras', count: 12, angle: -128 },
