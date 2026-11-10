@@ -23,3 +23,9 @@ CONFIG FILE (sab paths ek jagah):
   assets/site-images.js
 
 Browser cache: image change na dikhe to hard refresh karein (Cmd+Shift+R / Ctrl+Shift+R).
+
+WEBP OPTIMIZATION:
+  Run `npm run optimize-images` from the project root to convert PNG, JPG, and
+  JPEG images recursively. Originals are unchanged; WebP files (quality 80)
+  are saved under `assets/images/webp/` with the same folder structure.
+  To process another folder, run `npm run optimize-images -- path/to/images`.
