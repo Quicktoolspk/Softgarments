@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /scratch/
+Disallow: /index-backup-before-sections.html
+Disallow: /more111.html
+Disallow: /New.html
+Sitemap: https://www.softgarments.com/sitemap.xml
